@@ -190,39 +190,4 @@ public class CreateAccountController implements Initializable {
         this.ID = ID;
     }
 
-    // ======================= CSS =======================
-
-    public void toggleButtonTeacherRoleHover() {
-        getToggleButton_teacher_role().setOnMouseEntered(e -> getToggleButton_teacher_role().setStyle("-fx-background-color: #39004d; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void toggleButtonTeacherRoleNoHover() {
-        getToggleButton_teacher_role().setOnMouseExited(e -> getToggleButton_teacher_role().setStyle("-fx-background-color:  #8A41AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void toggleButtonStudentRoleHover() {
-        getToggleButton_student_role().setOnMouseEntered(e -> getToggleButton_student_role().setStyle("-fx-background-color: #39004d; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void toggleButtonStudentRoleNoHover() {
-        getToggleButton_student_role().setOnMouseExited(e -> getToggleButton_student_role().setStyle("-fx-background-color:  #8A41AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonCreateHover() {
-        getButton_create().setOnMouseEntered(e -> getButton_create().setStyle("-fx-background-color: #39004d; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonCreateNoHover() {
-        getButton_create().setOnMouseExited(e -> getButton_create().setStyle("-fx-background-color:  #8A41AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonCancelHover() {
-        getButton_cancel().setOnMouseEntered(e -> getButton_cancel().setStyle("-fx-background-color: #39004d; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonCancelNoHover() {
-        getButton_cancel().setOnMouseExited(e -> getButton_cancel().setStyle("-fx-background-color:  #8A41AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    // ===================================================
 }

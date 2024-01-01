@@ -10,141 +10,176 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="905.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.CreateAccountController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0"
+            prefWidth="905.0" style="-fx-background-color: #89CC34; -fx-border-color: black;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.spge_sts.CreateAccountController">
     <stylesheets>
-        <URL value="@create-account.css" />
+        <URL value="@create-account.css"/>
     </stylesheets>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="905.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0"
+                prefWidth="905.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
         <Label layoutX="367.0" layoutY="11.0" text="Create Account" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="20.0" />
+                <Font name="Arial Black" size="20.0"/>
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutY="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="905.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+    <AnchorPane layoutY="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                prefHeight="50.0" prefWidth="905.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
         <Label layoutX="256.0" layoutY="11.0" text="Copyright 2023 | All rights reserved." textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="20.0" />
+                <Font name="Arial Black" size="20.0"/>
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutX="33.0" layoutY="153.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="265.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" styleClass="shadow">
+    <AnchorPane layoutX="33.0" layoutY="153.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                minWidth="-Infinity" prefHeight="245.0" prefWidth="265.0"
+                style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;"
+                styleClass="shadow">
         <Label layoutX="20.0" layoutY="14.0" text="Account Information" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="20.0" />
+                <Font name="Arial Black" size="20.0"/>
             </font>
         </Label>
-        <TextField fx:id="textField_username" layoutX="40.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="185.0" style="-fx-background-radius: 20;">
+        <TextField fx:id="textField_username" layoutX="40.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="185.0"
+                   style="-fx-background-radius: 20;">
             <font>
-                <Font name="Arial Black" size="14.0" />
+                <Font name="Arial Black" size="14.0"/>
             </font>
             <padding>
-                <Insets left="15.0" right="15.0" />
+                <Insets left="15.0" right="15.0"/>
             </padding>
         </TextField>
         <Label layoutX="56.0" layoutY="61.0" text="Username:" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
         <Label layoutX="56.0" layoutY="149.0" text="Password:" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
-        <PasswordField fx:id="passwordField_password" layoutX="40.0" layoutY="176.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="185.0" style="-fx-background-radius: 20;">
+        <PasswordField fx:id="passwordField_password" layoutX="40.0" layoutY="176.0" maxHeight="-Infinity"
+                       maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0"
+                       prefWidth="185.0" style="-fx-background-radius: 20;">
             <font>
-                <Font name="Arial Black" size="14.0" />
+                <Font name="Arial Black" size="14.0"/>
             </font>
             <padding>
-                <Insets left="15.0" right="15.0" />
+                <Insets left="15.0" right="15.0"/>
             </padding>
         </PasswordField>
     </AnchorPane>
-    <AnchorPane layoutX="320.0" layoutY="153.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="265.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" styleClass="shadow">
+    <AnchorPane layoutX="320.0" layoutY="153.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                minWidth="-Infinity" prefHeight="245.0" prefWidth="265.0"
+                style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;"
+                styleClass="shadow">
         <Label layoutX="20.0" layoutY="14.0" text="Personal Information" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="20.0" />
+                <Font name="Arial Black" size="20.0"/>
             </font>
         </Label>
-        <TextField fx:id="textField_firstName" layoutX="40.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="185.0" style="-fx-background-radius: 20;">
+        <TextField fx:id="textField_firstName" layoutX="40.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="185.0"
+                   style="-fx-background-radius: 20;">
             <font>
-                <Font name="Arial Black" size="14.0" />
+                <Font name="Arial Black" size="14.0"/>
             </font>
             <padding>
-                <Insets left="15.0" right="15.0" />
+                <Insets left="15.0" right="15.0"/>
             </padding>
         </TextField>
-        <TextField fx:id="textField_lastName" layoutX="42.0" layoutY="176.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="185.0" style="-fx-background-radius: 20;">
+        <TextField fx:id="textField_lastName" layoutX="42.0" layoutY="176.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="185.0"
+                   style="-fx-background-radius: 20;">
             <font>
-                <Font name="Arial Black" size="14.0" />
+                <Font name="Arial Black" size="14.0"/>
             </font>
             <padding>
-                <Insets left="15.0" right="15.0" />
+                <Insets left="15.0" right="15.0"/>
             </padding>
         </TextField>
         <Label layoutX="56.0" layoutY="61.0" text="First Name:" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
         <Label layoutX="56.0" layoutY="149.0" text="Last Name:" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutX="610.0" layoutY="153.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="265.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" styleClass="shadow">
+    <AnchorPane layoutX="610.0" layoutY="153.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                minWidth="-Infinity" prefHeight="245.0" prefWidth="265.0"
+                style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;"
+                styleClass="shadow">
         <Label layoutX="84.0" layoutY="14.0" text="Contacts" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="20.0" />
+                <Font name="Arial Black" size="20.0"/>
             </font>
         </Label>
-        <TextField fx:id="textField_email" layoutX="40.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="185.0" style="-fx-background-radius: 20;">
+        <TextField fx:id="textField_email" layoutX="40.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="185.0"
+                   style="-fx-background-radius: 20;">
             <font>
-                <Font name="Arial Black" size="14.0" />
+                <Font name="Arial Black" size="14.0"/>
             </font>
             <padding>
-                <Insets left="15.0" right="15.0" />
+                <Insets left="15.0" right="15.0"/>
             </padding>
         </TextField>
-        <TextField fx:id="textField_phone" layoutX="41.0" layoutY="176.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="185.0" style="-fx-background-radius: 20;">
+        <TextField fx:id="textField_phone" layoutX="41.0" layoutY="176.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="185.0"
+                   style="-fx-background-radius: 20;">
             <font>
-                <Font name="Arial Black" size="14.0" />
+                <Font name="Arial Black" size="14.0"/>
             </font>
             <padding>
-                <Insets left="15.0" right="15.0" />
+                <Insets left="15.0" right="15.0"/>
             </padding>
         </TextField>
         <Label layoutX="54.0" layoutY="61.0" text="Email:" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
         <Label layoutX="54.0" layoutY="149.0" text="Phone:" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
     </AnchorPane>
-    <Button fx:id="button_create" layoutX="370.0" layoutY="411.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#buttonCreateHover" onMouseExited="#buttonCreateNoHover" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" styleClass="shadow" text="Create" textFill="WHITE">
+    <Button fx:id="button_create" layoutX="370.0" layoutY="411.0" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0"
+            styleClass="shadow" text="Create" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="18.0" />
+            <Font name="Arial Black" size="18.0"/>
         </font>
     </Button>
-    <Button fx:id="button_cancel" layoutX="408.0" layoutY="460.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#buttonCancelHover" onMouseExited="#buttonCancelNoHover" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" styleClass="shadow" text="Back" textFill="WHITE">
+    <Button fx:id="button_cancel" layoutX="408.0" layoutY="460.0" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0"
+            styleClass="shadow" text="Back" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="12.0" />
+            <Font name="Arial Black" size="12.0"/>
         </font>
     </Button>
-    <ToggleButton fx:id="toggleButton_teacher_role" layoutX="329.0" layoutY="77.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#toggleButtonTeacherRoleHover" onMouseExited="#toggleButtonTeacherRoleNoHover" prefHeight="40.0" prefWidth="110.0" selected="true" style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" styleClass="shadow" text="Teacher" textFill="WHITE">
+    <ToggleButton fx:id="toggleButton_teacher_role" layoutX="329.0" layoutY="77.0" maxHeight="-Infinity"
+                  maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                  prefHeight="40.0" prefWidth="110.0" selected="true" styleClass="shadow" text="Teacher"
+                  textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="14.0" />
+            <Font name="Arial Black" size="14.0"/>
         </font>
     </ToggleButton>
-    <ToggleButton fx:id="toggleButton_student_role" layoutX="459.0" layoutY="77.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#toggleButtonStudentRoleHover" onMouseExited="#toggleButtonStudentRoleNoHover" opacity="0.5" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" styleClass="shadow" text="Student" textFill="WHITE">
+    <ToggleButton fx:id="toggleButton_student_role" layoutX="459.0" layoutY="77.0" maxHeight="-Infinity"
+                  maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.5"
+                  prefHeight="40.0" prefWidth="110.0" styleClass="shadow" text="Student" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="14.0" />
+            <Font name="Arial Black" size="14.0"/>
         </font>
     </ToggleButton>
 </AnchorPane>

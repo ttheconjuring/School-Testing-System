@@ -3,6 +3,26 @@ TextField {
     -fx-text-fill: white;
 }
 
+Button {
+    -fx-background-color: #8A41AC;
+    -fx-text-fill: #ffffff;
+}
+
 .shadow {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
 }
+
+#button_go {
+    -fx-background-radius: 20px;
+    -fx-border-color: black;
+    -fx-border-radius: 20px
+}
+
+#button_profile:hover, #button_log_out:hover {
+    -fx-text-fill: #39004d;
+}
+
+#button_go:hover {
+    -fx-background-color: #39004d;
+}
+

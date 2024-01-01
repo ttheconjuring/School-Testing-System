@@ -61,17 +61,4 @@ public class AccountTemplateController implements Initializable {
         this.ID = ID;
     }
 
-    // ======================= CSS =======================
-
-    public void onHover() {
-        getButton_view().setOnMouseEntered(e -> getButton_view().setStyle("-fx-background-color: #45661A; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void noHover() {
-        getButton_view().setOnMouseExited(e -> getButton_view().setStyle("-fx-background-color:  #89CC34; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    // ===================================================
-
-
 }

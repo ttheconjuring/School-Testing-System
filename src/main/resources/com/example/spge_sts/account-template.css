@@ -1,3 +1,14 @@
+Button {
+    -fx-background-color: #89CC34;
+    -fx-background-radius: 20px;
+    -fx-border-color: black;
+    -fx-border-radius: 20px
+}
+
+Button:hover {
+    -fx-background-color: #45661A;
+}
+
 .shadow {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
 }

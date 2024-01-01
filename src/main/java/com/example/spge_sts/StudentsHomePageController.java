@@ -58,29 +58,4 @@ public class StudentsHomePageController implements Initializable {
         getButton_profile().setText("Hello @" + username + "!");
     }
 
-    // ======================= CSS =======================
-    public void buttonLogOutOnHover() {
-        getButton_log_out().setOnMouseEntered(e -> getButton_log_out().setStyle("-fx-background-color: #8A41AC; -fx-text-fill: #39004d"));
-    }
-
-    public void buttonLogOutNoHover() {
-        getButton_log_out().setOnMouseExited(e -> getButton_log_out().setStyle("-fx-background-color: #8A41AC; -fx-text-fill: #ffffff"));
-    }
-
-    public void buttonGoOnHover() {
-        getButton_go().setOnMouseEntered(e -> getButton_go().setStyle("-fx-background-color: #39004d; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonGoNoHover() {
-        getButton_go().setOnMouseExited(e -> getButton_go().setStyle("-fx-background-color: #8A41AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonProfileOnHover() {
-        getButton_profile().setOnMouseEntered(e -> getButton_profile().setStyle("-fx-background-color: #8A41AC; -fx-text-fill: #39004d"));
-    }
-
-    public void buttonProfileNoHover() {
-        getButton_profile().setOnMouseExited(e -> getButton_profile().setStyle("-fx-background-color: #8A41AC; -fx-text-fill: #ffffff"));
-    }
-    // ===================================================
 }

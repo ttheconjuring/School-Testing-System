@@ -97,15 +97,4 @@ public class StudentsAccountInformationController implements Initializable {
         return this.ID;
     }
 
-    // ======================= CSS =======================
-
-    public void onHover() {
-        getButton_back().setOnMouseEntered(e -> getButton_back().setStyle("-fx-background-color: #39004d; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void noHover() {
-        getButton_back().setOnMouseExited(e -> getButton_back().setStyle("-fx-background-color:  #8A41AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    // ===================================================
 }

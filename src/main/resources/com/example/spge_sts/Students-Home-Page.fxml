@@ -8,52 +8,67 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.StudentsHomePageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0"
+            prefWidth="600.0" style="-fx-background-color: #89CC34; -fx-border-color: black;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.spge_sts.StudentsHomePageController">
     <stylesheets>
-        <URL value="@students-home-page.css" />
+        <URL value="@students-home-page.css"/>
     </stylesheets>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0"
+                prefWidth="600.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
         <Label layoutX="14.0" layoutY="12.0" text="SPGE - STS" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
-        <Button fx:id="button_log_out" layoutX="517.0" layoutY="9.0" mnemonicParsing="false" onMouseEntered="#buttonLogOutOnHover" onMouseExited="#buttonLogOutNoHover" style="-fx-background-color: #8A41AC;" text="Log out" textFill="WHITE">
+        <Button fx:id="button_log_out" layoutX="517.0" layoutY="9.0" mnemonicParsing="false"
+                style="-fx-background-color: #8A41AC;" text="Log out" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="14.0" />
+                <Font name="Arial Black" size="14.0"/>
             </font>
         </Button>
-      <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="158.0" layoutY="10.0" mnemonicParsing="false" onMouseEntered="#buttonProfileOnHover" onMouseExited="#buttonProfileNoHover" prefHeight="32.0" prefWidth="334.0" style="-fx-background-color: #8A41AC;" text="Hello @username!" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font name="Arial Black" size="14.0" />
-         </font>
-      </Button>
+        <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="158.0" layoutY="10.0"
+                mnemonicParsing="false" prefHeight="32.0" prefWidth="334.0" style="-fx-background-color: #8A41AC;"
+                text="Hello @username!" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="14.0"/>
+            </font>
+        </Button>
     </AnchorPane>
-    <AnchorPane layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+    <AnchorPane layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
         <Label layoutX="124.0" layoutY="12.0" text="Copyright 2023 | All rights reserved." textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutX="190.0" layoutY="67.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="220.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" styleClass="shadow">
+    <AnchorPane layoutX="190.0" layoutY="67.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                minWidth="-Infinity" prefHeight="120.0" prefWidth="220.0"
+                style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;"
+                styleClass="shadow">
         <Label layoutX="31.0" layoutY="22.0" text="Enter test code:" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
-        <TextField fx:id="textField_test_code" alignment="CENTER" layoutX="20.0" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="180.0" style="-fx-background-radius: 20;" styleClass="textField_test_code">
+        <TextField fx:id="textField_test_code" alignment="CENTER" layoutX="20.0" layoutY="60.0" maxHeight="-Infinity"
+                   maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="180.0"
+                   style="-fx-background-radius: 20;" styleClass="textField_test_code">
             <font>
-                <Font name="Arial Black" size="14.0" />
+                <Font name="Arial Black" size="14.0"/>
             </font>
-         <padding>
-            <Insets left="15.0" right="15.0" />
-         </padding>
+            <padding>
+                <Insets left="15.0" right="15.0"/>
+            </padding>
         </TextField>
     </AnchorPane>
-    <Button fx:id="button_go" layoutX="250.0" layoutY="198.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#buttonGoOnHover" onMouseExited="#buttonGoNoHover" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" styleClass="shadow" text="Go" textFill="WHITE">
+    <Button fx:id="button_go" layoutX="250.0" layoutY="198.0" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0"
+            styleClass="shadow" text="Go" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="18.0" />
+            <Font name="Arial Black" size="18.0"/>
         </font>
     </Button>
 </AnchorPane>

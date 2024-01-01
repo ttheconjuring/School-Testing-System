@@ -1,3 +1,24 @@
+Button {
+    -fx-background-color: #8A41AC;
+    -fx-text-fill: #ffffff;
+}
+
 .shadow {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
 }
+
+#button_my_tests, #button_users, #button_create_test, #button_create_account {
+    -fx-background-radius: 20px;
+    -fx-border-color: black;
+    -fx-border-radius: 20px;
+}
+
+#button_profile:hover, #button_log_out:hover {
+    -fx-text-fill: #39004d;
+}
+
+#button_my_tests:hover, #button_users:hover, #button_create_test:hover, #button_create_account:hover {
+    -fx-background-color: #39004d;
+}
+
+

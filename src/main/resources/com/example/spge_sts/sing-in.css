@@ -3,6 +3,17 @@ TextField, PasswordField {
     -fx-text-fill: white;
 }
 
+Button {
+    -fx-background-color: #8A41AC;
+    -fx-background-radius: 20px;
+    -fx-border-color: black;
+    -fx-border-radius: 20px
+}
+
+Button:hover {
+    -fx-background-color: #39004d;
+}
+
 .shadow {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
 }

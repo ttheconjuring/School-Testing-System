@@ -74,19 +74,6 @@ public class SignInController implements Initializable {
         return getPasswordField_password().getText();
     }
 
-
-    // ======================= CSS =======================
-
-    public void onHover() {
-        getButton_sign_in().setOnMouseEntered(e -> getButton_sign_in().setStyle("-fx-background-color: #39004d; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void noHover() {
-        getButton_sign_in().setOnMouseExited(e -> getButton_sign_in().setStyle("-fx-background-color:  #8A41AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    // ===================================================
-
 }
 
 

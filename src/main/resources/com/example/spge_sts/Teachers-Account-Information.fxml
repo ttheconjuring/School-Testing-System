@@ -39,18 +39,14 @@
                 style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;"
                 styleClass="shadow">
         <Button fx:id="button_delete" layoutX="88.0" layoutY="202.0" maxHeight="-Infinity" maxWidth="-Infinity"
-                minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#buttonDeleteOnHover"
-                onMouseExited="#buttonDeleteNoHover" prefHeight="35.0" prefWidth="110.0"
-                style="-fx-background-color: #EF2929; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;"
+                minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="110.0"
                 styleClass="shadow" text="Delete" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="14.0"/>
             </font>
         </Button>
         <Button fx:id="button_edit" layoutX="216.0" layoutY="202.0" maxHeight="-Infinity" maxWidth="-Infinity"
-                minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#buttonEditOnHover"
-                onMouseExited="#buttonEditNoHover" prefHeight="35.0" prefWidth="110.0"
-                style="-fx-background-color: #E4CF0A; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;"
+                minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="110.0"
                 styleClass="shadow" text="Edit" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="14.0"/>
@@ -128,7 +124,7 @@
         </TextField>
         <Button fx:id="button_edit_username" disable="true" layoutX="345.0" layoutY="17.0" maxHeight="-Infinity"
                 maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0"
-                prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #8A41AC;">
+                prefHeight="30.0" prefWidth="30.0">
             <graphic>
                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="@Edit%20Icon.png"/>
@@ -137,7 +133,7 @@
         </Button>
         <Button fx:id="button_edit_firstName" disable="true" layoutX="345.0" layoutY="52.0" maxHeight="-Infinity"
                 maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0"
-                prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #8A41AC;">
+                prefHeight="30.0" prefWidth="30.0">
             <graphic>
                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="@Edit%20Icon.png"/>
@@ -146,7 +142,7 @@
         </Button>
         <Button fx:id="button_edit_lastName" disable="true" layoutX="345.0" layoutY="87.0" maxHeight="-Infinity"
                 maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0"
-                prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #8A41AC;">
+                prefHeight="30.0" prefWidth="30.0">
             <graphic>
                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="@Edit%20Icon.png"/>
@@ -155,7 +151,7 @@
         </Button>
         <Button fx:id="button_edit_email" disable="true" layoutX="345.0" layoutY="122.0" maxHeight="-Infinity"
                 maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0"
-                prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #8A41AC;">
+                prefHeight="30.0" prefWidth="30.0">
             <graphic>
                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="@Edit%20Icon.png"/>
@@ -164,7 +160,7 @@
         </Button>
         <Button fx:id="button_edit_phone" disable="true" layoutX="345.0" layoutY="157.0" maxHeight="-Infinity"
                 maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0"
-                prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #8A41AC;">
+                prefHeight="30.0" prefWidth="30.0">
             <graphic>
                 <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="@Edit%20Icon.png"/>
@@ -172,30 +168,22 @@
             </graphic>
         </Button>
         <Button fx:id="button_cancel" disable="true" layoutX="88.0" layoutY="202.0" maxHeight="-Infinity"
-                maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
-                onMouseEntered="#buttonCancelOnHover" onMouseExited="#buttonCancelNoHover" opacity="0.0"
-                prefHeight="35.0" prefWidth="110.0"
-                style="-fx-background-color: #a3a3c2; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;"
-                styleClass="shadow" text="Cancel" textFill="WHITE">
+                maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0"
+                prefHeight="35.0" prefWidth="110.0" styleClass="shadow" text="Cancel" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="14.0"/>
             </font>
         </Button>
         <Button fx:id="button_save" disable="true" layoutX="216.0" layoutY="202.0" maxHeight="-Infinity"
-                maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
-                onMouseEntered="#buttonSaveOnHover" onMouseExited="#buttonSaveNoHover" opacity="0.0" prefHeight="35.0"
-                prefWidth="110.0"
-                style="-fx-background-color: #89CC34; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;"
-                styleClass="shadow" text="Save" textFill="WHITE">
+                maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0"
+                prefHeight="35.0" prefWidth="110.0" styleClass="shadow" text="Save" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="14.0"/>
             </font>
         </Button>
     </AnchorPane>
     <Button fx:id="button_back" layoutX="256.0" layoutY="356.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#buttonBackOnHover"
-            onMouseExited="#buttonBackNoHover" prefHeight="35.0" prefWidth="110.0"
-            style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;"
+            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="110.0"
             styleClass="shadow" text="Back" textFill="WHITE">
         <font>
             <Font name="Arial Black" size="14.0"/>

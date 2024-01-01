@@ -21,16 +21,14 @@
             </font>
         </Label>
         <Button fx:id="button_log_out" layoutX="517.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity"
-                minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#buttonLogOutOnHover"
-                onMouseExited="#buttonLogOutNoHover" prefHeight="40.0" prefWidth="76.0"
-                style="-fx-background-color: #8A41AC;" text="Log out" textFill="WHITE">
+                minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="76.0"
+                text="Log out" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="14.0"/>
             </font>
         </Button>
         <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="11.0"
-                mnemonicParsing="false" onMouseEntered="#buttonProfileOnHover" onMouseExited="#buttonProfileNoHover"
-                prefHeight="32.0" prefWidth="334.0" style="-fx-background-color: #8A41AC;" text="Hello @username!"
+                mnemonicParsing="false" prefHeight="32.0" prefWidth="334.0" text="Hello @username!"
                 textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="14.0"/>
@@ -38,37 +36,28 @@
         </Button>
     </AnchorPane>
     <Button fx:id="button_my_tests" layoutX="131.0" layoutY="72.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#buttonMyTestsOnHover"
-            onMouseExited="#buttonMyTestsNoHover" prefHeight="70.0" prefWidth="160.0"
-            style="-fx-background-color: #8A40AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px;"
+            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0"
             styleClass="shadow" text="My Tests" textFill="WHITE">
         <font>
             <Font name="Arial Black" size="18.0"/>
         </font>
     </Button>
     <Button fx:id="button_users" layoutX="309.0" layoutY="72.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#buttonUsersOnHover"
-            onMouseExited="#buttonUserNoHover" prefHeight="70.0" prefWidth="160.0"
-            style="-fx-background-color: #8A40AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px;"
+            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0"
             styleClass="shadow" text="Users" textFill="WHITE">
         <font>
             <Font name="Arial Black" size="18.0"/>
         </font>
     </Button>
     <Button fx:id="button_create_test" layoutX="131.0" layoutY="158.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#buttonCreateTestOnHover"
-            onMouseExited="#buttonCreateTestNoHover" prefHeight="70.0" prefWidth="160.0"
-            style="-fx-background-color: #8A40AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px;"
+            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0"
             styleClass="shadow" text="Create Test" textFill="WHITE">
         <font>
             <Font name="Arial Black" size="18.0"/>
         </font>
     </Button>
     <Button fx:id="button_create_account" layoutX="309.0" layoutY="158.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
-            onMouseEntered="#buttonCreateAccountOnHover" onMouseExited="#buttonCreateAccountNoHover" prefHeight="70.0"
-            prefWidth="160.0"
-            style="-fx-background-color: #8A40AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px;"
+            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0"
             styleClass="shadow" text="Create Account" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
             <Font name="Arial Black" size="18.0"/>

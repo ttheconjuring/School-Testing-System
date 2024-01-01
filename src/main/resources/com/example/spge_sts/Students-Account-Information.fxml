@@ -65,9 +65,7 @@
         </Label>
     </AnchorPane>
     <Button fx:id="button_back" layoutX="255.0" layoutY="345.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#onHover"
-            onMouseExited="#noHover" prefHeight="35.0" prefWidth="110.0"
-            style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;"
+            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="110.0"
             styleClass="shadow" text="Back" textFill="WHITE">
         <font>
             <Font name="Arial Black" size="14.0"/>

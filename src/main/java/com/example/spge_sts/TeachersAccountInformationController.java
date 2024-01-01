@@ -364,48 +364,4 @@ public class TeachersAccountInformationController implements Initializable {
         this.userRole = userRole;
     }
 
-    // ======================= CSS =======================
-
-    public void buttonDeleteOnHover() {
-        getButton_delete().setOnMouseEntered(e -> getButton_delete().setStyle("-fx-background-color: #991f00; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonDeleteNoHover() {
-        getButton_delete().setOnMouseExited(e -> getButton_delete().setStyle("-fx-background-color:  #EF2929; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonEditOnHover() {
-        getButton_edit().setOnMouseEntered(e -> getButton_edit().setStyle("-fx-background-color: #808000; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonEditNoHover() {
-        getButton_edit().setOnMouseExited(e -> getButton_edit().setStyle("-fx-background-color:  #E4CF0A; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonCancelOnHover() {
-        getButton_cancel().setOnMouseEntered(e -> getButton_cancel().setStyle("-fx-background-color: #3d3d5c; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonCancelNoHover() {
-        getButton_cancel().setOnMouseExited(e -> getButton_cancel().setStyle("-fx-background-color: #a3a3c2; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonSaveOnHover() {
-        getButton_save().setOnMouseEntered(e -> getButton_save().setStyle("-fx-background-color: #004d1a; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonSaveNoHover() {
-        getButton_save().setOnMouseExited(e -> getButton_save().setStyle("-fx-background-color: #89CC34; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonBackOnHover() {
-        getButton_back().setOnMouseEntered(e -> getButton_back().setStyle("-fx-background-color: #39004d; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    public void buttonBackNoHover() {
-        getButton_back().setOnMouseExited(e -> getButton_back().setStyle("-fx-background-color:  #8A41AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
-    }
-
-    // ===================================================
-
 }
