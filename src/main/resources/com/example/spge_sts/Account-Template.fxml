@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0"
+            prefWidth="570.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.spge_sts.AccountTemplateController">
+    <stylesheets>
+        <URL value="@account-template.css"/>
+    </stylesheets>
+    <Line endX="-10.0" endY="38.00001525878906" fill="BLACK" layoutX="127.0" layoutY="42.0" opacity="0.5" startX="-10.0"
+          startY="-42.0" strokeWidth="3.0"/>
+    <Label fx:id="label_id" alignment="CENTER" layoutX="14.0" layoutY="15.0" prefHeight="50.0" prefWidth="88.0"
+           text="#ID" textFill="WHITE">
+        <font>
+            <Font name="Arial Black" size="18.0"/>
+        </font>
+    </Label>
+    <Button fx:id="button_view" layoutX="445.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseEntered="#onHover"
+            onMouseExited="#noHover" prefHeight="40.0" prefWidth="100.0"
+            style="-fx-background-radius: 20; -fx-background-color: #89CC34; -fx-border-color: black; -fx-border-radius: 20;"
+            styleClass="shadow" text="View" textFill="WHITE">
+        <font>
+            <Font name="Arial Black" size="18.0"/>
+        </font>
+    </Button>
+    <Label fx:id="label_username_userRole" layoutX="133.0" layoutY="15.0" prefHeight="50.0" prefWidth="295.0"
+           text="\@username (user role)" textFill="WHITE">
+        <font>
+            <Font name="Arial Black" size="18.0"/>
+        </font>
+    </Label>
+</AnchorPane>

@@ -1,0 +1,8 @@
+TextField {
+    -fx-background-color: #39004d;
+    -fx-text-fill: white;
+}
+
+.shadow {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
+}

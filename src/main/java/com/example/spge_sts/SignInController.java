@@ -1,0 +1,94 @@
+package com.example.spge_sts;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class SignInController implements Initializable {
+
+    @FXML
+    private TextField textField_username;
+
+    @FXML
+    private PasswordField passwordField_password;
+
+    @FXML
+    private Button button_sign_in;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        getButton_sign_in().setOnAction(this::singIn);
+    }
+
+    private void singIn(ActionEvent actionEvent) {
+        String ID = DBUtilities.suchUserExists(this.getTextField_UsernameText(), this.getPasswordField_PasswordText());
+        if (ID != null) {
+            Utilities.setCurrenUserID(ID);
+            redirect(ID, actionEvent);
+        } else {
+            Utilities.showAlert("Error", "Wrong username or password!", Alert.AlertType.ERROR);
+        }
+        clearInput();
+    }
+
+    private void redirect(String ID, ActionEvent actionEvent) {
+        String role = DBUtilities.getUserData(ID).get("UserRole");
+        assert role != null;
+        if (role.equals("teacher")) {
+            Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", ID), actionEvent);
+        } else {
+            Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", ID), actionEvent);
+        }
+
+    }
+
+    private void clearInput() {
+        getTextField_username().clear();
+        getPasswordField_password().clear();
+    }
+
+    private TextField getTextField_username() {
+        return this.textField_username;
+    }
+
+    private PasswordField getPasswordField_password() {
+        return this.passwordField_password;
+    }
+
+    private Button getButton_sign_in() {
+        return this.button_sign_in;
+    }
+
+    private String getTextField_UsernameText() {
+        return getTextField_username().getText();
+    }
+
+    private String getPasswordField_PasswordText() {
+        return getPasswordField_password().getText();
+    }
+
+
+    // ======================= CSS =======================
+
+    public void onHover() {
+        getButton_sign_in().setOnMouseEntered(e -> getButton_sign_in().setStyle("-fx-background-color: #39004d; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
+    }
+
+    public void noHover() {
+        getButton_sign_in().setOnMouseExited(e -> getButton_sign_in().setStyle("-fx-background-color:  #8A41AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px"));
+    }
+
+    // ===================================================
+
+}
+
+
+
+
