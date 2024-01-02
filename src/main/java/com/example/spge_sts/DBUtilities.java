@@ -49,7 +49,7 @@ public class DBUtilities {
         return data;
     }
 
-    protected static boolean createRecord(String username, String password, String email, String phone, String firstName, String lastName, String userRole) {
+    protected static boolean createUser(String username, String password, String email, String phone, String firstName, String lastName, String userRole) {
         String sqlQuery = "INSERT INTO users (Username, Password, Email, Phone, FirstName, LastName, UserRole) VALUES (?, ?, ?, ?, ?, ?, ?);";
         boolean result = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
@@ -149,7 +149,7 @@ public class DBUtilities {
             }
         } else if (string.matches(ValidationRegexes.LAST_NAME.getRegex())) {
             String username = getUserData(ID).get("Username");
-            String updatedUsername = null;
+            String updatedUsername;
             if (username.matches(ValidationRegexes.TEACHER_USERNAME.getRegex())) {
                 updatedUsername = username.substring(0, username.indexOf('_') + 1) + string.toLowerCase() + username.substring(username.indexOf('@'));
             } else {
@@ -166,6 +166,30 @@ public class DBUtilities {
             sqlQuery = "UPDATE users SET Phone = '" + string + "' WHERE UserID = '" + ID + "';";
         }
         return sqlQuery;
+    }
+
+    protected static boolean createTest(String testName, String description, String code, String duration, String passingScore, String questions, String dateCreated, String dateUpdated, String creatorUserID) {
+        String sqlQuery = "INSERT INTO tests (TestName, Description, Code, DurationMinutes, PassingScore, Questions, DateCreated, DateUpdated, CreatorUserID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        boolean result = false;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+
+            preparedStatement.setString(1, testName);
+            preparedStatement.setString(2, description);
+            preparedStatement.setString(3, code);
+            preparedStatement.setString(4, duration);
+            preparedStatement.setString(5, passingScore);
+            preparedStatement.setString(6, questions);
+            preparedStatement.setString(7, dateCreated);
+            preparedStatement.setString(8, dateUpdated);
+            preparedStatement.setString(9, creatorUserID);
+
+            result = preparedStatement.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
 }

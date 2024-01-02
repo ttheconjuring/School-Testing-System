@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ public class Utilities {
 
     protected static void closeLastStage() {
         if (!getOpenedStages().isEmpty()) {
-            Stage lastStage = getOpenedStages().remove(getOpenedStages().size() - 1);
+            Stage lastStage = getOpenedStages().removeLast();
             lastStage.close();
         }
     }
@@ -117,6 +116,10 @@ public class Utilities {
                 AccountTemplateController accountTemplateController = loader.getController();
                 // The ID here is index, it is not supposed to be used like that, corner case
                 accountTemplateController.setData(DBUtilities.getIdUsernameRoleByIndex(Integer.parseInt(ID)));
+            }
+            case "Create-Test.fxml" -> {
+                CreateTestController createTestController = loader.getController();
+                createTestController.setID(ID);
             }
         }
         return root;

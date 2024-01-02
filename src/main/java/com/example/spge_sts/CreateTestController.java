@@ -1,0 +1,171 @@
+package com.example.spge_sts;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+
+import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
+
+public class CreateTestController implements Initializable {
+
+    @FXML
+    private TextField textField_testName;
+
+    @FXML
+    private TextField textField_description;
+
+    @FXML
+    private TextField textField_duration;
+
+    @FXML
+    private TextField textField_code;
+
+    @FXML
+    private TextField textField_questions;
+
+    @FXML
+    private TextField textField_passingScore;
+
+    @FXML
+    private Button button_generate;
+
+    @FXML
+    private Button button_create;
+
+    @FXML
+    private Button button_cancel;
+
+    private String ID;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        getButton_create().setOnAction(this::createTest);
+        getButton_cancel().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", getID()), actionEvent));
+    }
+
+    private void createTest(ActionEvent actionEvent) {
+        if (thereAreEmptyGaps()) {
+            Utilities.showAlert("Empty gaps", "Please, fill the must gaps!", Alert.AlertType.WARNING);
+        } else {
+            if (getTextField_description().getText().isEmpty()) {
+                getTextField_description().setText("null");
+            }
+            if (getTextField_passingScore().getText().isEmpty()) {
+                getTextField_passingScore().setText("0");
+            }
+            if (Utilities.isValid(getTextField_duration().getText(), "^(?:[5-9]|[1-5]\\d|60)$")) {
+                if (Utilities.isValid(getTextField_code().getText(), ValidationRegexes.CODE.getRegex())) {
+                    if (Utilities.isValid(getTextField_questions().getText(), "^\\b(?:[1-9]|10)\\b$")) {
+                        response(DBUtilities.createTest(
+                                getTextField_testName().getText(),
+                                getTextField_description().getText(),
+                                getTextField_code().getText(),
+                                getTextField_duration().getText(),
+                                getTextField_passingScore().getText(),
+                                getTextField_questions().getText(),
+                                getTheCreationDateAndTime(),
+                                getTheUpdatedDateAndTime(Integer.parseInt(getTextField_duration().getText())),
+                                getID()), actionEvent);
+                    } else {
+                        Utilities.showAlert("Invalid Questions Number!", "The questions must be between 1 and 10 including!", Alert.AlertType.ERROR);
+                        getTextField_questions().clear();
+                    }
+                } else {
+                    Utilities.showAlert("Invalid Code!", InvalidInputMessages.CODE.getMessage(), Alert.AlertType.ERROR);
+                    getTextField_code().clear();
+                }
+            } else {
+                Utilities.showAlert("Invalid Duration!", "The duration must be a number between 5 and 60 (minutes)!", Alert.AlertType.ERROR);
+                getTextField_duration().clear();
+            }
+
+        }
+    }
+
+    private void response(boolean flag, ActionEvent actionEvent) {
+        if (flag) {
+            Utilities.showAlert("Done!", "You successfully created test!", Alert.AlertType.CONFIRMATION);
+            Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", this.getID()), actionEvent);
+        } else {
+            Utilities.showAlert("Error!", "Sorry, but you probably have invalid data", Alert.AlertType.ERROR);
+            clearFields();
+        }
+    }
+
+    private String getTheCreationDateAndTime() {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return currentDateTime.format(formatter);
+    }
+
+    private String getTheUpdatedDateAndTime(int minutesToAdd) {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        LocalDateTime futureDateTime = currentDateTime.plusMinutes(minutesToAdd);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return futureDateTime.format(formatter);
+    }
+
+    private boolean thereAreEmptyGaps() {
+        return getTextField_testName().getText().isEmpty() ||
+                getTextField_duration().getText().isEmpty() || getTextField_code().getText().isEmpty() ||
+                getTextField_questions().getText().isEmpty();
+    }
+
+    private void clearFields() {
+        getTextField_testName().clear();
+        getTextField_description().clear();
+        getTextField_duration().clear();
+        getTextField_code().clear();
+        getTextField_questions().clear();
+    }
+
+    private TextField getTextField_testName() {
+        return this.textField_testName;
+    }
+
+    private TextField getTextField_description() {
+        return this.textField_description;
+    }
+
+    private TextField getTextField_duration() {
+        return this.textField_duration;
+    }
+
+    private TextField getTextField_code() {
+        return this.textField_code;
+    }
+
+    private TextField getTextField_questions() {
+        return this.textField_questions;
+    }
+
+    private TextField getTextField_passingScore() {
+        return this.textField_passingScore;
+    }
+
+    private Button getButton_generate() {
+        return this.button_generate;
+    }
+
+    private Button getButton_create() {
+        return this.button_create;
+    }
+
+    private Button getButton_cancel() {
+        return this.button_cancel;
+    }
+
+    private String getID() {
+        return this.ID;
+    }
+
+    protected void setID(String ID) {
+        this.ID = ID;
+    }
+}

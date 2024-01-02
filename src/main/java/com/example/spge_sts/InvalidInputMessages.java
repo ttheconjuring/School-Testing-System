@@ -31,7 +31,19 @@ public enum InvalidInputMessages {
 
     EMAIL("The email must be a valid Gmail!"),
 
-    PHONE("The phone number must be in format: +359 XX XXX XXXX! (X = [0-9])");
+    PHONE("The phone number must be in format: +359 XX XXX XXXX! (X = [0-9])"),
+
+    CODE("""
+            The code must consist of the following:
+                        
+            1.Small letter (a-z)
+            2.Special symbol(!, @, #, $, %, &)
+            3.Digit (0-9)
+            4.Capital letter (A-Z)
+            5.Special symbol(!, @, #, $, %, &)
+            6.Small letter (a-z)
+                        
+            The order must be the same!""");
 
     private final String message;
 

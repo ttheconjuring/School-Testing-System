@@ -8,7 +8,8 @@ public enum ValidationRegexes {
     FIRST_NAME("^[A-Z][a-z]+$"),
     LAST_NAME("^[A-Z][a-z]+(ov|ova|ski|ska|ich)$"),
     EMAIL("^[a-zA-Z0-9._%+-]+@gmail\\.com$"),
-    PHONE("^\\+359 \\d{2} \\d{3} \\d{4}$");
+    PHONE("^\\+359 \\d{2} \\d{3} \\d{4}$"),
+    CODE("^[a-z][!@#$%&][\\d][A-Z][!@#$%&][a-z]$");
 
     private final String regex;
 

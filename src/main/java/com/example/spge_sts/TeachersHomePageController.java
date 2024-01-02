@@ -44,6 +44,7 @@ public class TeachersHomePageController implements Initializable {
         getButton_profile().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Account-Information.fxml", DBUtilities.getUserData(getID())), actionEvent));
         // getButton_profile().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Teachers-Account-Information.fxml", DBUtilities.getUserData(getID()))));
         getButton_users().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Users-ScrollPane.fxml", "-1")));
+        getButton_create_test().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Create-Test.fxml", this.getID()), actionEvent));
     }
 
     private Button getButton_log_out() {

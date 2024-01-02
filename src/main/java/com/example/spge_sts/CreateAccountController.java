@@ -7,8 +7,6 @@ import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class CreateAccountController implements Initializable {
 
@@ -56,14 +54,14 @@ public class CreateAccountController implements Initializable {
         if (thereAreEmptyGaps()) {
             Utilities.showAlert("Empty gaps", "Please, fill all the gaps!", Alert.AlertType.WARNING);
         } else {
-            if ((getTheChosenRole().equals("teacher") && Utilities.isValid(getTextOf(getTextField_username()), ValidationRegexes.TEACHER_USERNAME.getRegex()))
-                    || (getTheChosenRole().equals("student") && Utilities.isValid(getTextOf(getTextField_username()), ValidationRegexes.STUDENT_USERNAME.getRegex()))) {
-                if (Utilities.isValid(getTextOf(getPasswordField_password()), ValidationRegexes.PASSWORD.getRegex())) {
-                    if (Utilities.isValid(getTextOf(getTextField_firstName()), ValidationRegexes.FIRST_NAME.getRegex())) {
-                        if (Utilities.isValid(getTextOf(getTextField_lastName()), ValidationRegexes.LAST_NAME.getRegex())) {
-                            if (Utilities.isValid(getTextOf(getTextField_email()), ValidationRegexes.EMAIL.getRegex())) {
-                                if (Utilities.isValid(getTextOf(getTextField_phone()), ValidationRegexes.PHONE.getRegex())) {
-                                    response(DBUtilities.createRecord(
+            if ((getTheChosenRole().equals("teacher") && Utilities.isValid(getTextField_username().getText(), ValidationRegexes.TEACHER_USERNAME.getRegex()))
+                    || (getTheChosenRole().equals("student") && Utilities.isValid(getTextField_username().getText(), ValidationRegexes.STUDENT_USERNAME.getRegex()))) {
+                if (Utilities.isValid(getPasswordField_password().getText(), ValidationRegexes.PASSWORD.getRegex())) {
+                    if (Utilities.isValid(getTextField_firstName().getText(), ValidationRegexes.FIRST_NAME.getRegex())) {
+                        if (Utilities.isValid(getTextField_lastName().getText(), ValidationRegexes.LAST_NAME.getRegex())) {
+                            if (Utilities.isValid(getTextField_email().getText(), ValidationRegexes.EMAIL.getRegex())) {
+                                if (Utilities.isValid(getTextField_phone().getText(), ValidationRegexes.PHONE.getRegex())) {
+                                    response(DBUtilities.createUser(
                                             getTextField_username().getText(),
                                             getPasswordField_password().getText(),
                                             getTextField_email().getText(),
@@ -102,10 +100,6 @@ public class CreateAccountController implements Initializable {
         }
     }
 
-    private String getTextOf(TextField textField) {
-        return textField.getText();
-    }
-
     private void response(boolean flag, ActionEvent actionEvent) {
         if (flag) {
             Utilities.showAlert("Done!", "You successfully created an account!", Alert.AlertType.CONFIRMATION);
@@ -137,9 +131,9 @@ public class CreateAccountController implements Initializable {
     }
 
     private boolean thereAreEmptyGaps() {
-        return getTextOf(getTextField_username()).isEmpty() || getTextOf(getPasswordField_password()).isEmpty() ||
-                getTextOf(getTextField_firstName()).isEmpty() || getTextOf(getTextField_lastName()).isEmpty() ||
-                getTextOf(getTextField_email()).isEmpty() || getTextOf(getTextField_phone()).isEmpty();
+        return getTextField_username().getText().isEmpty() || getPasswordField_password().getText().isEmpty() ||
+                getTextField_firstName().getText().isEmpty() || getTextField_lastName().getText().isEmpty() ||
+                getTextField_email().getText().isEmpty() || getTextField_phone().getText().isEmpty();
     }
 
     private Button getButton_create() {
