@@ -40,14 +40,12 @@ public class CreateAccountController implements Initializable {
     @FXML
     private Button button_cancel;
 
-    private String ID;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getToggleButton_teacher_role().setOnAction(actionEvent -> setClicked(getToggleButton_teacher_role(), getToggleButton_student_role()));
         getToggleButton_student_role().setOnAction(actionEvent -> setClicked(getToggleButton_student_role(), getToggleButton_teacher_role()));
         getButton_create().setOnAction(this::createAccount);
-        getButton_cancel().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", this.getID()), actionEvent));
+        getButton_cancel().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent));
     }
 
     private void createAccount(ActionEvent actionEvent) {
@@ -103,7 +101,7 @@ public class CreateAccountController implements Initializable {
     private void response(boolean flag, ActionEvent actionEvent) {
         if (flag) {
             Utilities.showAlert("Done!", "You successfully created an account!", Alert.AlertType.CONFIRMATION);
-            Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", this.getID()), actionEvent);
+            Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent);
         } else {
             Utilities.showAlert("Error!", "Sorry, but you probably have invalid data", Alert.AlertType.ERROR);
             clearFields();
@@ -174,14 +172,6 @@ public class CreateAccountController implements Initializable {
 
     private TextField getTextField_phone() {
         return this.textField_phone;
-    }
-
-    private String getID() {
-        return this.ID;
-    }
-
-    protected void setID(String ID) {
-        this.ID = ID;
     }
 
 }

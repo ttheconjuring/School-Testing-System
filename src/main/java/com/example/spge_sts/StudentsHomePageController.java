@@ -22,12 +22,10 @@ public class StudentsHomePageController implements Initializable {
     @FXML
     private Button button_go;
 
-    private String ID;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getButton_log_out().setOnAction(actionEvent -> Utilities.switchTo("Sign-In.fxml", actionEvent));
-        getButton_profile().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Account-Information.fxml", DBUtilities.getUserData(this.getID())), actionEvent));
+        getButton_profile().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Account-Information.fxml", DBUtilities.getUserData(Utilities.getCurrenUserID())), actionEvent));
     }
 
     private Button getButton_profile() {
@@ -44,14 +42,6 @@ public class StudentsHomePageController implements Initializable {
 
     private Button getButton_go() {
         return this.button_go;
-    }
-
-    protected void setID(String ID) {
-        this.ID = ID;
-    }
-
-    private String getID() {
-        return this.ID;
     }
 
     protected void setButton_profile(String username) {

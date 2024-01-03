@@ -97,18 +97,13 @@ public class Utilities {
             case "Teachers-Home-Page.fxml" -> {
                 TeachersHomePageController teachersHomePageController = loader.getController();
                 teachersHomePageController.setButton_profile(DBUtilities.getUserData(ID).get("Username"));
-                teachersHomePageController.setID(ID);
             }
             case "Students-Home-Page.fxml" -> {
                 StudentsHomePageController studentsHomePageController = loader.getController();
                 studentsHomePageController.setButton_profile(DBUtilities.getUserData(ID).get("Username"));
-                studentsHomePageController.setID(ID);
-            }
-            case "Create-Account.fxml" -> {
-                CreateAccountController createAccountController = loader.getController();
-                createAccountController.setID(ID);
             }
             case "Users-ScrollPane.fxml" -> {
+                // in this case we don't use ID, but the method returns Parent root and that is why
                 UsersScrollPaneController usersScrollPaneController = loader.getController();
                 usersScrollPaneController.setRecordsCount(DBUtilities.getCountOfUsers());
             }
@@ -116,10 +111,6 @@ public class Utilities {
                 AccountTemplateController accountTemplateController = loader.getController();
                 // The ID here is index, it is not supposed to be used like that, corner case
                 accountTemplateController.setData(DBUtilities.getIdUsernameRoleByIndex(Integer.parseInt(ID)));
-            }
-            case "Create-Test.fxml" -> {
-                CreateTestController createTestController = loader.getController();
-                createTestController.setID(ID);
             }
         }
         return root;

@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -41,12 +42,11 @@ public class CreateTestController implements Initializable {
     @FXML
     private Button button_cancel;
 
-    private String ID;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getButton_create().setOnAction(this::createTest);
-        getButton_cancel().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", getID()), actionEvent));
+        getButton_cancel().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent));
+        getButton_generate().setOnAction(actionEven -> generateCode());
     }
 
     private void createTest(ActionEvent actionEvent) {
@@ -71,7 +71,7 @@ public class CreateTestController implements Initializable {
                                 getTextField_questions().getText(),
                                 getTheCreationDateAndTime(),
                                 getTheUpdatedDateAndTime(Integer.parseInt(getTextField_duration().getText())),
-                                getID()), actionEvent);
+                                Utilities.getCurrenUserID()), actionEvent);
                     } else {
                         Utilities.showAlert("Invalid Questions Number!", "The questions must be between 1 and 10 including!", Alert.AlertType.ERROR);
                         getTextField_questions().clear();
@@ -88,10 +88,25 @@ public class CreateTestController implements Initializable {
         }
     }
 
+    private void generateCode() {
+        SecureRandom random = new SecureRandom();
+        String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+        String upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String specialCharacters = "!@#$%&";
+        String digits = "0123456789";
+        String generatedString = String.valueOf(lowerCaseLetters.charAt(random.nextInt(lowerCaseLetters.length()))) +
+                specialCharacters.charAt(random.nextInt(specialCharacters.length())) +
+                digits.charAt(random.nextInt(digits.length())) +
+                upperCaseLetters.charAt(random.nextInt(upperCaseLetters.length())) +
+                specialCharacters.charAt(random.nextInt(specialCharacters.length())) +
+                lowerCaseLetters.charAt(random.nextInt(lowerCaseLetters.length()));
+        getTextField_code().setText(generatedString);
+    }
+
     private void response(boolean flag, ActionEvent actionEvent) {
         if (flag) {
             Utilities.showAlert("Done!", "You successfully created test!", Alert.AlertType.CONFIRMATION);
-            Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", this.getID()), actionEvent);
+            Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent);
         } else {
             Utilities.showAlert("Error!", "Sorry, but you probably have invalid data", Alert.AlertType.ERROR);
             clearFields();
@@ -161,11 +176,4 @@ public class CreateTestController implements Initializable {
         return this.button_cancel;
     }
 
-    private String getID() {
-        return this.ID;
-    }
-
-    protected void setID(String ID) {
-        this.ID = ID;
-    }
 }
