@@ -3,6 +3,7 @@ package com.example.spge_sts;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 
 import java.net.URL;
@@ -12,6 +13,9 @@ public class UsersScrollPaneController implements Initializable {
 
     @FXML
     private ScrollPane scrollPane_users;
+
+    @FXML
+    private TextField textField_search;
 
     private int recordsCount;
 
