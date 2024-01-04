@@ -1,6 +1,7 @@
 package com.example.spge_sts;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -110,6 +111,7 @@ public class DBUtilities {
         return count;
     }
 
+    // DOES NOT EQUAL getUserData(ID), because index != ID
     protected static Map<String, String> getIdUsernameRoleByIndex(int index) {
         Map<String, String> specificData = new HashMap<>();
         String sqlQuery = "SELECT * FROM users";
@@ -190,6 +192,31 @@ public class DBUtilities {
             e.printStackTrace();
         }
         return result;
+    }
+
+    protected static ArrayList<String> getUsersIdsBy(String criterion, String string) {
+        ArrayList<String> IDs = new ArrayList<>();
+        String query;
+        if (criterion.equals("UserID")) {
+            query = "SELECT UserID FROM users WHERE UserID LIKE '%" + string + "%';";
+            System.out.println("UserID criterion");
+        } else if (criterion.equals("Username")) {
+            query = "SELECT UserID FROM users WHERE Username LIKE '%" + string + "%';";
+            System.out.println("Username criterion");
+        } else {
+            query = "SELECT UserID FROM users WHERE UserRole LIKE '%" + string + "%';";
+            System.out.println("UserRole criterion");
+        }
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                IDs.add(resultSet.getString("UserID"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return IDs;
     }
 
 }
