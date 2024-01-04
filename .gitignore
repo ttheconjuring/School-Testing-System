@@ -36,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+## Test File ##
+src/main/java/com/example/spge_sts/DatabaseConnectionTest.java
