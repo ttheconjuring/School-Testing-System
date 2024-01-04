@@ -109,7 +109,7 @@ public class Utilities {
             }
             case "Account-Template.fxml" -> {
                 AccountTemplateController accountTemplateController = loader.getController();
-                if (ID.length() >= 2) { // if there is more than 10 users, this will be a problem
+                if (ID.length() == 4) {
                     accountTemplateController.setData(DBUtilities.getUserData(ID));
                 } else {
                     // The ID here is index, it is not supposed to be used like that, corner case
