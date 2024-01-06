@@ -123,7 +123,7 @@
          </opaqueInsets>
       </TextField>
     </AnchorPane>
-    <Button fx:id="button_create" layoutX="199.0" layoutY="561.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" styleClass="shadow" text="Next" textFill="WHITE">
+    <Button fx:id="button_next" layoutX="199.0" layoutY="561.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" styleClass="shadow" text="Next" textFill="WHITE">
         <font>
             <Font name="Arial Black" size="18.0" />
         </font>

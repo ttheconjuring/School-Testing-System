@@ -37,14 +37,14 @@ public class CreateTestController implements Initializable {
     private Button button_generate;
 
     @FXML
-    private Button button_create;
+    private Button button_next;
 
     @FXML
     private Button button_cancel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        getButton_create().setOnAction(this::createTest);
+        getButton_next().setOnAction(this::createTest);
         getButton_cancel().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent));
         getButton_generate().setOnAction(actionEven -> generateCode());
     }
@@ -106,7 +106,7 @@ public class CreateTestController implements Initializable {
     private void response(boolean flag, ActionEvent actionEvent) {
         if (flag) {
             Utilities.showAlert("Done!", "You successfully created test!", Alert.AlertType.CONFIRMATION);
-            Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent);
+            Utilities.switchToPreparedScene(Utilities.prepareScene("Create-Question.fxml", "1"), actionEvent);
         } else {
             Utilities.showAlert("Error!", "Sorry, but you probably have invalid data", Alert.AlertType.ERROR);
             clearFields();
@@ -168,8 +168,8 @@ public class CreateTestController implements Initializable {
         return this.button_generate;
     }
 
-    private Button getButton_create() {
-        return this.button_create;
+    private Button getButton_next() {
+        return this.button_next;
     }
 
     private Button getButton_cancel() {

@@ -219,6 +219,44 @@ public class DBUtilities {
         return IDs;
     }
 
+    protected static String getLastInsertedTestID() {
+        String lastTestID = null;
+        String lastTestQuestions = null;
+        String query = "SELECT TestID, Questions FROM tests ORDER BY tests.TestID DESC LIMIT 1;";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                lastTestID = resultSet.getString("TestID");
+                lastTestQuestions = resultSet.getString("Questions");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lastTestID + " " + lastTestQuestions;
+    }
+
+    protected static boolean createQuestion(String testID, String questionText, String questionType, String answers, String correctAnswer, String points) {
+        String sqlQuery = "INSERT INTO questions (TestID, QuestionText, QuestionType, Answers, CorrectAnswer, Points) VALUES (?, ? ,? ,? ,? ,?);";
+        boolean result = false;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+
+            preparedStatement.setString(1, testID);
+            preparedStatement.setString(2, questionText);
+            preparedStatement.setString(3, questionType);
+            preparedStatement.setString(4, answers);
+            preparedStatement.setString(5, correctAnswer);
+            preparedStatement.setString(6, points);
+
+            result = preparedStatement.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 }
 
 

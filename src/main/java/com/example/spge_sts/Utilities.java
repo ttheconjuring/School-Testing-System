@@ -116,6 +116,12 @@ public class Utilities {
                     accountTemplateController.setData(DBUtilities.getIdUsernameRoleByIndex(Integer.parseInt(ID)));
                 }
             }
+            case "Create-Question.fxml" -> {
+                CreateQuestionController createQuestionController = loader.getController();
+                // The ID here is number, it is not supposed to be used like that, corner case
+                createQuestionController.setQuestionNumber(ID);
+                createQuestionController.setData();
+            }
         }
         return root;
     }
