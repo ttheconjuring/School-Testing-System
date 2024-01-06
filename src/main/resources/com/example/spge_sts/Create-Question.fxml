@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0"
+            prefWidth="600.0" style="-fx-background-color: #89CC34; -fx-border-color: black;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.spge_sts.CreateQuestionController">
+    <stylesheets>
+        <URL value="@create-question.css"/>
+    </stylesheets>
+    <AnchorPane layoutX="40.0" layoutY="73.0" prefHeight="369.0" prefWidth="521.0"
+                style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;"
+                styleClass="shadow">
+        <TextField fx:id="textField_question" alignment="CENTER" layoutX="46.0" layoutY="80.0" maxHeight="-Infinity"
+                   maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="430.0"
+                   promptText="(question)">
+            <font>
+                <Font name="Arial Black" size="18.0"/>
+            </font>
+            <padding>
+                <Insets left="15.0" right="15.0"/>
+            </padding>
+        </TextField>
+        <TextField fx:id="textField_answer_1" layoutX="46.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="198.0"
+                   promptText="#1 answer">
+            <font>
+                <Font name="Arial Black" size="18.0"/>
+            </font>
+            <padding>
+                <Insets left="15.0" right="15.0"/>
+            </padding>
+        </TextField>
+        <TextField fx:id="textField_answer_3" layoutX="46.0" layoutY="225.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="198.0"
+                   promptText="#3 answer">
+            <font>
+                <Font name="Arial Black" size="18.0"/>
+            </font>
+            <padding>
+                <Insets left="15.0" right="15.0"/>
+            </padding>
+        </TextField>
+        <TextField fx:id="textField_answer_2" layoutX="278.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="198.0"
+                   promptText="#2 answer">
+            <font>
+                <Font name="Arial Black" size="18.0"/>
+            </font>
+            <padding>
+                <Insets left="15.0" right="15.0"/>
+            </padding>
+        </TextField>
+        <TextField fx:id="textField_answer_4" layoutX="278.0" layoutY="225.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="198.0"
+                   promptText="#4 answer">
+            <font>
+                <Font name="Arial Black" size="18.0"/>
+            </font>
+            <padding>
+                <Insets left="15.0" right="15.0"/>
+            </padding>
+        </TextField>
+        <TextField fx:id="textField_trueAnswer" alignment="CENTER" layoutX="162.0" layoutY="296.0" maxHeight="-Infinity"
+                   maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="198.0"
+                   promptText="(true answer #?)">
+            <font>
+                <Font name="Arial Black" size="18.0"/>
+            </font>
+            <padding>
+                <Insets left="15.0" right="15.0"/>
+            </padding>
+        </TextField>
+        <TextField fx:id="textField_points" alignment="CENTER" layoutX="401.0" layoutY="25.0" maxHeight="-Infinity"
+                   maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="75.0"
+                   promptText="(p.)">
+            <padding>
+                <Insets left="15.0" right="15.0"/>
+            </padding>
+            <font>
+                <Font name="Arial Black" size="18.0"/>
+            </font>
+        </TextField>
+        <Label fx:id="label_questionNumber" layoutX="46.0" layoutY="25.0" prefHeight="40.0" prefWidth="75.0" text="?/?"
+               textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="18.0"/>
+            </font>
+        </Label>
+    </AnchorPane>
+    <Button fx:id="button_next" layoutX="250.0" layoutY="457.0" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="100.0" styleClass="shadow"
+            text="Next" textFill="WHITE">
+        <font>
+            <Font name="Arial Black" size="18.0"/>
+        </font>
+    </Button>
+    <AnchorPane layoutY="519.0" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #8A41AC;">
+        <Label alignment="CENTER" prefHeight="50.0" prefWidth="600.0" style="-fx-border-color: black;"
+               text="Copyright 2024 | All rights reserved." textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="18.0"/>
+            </font>
+        </Label>
+    </AnchorPane>
+    <AnchorPane prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label alignment="CENTER" layoutX="3.0" layoutY="2.0" prefHeight="50.0" prefWidth="594.0" text="Create Question"
+               textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="18.0"/>
+            </font>
+        </Label>
+    </AnchorPane>
+</AnchorPane>
