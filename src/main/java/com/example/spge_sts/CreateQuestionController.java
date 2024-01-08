@@ -35,16 +35,16 @@ public class CreateQuestionController implements Initializable {
     private TextField textField_trueAnswer;
 
     @FXML
-    private TextField textField_openAnswer;
+    private TextField textField_openedAnswer;
 
     @FXML
     private Button button_next;
 
     @FXML
-    private ToggleButton toggleButton_open;
+    private ToggleButton toggleButton_opened;
 
     @FXML
-    private ToggleButton toggleButton_close;
+    private ToggleButton toggleButton_closed;
 
     private String testID;
     private int questionsCount;
@@ -52,79 +52,83 @@ public class CreateQuestionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        getToggleButton_close().setOnAction(actionEvent -> setClicked(getToggleButton_close(), getToggleButton_open()));
-        getToggleButton_open().setOnAction(actionEvent -> setClicked(getToggleButton_open(), getToggleButton_close()));
+        getToggleButton_closed().setOnAction(actionEvent -> setClicked(getToggleButton_closed(), getToggleButton_opened()));
+        getToggleButton_opened().setOnAction(actionEvent -> setClicked(getToggleButton_opened(), getToggleButton_closed()));
         getButton_next().setOnAction(this::saveQuestion);
     }
 
     private void saveQuestion(ActionEvent actionEvent) {
-        if (getCurrentQuestionNumber() <= getQuestionsCount()) {
-            String points = getTextField_points().getText();
-            if (!points.isEmpty() && (Integer.parseInt(points) >= 1 && Integer.parseInt(points) <= 10)) {
-                String question = getTextField_question().getText();
-                if (!question.isEmpty()) {
-                    String trueAnswer = getTextField_trueAnswer().getText();
-                    if (!trueAnswer.isEmpty()) {
-                        if (getToggleButton_close().isSelected()) {
-                            String answer1 = getTextField_answer_1().getText();
-                            if (!answer1.isEmpty()) {
-                                String answer2 = getTextField_answer_2().getText();
-                                if (!answer2.isEmpty()) {
-                                    String answer3 = getTextField_answer_3().getText();
-                                    if (!answer3.isEmpty()) {
-                                        String answer4 = getTextField_answer_4().getText();
-                                        if (!answer4.isEmpty()) {
-                                            response(DBUtilities.createQuestion(
-                                                    getTestID(),
-                                                    getTextField_question().getText(),
-                                                    getQuestionType(),
-                                                    getTextField_answer_1().getText() + ", " +
-                                                            getTextField_answer_2().getText() + ", " +
-                                                            getTextField_answer_3().getText() + ", " +
-                                                            getTextField_answer_4().getText(),
-                                                    getTextField_trueAnswer().getText(),
-                                                    getTextField_points().getText()
-                                            ), actionEvent);
+        if (thereAreEmptyGaps()) {
+            Utilities.showAlert("Empty gaps", "Please, fill the must gaps!", Alert.AlertType.WARNING);
+        } else {
+            if (getCurrentQuestionNumber() <= getQuestionsCount()) {
+                String points = getTextField_points().getText();
+                if (!points.isEmpty() && (Integer.parseInt(points) >= 1 && Integer.parseInt(points) <= 10)) {
+                    String question = getTextField_question().getText();
+                    if (!question.isEmpty()) {
+                        String trueAnswer = getTextField_trueAnswer().getText();
+                        if (!trueAnswer.isEmpty()) {
+                            if (getToggleButton_closed().isSelected()) {
+                                String answer1 = getTextField_answer_1().getText();
+                                if (!answer1.isEmpty()) {
+                                    String answer2 = getTextField_answer_2().getText();
+                                    if (!answer2.isEmpty()) {
+                                        String answer3 = getTextField_answer_3().getText();
+                                        if (!answer3.isEmpty()) {
+                                            String answer4 = getTextField_answer_4().getText();
+                                            if (!answer4.isEmpty()) {
+                                                response(DBUtilities.createQuestion(
+                                                        getTestID(),
+                                                        getTextField_question().getText(),
+                                                        getQuestionType(),
+                                                        getTextField_answer_1().getText() + ", " +
+                                                                getTextField_answer_2().getText() + ", " +
+                                                                getTextField_answer_3().getText() + ", " +
+                                                                getTextField_answer_4().getText(),
+                                                        getTextField_trueAnswer().getText(),
+                                                        getTextField_points().getText()
+                                                ), actionEvent);
+                                            } else {
+                                                Utilities.showAlert("Invalid Answer #4", "The answer #4 can NOT be empty!", Alert.AlertType.ERROR);
+                                            }
                                         } else {
-                                            Utilities.showAlert("Invalid Answer #4", "The answer #4 can NOT be empty!", Alert.AlertType.ERROR);
+                                            Utilities.showAlert("Invalid Answer #3", "The answer #3 can NOT be empty!", Alert.AlertType.ERROR);
                                         }
                                     } else {
-                                        Utilities.showAlert("Invalid Answer #3", "The answer #3 can NOT be empty!", Alert.AlertType.ERROR);
+                                        Utilities.showAlert("Invalid Answer #2", "The answer #2 can NOT be empty!", Alert.AlertType.ERROR);
                                     }
                                 } else {
-                                    Utilities.showAlert("Invalid Answer #2", "The answer #2 can NOT be empty!", Alert.AlertType.ERROR);
+                                    Utilities.showAlert("Invalid Answer #1!", "The answer #1 can NOT be empty!", Alert.AlertType.ERROR);
                                 }
                             } else {
-                                Utilities.showAlert("Invalid Answer #1!", "The answer #1 can NOT be empty!", Alert.AlertType.ERROR);
+                                response(DBUtilities.createQuestion(
+                                        getTestID(),
+                                        getTextField_question().getText(),
+                                        getQuestionType(),
+                                        getTextField_openedAnswer().getText(),
+                                        getTextField_trueAnswer().getText(),
+                                        getTextField_points().getText()
+                                ), actionEvent);
                             }
                         } else {
-                            response(DBUtilities.createQuestion(
-                                    getTestID(),
-                                    getTextField_question().getText(),
-                                    getQuestionType(),
-                                    getTextField_openAnswer().getText(),
-                                    getTextField_trueAnswer().getText(),
-                                    getTextField_points().getText()
-                            ), actionEvent);
+                            Utilities.showAlert("Invalid True Answer!", "The true answer can NOT be empty!", Alert.AlertType.ERROR);
                         }
                     } else {
-                        Utilities.showAlert("Invalid True Answer!", "The true answer can NOT be empty!", Alert.AlertType.ERROR);
+                        Utilities.showAlert("Invalid Question!", "The question field can NOT be empty!", Alert.AlertType.ERROR);
                     }
                 } else {
-                    Utilities.showAlert("Invalid Question!", "The question field can NOT be empty!", Alert.AlertType.ERROR);
+                    Utilities.showAlert("Invalid Points!", "The points must be between 1 and 10!", Alert.AlertType.ERROR);
+                    getTextField_points().clear();
                 }
-            } else {
-                Utilities.showAlert("Invalid Points!", "The points must be between 1 and 10!", Alert.AlertType.ERROR);
-                getTextField_points().clear();
-            }
 
+            }
         }
     }
 
     private void response(boolean flag, ActionEvent actionEvent) {
         if (flag) {
             if (getCurrentQuestionNumber() == getQuestionsCount()) {
-                Utilities.showAlert("Complete Test and Questions Creation!", "Congratulations, test is ready!", Alert.AlertType.INFORMATION);
+                Utilities.showAlert("Complete Test and Questions Creation!", "Congratulations, test is ready! You can check it at \"My Tests\".", Alert.AlertType.INFORMATION);
                 Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent);
             } else {
                 Utilities.switchToPreparedScene(Utilities.prepareScene("Create-Question.fxml", String.valueOf(getCurrentQuestionNumber() + 1)), actionEvent);
@@ -146,7 +150,7 @@ public class CreateQuestionController implements Initializable {
         getTextField_answer_2().clear();
         getTextField_answer_3().clear();
         getTextField_answer_4().clear();
-        getTextField_openAnswer().clear();
+        getTextField_openedAnswer().clear();
         getTextField_trueAnswer().clear();
     }
 
@@ -158,8 +162,27 @@ public class CreateQuestionController implements Initializable {
         revealTextFields();
     }
 
+    private boolean thereAreEmptyGaps() {
+        boolean emptyGaps;
+        if (getToggleButton_closed().isSelected()) {
+            emptyGaps = getTextField_points().getText().isEmpty() ||
+                    getTextField_question().getText().isEmpty() ||
+                    getTextField_answer_1().getText().isEmpty() ||
+                    getTextField_answer_2().getText().isEmpty() ||
+                    getTextField_answer_3().getText().isEmpty() ||
+                    getTextField_answer_4().getText().isEmpty() ||
+                    getTextField_trueAnswer().getText().isEmpty();
+        } else {
+            emptyGaps = getTextField_points().getText().isEmpty() ||
+                    getTextField_question().getText().isEmpty() ||
+                    getTextField_trueAnswer().getText().isEmpty();
+        }
+        return emptyGaps;
+    }
+
+
     private void revealTextFields() {
-        if (getToggleButton_close().isSelected()) {
+        if (getToggleButton_closed().isSelected()) {
             getTextField_answer_1().setDisable(false);
             getTextField_answer_1().setOpacity(1);
             getTextField_answer_2().setDisable(false);
@@ -168,8 +191,8 @@ public class CreateQuestionController implements Initializable {
             getTextField_answer_3().setOpacity(1);
             getTextField_answer_4().setDisable(false);
             getTextField_answer_4().setOpacity(1);
-            getTextField_openAnswer().setDisable(true);
-            getTextField_openAnswer().setOpacity(0);
+            getTextField_openedAnswer().setDisable(true);
+            getTextField_openedAnswer().setOpacity(0);
             setQuestionType("closed");
         } else {
             getTextField_answer_1().setDisable(true);
@@ -180,8 +203,8 @@ public class CreateQuestionController implements Initializable {
             getTextField_answer_3().setOpacity(0);
             getTextField_answer_4().setDisable(true);
             getTextField_answer_4().setOpacity(0);
-            getTextField_openAnswer().setDisable(false);
-            getTextField_openAnswer().setOpacity(1);
+            getTextField_openedAnswer().setDisable(false);
+            getTextField_openedAnswer().setOpacity(1);
             setQuestionType("opened");
         }
     }
@@ -226,16 +249,16 @@ public class CreateQuestionController implements Initializable {
         return this.button_next;
     }
 
-    private TextField getTextField_openAnswer() {
-        return this.textField_openAnswer;
+    private TextField getTextField_openedAnswer() {
+        return this.textField_openedAnswer;
     }
 
-    private ToggleButton getToggleButton_open() {
-        return this.toggleButton_open;
+    private ToggleButton getToggleButton_opened() {
+        return this.toggleButton_opened;
     }
 
-    private ToggleButton getToggleButton_close() {
-        return this.toggleButton_close;
+    private ToggleButton getToggleButton_closed() {
+        return this.toggleButton_closed;
     }
 
     private String getTestID() {
@@ -269,8 +292,4 @@ public class CreateQuestionController implements Initializable {
         this.questionType = questionType;
     }
 }
-// 1 + 1 = 2
-// 2 + 1 = 3
-// 3 + 1 = 4
-// 4 + 1 = 5
-// 5 + 1 = 6
+

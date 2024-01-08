@@ -34,6 +34,9 @@ public class CreateTestController implements Initializable {
     private TextField textField_passingScore;
 
     @FXML
+    private TextField textField_status;
+
+    @FXML
     private Button button_generate;
 
     @FXML
@@ -62,16 +65,22 @@ public class CreateTestController implements Initializable {
             if (Utilities.isValid(getTextField_duration().getText(), "^(?:[5-9]|[1-5]\\d|60)$")) {
                 if (Utilities.isValid(getTextField_code().getText(), ValidationRegexes.CODE.getRegex())) {
                     if (Utilities.isValid(getTextField_questions().getText(), "^\\b(?:[1-9]|10)\\b$")) {
-                        response(DBUtilities.createTest(
-                                getTextField_testName().getText(),
-                                getTextField_description().getText(),
-                                getTextField_code().getText(),
-                                getTextField_duration().getText(),
-                                getTextField_passingScore().getText(),
-                                getTextField_questions().getText(),
-                                getTheCreationDateAndTime(),
-                                getTheUpdatedDateAndTime(Integer.parseInt(getTextField_duration().getText())),
-                                Utilities.getCurrenUserID()), actionEvent);
+                        if (Utilities.isValid(getTextField_status().getText(), "^(free|locked)$")) {
+                            response(DBUtilities.createTest(
+                                    getTextField_testName().getText(),
+                                    getTextField_description().getText(),
+                                    getTextField_code().getText(),
+                                    getTextField_duration().getText(),
+                                    getTextField_passingScore().getText(),
+                                    getTextField_questions().getText(),
+                                    getTheCreationDateAndTime(),
+                                    getTheUpdatedDateAndTime(Integer.parseInt(getTextField_duration().getText())),
+                                    Utilities.getCurrenUserID(),
+                                    getTextField_status().getText()), actionEvent);
+                        } else {
+                            Utilities.showAlert("Invalid Test Status!", "The test status can be either \"free\" or \"locked\"!", Alert.AlertType.ERROR);
+                            getTextField_status().clear();
+                        }
                     } else {
                         Utilities.showAlert("Invalid Questions Number!", "The questions must be between 1 and 10 including!", Alert.AlertType.ERROR);
                         getTextField_questions().clear();
@@ -105,7 +114,7 @@ public class CreateTestController implements Initializable {
 
     private void response(boolean flag, ActionEvent actionEvent) {
         if (flag) {
-            Utilities.showAlert("Done!", "You successfully created test!", Alert.AlertType.CONFIRMATION);
+            Utilities.showAlert("Done!", "You successfully created test! Please, continue with Question Part.", Alert.AlertType.CONFIRMATION);
             Utilities.switchToPreparedScene(Utilities.prepareScene("Create-Question.fxml", "1"), actionEvent);
         } else {
             Utilities.showAlert("Error!", "Sorry, but you probably have invalid data", Alert.AlertType.ERROR);
@@ -129,7 +138,7 @@ public class CreateTestController implements Initializable {
     private boolean thereAreEmptyGaps() {
         return getTextField_testName().getText().isEmpty() ||
                 getTextField_duration().getText().isEmpty() || getTextField_code().getText().isEmpty() ||
-                getTextField_questions().getText().isEmpty();
+                getTextField_questions().getText().isEmpty() || getTextField_status().getText().isEmpty();
     }
 
     private void clearFields() {
@@ -162,6 +171,10 @@ public class CreateTestController implements Initializable {
 
     private TextField getTextField_passingScore() {
         return this.textField_passingScore;
+    }
+
+    private TextField getTextField_status() {
+        return this.textField_status;
     }
 
     private Button getButton_generate() {

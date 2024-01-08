@@ -170,8 +170,8 @@ public class DBUtilities {
         return sqlQuery;
     }
 
-    protected static boolean createTest(String testName, String description, String code, String duration, String passingScore, String questions, String dateCreated, String dateUpdated, String creatorUserID) {
-        String sqlQuery = "INSERT INTO tests (TestName, Description, Code, DurationMinutes, PassingScore, Questions, DateCreated, DateUpdated, CreatorUserID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    protected static boolean createTest(String testName, String description, String code, String duration, String passingScore, String questions, String dateCreated, String dateUpdated, String creatorUserID, String status) {
+        String sqlQuery = "INSERT INTO tests (TestName, Description, Code, DurationMinutes, PassingScore, Questions, DateCreated, DateUpdated, CreatorUserID, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         boolean result = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
@@ -185,6 +185,7 @@ public class DBUtilities {
             preparedStatement.setString(7, dateCreated);
             preparedStatement.setString(8, dateUpdated);
             preparedStatement.setString(9, creatorUserID);
+            preparedStatement.setString(10, status);
 
             result = preparedStatement.executeUpdate() > 0;
 

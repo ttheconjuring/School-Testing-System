@@ -20,15 +20,16 @@
                 <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
-        <Button fx:id="button_log_out" layoutX="517.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity"
-                minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="76.0"
-                text="Log out" textFill="WHITE">
+        <Button fx:id="button_log_out" layoutX="506.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0"
+                styleClass="shadow" text="Log out" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="14.0"/>
             </font>
         </Button>
-        <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="11.0"
-                mnemonicParsing="false" prefHeight="32.0" prefWidth="334.0" text="Hello @username!"
+        <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="12.0"
+                maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                mnemonicParsing="false" prefHeight="30.0" prefWidth="335.0" styleClass="shadow" text="Hello @username!"
                 textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="14.0"/>
