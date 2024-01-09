@@ -9,69 +9,55 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="500.0" style="-fx-background-color: #89CC34; -fx-border-color: black;"
-            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.spge_sts.SignInController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.SignInController">
     <stylesheets>
-        <URL value="@sing-in.css"/>
+        <URL value="@sing-in.css" />
     </stylesheets>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0"
-                prefWidth="500.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
         <Label layoutX="216.0" layoutY="12.0" text="Sign In" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0"/>
+                <Font name="Arial Black" size="18.0" />
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutX="105.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                minWidth="-Infinity" prefHeight="205.0" prefWidth="290.0"
-                style="-fx-background-color: #8A41AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px;"
-                styleClass="shadow">
+    <AnchorPane layoutX="105.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="290.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px;" styleClass="shadow">
         <Label layoutX="59.0" layoutY="28.0" text="Username:" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0"/>
+                <Font name="Arial Black" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="textField_username" layoutX="45.0" layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity"
-                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0"
-                   style="-fx-background-radius: 20px;" styleClass="textField_username">
+        <TextField fx:id="textField_username" layoutX="45.0" layoutY="55.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 20px;" styleClass="shadow">
             <font>
-                <Font name="Arial Black" size="14.0"/>
+                <Font name="Arial Black" size="14.0" />
             </font>
             <padding>
-                <Insets left="15.0" right="15.0"/>
+                <Insets left="15.0" right="15.0" />
             </padding>
         </TextField>
         <Label layoutX="61.0" layoutY="110.0" text="Password:" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0"/>
+                <Font name="Arial Black" size="18.0" />
             </font>
         </Label>
-        <PasswordField fx:id="passwordField_password" layoutX="45.0" layoutY="137.0" maxHeight="-Infinity"
-                       maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0"
-                       prefWidth="200.0" style="-fx-background-radius: 20px;" styleClass="passwordField_password">
+        <PasswordField fx:id="passwordField_password" layoutX="45.0" layoutY="137.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 20px;" styleClass="shadow">
             <font>
-                <Font name="Arial Black" size="14.0"/>
+                <Font name="Arial Black" size="14.0" />
             </font>
             <padding>
-                <Insets left="15.0" right="15.0"/>
+                <Insets left="15.0" right="15.0" />
             </padding>
         </PasswordField>
     </AnchorPane>
-    <AnchorPane layoutY="350.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+    <AnchorPane layoutY="350.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
         <Label layoutX="74.0" layoutY="12.0" text="Copyright 2023 | All rights reserved." textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0"/>
+                <Font name="Arial Black" size="18.0" />
             </font>
         </Label>
     </AnchorPane>
-    <Button fx:id="button_sign_in" layoutX="150.0" layoutY="299.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0"
-            prefWidth="200.0" styleClass="shadow" text="Sign In" textFill="WHITE">
+    <Button fx:id="button_sign_in" layoutX="150.0" layoutY="299.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" styleClass="shadow" text="Sign In" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="15.0"/>
+            <Font name="Arial Black" size="15.0" />
         </font>
     </Button>
 </AnchorPane>

@@ -18,12 +18,12 @@
                 <Font name="Arial Black" size="18.0" />
             </font>
         </Label>
-        <Button fx:id="button_log_out" layoutX="506.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" styleClass="shadow" text="Log out" textFill="WHITE">
+        <Button fx:id="button_log_out" layoutX="506.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Log out" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="14.0" />
             </font>
         </Button>
-        <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="11.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="335.0" styleClass="shadow" text="Hello @username!" textAlignment="CENTER" textFill="WHITE">
+        <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="11.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="335.0" text="Hello @username!" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="14.0" />
             </font>
@@ -42,7 +42,7 @@
                 <Font name="Arial Black" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="textField_test_code" alignment="CENTER" layoutX="20.0" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="180.0" style="-fx-background-radius: 20;" styleClass="textField_test_code">
+        <TextField fx:id="textField_test_code" alignment="CENTER" layoutX="20.0" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="180.0" style="-fx-background-radius: 20;" styleClass="shadow">
             <font>
                 <Font name="Arial Black" size="14.0" />
             </font>

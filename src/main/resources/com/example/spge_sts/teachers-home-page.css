@@ -1,6 +1,6 @@
 Button {
+    -fx-background-color: #8A41AC;
     -fx-background-radius: 20px;
-    -fx-border-color: black;
     -fx-border-radius: 20px;
     -fx-text-fill: #ffffff;
 }
@@ -9,16 +9,12 @@ Button {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
 }
 
-#button_profile, #button_log_out {
-    -fx-background-color: #89CC34;
-}
-
 #button_profile:hover, #button_log_out:hover {
-    -fx-background-color: #004d1a;
+    -fx-text-fill: #39004d;
 }
 
 #button_my_tests, #button_users, #button_create_test, #button_create_account {
-    -fx-background-color: #8A41AC;
+    -fx-border-color: black;
 }
 
 #button_my_tests:hover, #button_users:hover, #button_create_test:hover, #button_create_account:hover {
