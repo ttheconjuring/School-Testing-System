@@ -258,6 +258,41 @@ public class DBUtilities {
         return result;
     }
 
+    protected static ArrayList<String> getQuestionIDs(String code) {
+        ArrayList<String> questionIDs = new ArrayList<>();
+        String sqlQuery = "SELECT QuestionID FROM questions INNER JOIN tests ON questions.TestID = tests.TestID WHERE Code = '" + code + "';";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                questionIDs.add(resultSet.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return questionIDs;
+    }
+
+    protected static Map<String, String> getQuestionDataByID(String ID) {
+        Map<String, String> questionData = new HashMap<>();
+        String sqlQuery = "SELECT * FROM questions WHERE QuestionID = '" + ID + "';";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                questionData.put("QuestionID", resultSet.getString(1));
+                questionData.put("QuestionText", resultSet.getString(3));
+                questionData.put("QuestionType", resultSet.getString(4));
+                questionData.put("Answers", resultSet.getString(5));
+                questionData.put("CorrectAnswer", resultSet.getString(6));
+                questionData.put("Points", resultSet.getString(7));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return questionData;
+    }
+
 }
 
 

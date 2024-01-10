@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class StudentsHomePageController implements Initializable {
@@ -26,6 +28,20 @@ public class StudentsHomePageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getButton_log_out().setOnAction(actionEvent -> Utilities.switchTo("Sign-In.fxml", actionEvent));
         getButton_profile().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Account-Information.fxml", DBUtilities.getUserData(Utilities.getCurrenUserID())), actionEvent));
+        getButton_go().setOnAction(actionEvent -> startTest(getTextField_test_code().getText()));
+    }
+
+    private void startTest(String code) {
+        // TODO: add Utilities method to handle the situation
+        loadQuestionDataByID(loadQuestionIDs(code).getFirst());
+    }
+
+    private ArrayList<String> loadQuestionIDs (String code) {
+        return DBUtilities.getQuestionIDs(code);
+    }
+
+    private Map<String, String> loadQuestionDataByID(String ID) {
+        return DBUtilities.getQuestionDataByID(ID);
     }
 
     private Button getButton_profile() {
