@@ -18,6 +18,7 @@ public class Main extends Application {
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("school.png"))));
         stage.setTitle("SPGE-STS");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

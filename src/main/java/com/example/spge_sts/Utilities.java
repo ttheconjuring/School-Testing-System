@@ -22,7 +22,30 @@ public class Utilities {
     }
 
     private static final List<Stage> openedStages = new ArrayList<>();
+
     private static String currenUserID;
+
+    private static ArrayList<Map<String, String>> questionsData;
+
+    private static int questionIndex = 0;
+
+    protected static int getQuestionIndex() {
+        return questionIndex;
+    }
+
+    protected static void setQuestionIndex(int index) {
+        Utilities.questionIndex = index;
+    }
+
+    protected static int getQuestionsCount() {
+        return questionsData.size();
+    }
+
+    protected static Map<String, String> getQuestionDataByIndex(int index) {return questionsData.get(index);}
+
+    protected static void setQuestionsData(ArrayList<Map<String, String>> questionsData) {
+        Utilities.questionsData = questionsData;
+    }
 
     protected static String getCurrenUserID() {
         return currenUserID;
@@ -71,6 +94,7 @@ public class Utilities {
             newStage.getIcons().add(new Image(Objects.requireNonNull(Utilities.class.getResourceAsStream("school.png"))));
             newStage.setTitle("SPGE-STS");
             newStage.setScene(new Scene(root));
+            newStage.setResizable(false);
             newStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -122,7 +146,6 @@ public class Utilities {
                 createQuestionController.setQuestionNumber(ID);
                 createQuestionController.setData();
             }
-            // TODO: add case "Answer-Question.fxml that should set data
         }
         return root;
     }
@@ -143,6 +166,10 @@ public class Utilities {
             case "Students-Account-Information.fxml" -> {
                 StudentsAccountInformationController studentsAccountInformationController = loader.getController();
                 studentsAccountInformationController.setData(data);
+            }
+            case "Answer-Question.fxml" -> {
+                AnswerQuestionController answerQuestionController = loader.getController();
+                answerQuestionController.setQuestionData(data);
             }
         }
         return root;

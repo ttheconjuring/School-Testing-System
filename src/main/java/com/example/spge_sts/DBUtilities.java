@@ -237,8 +237,8 @@ public class DBUtilities {
         return lastTestID + " " + lastTestQuestions;
     }
 
-    protected static boolean createQuestion(String testID, String questionText, String questionType, String answers, String correctAnswer, String points) {
-        String sqlQuery = "INSERT INTO questions (TestID, QuestionText, QuestionType, Answers, CorrectAnswer, Points) VALUES (?, ? ,? ,? ,? ,?);";
+    protected static boolean createQuestion(String testID, String questionText, String questionType, String answers, String correctAnswer, String points, String number) {
+        String sqlQuery = "INSERT INTO questions (TestID, QuestionText, QuestionType, Answers, CorrectAnswer, Points, Number) VALUES (?, ? ,? ,? ,? ,?, ?);";
         boolean result = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
@@ -249,6 +249,7 @@ public class DBUtilities {
             preparedStatement.setString(4, answers);
             preparedStatement.setString(5, correctAnswer);
             preparedStatement.setString(6, points);
+            preparedStatement.setString(7, number);
 
             result = preparedStatement.executeUpdate() > 0;
 
@@ -281,11 +282,13 @@ public class DBUtilities {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 questionData.put("QuestionID", resultSet.getString(1));
+                questionData.put("Number", resultSet.getString(8));
+                questionData.put("Points", resultSet.getString(7));
                 questionData.put("QuestionText", resultSet.getString(3));
                 questionData.put("QuestionType", resultSet.getString(4));
                 questionData.put("Answers", resultSet.getString(5));
                 questionData.put("CorrectAnswer", resultSet.getString(6));
-                questionData.put("Points", resultSet.getString(7));
+
             }
         } catch (SQLException e) {
             e.printStackTrace();

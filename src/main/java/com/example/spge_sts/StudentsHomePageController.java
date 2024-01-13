@@ -28,12 +28,18 @@ public class StudentsHomePageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getButton_log_out().setOnAction(actionEvent -> Utilities.switchTo("Sign-In.fxml", actionEvent));
         getButton_profile().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Account-Information.fxml", DBUtilities.getUserData(Utilities.getCurrenUserID())), actionEvent));
-        getButton_go().setOnAction(actionEvent -> startTest(getTextField_test_code().getText()));
+        getButton_go().setOnAction(actionEvent -> {
+            extractQuestionsData(getTextField_test_code().getText());
+            Utilities.setQuestionIndex(0);
+            Utilities.switchToPreparedScene(Utilities.prepareScene("Answer-Question.fxml", Utilities.getQuestionDataByIndex(Utilities.getQuestionIndex())), actionEvent);
+        });
     }
 
-    private void startTest(String code) {
-        // TODO: add Utilities method to handle the situation
-        loadQuestionDataByID(loadQuestionIDs(code).getFirst());
+    private void extractQuestionsData(String code) {
+        ArrayList<String> ids = loadQuestionIDs(code);
+        ArrayList<Map<String, String>> questionsData = new ArrayList<>();
+        ids.forEach(id -> questionsData.add(loadQuestionDataByID(id)));
+        Utilities.setQuestionsData(questionsData);
     }
 
     private ArrayList<String> loadQuestionIDs (String code) {

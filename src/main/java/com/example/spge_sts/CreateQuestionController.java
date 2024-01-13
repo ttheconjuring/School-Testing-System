@@ -86,7 +86,8 @@ public class CreateQuestionController implements Initializable {
                                                                 getTextField_answer_3().getText() + ", " +
                                                                 getTextField_answer_4().getText(),
                                                         getTextField_trueAnswer().getText(),
-                                                        getTextField_points().getText()
+                                                        getTextField_points().getText(),
+                                                        getLabel_questionNumber().getText().substring(1)
                                                 ), actionEvent);
                                             } else {
                                                 Utilities.showAlert("Invalid Answer #4", "The answer #4 can NOT be empty!", Alert.AlertType.ERROR);
@@ -107,7 +108,8 @@ public class CreateQuestionController implements Initializable {
                                         getQuestionType(),
                                         getTextField_openedAnswer().getText(),
                                         getTextField_trueAnswer().getText(),
-                                        getTextField_points().getText()
+                                        getTextField_points().getText(),
+                                        getLabel_questionNumber().getText().substring(1)
                                 ), actionEvent);
                             }
                         } else {
