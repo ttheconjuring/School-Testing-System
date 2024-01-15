@@ -296,6 +296,27 @@ public class DBUtilities {
         return questionData;
     }
 
+    protected static boolean createResponse(String QuestionID, String UserID, String responseText, String SelectedOptions, String isCorrect, String submissionTimestamp) {
+        String sqlQuery = "INSERT INTO responses (QuestionID, UserID, ResponseText, SelectedOptions, IsCorrect, SubmissionTimestamp) VALUES (?, ? ,? ,? ,? ,?);";
+        boolean result = false;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+
+            preparedStatement.setString(1, QuestionID);
+            preparedStatement.setString(2, UserID);
+            preparedStatement.setString(3, responseText);
+            preparedStatement.setString(4, SelectedOptions);
+            preparedStatement.setString(5, isCorrect);
+            preparedStatement.setString(6, submissionTimestamp);
+
+            result = preparedStatement.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 }
 
 

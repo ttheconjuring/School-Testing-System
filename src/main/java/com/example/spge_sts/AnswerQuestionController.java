@@ -6,6 +6,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -41,9 +44,78 @@ public class AnswerQuestionController implements Initializable {
     @FXML
     private Button button_submit;
 
+    private String questionID;
+    private String questionType;
+    private String correctAnswer;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        getButton_submit().setOnAction(this::proceedToNextQuestion);
+        getButton_submit().setOnAction(actionEvent -> {
+            saveResponse(getResponseData());
+            proceedToNextQuestion(actionEvent);
+        });
+    }
+
+    private void saveResponse(String[] responseData) {
+        boolean flag = DBUtilities.createResponse(responseData[0], responseData[1], responseData[2],
+                responseData[3], responseData[4], responseData[5]);
+        if (!flag) {
+            Utilities.showAlert("Response Error!", "Sorry, something went wrong!", Alert.AlertType.ERROR);
+        }
+    }
+
+    private String[] getResponseData() {
+        String[] responseData = new String[6];
+
+        String responseText;
+        String selectedOptions;
+        if (getQuestionType().equals("closed")) {
+            if (radioButton_answer_1.isSelected()) {
+                responseText = radioButton_answer_1.getText();
+                selectedOptions = "a)";
+            } else if (radioButton_answer_2.isSelected()) {
+                responseText = radioButton_answer_2.getText();
+                selectedOptions = "b)";
+            } else if (radioButton_answer_3.isSelected()) {
+                responseText = radioButton_answer_3.getText();
+                selectedOptions = "c)";
+            } else if (radioButton_answer_4.isSelected()) {
+                responseText = radioButton_answer_4.getText();
+                selectedOptions = "d)";
+            } else {
+                responseText = null;
+                selectedOptions = null;
+            }
+        } else {
+            responseText = getTextField_answer().getText();
+            selectedOptions = null;
+        }
+
+        String isCorrect;
+        if (responseText == null) {
+            isCorrect = "false";
+        } else {
+            if (responseText.equals(getCorrectAnswer())) {
+                isCorrect = "true";
+            } else {
+                isCorrect = "false";
+            }
+        }
+
+        responseData[0] = getQuestionID();
+        responseData[1] = Utilities.getCurrenUserID();
+        responseData[2] = responseText;
+        responseData[3] = selectedOptions;
+        responseData[4] = isCorrect;
+        responseData[5] = getTheSubmissionDateAndTime();
+
+        return responseData;
+    }
+
+    private String getTheSubmissionDateAndTime() {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return currentDateTime.format(formatter);
     }
 
     private void proceedToNextQuestion(ActionEvent actionEvent) {
@@ -96,6 +168,30 @@ public class AnswerQuestionController implements Initializable {
         return this.button_submit;
     }
 
+    private String getQuestionID() {
+        return this.questionID;
+    }
+
+    private void setQuestionID(String questionID) {
+        this.questionID = questionID;
+    }
+
+    private String getQuestionType() {
+        return this.questionType;
+    }
+
+    private void setQuestionType(String questionType) {
+        this.questionType = questionType;
+    }
+
+    private String getCorrectAnswer() {
+        return this.correctAnswer;
+    }
+
+    private void setCorrectAnswer(String correctAnswer) {
+        this.correctAnswer = correctAnswer;
+    }
+
     private void hideRadioButtons() {
         getRadioButton_answer_1().setDisable(true);
         getRadioButton_answer_1().setOpacity(0);
@@ -139,5 +235,9 @@ public class AnswerQuestionController implements Initializable {
             hideRadioButtons();
             getTextField_answer().clear();
         }
+
+        setQuestionID(questionData.get("QuestionID"));
+        setQuestionType(questionData.get("QuestionType"));
+        setCorrectAnswer(questionData.get("CorrectAnswer"));
     }
 }

@@ -2,6 +2,7 @@ Button, TextField {
     -fx-background-radius: 20px;
     -fx-border-color: black;
     -fx-border-radius: 20px;
+    -fx-text-fill: white;
 }
 
 Button {
