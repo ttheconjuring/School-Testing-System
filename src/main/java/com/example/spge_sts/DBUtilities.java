@@ -317,6 +317,21 @@ public class DBUtilities {
         return result;
     }
 
+    protected static boolean testIsFree(String code) {
+        String query = "SELECT status FROM tests WHERE Code = '" + code + "';";
+        boolean flag = false;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                flag = resultSet.getString(1).equals("free");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
 }
 
 

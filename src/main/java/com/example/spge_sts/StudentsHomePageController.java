@@ -2,6 +2,7 @@ package com.example.spge_sts;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -29,9 +30,13 @@ public class StudentsHomePageController implements Initializable {
         getButton_log_out().setOnAction(actionEvent -> Utilities.switchTo("Sign-In.fxml", actionEvent));
         getButton_profile().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Account-Information.fxml", DBUtilities.getUserData(Utilities.getCurrenUserID())), actionEvent));
         getButton_go().setOnAction(actionEvent -> {
-            extractQuestionsData(getTextField_test_code().getText());
-            Utilities.setQuestionIndex(0);
-            Utilities.switchToPreparedScene(Utilities.prepareScene("Answer-Question.fxml", Utilities.getQuestionDataByIndex(Utilities.getQuestionIndex())), actionEvent);
+            if (DBUtilities.testIsFree(getTextField_test_code().getText())) {
+                extractQuestionsData(getTextField_test_code().getText());
+                Utilities.setQuestionIndex(0);
+                Utilities.switchToPreparedScene(Utilities.prepareScene("Answer-Question.fxml", Utilities.getQuestionDataByIndex(Utilities.getQuestionIndex())), actionEvent);
+            } else {
+                Utilities.showAlert("Test Is Locked!", "Sorry, but the test is locked!", Alert.AlertType.ERROR);
+            }
         });
     }
 
@@ -42,7 +47,7 @@ public class StudentsHomePageController implements Initializable {
         Utilities.setQuestionsData(questionsData);
     }
 
-    private ArrayList<String> loadQuestionIDs (String code) {
+    private ArrayList<String> loadQuestionIDs(String code) {
         return DBUtilities.getQuestionIDs(code);
     }
 

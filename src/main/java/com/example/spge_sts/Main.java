@@ -22,7 +22,6 @@ public class Main extends Application {
         stage.show();
     }
 
-    // TODO: check if the test is free or locked, when student tries to start doing test
     // TODO: think of a something like summary board (e.g. if the test is passed of failed, the total point etc.) after the last question submit
 
     public static void main(String[] args) {

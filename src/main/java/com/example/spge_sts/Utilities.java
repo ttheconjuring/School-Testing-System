@@ -21,9 +21,58 @@ public class Utilities {
     private Utilities() {
     }
 
+    // ==========================================================================================
+
+    // 1.TeachersAccountInformationController
+
+    // helps me keep track of the additionally opened stages, so I can close them when it is necessary
+
     private static final List<Stage> openedStages = new ArrayList<>();
 
+    private static List<Stage> getOpenedStages() {
+        return openedStages;
+    }
+
+    protected static void openNewStage(Stage stage) {
+        getOpenedStages().add(stage);
+    }
+
+    protected static void closeLastStage() {
+        if (!getOpenedStages().isEmpty()) {
+            Stage lastStage = getOpenedStages().removeLast();
+            lastStage.close();
+        }
+    }
+
+    // ==========================================================================================
+
+    // 1.AnswerQuestionController
+    // 2.CreateAccountController
+    // 3.CreateQuestionController
+    // 4.CreateTestController
+    // 5.StudentsHomePageController
+    // 6.TeachersAccountInformationController
+    // 7.TeachersHomePageController
+
+    // helps me keep tracked of the logged-in user
+
     private static String currenUserID;
+
+    protected static String getCurrenUserID() {
+        return currenUserID;
+    }
+
+    protected static void setCurrenUserID(String currenID) {
+        Utilities.currenUserID = currenID;
+    }
+
+    // ==========================================================================================
+
+    // 1.AnswerQuestionController
+    // 2.StudentsHomePageController
+
+    // Initially, all that was planned to be in AnswerQuestionController, but it didn't work that way
+    // and I had to move it here, idk man
 
     private static ArrayList<Map<String, String>> questionsData;
 
@@ -47,28 +96,7 @@ public class Utilities {
         Utilities.questionsData = questionsData;
     }
 
-    protected static String getCurrenUserID() {
-        return currenUserID;
-    }
-
-    protected static void setCurrenUserID(String currenID) {
-        Utilities.currenUserID = currenID;
-    }
-
-    private static List<Stage> getOpenedStages() {
-        return openedStages;
-    }
-
-    protected static void openNewStage(Stage stage) {
-        getOpenedStages().add(stage);
-    }
-
-    protected static void closeLastStage() {
-        if (!getOpenedStages().isEmpty()) {
-            Stage lastStage = getOpenedStages().removeLast();
-            lastStage.close();
-        }
-    }
+    // ==========================================================================================
 
     protected static void switchTo(String fxmlFile, ActionEvent actionEvent) {
         try {
