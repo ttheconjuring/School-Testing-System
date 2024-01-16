@@ -22,7 +22,7 @@ public class Main extends Application {
         stage.show();
     }
 
-    // TODO: think of a something like summary board (e.g. if the test is passed of failed, the total point etc.) after the last question submit
+    // TODO: handle results queries
 
     public static void main(String[] args) {
         launch();

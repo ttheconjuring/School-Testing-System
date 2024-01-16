@@ -288,6 +288,7 @@ public class DBUtilities {
                 questionData.put("QuestionType", resultSet.getString(4));
                 questionData.put("Answers", resultSet.getString(5));
                 questionData.put("CorrectAnswer", resultSet.getString(6));
+                questionData.put("TestID", resultSet.getString(2));
 
             }
         } catch (SQLException e) {
@@ -331,6 +332,42 @@ public class DBUtilities {
         }
         return flag;
     }
+
+    protected static String calculatePointsReceivedByStudent(String userId, String testId) {
+        String query = "SELECT SUM(Points) AS TotalPoints FROM responses r INNER JOIN questions q ON r.QuestionID = q.QuestionID INNER JOIN tests t ON q.TestID = t.TestID WHERE r.UserID = " + userId + " AND r.IsCorrect = 'true' AND t.TestID = " + testId + ";";
+        String points = "0";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                if (resultSet.getString(1) != null) {
+                    points = resultSet.getString(1);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return points;
+    }
+
+    protected static String calculateAllPointsOfATest(String testId) {
+        String query = "SELECT SUM(Points) AS MaxPoints FROM questions WHERE TestID = " + testId + ";";
+        String allPoints = "0";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                if (resultSet.getString(1) != null) {
+                    allPoints = resultSet.getString(1);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return allPoints;
+    }
+
+
 
 }
 

@@ -44,8 +44,12 @@ public class AnswerQuestionController implements Initializable {
     private Button button_submit;
 
     private String questionID;
+
     private String questionType;
+
     private String correctAnswer;
+
+    private String testID;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -122,9 +126,14 @@ public class AnswerQuestionController implements Initializable {
         if (Utilities.getQuestionIndex() != Utilities.getQuestionsCount()) {
             Utilities.switchToPreparedScene(Utilities.prepareScene("Answer-Question.fxml", Utilities.getQuestionDataByIndex(Utilities.getQuestionIndex())), actionEvent);
         } else {
-            Utilities.showAlert("Test Complete!", "You have reached the end!", Alert.AlertType.INFORMATION);
+            Utilities.showAlert("Test Complete!", endMessage(), Alert.AlertType.INFORMATION);
             Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent);
         }
+    }
+
+    private String endMessage() {
+        return "Congratulations! You have reached the end!\n" +
+                "Your score is: " + DBUtilities.calculatePointsReceivedByStudent(Utilities.getCurrenUserID(), getTestID()) + "/" + DBUtilities.calculateAllPointsOfATest(getTestID()) +".";
     }
 
     private Label getLabel_questionNumber() {
@@ -191,6 +200,14 @@ public class AnswerQuestionController implements Initializable {
         this.correctAnswer = correctAnswer;
     }
 
+    private String getTestID() {
+        return this.testID;
+    }
+
+    private void setTestID(String testID) {
+        this.testID = testID;
+    }
+
     private void hideRadioButtons() {
         getRadioButton_answer_1().setDisable(true);
         getRadioButton_answer_1().setOpacity(0);
@@ -238,5 +255,6 @@ public class AnswerQuestionController implements Initializable {
         setQuestionID(questionData.get("QuestionID"));
         setQuestionType(questionData.get("QuestionType"));
         setCorrectAnswer(questionData.get("CorrectAnswer"));
+        setTestID(questionData.get("TestID"));
     }
 }
