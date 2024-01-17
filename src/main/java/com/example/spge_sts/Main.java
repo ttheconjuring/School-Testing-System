@@ -22,7 +22,12 @@ public class Main extends Application {
         stage.show();
     }
 
-    // TODO: handle results queries
+    /* TODO:
+        1.Refactor code ***
+        2.Handle the response time ***
+        4.Handle results queries *
+        3.Throw message if test is FAILED or PASSED  **
+         */
 
     public static void main(String[] args) {
         launch();

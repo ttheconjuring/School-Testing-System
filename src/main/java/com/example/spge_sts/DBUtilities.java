@@ -170,8 +170,8 @@ public class DBUtilities {
         return sqlQuery;
     }
 
-    protected static boolean createTest(String testName, String description, String code, String duration, String passingScore, String questions, String dateCreated, String dateUpdated, String creatorUserID, String status) {
-        String sqlQuery = "INSERT INTO tests (TestName, Description, Code, DurationMinutes, PassingScore, Questions, DateCreated, DateUpdated, CreatorUserID, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    protected static boolean createTest(String testName, String description, String code, String responseTime, String passingScore, String questions, String dateCreated, String dateUpdated, String creatorUserID, String status) {
+        String sqlQuery = "INSERT INTO tests (TestName, Description, Code, ResponseTime, PassingScore, Questions, DateCreated, DateUpdated, CreatorUserID, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         boolean result = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
@@ -179,7 +179,7 @@ public class DBUtilities {
             preparedStatement.setString(1, testName);
             preparedStatement.setString(2, description);
             preparedStatement.setString(3, code);
-            preparedStatement.setString(4, duration);
+            preparedStatement.setString(4, responseTime);
             preparedStatement.setString(5, passingScore);
             preparedStatement.setString(6, questions);
             preparedStatement.setString(7, dateCreated);
@@ -289,7 +289,6 @@ public class DBUtilities {
                 questionData.put("Answers", resultSet.getString(5));
                 questionData.put("CorrectAnswer", resultSet.getString(6));
                 questionData.put("TestID", resultSet.getString(2));
-
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -384,6 +383,22 @@ public class DBUtilities {
         return passingScore;
     }
 
+    protected static int getResponseTimeOfTestBy(String TestID) {
+        String query = "SELECT ResponseTime FROM tests WHERE TestID = " + TestID + ";";
+        int responseTime = 1;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                if (resultSet.getString(1) != null) {
+                    responseTime = Integer.parseInt(resultSet.getString(1));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return responseTime;
+    }
 
 }
 

@@ -22,7 +22,7 @@ public class CreateTestController implements Initializable {
     private TextField textField_description;
 
     @FXML
-    private TextField textField_duration;
+    private TextField textField_responseTime;
 
     @FXML
     private TextField textField_code;
@@ -62,7 +62,7 @@ public class CreateTestController implements Initializable {
             if (getTextField_passingScore().getText().isEmpty()) {
                 getTextField_passingScore().setText("0");
             }
-            if (Utilities.isValid(getTextField_duration().getText(), "^(?:[5-9]|[1-5]\\d|60)$")) {
+            if (Utilities.isValid(getTextField_responseTime().getText(), "^[1-5]$")) {
                 if (Utilities.isValid(getTextField_code().getText(), ValidationRegexes.CODE.getRegex())) {
                     if (Utilities.isValid(getTextField_questions().getText(), "^\\b(?:[1-9]|10)\\b$")) {
                         if (Utilities.isValid(getTextField_status().getText(), "^(free|locked)$")) {
@@ -70,11 +70,11 @@ public class CreateTestController implements Initializable {
                                     getTextField_testName().getText(),
                                     getTextField_description().getText(),
                                     getTextField_code().getText(),
-                                    getTextField_duration().getText(),
+                                    getTextField_responseTime().getText(),
                                     getTextField_passingScore().getText(),
                                     getTextField_questions().getText(),
                                     getTheCreationDateAndTime(),
-                                    getTheUpdatedDateAndTime(Integer.parseInt(getTextField_duration().getText())),
+                                    getTheUpdatedDateAndTime(Integer.parseInt(getTextField_responseTime().getText())),
                                     Utilities.getCurrenUserID(),
                                     getTextField_status().getText()), actionEvent);
                         } else {
@@ -90,8 +90,8 @@ public class CreateTestController implements Initializable {
                     getTextField_code().clear();
                 }
             } else {
-                Utilities.showAlert("Invalid Duration!", "The duration must be a number between 5 and 60 (minutes)!", Alert.AlertType.ERROR);
-                getTextField_duration().clear();
+                Utilities.showAlert("Invalid Response Time!", "The response time must be a number between 1 and 5 (minutes)!", Alert.AlertType.ERROR);
+                getTextField_responseTime().clear();
             }
 
         }
@@ -137,14 +137,14 @@ public class CreateTestController implements Initializable {
 
     private boolean thereAreEmptyGaps() {
         return getTextField_testName().getText().isEmpty() ||
-                getTextField_duration().getText().isEmpty() || getTextField_code().getText().isEmpty() ||
+                getTextField_responseTime().getText().isEmpty() || getTextField_code().getText().isEmpty() ||
                 getTextField_questions().getText().isEmpty() || getTextField_status().getText().isEmpty();
     }
 
     private void clearFields() {
         getTextField_testName().clear();
         getTextField_description().clear();
-        getTextField_duration().clear();
+        getTextField_responseTime().clear();
         getTextField_code().clear();
         getTextField_questions().clear();
     }
@@ -157,8 +157,8 @@ public class CreateTestController implements Initializable {
         return this.textField_description;
     }
 
-    private TextField getTextField_duration() {
-        return this.textField_duration;
+    private TextField getTextField_responseTime() {
+        return this.textField_responseTime;
     }
 
     private TextField getTextField_code() {

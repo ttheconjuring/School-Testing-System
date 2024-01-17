@@ -16,6 +16,10 @@ import java.util.ResourceBundle;
 
 public class AnswerQuestionController implements Initializable {
 
+    // ================================================== \\
+
+    /*Visual elements*/
+
     @FXML
     private Label label_questionNumber;
 
@@ -43,6 +47,11 @@ public class AnswerQuestionController implements Initializable {
     @FXML
     private Button button_submit;
 
+    // ================================================== \\
+
+    /*Variables that store information I need to handle some
+     * specific operations/cases and send queries as well*/
+
     private String questionID;
 
     private String questionType;
@@ -51,12 +60,34 @@ public class AnswerQuestionController implements Initializable {
 
     private String testID;
 
+    // ================================================== \\
+
+    /* Variables that helps me to change the questions automatically,
+    after the response time expires and keep track of how much time
+    left before this event
+     */
+    private boolean submitButtonTriggered = false;
+
+    // ================================================== \\
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        setTimeForResponse(10); // this shit executes before the setQuestionData() and CANNOT get the the Response Time on time
         getButton_submit().setOnAction(actionEvent -> {
+            setSubmitButtonTriggered();
             saveResponse(getResponseData());
             proceedToNextQuestion(actionEvent);
         });
+    }
+
+    private void setTimeForResponse(int seconds) {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(seconds), event -> {
+            if (!isSubmitButtonTriggered()) {
+                getButton_submit().fire();
+            }
+        }));
+        timeline.setCycleCount(1);
+        timeline.play();
     }
 
     private void saveResponse(String[] responseData) {
@@ -126,7 +157,7 @@ public class AnswerQuestionController implements Initializable {
         if (Utilities.getQuestionIndex() != Utilities.getQuestionsCount()) {
             Utilities.switchToPreparedScene(Utilities.prepareScene("Answer-Question.fxml", Utilities.getQuestionDataByIndex(Utilities.getQuestionIndex())), actionEvent);
         } else {
-            Utilities.showAlert("Test Complete!", endMessage(), Alert.AlertType.INFORMATION);
+            // Utilities.showAlert("Test Complete!", endMessage(), Alert.AlertType.INFORMATION);
             Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent);
         }
     }
@@ -144,6 +175,56 @@ public class AnswerQuestionController implements Initializable {
         message.append("Your result: ").append(pointsReceived).append("/").append(totalPoints).append("\n");
         message.append("Passing Score: ").append(passingScore);
         return message.toString();
+    }
+
+    private void hideRadioButtons() {
+        getRadioButton_answer_1().setDisable(true);
+        getRadioButton_answer_1().setOpacity(0);
+        getRadioButton_answer_2().setDisable(true);
+        getRadioButton_answer_2().setOpacity(0);
+        getRadioButton_answer_3().setDisable(true);
+        getRadioButton_answer_3().setOpacity(0);
+        getRadioButton_answer_4().setDisable(true);
+        getRadioButton_answer_4().setOpacity(0);
+
+        getTextField_answer().setDisable(false);
+        getTextField_answer().setOpacity(1);
+    }
+
+    private void hideOpenAnswer() {
+        getRadioButton_answer_1().setDisable(false);
+        getRadioButton_answer_1().setOpacity(1);
+        getRadioButton_answer_2().setDisable(false);
+        getRadioButton_answer_2().setOpacity(1);
+        getRadioButton_answer_3().setDisable(false);
+        getRadioButton_answer_3().setOpacity(1);
+        getRadioButton_answer_4().setDisable(false);
+        getRadioButton_answer_4().setOpacity(1);
+
+        getTextField_answer().setDisable(true);
+        getTextField_answer().setOpacity(0);
+    }
+
+    protected void setQuestionData(Map<String, String> questionData) {
+        getLabel_questionNumber().setText("#" + questionData.get("Number"));
+        getLabel_points().setText("p." + questionData.get("Points"));
+        getLabel_question().setText(questionData.get("QuestionText"));
+        if (questionData.get("QuestionType").equals("closed")) {
+            hideOpenAnswer();
+            String[] answers = questionData.get("Answers").split(", ");
+            getRadioButton_answer_1().setText(answers[0]);
+            getRadioButton_answer_2().setText(answers[1]);
+            getRadioButton_answer_3().setText(answers[2]);
+            getRadioButton_answer_4().setText(answers[3]);
+        } else {
+            hideRadioButtons();
+            getTextField_answer().clear();
+        }
+
+        setQuestionID(questionData.get("QuestionID"));
+        setQuestionType(questionData.get("QuestionType"));
+        setCorrectAnswer(questionData.get("CorrectAnswer"));
+        setTestID(questionData.get("TestID"));
     }
 
     private Label getLabel_questionNumber() {
@@ -214,53 +295,12 @@ public class AnswerQuestionController implements Initializable {
         this.testID = testID;
     }
 
-    private void hideRadioButtons() {
-        getRadioButton_answer_1().setDisable(true);
-        getRadioButton_answer_1().setOpacity(0);
-        getRadioButton_answer_2().setDisable(true);
-        getRadioButton_answer_2().setOpacity(0);
-        getRadioButton_answer_3().setDisable(true);
-        getRadioButton_answer_3().setOpacity(0);
-        getRadioButton_answer_4().setDisable(true);
-        getRadioButton_answer_4().setOpacity(0);
-
-        getTextField_answer().setDisable(false);
-        getTextField_answer().setOpacity(1);
+    private boolean isSubmitButtonTriggered() {
+        return this.submitButtonTriggered;
     }
 
-    private void hideOpenAnswer() {
-        getRadioButton_answer_1().setDisable(false);
-        getRadioButton_answer_1().setOpacity(1);
-        getRadioButton_answer_2().setDisable(false);
-        getRadioButton_answer_2().setOpacity(1);
-        getRadioButton_answer_3().setDisable(false);
-        getRadioButton_answer_3().setOpacity(1);
-        getRadioButton_answer_4().setDisable(false);
-        getRadioButton_answer_4().setOpacity(1);
-
-        getTextField_answer().setDisable(true);
-        getTextField_answer().setOpacity(0);
+    private void setSubmitButtonTriggered() {
+        this.submitButtonTriggered = true;
     }
 
-    protected void setQuestionData(Map<String, String> questionData) {
-        getLabel_questionNumber().setText("#" + questionData.get("Number"));
-        getLabel_points().setText("p." + questionData.get("Points"));
-        getLabel_question().setText(questionData.get("QuestionText"));
-        if (questionData.get("QuestionType").equals("closed")) {
-            hideOpenAnswer();
-            String[] answers = questionData.get("Answers").split(", ");
-            getRadioButton_answer_1().setText(answers[0]);
-            getRadioButton_answer_2().setText(answers[1]);
-            getRadioButton_answer_3().setText(answers[2]);
-            getRadioButton_answer_4().setText(answers[3]);
-        } else {
-            hideRadioButtons();
-            getTextField_answer().clear();
-        }
-
-        setQuestionID(questionData.get("QuestionID"));
-        setQuestionType(questionData.get("QuestionType"));
-        setCorrectAnswer(questionData.get("CorrectAnswer"));
-        setTestID(questionData.get("TestID"));
-    }
 }

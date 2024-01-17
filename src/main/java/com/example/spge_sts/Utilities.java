@@ -98,6 +98,10 @@ public class Utilities {
 
     // ==========================================================================================
 
+    // YOU CAN CREATE VARIABLE responseTime WHEN TEST IS CREATED AND USE IT IN AnswerQuestionController ...
+
+    // ==========================================================================================
+
     protected static void switchTo(String fxmlFile, ActionEvent actionEvent) {
         try {
             Parent root = FXMLLoader.load(Objects.requireNonNull(Utilities.class.getResource(fxmlFile)));
