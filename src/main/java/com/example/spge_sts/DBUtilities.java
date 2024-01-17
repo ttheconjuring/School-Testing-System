@@ -333,15 +333,15 @@ public class DBUtilities {
         return flag;
     }
 
-    protected static String calculatePointsReceivedByStudent(String userId, String testId) {
+    protected static int calculatePointsReceivedByStudent(String userId, String testId) {
         String query = "SELECT SUM(Points) AS TotalPoints FROM responses r INNER JOIN questions q ON r.QuestionID = q.QuestionID INNER JOIN tests t ON q.TestID = t.TestID WHERE r.UserID = " + userId + " AND r.IsCorrect = 'true' AND t.TestID = " + testId + ";";
-        String points = "0";
+        int points = 0;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 if (resultSet.getString(1) != null) {
-                    points = resultSet.getString(1);
+                    points = Integer.parseInt(resultSet.getString(1));
                 }
             }
         } catch (SQLException e) {
@@ -350,15 +350,15 @@ public class DBUtilities {
         return points;
     }
 
-    protected static String calculateAllPointsOfATest(String testId) {
+    protected static int calculateAllPointsOfATest(String testId) {
         String query = "SELECT SUM(Points) AS MaxPoints FROM questions WHERE TestID = " + testId + ";";
-        String allPoints = "0";
+        int allPoints = 0;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 if (resultSet.getString(1) != null) {
-                    allPoints = resultSet.getString(1);
+                    allPoints = Integer.parseInt(resultSet.getString(1));
                 }
             }
         } catch (SQLException e) {
@@ -367,6 +367,22 @@ public class DBUtilities {
         return allPoints;
     }
 
+    protected static int getPassingScoreOfTestBy(String TestID) {
+        String query = "SELECT PassingScore FROM tests WHERE TestID = " + TestID + ";";
+        int passingScore = 0;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                if (resultSet.getString(1) != null) {
+                    passingScore = Integer.parseInt(resultSet.getString(1));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return passingScore;
+    }
 
 
 }

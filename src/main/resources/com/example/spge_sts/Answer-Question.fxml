@@ -10,86 +10,112 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="600.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.AnswerQuestionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0"
+            prefWidth="600.0" style="-fx-background-color: #89CC34; -fx-border-color: black;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.spge_sts.AnswerQuestionController">
     <stylesheets>
-        <URL value="@answer-question.css" />
+        <URL value="@answer-question.css"/>
     </stylesheets>
-    <AnchorPane layoutX="42.0" layoutY="110.0" prefHeight="294.0" prefWidth="521.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" styleClass="shadow">
-        <Label fx:id="label_questionNumber" alignment="CENTER" layoutX="46.0" layoutY="25.0" prefHeight="40.0" prefWidth="75.0" styleClass="shadow" text="#?" textFill="WHITE">
+    <AnchorPane layoutX="42.0" layoutY="110.0" prefHeight="294.0" prefWidth="521.0"
+                style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;"
+                styleClass="shadow">
+        <Label fx:id="label_questionNumber" alignment="CENTER" layoutX="46.0" layoutY="25.0" prefHeight="40.0"
+               prefWidth="75.0" styleClass="shadow" text="#?" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
-        <TextField fx:id="textField_answer" disable="true" layoutX="46.0" layoutY="184.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="41.0" prefWidth="430.0" styleClass="shadow">
+        <TextField fx:id="textField_answer" disable="true" layoutX="46.0" layoutY="184.0" maxHeight="-Infinity"
+                   maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="41.0"
+                   prefWidth="430.0" styleClass="shadow">
             <font>
-                <Font name="Arial Black" size="14.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
             <padding>
-                <Insets left="15.0" right="15.0" />
+                <Insets left="15.0" right="15.0"/>
             </padding>
         </TextField>
-        <Label fx:id="label_question" alignment="CENTER" layoutX="46.0" layoutY="87.0" prefHeight="40.0" prefWidth="430.0" styleClass="shadow" text="(question)" textFill="WHITE">
+        <Label fx:id="label_question" alignment="CENTER" layoutX="46.0" layoutY="87.0" prefHeight="40.0"
+               prefWidth="430.0" styleClass="shadow" text="(question)" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
-        <Label fx:id="label_points" alignment="CENTER" layoutX="401.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="75.0" styleClass="shadow" text="(p.)" textFill="WHITE">
+        <Label fx:id="label_points" alignment="CENTER" layoutX="401.0" layoutY="25.0" maxHeight="-Infinity"
+               maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="75.0"
+               styleClass="shadow" text="(p.)" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
-        <RadioButton fx:id="radioButton_answer_1" layoutX="46.0" layoutY="164.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="shadow" text="RadioButton" textFill="WHITE">
+        <RadioButton fx:id="radioButton_answer_1" layoutX="46.0" layoutY="164.0" maxHeight="-Infinity"
+                     maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                     prefHeight="40.0" prefWidth="200.0" styleClass="shadow" text="RadioButton" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
             <toggleGroup>
-                <ToggleGroup fx:id="answers" />
+                <ToggleGroup fx:id="answers"/>
             </toggleGroup>
             <padding>
-                <Insets left="10.0" />
+                <Insets left="10.0"/>
             </padding>
         </RadioButton>
-        <RadioButton fx:id="radioButton_answer_3" layoutX="46.0" layoutY="225.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="shadow" text="RadioButton" textFill="WHITE" toggleGroup="$answers">
+        <RadioButton fx:id="radioButton_answer_3" layoutX="46.0" layoutY="225.0" maxHeight="-Infinity"
+                     maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                     prefHeight="40.0" prefWidth="200.0" styleClass="shadow" text="RadioButton" textFill="WHITE"
+                     toggleGroup="$answers">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
             <padding>
-                <Insets left="10.0" />
+                <Insets left="10.0"/>
             </padding>
         </RadioButton>
-        <RadioButton fx:id="radioButton_answer_2" layoutX="276.0" layoutY="164.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="shadow" text="RadioButton" textFill="WHITE" toggleGroup="$answers">
+        <RadioButton fx:id="radioButton_answer_2" layoutX="276.0" layoutY="164.0" maxHeight="-Infinity"
+                     maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                     prefHeight="40.0" prefWidth="200.0" styleClass="shadow" text="RadioButton" textFill="WHITE"
+                     toggleGroup="$answers">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
             <padding>
-                <Insets left="10.0" />
+                <Insets left="10.0"/>
             </padding>
         </RadioButton>
-        <RadioButton fx:id="radioButton_answer_4" layoutX="276.0" layoutY="225.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="shadow" text="RadioButton" textFill="WHITE" toggleGroup="$answers">
+        <RadioButton fx:id="radioButton_answer_4" layoutX="276.0" layoutY="225.0" maxHeight="-Infinity"
+                     maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false"
+                     prefHeight="40.0" prefWidth="200.0" styleClass="shadow" text="RadioButton" textFill="WHITE"
+                     toggleGroup="$answers">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
             <padding>
-                <Insets left="10.0" />
+                <Insets left="10.0"/>
             </padding>
         </RadioButton>
     </AnchorPane>
-    <Button fx:id="button_submit" layoutX="252.0" layoutY="446.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="100.0" styleClass="shadow" text="Submit" textFill="WHITE">
+    <Button fx:id="button_submit" layoutX="252.0" layoutY="446.0" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="100.0" styleClass="shadow"
+            text="Submit" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="18.0" />
+            <Font name="Arial Black" size="18.0"/>
         </font>
     </Button>
     <AnchorPane layoutY="519.0" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #8A41AC;">
-        <Label alignment="CENTER" prefHeight="50.0" prefWidth="600.0" style="-fx-border-color: black;" text="Copyright 2024 | All rights reserved." textFill="WHITE">
+        <Label alignment="CENTER" prefHeight="50.0" prefWidth="600.0" style="-fx-border-color: black;"
+               text="Copyright 2024 | All rights reserved." textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
     </AnchorPane>
     <AnchorPane prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label alignment="CENTER" layoutX="3.0" layoutY="2.0" prefHeight="50.0" prefWidth="594.0" text="Create Question" textFill="WHITE">
+        <Label alignment="CENTER" layoutX="3.0" layoutY="2.0" prefHeight="50.0" prefWidth="594.0" text="Create Question"
+               textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="18.0"/>
             </font>
         </Label>
     </AnchorPane>

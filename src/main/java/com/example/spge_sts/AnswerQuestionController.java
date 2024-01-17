@@ -1,9 +1,12 @@
 package com.example.spge_sts;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -21,9 +24,6 @@ public class AnswerQuestionController implements Initializable {
 
     @FXML
     private Label label_question;
-
-    @FXML
-    private ToggleGroup answers;
 
     @FXML
     private RadioButton radioButton_answer_1;
@@ -132,8 +132,18 @@ public class AnswerQuestionController implements Initializable {
     }
 
     private String endMessage() {
-        return "Congratulations! You have reached the end!\n" +
-                "Your score is: " + DBUtilities.calculatePointsReceivedByStudent(Utilities.getCurrenUserID(), getTestID()) + "/" + DBUtilities.calculateAllPointsOfATest(getTestID()) +".";
+        StringBuilder message = new StringBuilder();
+        int pointsReceived = DBUtilities.calculatePointsReceivedByStudent(Utilities.getCurrenUserID(), getTestID());
+        int totalPoints = DBUtilities.calculateAllPointsOfATest(getTestID());
+        int passingScore = DBUtilities.getPassingScoreOfTestBy(getTestID());
+        if (pointsReceived >= passingScore) {
+            message.append("Congratulations! You have SUCCESSFULLY competed the test!").append("\n");
+        } else {
+            message.append("Sorry, you have FAILED your test.").append("\n");
+        }
+        message.append("Your result: ").append(pointsReceived).append("/").append(totalPoints).append("\n");
+        message.append("Passing Score: ").append(passingScore);
+        return message.toString();
     }
 
     private Label getLabel_questionNumber() {
@@ -146,10 +156,6 @@ public class AnswerQuestionController implements Initializable {
 
     private Label getLabel_question() {
         return this.label_question;
-    }
-
-    private ToggleGroup getAnswers() {
-        return this.answers;
     }
 
     private RadioButton getRadioButton_answer_1() {
