@@ -11,11 +11,14 @@ import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class TeachersAccountInformationController implements Initializable {
+
+    // ================================================== \\
+
+    /* visual elements */
 
     @FXML
     private TextField textField_username;
@@ -62,8 +65,14 @@ public class TeachersAccountInformationController implements Initializable {
     @FXML
     private Button button_back;
 
-    private String ID;
+    // ================================================== \\
+
+    /* Variables I need to perform queries and logical operations*/
+
+    private String ID; // THIS IS NOT ALWAYS CurrentUseID !!!
     private String userRole;
+
+    // ================================================== \\
 
     protected void setData(Map<String, String> data) {
         setTextField_username(data.get("Username"));
@@ -71,27 +80,33 @@ public class TeachersAccountInformationController implements Initializable {
         setTextField_lastName(data.get("LastName"));
         setTextField_email(data.get("Email"));
         setTextField_phone(data.get("Phone"));
-        setID(data.get("UserID"));
+        setUserID(data.get("UserID"));
         setUserRole(data.get("UserRole"));
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        getButton_back().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", getID()), actionEvent));
-
+        // ================================ \\
+        /* transition*/
+        getButton_back().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", getUserID()), actionEvent));
+        // ================================ \\
+        /* core functionality*/
         getButton_delete().setOnAction(this::confirmAccountDeletion);
         getButton_edit().setOnAction(actionEvent -> enterEditMode());
-
-        getButton_cancel().setOnAction(this::leaveEditMode);
         getButton_save().setOnAction(actionEvent -> {
             saveChanges(getEditableTextField(), actionEvent);
         });
-
+        // ================================ \\
+        /* transition */
+        getButton_cancel().setOnAction(this::leaveEditMode);
+        // ================================ \\
+        /* visual preparation*/
         getButton_edit_username().setOnAction(actionEvent -> edit(getTextField_username()));
         getButton_edit_firstName().setOnAction(actionEvent -> edit(getTextField_firstName()));
         getButton_edit_lastName().setOnAction(actionEvent -> edit(getTextField_lastName()));
         getButton_edit_email().setOnAction(actionEvent -> edit(getTextField_email()));
         getButton_edit_phone().setOnAction(actionEvent -> edit(getTextField_phone()));
+        // ================================ \\
     }
 
     private void saveChanges(TextField textField, ActionEvent actionEvent) {
@@ -156,7 +171,7 @@ public class TeachersAccountInformationController implements Initializable {
     }
 
     private void update(String string) {
-        if (DBUtilities.updateRecord(string, getID())) {
+        if (DBUtilities.updateUserData(string, getUserID())) {
             Utilities.showAlert("Successful Update", "You have successfully updated your account data!", Alert.AlertType.INFORMATION);
         } else {
             Utilities.showAlert("Update Failed", "Something went wrong! We couldn't update your information!", Alert.AlertType.ERROR);
@@ -206,10 +221,10 @@ public class TeachersAccountInformationController implements Initializable {
     }
 
     private void deleteAccount(ActionEvent actionEvent) {
-        if (DBUtilities.deleteRecord(getID())) {
+        if (DBUtilities.deleteUser(getUserID())) {
             Utilities.showAlert("Account Deletion", "You successfully deleted your account!", Alert.AlertType.INFORMATION);
             if (getUserRole().equals("teacher")) {
-                if (!Utilities.getCurrenUserID().equals(getID())) {
+                if (!Utilities.getCurrenUserID().equals(getUserID())) {
                     Utilities.closeLastStage();
                     Utilities.closeLastStage();
                 } else {
@@ -261,7 +276,7 @@ public class TeachersAccountInformationController implements Initializable {
     }
 
     private void leaveEditMode(ActionEvent actionEvent) {
-        Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Account-Information.fxml", DBUtilities.getUserData(getID())), actionEvent);
+        Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Account-Information.fxml", DBUtilities.getUserData(getUserID())), actionEvent);
     }
 
     private String getTextOf(TextField textField) {
@@ -348,11 +363,11 @@ public class TeachersAccountInformationController implements Initializable {
         return this.button_back;
     }
 
-    private String getID() {
+    private String getUserID() {
         return this.ID;
     }
 
-    private void setID(String ID) {
+    private void setUserID(String ID) {
         this.ID = ID;
     }
 

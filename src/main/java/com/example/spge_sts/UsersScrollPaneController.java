@@ -13,6 +13,10 @@ import java.util.ResourceBundle;
 
 public class UsersScrollPaneController implements Initializable {
 
+    // ================================================== \\
+
+    /* visual elements */
+
     @FXML
     private ScrollPane scrollPane_users;
 
@@ -22,10 +26,13 @@ public class UsersScrollPaneController implements Initializable {
     @FXML
     private Button button_search;
 
+    // ================================================== \\
+
     private int recordsCount;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /* core functionality */
         getButton_search().setOnAction(actionEvent -> search(getTextField_search().getText()));
     }
 
@@ -57,17 +64,17 @@ public class UsersScrollPaneController implements Initializable {
         }
     }
 
+    protected void setRecordsCount(int recordsCount) {
+        this.recordsCount = recordsCount;
+        loadAllAccountTemplates(getRecordsCount());
+    }
+
     private int getRecordsCount() {
         return this.recordsCount;
     }
 
     private ScrollPane getScrollPane_users() {
         return this.scrollPane_users;
-    }
-
-    protected void setRecordsCount(int recordsCount) {
-        this.recordsCount = recordsCount;
-        loadAllAccountTemplates(getRecordsCount());
     }
 
     private TextField getTextField_search() {

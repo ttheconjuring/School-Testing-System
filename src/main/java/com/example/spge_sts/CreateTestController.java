@@ -15,6 +15,10 @@ import java.util.ResourceBundle;
 
 public class CreateTestController implements Initializable {
 
+    // ================================================== \\
+
+    /*Visual elements*/
+
     @FXML
     private TextField textField_testName;
 
@@ -45,11 +49,20 @@ public class CreateTestController implements Initializable {
     @FXML
     private Button button_cancel;
 
+    // ================================================== \\
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // ============================== \\
+        /* core functionality */
         getButton_next().setOnAction(this::createTest);
+        // ============================== \\
+        /* transition */
         getButton_cancel().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent));
+        // ============================== \\
+        /* side functionality*/
         getButton_generate().setOnAction(actionEven -> generateCode());
+        // ============================== \\
     }
 
     private void createTest(ActionEvent actionEvent) {
@@ -74,7 +87,7 @@ public class CreateTestController implements Initializable {
                                     getTextField_passingScore().getText(),
                                     getTextField_questions().getText(),
                                     getTheCreationDateAndTime(),
-                                    getTheUpdatedDateAndTime(Integer.parseInt(getTextField_responseTime().getText())),
+                                    getTheUpdatedDateAndTime(Integer.parseInt(getTextField_responseTime().getText()) * Integer.parseInt(getTextField_questions().getText())),
                                     Utilities.getCurrenUserID(),
                                     getTextField_status().getText()), actionEvent);
                         } else {
@@ -97,6 +110,16 @@ public class CreateTestController implements Initializable {
         }
     }
 
+    private void response(boolean flag, ActionEvent actionEvent) {
+        if (flag) {
+            Utilities.showAlert("Done!", "You successfully created test! Please, continue with Question Part.", Alert.AlertType.CONFIRMATION);
+            Utilities.switchToPreparedScene(Utilities.prepareScene("Create-Question.fxml", "1"), actionEvent);
+        } else {
+            Utilities.showAlert("Error!", "Sorry, but you probably have invalid data", Alert.AlertType.ERROR);
+            clearFields();
+        }
+    }
+
     private void generateCode() {
         SecureRandom random = new SecureRandom();
         String lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
@@ -112,14 +135,10 @@ public class CreateTestController implements Initializable {
         getTextField_code().setText(generatedString);
     }
 
-    private void response(boolean flag, ActionEvent actionEvent) {
-        if (flag) {
-            Utilities.showAlert("Done!", "You successfully created test! Please, continue with Question Part.", Alert.AlertType.CONFIRMATION);
-            Utilities.switchToPreparedScene(Utilities.prepareScene("Create-Question.fxml", "1"), actionEvent);
-        } else {
-            Utilities.showAlert("Error!", "Sorry, but you probably have invalid data", Alert.AlertType.ERROR);
-            clearFields();
-        }
+    private boolean thereAreEmptyGaps() {
+        return getTextField_testName().getText().isEmpty() ||
+                getTextField_responseTime().getText().isEmpty() || getTextField_code().getText().isEmpty() ||
+                getTextField_questions().getText().isEmpty() || getTextField_status().getText().isEmpty();
     }
 
     private String getTheCreationDateAndTime() {
@@ -133,12 +152,6 @@ public class CreateTestController implements Initializable {
         LocalDateTime futureDateTime = currentDateTime.plusMinutes(minutesToAdd);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return futureDateTime.format(formatter);
-    }
-
-    private boolean thereAreEmptyGaps() {
-        return getTextField_testName().getText().isEmpty() ||
-                getTextField_responseTime().getText().isEmpty() || getTextField_code().getText().isEmpty() ||
-                getTextField_questions().getText().isEmpty() || getTextField_status().getText().isEmpty();
     }
 
     private void clearFields() {

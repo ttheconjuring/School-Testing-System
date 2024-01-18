@@ -16,6 +16,10 @@ import java.util.ResourceBundle;
 
 public class TeachersHomePageController implements Initializable {
 
+    // ================================================== \\
+
+    /* visual elements */
+
     @FXML
     private Button button_log_out;
 
@@ -34,15 +38,20 @@ public class TeachersHomePageController implements Initializable {
     @FXML
     private Button button_create_account;
 
+    // ================================================== \\
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /* core functionality */
         getButton_log_out().setOnAction(actionEvent -> Utilities.switchTo("Sign-In.fxml", actionEvent));
         getButton_create_account().setOnAction(actionEvent -> Utilities.switchTo("Create-Account.fxml", actionEvent));
-        // getButton_create_account().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Create-Account.fxml", this.getID())));
         getButton_profile().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Account-Information.fxml", DBUtilities.getUserData(Utilities.getCurrenUserID())), actionEvent));
-        // getButton_profile().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Teachers-Account-Information.fxml", DBUtilities.getUserData(getID()))));
         getButton_users().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Users-ScrollPane.fxml", "-1")));
         getButton_create_test().setOnAction(actionEvent -> Utilities.switchTo("Create-Test.fxml", actionEvent));
+    }
+
+    protected void setButton_profile(String username) {
+        getButton_profile().setText("Hello @" + username + "!");
     }
 
     private Button getButton_log_out() {
@@ -67,10 +76,6 @@ public class TeachersHomePageController implements Initializable {
 
     private Button getButton_create_account() {
         return this.button_create_account;
-    }
-
-    protected void setButton_profile(String username) {
-        getButton_profile().setText("Hello @" + username + "!");
     }
 
 }

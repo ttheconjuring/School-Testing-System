@@ -13,6 +13,10 @@ import java.util.ResourceBundle;
 
 public class SignInController implements Initializable {
 
+    // ================================================== \\
+
+    /* visual elements */
+
     @FXML
     private TextField textField_username;
 
@@ -22,9 +26,14 @@ public class SignInController implements Initializable {
     @FXML
     private Button button_sign_in;
 
+    // ================================================== \\
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // ======================================== \\
+        /* core functionality */
         getButton_sign_in().setOnAction(this::singIn);
+        // ======================================== \\
     }
 
     private void singIn(ActionEvent actionEvent) {

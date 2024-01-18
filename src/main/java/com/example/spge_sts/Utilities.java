@@ -23,9 +23,9 @@ public class Utilities {
 
     // ==========================================================================================
 
-    // 1.TeachersAccountInformationController
+    /* 1.TeachersAccountInformationController
 
-    // helps me keep track of the additionally opened stages, so I can close them when it is necessary
+        helps me keep track of the additionally opened stages, so I can close them when it is necessary */
 
     private static final List<Stage> openedStages = new ArrayList<>();
 
@@ -46,15 +46,15 @@ public class Utilities {
 
     // ==========================================================================================
 
-    // 1.AnswerQuestionController
-    // 2.CreateAccountController
-    // 3.CreateQuestionController
-    // 4.CreateTestController
-    // 5.StudentsHomePageController
-    // 6.TeachersAccountInformationController
-    // 7.TeachersHomePageController
+    /* 1.AnswerQuestionController
+       2.CreateAccountController
+       3.CreateQuestionController
+       4.CreateTestController
+       5.StudentsHomePageController
+       6.TeachersAccountInformationController
+       7.TeachersHomePageController
 
-    // helps me keep tracked of the logged-in user
+        helps me keep tracked of the logged-in user */
 
     private static String currenUserID;
 
@@ -68,11 +68,11 @@ public class Utilities {
 
     // ==========================================================================================
 
-    // 1.AnswerQuestionController
-    // 2.StudentsHomePageController
+    /* 1.AnswerQuestionController
+       2.StudentsHomePageController
 
-    // Initially, all that was planned to be in AnswerQuestionController, but it didn't work that way
-    // and I had to move it here, idk man
+        Initially, all that was planned to be in AnswerQuestionController, but it didn't work that way
+        and I had to move it here, idk man */
 
     private static ArrayList<Map<String, String>> questionsData;
 
@@ -98,7 +98,16 @@ public class Utilities {
 
     // ==========================================================================================
 
-    // YOU CAN CREATE VARIABLE responseTime WHEN TEST IS CREATED AND USE IT IN AnswerQuestionController ...
+   /*   This variable helps to automatically proceed to the next question, if the student has not
+   *    submitted yet. It is here, because I had trouble to put it somewhere else.*/
+
+    private static int responseTimeInMinutes;
+
+    protected static int getResponseTimeInMinutes() {
+        return responseTimeInMinutes;
+    }
+
+    protected static void setResponseTimeInMinutes(int responseTimeInMinutes) {Utilities.responseTimeInMinutes = responseTimeInMinutes;}
 
     // ==========================================================================================
 

@@ -10,6 +10,10 @@ import java.util.ResourceBundle;
 
 public class CreateQuestionController implements Initializable {
 
+    // ================================================== \\
+
+    /*Visual elements*/
+
     @FXML
     private Label label_questionNumber;
 
@@ -46,15 +50,27 @@ public class CreateQuestionController implements Initializable {
     @FXML
     private ToggleButton toggleButton_closed;
 
-    private String testID;
-    private int questionsCount;
-    private String questionType = "closed";
+    // ================================================== \\
+
+    /*  Variables I need to include in queries or logic operations */
+
+    private String testID; // included in query
+    private int questionsCount; // helps me to create the exact number of questions the test must have
+    private String questionType = "closed"; // included in query
+
+    // ================================================== \\
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // ============================= \\
+        /*  visual preparations */
         getToggleButton_closed().setOnAction(actionEvent -> setClicked(getToggleButton_closed(), getToggleButton_opened()));
         getToggleButton_opened().setOnAction(actionEvent -> setClicked(getToggleButton_opened(), getToggleButton_closed()));
+        // ============================= \\
+        /* core functionality */
         getButton_next().setOnAction(this::saveQuestion);
+        // ============================= \\
     }
 
     private void saveQuestion(ActionEvent actionEvent) {
@@ -141,29 +157,6 @@ public class CreateQuestionController implements Initializable {
         }
     }
 
-    private int getCurrentQuestionNumber() {
-        return Integer.parseInt(getLabel_questionNumber().getText().substring(1));
-    }
-
-    private void clearFields() {
-        getTextField_points().clear();
-        getTextField_question().clear();
-        getTextField_answer_1().clear();
-        getTextField_answer_2().clear();
-        getTextField_answer_3().clear();
-        getTextField_answer_4().clear();
-        getTextField_openedAnswer().clear();
-        getTextField_trueAnswer().clear();
-    }
-
-    private void setClicked(ToggleButton clickedButton, ToggleButton otherButton) {
-        clickedButton.setSelected(true);
-        clickedButton.setOpacity(1);
-        otherButton.setOpacity(0.5);
-        otherButton.setSelected(false);
-        revealTextFields();
-    }
-
     private boolean thereAreEmptyGaps() {
         boolean emptyGaps;
         if (getToggleButton_closed().isSelected()) {
@@ -182,6 +175,17 @@ public class CreateQuestionController implements Initializable {
         return emptyGaps;
     }
 
+    private int getCurrentQuestionNumber() {
+        return Integer.parseInt(getLabel_questionNumber().getText().substring(1));
+    }
+
+    private void setClicked(ToggleButton clickedButton, ToggleButton otherButton) {
+        clickedButton.setSelected(true);
+        clickedButton.setOpacity(1);
+        otherButton.setOpacity(0.5);
+        otherButton.setSelected(false);
+        revealTextFields();
+    }
 
     private void revealTextFields() {
         if (getToggleButton_closed().isSelected()) {
@@ -213,6 +217,24 @@ public class CreateQuestionController implements Initializable {
 
     protected void setQuestionNumber(String number) {
         getLabel_questionNumber().setText("#" + number);
+    }
+
+    private void clearFields() {
+        getTextField_points().clear();
+        getTextField_question().clear();
+        getTextField_answer_1().clear();
+        getTextField_answer_2().clear();
+        getTextField_answer_3().clear();
+        getTextField_answer_4().clear();
+        getTextField_openedAnswer().clear();
+        getTextField_trueAnswer().clear();
+    }
+
+    protected void setData() {
+        String data = DBUtilities.getLastInsertedTestID();
+        String[] dataArray = data.split(" ");
+        setTestID(dataArray[0]);
+        setQuestionsCount(Integer.parseInt(dataArray[1]));
     }
 
     private Label getLabel_questionNumber() {
@@ -277,13 +299,6 @@ public class CreateQuestionController implements Initializable {
 
     private void setQuestionsCount(int questionsCount) {
         this.questionsCount = questionsCount;
-    }
-
-    protected void setData() {
-        String data = DBUtilities.getLastInsertedTestID();
-        String[] dataArray = data.split(" ");
-        setTestID(dataArray[0]);
-        setQuestionsCount(Integer.parseInt(dataArray[1]));
     }
 
     private String getQuestionType() {

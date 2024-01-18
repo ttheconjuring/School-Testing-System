@@ -11,6 +11,10 @@ import java.util.ResourceBundle;
 
 public class StudentsAccountInformationController implements Initializable {
 
+    // ================================================== \\
+
+    /*Visual elements*/
+
     @FXML
     private Label label_username;
 
@@ -29,20 +33,22 @@ public class StudentsAccountInformationController implements Initializable {
     @FXML
     private Button button_back;
 
-    private String ID;
-
-    protected void setData(Map<String, String> data) {
-        this.setLabel_username(data.get("Username"));
-        this.setLabel_firstName(data.get("FirstName"));
-        this.setLabel_lastName(data.get("LastName"));
-        this.setLabel_email(data.get("Email"));
-        this.setLabel_phone(data.get("Phone"));
-        this.setID(data.get("UserID"));
-    }
+    // ================================================== \\
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        getButton_back().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", this.getID()), actionEvent));
+        // ============================== \\
+        /* core functionality */
+        getButton_back().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent));
+        // ============================== \\
+    }
+
+    protected void setData(Map<String, String> data) {
+        getLabel_username().setText("Username: " + data.get("Username"));
+        getLabel_firstName().setText("First Name: " + data.get("FirstName"));
+        getLabel_lastName().setText("Last Name: " + data.get("LastName"));
+        getLabel_email().setText("Email: " + data.get("Email"));
+        getLabel_phone().setText("Phone: " + data.get("Phone"));
     }
 
     private Label getLabel_username() {
@@ -67,34 +73,6 @@ public class StudentsAccountInformationController implements Initializable {
 
     private Button getButton_back() {
         return this.button_back;
-    }
-
-    private void setLabel_firstName(String firstName) {
-        getLabel_firstName().setText("First Name: " + firstName);
-    }
-
-    private void setLabel_lastName(String lastName) {
-        getLabel_lastName().setText("Last Name: " + lastName);
-    }
-
-    private void setLabel_email(String email) {
-        getLabel_email().setText("Email: " + email);
-    }
-
-    private void setLabel_phone(String phone) {
-        getLabel_phone().setText("Phone: " + phone);
-    }
-
-    private void setLabel_username(String username) {
-        getLabel_username().setText("Username: " + username);
-    }
-
-    private void setID(String ID) {
-        this.ID = ID;
-    }
-
-    private String getID() {
-        return this.ID;
     }
 
 }

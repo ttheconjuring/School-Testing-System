@@ -13,6 +13,10 @@ import java.util.ResourceBundle;
 
 public class StudentsHomePageController implements Initializable {
 
+    // ================================================== \\
+
+    /* visual elements */
+
     @FXML
     private Button button_profile;
 
@@ -25,14 +29,25 @@ public class StudentsHomePageController implements Initializable {
     @FXML
     private Button button_go;
 
+    // ================================================== \\
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // =================================== \\
+        /* transitions */
         getButton_log_out().setOnAction(actionEvent -> Utilities.switchTo("Sign-In.fxml", actionEvent));
         getButton_profile().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Account-Information.fxml", DBUtilities.getUserData(Utilities.getCurrenUserID())), actionEvent));
+        // =================================== \\
         getButton_go().setOnAction(actionEvent -> {
+            /* core functionality*/
             if (DBUtilities.testIsFree(getTextField_test_code().getText())) {
+                // =================================== \\
+                /* preparations */
+                Utilities.setResponseTimeInMinutes(DBUtilities.getResponseTimeOfTestBy(getTextField_test_code().getText()));
                 extractQuestionsData(getTextField_test_code().getText());
                 Utilities.setQuestionIndex(0);
+                // =================================== \\
+                /* transition */
                 Utilities.switchToPreparedScene(Utilities.prepareScene("Answer-Question.fxml", Utilities.getQuestionDataByIndex(Utilities.getQuestionIndex())), actionEvent);
             } else {
                 Utilities.showAlert("Test Is Locked!", "Sorry, but the test is locked!", Alert.AlertType.ERROR);
@@ -52,7 +67,11 @@ public class StudentsHomePageController implements Initializable {
     }
 
     private Map<String, String> loadQuestionDataByID(String ID) {
-        return DBUtilities.getQuestionDataByID(ID);
+        return DBUtilities.getQuestionData(ID);
+    }
+
+    protected void setButton_profile(String username) {
+        getButton_profile().setText("Hello @" + username + "!");
     }
 
     private Button getButton_profile() {
@@ -69,10 +88,6 @@ public class StudentsHomePageController implements Initializable {
 
     private Button getButton_go() {
         return this.button_go;
-    }
-
-    protected void setButton_profile(String username) {
-        getButton_profile().setText("Hello @" + username + "!");
     }
 
 }

@@ -10,6 +10,10 @@ import java.util.ResourceBundle;
 
 public class CreateAccountController implements Initializable {
 
+    // ================================================== \\
+
+    /*Visual elements*/
+
     @FXML
     private ToggleButton toggleButton_teacher_role;
 
@@ -40,12 +44,21 @@ public class CreateAccountController implements Initializable {
     @FXML
     private Button button_cancel;
 
+    // ================================================== \\
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // ========================================= \\
+        /* visual preparation */
         getToggleButton_teacher_role().setOnAction(actionEvent -> setClicked(getToggleButton_teacher_role(), getToggleButton_student_role()));
         getToggleButton_student_role().setOnAction(actionEvent -> setClicked(getToggleButton_student_role(), getToggleButton_teacher_role()));
+        // ========================================= \\
+        /* core functionality*/
         getButton_create().setOnAction(this::createAccount);
+        // ========================================= \\
+        /* transition */
         getButton_cancel().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent));
+        // ========================================= \\
     }
 
     private void createAccount(ActionEvent actionEvent) {
@@ -108,15 +121,21 @@ public class CreateAccountController implements Initializable {
         }
     }
 
+    private boolean thereAreEmptyGaps() {
+        return getTextField_username().getText().isEmpty() || getPasswordField_password().getText().isEmpty() ||
+                getTextField_firstName().getText().isEmpty() || getTextField_lastName().getText().isEmpty() ||
+                getTextField_email().getText().isEmpty() || getTextField_phone().getText().isEmpty();
+    }
+
+    private String getTheChosenRole() {
+        return getToggleButton_teacher_role().isSelected() ? "teacher" : "student";
+    }
+
     private void setClicked(ToggleButton clickedButton, ToggleButton otherButton) {
         clickedButton.setSelected(true);
         clickedButton.setOpacity(1);
         otherButton.setOpacity(0.5);
         otherButton.setSelected(false);
-    }
-
-    private String getTheChosenRole() {
-        return getToggleButton_teacher_role().isSelected() ? "teacher" : "student";
     }
 
     private void clearFields() {
@@ -126,12 +145,6 @@ public class CreateAccountController implements Initializable {
         getTextField_lastName().clear();
         getTextField_email().clear();
         getTextField_phone().clear();
-    }
-
-    private boolean thereAreEmptyGaps() {
-        return getTextField_username().getText().isEmpty() || getPasswordField_password().getText().isEmpty() ||
-                getTextField_firstName().getText().isEmpty() || getTextField_lastName().getText().isEmpty() ||
-                getTextField_email().getText().isEmpty() || getTextField_phone().getText().isEmpty();
     }
 
     private Button getButton_create() {

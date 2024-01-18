@@ -23,10 +23,8 @@ public class Main extends Application {
     }
 
     /* TODO:
-        1.Refactor code ***
-        2.Handle the response time ***
-        4.Handle results queries *
-        3.Throw message if test is FAILED or PASSED  **
+        1.Throw message if test is FAILED or PASSED  **
+        2.Handle results queries *
          */
 
     public static void main(String[] args) {

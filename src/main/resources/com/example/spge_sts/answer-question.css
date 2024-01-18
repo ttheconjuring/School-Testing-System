@@ -21,7 +21,7 @@ Button:hover {
     -fx-background-color: #39004d;
 }
 
-#label_questionNumber, #label_points, #label_question, RadioButton {
+#label_questionNumber, #label_points, #label_question, #label_timer, RadioButton {
     -fx-background-color: #39004d;
     -fx-background-radius: 20px;
 }

@@ -11,6 +11,10 @@ import java.util.ResourceBundle;
 
 public class AccountTemplateController implements Initializable {
 
+    // ================================================== \\
+
+    /*Visual elements*/
+
     @FXML
     private Label label_id;
 
@@ -20,10 +24,17 @@ public class AccountTemplateController implements Initializable {
     @FXML
     private Button button_view;
 
+    // ================================================== \\
+
+    /* ? */
+
     private String ID;
+
+    // ================================================== \\
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /* core functionality*/
         getButton_view().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Teachers-Account-Information.fxml", DBUtilities.getUserData(getID()))));
     }
 

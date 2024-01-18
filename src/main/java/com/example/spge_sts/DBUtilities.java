@@ -14,41 +14,9 @@ public class DBUtilities {
     private static final String dbUser = "root";
     private static final String dbPassword = "bocanito";
 
-    protected static String suchUserExists(String username, String password) {
-        String sqlQuery = "SELECT UserID FROM users WHERE Username = '" + username + "' AND Password = '" + password + "';";
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
-             ResultSet resultSet = preparedStatement.executeQuery()) {
-            if (resultSet.next()) {
-                return resultSet.getString(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+    // ====================================================================== \\
 
-    protected static Map<String, String> getUserData(String ID) {
-        Map<String, String> data = new HashMap<>();
-        String sqlQuery = "SELECT * from users WHERE UserID = " + ID + ";";
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                data.put("UserID", resultSet.getString(1));
-                data.put("Username", resultSet.getString(2));
-                data.put("Password", resultSet.getString(3));
-                data.put("Email", resultSet.getString(4));
-                data.put("Phone", resultSet.getString(5));
-                data.put("FirstName", resultSet.getString(6));
-                data.put("LastName", resultSet.getString(7));
-                data.put("UserRole", resultSet.getString(8));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return data;
-    }
+    /* CREATE queries */
 
     protected static boolean createUser(String username, String password, String email, String phone, String firstName, String lastName, String userRole) {
         String sqlQuery = "INSERT INTO users (Username, Password, Email, Phone, FirstName, LastName, UserRole) VALUES (?, ?, ?, ?, ?, ?, ?);";
@@ -70,104 +38,6 @@ public class DBUtilities {
             e.printStackTrace();
         }
         return result;
-    }
-
-    protected static boolean deleteRecord(String ID) {
-        String sqlQuery = "DELETE FROM users WHERE UserID = " + ID + ";";
-        boolean result = false;
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
-            result = preparedStatement.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
-    protected static boolean updateRecord(String string, String ID) {
-        String sqlQuery = getUpdateSqlQuery(string, ID);
-        boolean result = false;
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
-            result = preparedStatement.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
-    protected static int getCountOfUsers() {
-        String sqlQuery = "SELECT COUNT(*) FROM users;";
-        int count = -1;
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                count = resultSet.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return count;
-    }
-
-    // DOES NOT EQUAL getUserData(ID), because index != ID
-    protected static Map<String, String> getIdUsernameRoleByIndex(int index) {
-        Map<String, String> specificData = new HashMap<>();
-        String sqlQuery = "SELECT * FROM users";
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            int recordCount = 0;
-            while (resultSet.next()) {
-                recordCount++;
-                if (recordCount == index) {
-                    String userID = resultSet.getString("UserID");
-                    String username = resultSet.getString("Username");
-                    String userRole = resultSet.getString("UserRole");
-                    specificData.put("UserID", userID);
-                    specificData.put("Username", username);
-                    specificData.put("UserRole", userRole);
-                    break;
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return specificData;
-    }
-
-    private static String getUpdateSqlQuery(String string, String ID) {
-        String sqlQuery = null;
-        if (string.matches(ValidationRegexes.TEACHER_USERNAME.getRegex()) || string.matches(ValidationRegexes.STUDENT_USERNAME.getRegex())) {
-            String firstName = String.valueOf(string.charAt(0)).toUpperCase() + string.substring(1, string.indexOf('_'));
-            String lastNameFirstCharacter = String.valueOf(string.charAt(string.indexOf('_') + 1));
-            if (string.matches(ValidationRegexes.TEACHER_USERNAME.getRegex())) {
-                String lastName = lastNameFirstCharacter.toUpperCase() + string.substring(string.indexOf('_') + 2, string.indexOf('@'));
-                sqlQuery = "UPDATE users SET Username = '" + string + "', FirstName = '" + firstName + "', LastName = '" + lastName + "' WHERE UserID = '" + ID + "';";
-            } else if (string.matches(ValidationRegexes.STUDENT_USERNAME.getRegex())) {
-                String lastName = lastNameFirstCharacter.toUpperCase() + string.substring(string.indexOf('_') + 2, string.lastIndexOf('_'));
-                sqlQuery = "UPDATE users SET Username = '" + string + "', FirstName = '" + firstName + "', LastName = '" + lastName + "' WHERE UserID = '" + ID + "';";
-            }
-        } else if (string.matches(ValidationRegexes.LAST_NAME.getRegex())) {
-            String username = getUserData(ID).get("Username");
-            String updatedUsername;
-            if (username.matches(ValidationRegexes.TEACHER_USERNAME.getRegex())) {
-                updatedUsername = username.substring(0, username.indexOf('_') + 1) + string.toLowerCase() + username.substring(username.indexOf('@'));
-            } else {
-                updatedUsername = username.substring(0, username.indexOf('_') + 1) + string.toLowerCase() + username.substring(username.lastIndexOf('_'));
-            }
-            sqlQuery = "UPDATE users SET LastName = '" + string + "', Username = '" + updatedUsername + "' WHERE UserID = '" + ID + "';";
-        } else if (string.matches(ValidationRegexes.FIRST_NAME.getRegex())) {
-            String username = getUserData(ID).get("Username");
-            String updatedUsername = string.toLowerCase() + username.substring(username.indexOf('_'));
-            sqlQuery = "UPDATE users SET FirstName = '" + string + "', Username = '" + updatedUsername + "' WHERE UserID = '" + ID + "';";
-        } else if (string.matches(ValidationRegexes.EMAIL.getRegex())) {
-            sqlQuery = "UPDATE users SET Email = '" + string + "' WHERE UserID = '" + ID + "';";
-        } else if (string.matches(ValidationRegexes.PHONE.getRegex())) {
-            sqlQuery = "UPDATE users SET Phone = '" + string + "' WHERE UserID = '" + ID + "';";
-        }
-        return sqlQuery;
     }
 
     protected static boolean createTest(String testName, String description, String code, String responseTime, String passingScore, String questions, String dateCreated, String dateUpdated, String creatorUserID, String status) {
@@ -195,48 +65,6 @@ public class DBUtilities {
         return result;
     }
 
-    protected static ArrayList<String> getUsersIdsBy(String criterion, String string) {
-        ArrayList<String> IDs = new ArrayList<>();
-        String query;
-        if (criterion.equals("UserID")) {
-            query = "SELECT UserID FROM users WHERE UserID LIKE '%" + string + "%';";
-            System.out.println("UserID criterion");
-        } else if (criterion.equals("Username")) {
-            query = "SELECT UserID FROM users WHERE Username LIKE '%" + string + "%';";
-            System.out.println("Username criterion");
-        } else {
-            query = "SELECT UserID FROM users WHERE UserRole LIKE '%" + string + "%';";
-            System.out.println("UserRole criterion");
-        }
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                IDs.add(resultSet.getString("UserID"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return IDs;
-    }
-
-    protected static String getLastInsertedTestID() {
-        String lastTestID = null;
-        String lastTestQuestions = null;
-        String query = "SELECT TestID, Questions FROM tests ORDER BY tests.TestID DESC LIMIT 1;";
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                lastTestID = resultSet.getString("TestID");
-                lastTestQuestions = resultSet.getString("Questions");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return lastTestID + " " + lastTestQuestions;
-    }
-
     protected static boolean createQuestion(String testID, String questionText, String questionType, String answers, String correctAnswer, String points, String number) {
         String sqlQuery = "INSERT INTO questions (TestID, QuestionText, QuestionType, Answers, CorrectAnswer, Points, Number) VALUES (?, ? ,? ,? ,? ,?, ?);";
         boolean result = false;
@@ -257,43 +85,6 @@ public class DBUtilities {
             e.printStackTrace();
         }
         return result;
-    }
-
-    protected static ArrayList<String> getQuestionIDs(String code) {
-        ArrayList<String> questionIDs = new ArrayList<>();
-        String sqlQuery = "SELECT QuestionID FROM questions INNER JOIN tests ON questions.TestID = tests.TestID WHERE Code = '" + code + "';";
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                questionIDs.add(resultSet.getString(1));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return questionIDs;
-    }
-
-    protected static Map<String, String> getQuestionDataByID(String ID) {
-        Map<String, String> questionData = new HashMap<>();
-        String sqlQuery = "SELECT * FROM questions WHERE QuestionID = '" + ID + "';";
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                questionData.put("QuestionID", resultSet.getString(1));
-                questionData.put("Number", resultSet.getString(8));
-                questionData.put("Points", resultSet.getString(7));
-                questionData.put("QuestionText", resultSet.getString(3));
-                questionData.put("QuestionType", resultSet.getString(4));
-                questionData.put("Answers", resultSet.getString(5));
-                questionData.put("CorrectAnswer", resultSet.getString(6));
-                questionData.put("TestID", resultSet.getString(2));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return questionData;
     }
 
     protected static boolean createResponse(String QuestionID, String UserID, String responseText, String SelectedOptions, String isCorrect, String submissionTimestamp) {
@@ -317,57 +108,133 @@ public class DBUtilities {
         return result;
     }
 
-    protected static boolean testIsFree(String code) {
-        String query = "SELECT status FROM tests WHERE Code = '" + code + "';";
-        boolean flag = false;
+    // ====================================================================== \\
+
+    /* READ queries*/
+
+    protected static Map<String, String> getUserData(String ID) {
+        Map<String, String> data = new HashMap<>();
+        String sqlQuery = "SELECT * from users WHERE UserID = " + ID + ";";
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                flag = resultSet.getString(1).equals("free");
+                data.put("UserID", resultSet.getString(1));
+                data.put("Username", resultSet.getString(2));
+                data.put("Password", resultSet.getString(3));
+                data.put("Email", resultSet.getString(4));
+                data.put("Phone", resultSet.getString(5));
+                data.put("FirstName", resultSet.getString(6));
+                data.put("LastName", resultSet.getString(7));
+                data.put("UserRole", resultSet.getString(8));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return flag;
+        return data;
     }
 
-    protected static int calculatePointsReceivedByStudent(String userId, String testId) {
-        String query = "SELECT SUM(Points) AS TotalPoints FROM responses r INNER JOIN questions q ON r.QuestionID = q.QuestionID INNER JOIN tests t ON q.TestID = t.TestID WHERE r.UserID = " + userId + " AND r.IsCorrect = 'true' AND t.TestID = " + testId + ";";
-        int points = 0;
+    protected static Map<String, String> getQuestionData(String ID) {
+        Map<String, String> data = new HashMap<>();
+        String sqlQuery = "SELECT * FROM questions WHERE QuestionID = '" + ID + "';";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                data.put("QuestionID", resultSet.getString(1));
+                data.put("TestID", resultSet.getString(2));
+                data.put("QuestionText", resultSet.getString(3));
+                data.put("QuestionType", resultSet.getString(4));
+                data.put("Answers", resultSet.getString(5));
+                data.put("CorrectAnswer", resultSet.getString(6));
+                data.put("Points", resultSet.getString(7));
+                data.put("Number", resultSet.getString(8));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+    // DOES NOT EQUAL getUserData(ID), because index != ID, cannot be replaced
+    protected static Map<String, String> getIdUsernameRoleByIndex(int index) {
+        Map<String, String> specificData = new HashMap<>();
+        String query = "SELECT UserID, Username, UserRole FROM users";
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                if (resultSet.getString(1) != null) {
-                    points = Integer.parseInt(resultSet.getString(1));
+            int recordsCount = 0;
+            while (resultSet.next()) {
+                recordsCount++;
+                if (recordsCount == index) {
+                    specificData.put("UserID", resultSet.getString(1));
+                    specificData.put("Username", resultSet.getString(2));
+                    specificData.put("UserRole", resultSet.getString(3));
+                    break;
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return points;
+        return specificData;
     }
 
-    protected static int calculateAllPointsOfATest(String testId) {
-        String query = "SELECT SUM(Points) AS MaxPoints FROM questions WHERE TestID = " + testId + ";";
-        int allPoints = 0;
+    protected static ArrayList<String> getUsersIdsBy(String criterion, String string) {
+        ArrayList<String> IDs = new ArrayList<>();
+        String query;
+        if (criterion.equals("UserID")) {
+            query = "SELECT UserID FROM users WHERE UserID LIKE '%" + string + "%';";
+        } else if (criterion.equals("Username")) {
+            query = "SELECT UserID FROM users WHERE Username LIKE '%" + string + "%';";
+        } else {
+            query = "SELECT UserID FROM users WHERE UserRole LIKE '%" + string + "%';";
+        }
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                if (resultSet.getString(1) != null) {
-                    allPoints = Integer.parseInt(resultSet.getString(1));
-                }
+            while (resultSet.next()) {
+                IDs.add(resultSet.getString("UserID"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return allPoints;
+        return IDs;
     }
 
-    protected static int getPassingScoreOfTestBy(String TestID) {
-        String query = "SELECT PassingScore FROM tests WHERE TestID = " + TestID + ";";
+    protected static String getLastInsertedTestID() {
+        String lastTestID = null;
+        String lastTestQuestions = null;
+        String query = "SELECT TestID, Questions FROM tests ORDER BY TestID DESC LIMIT 1;";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                lastTestID = resultSet.getString("TestID");
+                lastTestQuestions = resultSet.getString("Questions");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lastTestID + " " + lastTestQuestions;
+    }
+
+    protected static ArrayList<String> getQuestionIDs(String code) {
+        ArrayList<String> questionIDs = new ArrayList<>();
+        String sqlQuery = "SELECT QuestionID FROM questions INNER JOIN tests ON questions.TestID = tests.TestID WHERE Code = '" + code + "';";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                questionIDs.add(resultSet.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return questionIDs;
+    }
+
+    protected static int getPassingScoreOfTestBy(String testID) {
+        String query = "SELECT PassingScore FROM tests WHERE TestID = " + testID + ";";
         int passingScore = 0;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -383,8 +250,8 @@ public class DBUtilities {
         return passingScore;
     }
 
-    protected static int getResponseTimeOfTestBy(String TestID) {
-        String query = "SELECT ResponseTime FROM tests WHERE TestID = " + TestID + ";";
+    protected static int getResponseTimeOfTestBy(String code) {
+        String query = "SELECT ResponseTime FROM tests WHERE Code = '" + code + "';";
         int responseTime = 1;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -399,6 +266,155 @@ public class DBUtilities {
         }
         return responseTime;
     }
+
+    protected static int getCountOfUsers() {
+        String sqlQuery = "SELECT COUNT(*) FROM users;";
+        int count = -1;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                count = resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    // ====================================================================== \\
+
+    /* UPDATE queries*/
+
+    protected static boolean updateUserData(String string, String userID) {
+        String query = makeUpdateUserDataQuery(string, userID);
+        boolean result = false;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            result = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    // ====================================================================== \\
+
+    /* DELETE queries*/
+
+    protected static boolean deleteUser(String userID) {
+        String query = "DELETE FROM users WHERE UserID = " + userID + ";";
+        boolean result = false;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            result = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    // ====================================================================== \\
+
+    /* OTHER queries */
+
+    private static String makeUpdateUserDataQuery(String string, String userID) {
+        String sqlQuery = null;
+        if (string.matches(ValidationRegexes.TEACHER_USERNAME.getRegex()) || string.matches(ValidationRegexes.STUDENT_USERNAME.getRegex())) {
+            String firstName = String.valueOf(string.charAt(0)).toUpperCase() + string.substring(1, string.indexOf('_'));
+            String lastNameFirstCharacter = String.valueOf(string.charAt(string.indexOf('_') + 1));
+            if (string.matches(ValidationRegexes.TEACHER_USERNAME.getRegex())) {
+                String lastName = lastNameFirstCharacter.toUpperCase() + string.substring(string.indexOf('_') + 2, string.indexOf('@'));
+                sqlQuery = "UPDATE users SET Username = '" + string + "', FirstName = '" + firstName + "', LastName = '" + lastName + "' WHERE UserID = '" + userID + "';";
+            } else if (string.matches(ValidationRegexes.STUDENT_USERNAME.getRegex())) {
+                String lastName = lastNameFirstCharacter.toUpperCase() + string.substring(string.indexOf('_') + 2, string.lastIndexOf('_'));
+                sqlQuery = "UPDATE users SET Username = '" + string + "', FirstName = '" + firstName + "', LastName = '" + lastName + "' WHERE UserID = '" + userID + "';";
+            }
+        } else if (string.matches(ValidationRegexes.LAST_NAME.getRegex())) {
+            String username = getUserData(userID).get("Username");
+            String updatedUsername;
+            if (username.matches(ValidationRegexes.TEACHER_USERNAME.getRegex())) {
+                updatedUsername = username.substring(0, username.indexOf('_') + 1) + string.toLowerCase() + username.substring(username.indexOf('@'));
+            } else {
+                updatedUsername = username.substring(0, username.indexOf('_') + 1) + string.toLowerCase() + username.substring(username.lastIndexOf('_'));
+            }
+            sqlQuery = "UPDATE users SET LastName = '" + string + "', Username = '" + updatedUsername + "' WHERE UserID = '" + userID + "';";
+        } else if (string.matches(ValidationRegexes.FIRST_NAME.getRegex())) {
+            String username = getUserData(userID).get("Username");
+            String updatedUsername = string.toLowerCase() + username.substring(username.indexOf('_'));
+            sqlQuery = "UPDATE users SET FirstName = '" + string + "', Username = '" + updatedUsername + "' WHERE UserID = '" + userID + "';";
+        } else if (string.matches(ValidationRegexes.EMAIL.getRegex())) {
+            sqlQuery = "UPDATE users SET Email = '" + string + "' WHERE UserID = '" + userID + "';";
+        } else if (string.matches(ValidationRegexes.PHONE.getRegex())) {
+            sqlQuery = "UPDATE users SET Phone = '" + string + "' WHERE UserID = '" + userID + "';";
+        }
+        return sqlQuery;
+    }
+
+    protected static String suchUserExists(String username, String password) {
+        String sqlQuery = "SELECT UserID FROM users WHERE Username = '" + username + "' AND Password = '" + password + "';";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+            if (resultSet.next()) {
+                return resultSet.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    protected static boolean testIsFree(String code) {
+        String query = "SELECT status FROM tests WHERE Code = '" + code + "';";
+        boolean flag = false;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                flag = resultSet.getString(1).equals("free");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    protected static int calculatePointsReceivedByStudent(String userID, String testID) {
+        String query = "SELECT SUM(Points) AS TotalPoints FROM responses r INNER JOIN questions q ON r.QuestionID = q.QuestionID INNER JOIN tests t ON q.TestID = t.TestID WHERE r.UserID = " + userID + " AND r.IsCorrect = 'true' AND t.TestID = " + testID + ";";
+        int points = 0;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                if (resultSet.getString(1) != null) {
+                    points = Integer.parseInt(resultSet.getString(1));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return points;
+    }
+
+    protected static int calculateAllPointsOfATest(String testID) {
+        String query = "SELECT SUM(Points) AS MaxPoints FROM questions WHERE TestID = " + testID + ";";
+        int allPoints = 0;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                if (resultSet.getString(1) != null) {
+                    allPoints = Integer.parseInt(resultSet.getString(1));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return allPoints;
+    }
+
+    // ====================================================================== \\
 
 }
 

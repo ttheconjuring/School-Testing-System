@@ -30,6 +30,9 @@ public class AnswerQuestionController implements Initializable {
     private Label label_question;
 
     @FXML
+    private Label label_timer;
+
+    @FXML
     private RadioButton radioButton_answer_1;
 
     @FXML
@@ -72,22 +75,31 @@ public class AnswerQuestionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setTimeForResponse(10); // this shit executes before the setQuestionData() and CANNOT get the the Response Time on time
+        // ============================================ \\
+        /* preparation */
+        setTimeForResponse(Utilities.getResponseTimeInMinutes());
+        // ============================================ \\
+        /* core functionality  */
         getButton_submit().setOnAction(actionEvent -> {
             setSubmitButtonTriggered();
             saveResponse(getResponseData());
             proceedToNextQuestion(actionEvent);
         });
+        // ============================================ \\
     }
 
-    private void setTimeForResponse(int seconds) {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(seconds), event -> {
+    private void setTimeForResponse(int minutes) {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.minutes(minutes), event -> {
             if (!isSubmitButtonTriggered()) {
                 getButton_submit().fire();
             }
         }));
         timeline.setCycleCount(1);
         timeline.play();
+    }
+
+    private void setSubmitButtonTriggered() {
+        this.submitButtonTriggered = true;
     }
 
     private void saveResponse(String[] responseData) {
@@ -146,12 +158,6 @@ public class AnswerQuestionController implements Initializable {
         return responseData;
     }
 
-    private String getTheSubmissionDateAndTime() {
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return currentDateTime.format(formatter);
-    }
-
     private void proceedToNextQuestion(ActionEvent actionEvent) {
         Utilities.setQuestionIndex(Utilities.getQuestionIndex() + 1);
         if (Utilities.getQuestionIndex() != Utilities.getQuestionsCount()) {
@@ -160,6 +166,12 @@ public class AnswerQuestionController implements Initializable {
             // Utilities.showAlert("Test Complete!", endMessage(), Alert.AlertType.INFORMATION);
             Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent);
         }
+    }
+
+    private String getTheSubmissionDateAndTime() {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return currentDateTime.format(formatter);
     }
 
     private String endMessage() {
@@ -263,6 +275,10 @@ public class AnswerQuestionController implements Initializable {
         return this.button_submit;
     }
 
+    private Label getLabel_timer() {
+        return this.label_timer;
+    }
+
     private String getQuestionID() {
         return this.questionID;
     }
@@ -297,10 +313,6 @@ public class AnswerQuestionController implements Initializable {
 
     private boolean isSubmitButtonTriggered() {
         return this.submitButtonTriggered;
-    }
-
-    private void setSubmitButtonTriggered() {
-        this.submitButtonTriggered = true;
     }
 
 }
