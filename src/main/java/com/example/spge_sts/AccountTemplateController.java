@@ -26,7 +26,8 @@ public class AccountTemplateController implements Initializable {
 
     // ================================================== \\
 
-    /* ? */
+    /* Useful variable that helps me get data about users,
+    * ! NOT ALWAYS EQUALS CurrentUserID !  */
 
     private String ID;
 

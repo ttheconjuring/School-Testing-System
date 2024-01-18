@@ -23,8 +23,9 @@ public class Main extends Application {
     }
 
     /* TODO:
-        1.Throw message if test is FAILED or PASSED  **
-        2.Handle results queries *
+        1.Throw message if test is FAILED or PASSED  ***
+        2.Make the timer label works, so it shows the time left correctly
+        3.Handle results queries *
          */
 
     public static void main(String[] args) {
