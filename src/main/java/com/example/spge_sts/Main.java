@@ -22,7 +22,7 @@ public class Main extends Application {
         stage.show();
     }
 
-    /* TODO:
+    /* TODO: 
         1.Throw message if test is FAILED or PASSED  ***
         2.Make the timer label works, so it shows the time left correctly
         3.Handle results queries *
