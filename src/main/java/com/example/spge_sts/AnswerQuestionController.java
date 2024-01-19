@@ -161,7 +161,7 @@ public class AnswerQuestionController implements Initializable {
         if (Utilities.getQuestionIndex() != Utilities.getQuestionsCount()) {
             Utilities.switchToPreparedScene(Utilities.prepareScene("Answer-Question.fxml", Utilities.getQuestionDataByIndex(Utilities.getQuestionIndex())), actionEvent);
         } else {
-            // Utilities.showAlert("Test Complete!", endMessage(), Alert.AlertType.INFORMATION);
+            Utilities.showAlert("Test Complete!", endMessage(), Alert.AlertType.INFORMATION); // WORKS ONLY IF THE SUBMIT BUTTON IS CLICKED ON THE LAST QUESTION !!
             Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent);
         }
     }
