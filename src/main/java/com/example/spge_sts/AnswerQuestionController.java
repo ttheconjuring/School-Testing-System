@@ -75,17 +75,15 @@ public class AnswerQuestionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // ============================================ \\
         /* preparation */
         setTimeForResponse(Utilities.getResponseTimeInMinutes());
-        // ============================================ \\
+
         /* core functionality  */
         getButton_submit().setOnAction(actionEvent -> {
             setSubmitButtonTriggered();
             saveResponse(getResponseData());
             proceedToNextQuestion(actionEvent);
         });
-        // ============================================ \\
     }
 
     private void setTimeForResponse(int minutes) {

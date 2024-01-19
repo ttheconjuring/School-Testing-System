@@ -63,14 +63,12 @@ public class CreateQuestionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // ============================= \\
         /*  visual preparations */
         getToggleButton_closed().setOnAction(actionEvent -> setClicked(getToggleButton_closed(), getToggleButton_opened()));
         getToggleButton_opened().setOnAction(actionEvent -> setClicked(getToggleButton_opened(), getToggleButton_closed()));
-        // ============================= \\
+
         /* core functionality */
         getButton_next().setOnAction(this::saveQuestion);
-        // ============================= \\
     }
 
     private void saveQuestion(ActionEvent actionEvent) {

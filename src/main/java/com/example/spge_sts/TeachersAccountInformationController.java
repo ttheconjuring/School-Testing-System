@@ -86,27 +86,25 @@ public class TeachersAccountInformationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // ================================ \\
         /* transition*/
         getButton_back().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", getUserID()), actionEvent));
-        // ================================ \\
+
         /* core functionality*/
         getButton_delete().setOnAction(this::confirmAccountDeletion);
         getButton_edit().setOnAction(actionEvent -> enterEditMode());
         getButton_save().setOnAction(actionEvent -> {
             saveChanges(getEditableTextField(), actionEvent);
         });
-        // ================================ \\
+
         /* transition */
         getButton_cancel().setOnAction(this::leaveEditMode);
-        // ================================ \\
+
         /* visual preparation*/
         getButton_edit_username().setOnAction(actionEvent -> edit(getTextField_username()));
         getButton_edit_firstName().setOnAction(actionEvent -> edit(getTextField_firstName()));
         getButton_edit_lastName().setOnAction(actionEvent -> edit(getTextField_lastName()));
         getButton_edit_email().setOnAction(actionEvent -> edit(getTextField_email()));
         getButton_edit_phone().setOnAction(actionEvent -> edit(getTextField_phone()));
-        // ================================ \\
     }
 
     private void saveChanges(TextField textField, ActionEvent actionEvent) {

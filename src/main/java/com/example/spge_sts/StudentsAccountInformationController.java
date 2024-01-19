@@ -37,10 +37,8 @@ public class StudentsAccountInformationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // ============================== \\
         /* core functionality */
         getButton_back().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent));
-        // ============================== \\
     }
 
     protected void setData(Map<String, String> data) {

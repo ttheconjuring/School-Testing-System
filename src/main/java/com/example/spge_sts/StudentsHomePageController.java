@@ -33,20 +33,18 @@ public class StudentsHomePageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // =================================== \\
         /* transitions */
         getButton_log_out().setOnAction(actionEvent -> Utilities.switchTo("Sign-In.fxml", actionEvent));
         getButton_profile().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Account-Information.fxml", DBUtilities.getUserData(Utilities.getCurrenUserID())), actionEvent));
-        // =================================== \\
+
         getButton_go().setOnAction(actionEvent -> {
             /* core functionality*/
             if (DBUtilities.testIsFree(getTextField_test_code().getText())) {
-                // =================================== \\
                 /* preparations */
                 Utilities.setResponseTimeInMinutes(DBUtilities.getResponseTimeOfTestBy(getTextField_test_code().getText()));
                 extractQuestionsData(getTextField_test_code().getText());
                 Utilities.setQuestionIndex(0);
-                // =================================== \\
+
                 /* transition */
                 Utilities.switchToPreparedScene(Utilities.prepareScene("Answer-Question.fxml", Utilities.getQuestionDataByIndex(Utilities.getQuestionIndex())), actionEvent);
             } else {

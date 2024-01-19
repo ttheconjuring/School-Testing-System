@@ -48,17 +48,15 @@ public class CreateAccountController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // ========================================= \\
         /* visual preparation */
         getToggleButton_teacher_role().setOnAction(actionEvent -> setClicked(getToggleButton_teacher_role(), getToggleButton_student_role()));
         getToggleButton_student_role().setOnAction(actionEvent -> setClicked(getToggleButton_student_role(), getToggleButton_teacher_role()));
-        // ========================================= \\
+
         /* core functionality*/
         getButton_create().setOnAction(this::createAccount);
-        // ========================================= \\
+
         /* transition */
         getButton_cancel().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent));
-        // ========================================= \\
     }
 
     private void createAccount(ActionEvent actionEvent) {

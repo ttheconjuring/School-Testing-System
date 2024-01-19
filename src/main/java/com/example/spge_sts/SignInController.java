@@ -30,10 +30,8 @@ public class SignInController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // ======================================== \\
         /* core functionality */
         getButton_sign_in().setOnAction(this::singIn);
-        // ======================================== \\
     }
 
     private void singIn(ActionEvent actionEvent) {

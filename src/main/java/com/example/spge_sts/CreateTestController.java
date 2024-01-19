@@ -53,16 +53,14 @@ public class CreateTestController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // ============================== \\
         /* core functionality */
         getButton_next().setOnAction(this::createTest);
-        // ============================== \\
+
         /* transition */
         getButton_cancel().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent));
-        // ============================== \\
+
         /* side functionality*/
         getButton_generate().setOnAction(actionEven -> generateCode());
-        // ============================== \\
     }
 
     private void createTest(ActionEvent actionEvent) {
