@@ -414,6 +414,24 @@ public class DBUtilities {
         return allPoints;
     }
 
+    protected static boolean studentHasAlreadyEnteredTheTest(String userID, String code) {
+        String query = "SELECT COUNT(*) AS ResponseCount FROM responses r JOIN questions q ON r.QuestionID = q.QuestionID JOIN tests t ON q.TestID = t.TestID WHERE r.UserID = " + userID + " AND t.Code = '" + code + "';";
+        boolean flag = true;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                if (Integer.parseInt(resultSet.getString(1)) == 0) {
+                    flag = false;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+
     // ====================================================================== \\
 
 }

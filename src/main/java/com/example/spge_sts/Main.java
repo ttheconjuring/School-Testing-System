@@ -23,7 +23,6 @@ public class Main extends Application {
     }
 
     /* TODO:
-        2.Make the timer label works, so it shows the time left correctly
         3.Handle results queries *
          */
 
