@@ -2,6 +2,7 @@ package com.example.spge_sts;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -73,10 +74,20 @@ public class AnswerQuestionController implements Initializable {
 
     // ================================================== \\
 
+    /* Variables I need to refresh the timer label text and
+    * keep track of how much time a student has until the
+    * question changes automatically */
+
+    private int timeLeft = Utilities.getResponseTimeInMinutes() * 60;
+    private final SimpleStringProperty timerText = new SimpleStringProperty();
+
+    // ================================================== \\
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /* preparation */
         setTimeForResponse(Utilities.getResponseTimeInMinutes());
+        updateTimerLabel();
 
         /* core functionality  */
         getButton_submit().setOnAction(actionEvent -> {
@@ -93,6 +104,18 @@ public class AnswerQuestionController implements Initializable {
             }
         }));
         timeline.setCycleCount(1);
+        timeline.play();
+    }
+
+    private void updateTimerLabel() {
+        timerText.set(String.format("%02d:%02d", timeLeft / 60, timeLeft % 60));
+        getLabel_timer().textProperty().bind(timerText);
+        KeyFrame keyFrame = new KeyFrame(Duration.seconds(1), event -> {
+            timeLeft--;
+            timerText.set(String.format("%02d:%02d", timeLeft / 60, timeLeft % 60));
+        });
+        Timeline timeline = new Timeline(keyFrame);
+        timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
     }
 
