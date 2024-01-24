@@ -50,10 +50,10 @@ public class StudentsHomePageController implements Initializable {
                     /* transition */
                     Utilities.switchToPreparedScene(Utilities.prepareScene("Answer-Question.fxml", Utilities.getQuestionDataByIndex(Utilities.getQuestionIndex())), actionEvent);
                 } else {
-                    Utilities.showAlert("Test Is Locked!", "Sorry, but it seems like you have already attended this test.", Alert.AlertType.CONFIRMATION);
+                    Utilities.showAlert("Test Is Locked!", "Sorry, but it seems like you have already attended this test.", Alert.AlertType.ERROR);
                 }
             } else {
-                Utilities.showAlert("Test Is Locked!", "Sorry, but this test is still locked!\nAsk your teacher for further information.", Alert.AlertType.INFORMATION);
+                Utilities.showAlert("Test Is Locked!", "Sorry, but this test is locked!\nAsk your teacher for further information.", Alert.AlertType.ERROR);
             }
         });
     }

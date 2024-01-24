@@ -87,6 +87,7 @@ public class TeachersAccountInformationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /* transition*/
+        /* Works properly if opened from the home page of a teacher. Otherwise, (from users) it causes appearance of an additional window (avoid this scenario) */
         getButton_back().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", getUserID()), actionEvent));
 
         /* core functionality*/
