@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.util.Duration;
 
 import java.net.URL;
+import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
@@ -184,7 +185,15 @@ public class AnswerQuestionController implements Initializable {
         if (Utilities.getQuestionIndex() != Utilities.getQuestionsCount()) {
             Utilities.switchToPreparedScene(Utilities.prepareScene("Answer-Question.fxml", Utilities.getQuestionDataByIndex(Utilities.getQuestionIndex())), actionEvent);
         } else {
-            Utilities.showAlert("Test Complete!", endMessage(), Alert.AlertType.INFORMATION); // WORKS ONLY IF THE SUBMIT BUTTON IS CLICKED ON THE LAST QUESTION !!
+            DBUtilities.createResult(
+                    Utilities.getCurrenUserID(),
+                    getTestID(),
+                    String.valueOf(DBUtilities.calculatePointsReceivedByStudent(Utilities.getCurrenUserID(), getTestID())),
+                    getCurrentDateAndTime(),
+                    getDuration(),
+                    getTestStatus()
+                    );
+            Utilities.showAlert("Test Complete!", endMessage(), Alert.AlertType.INFORMATION); // WORKS ONLY IF THE SUBMIT BUTTON IS  MANUALLY CLICKED ON THE LAST QUESTION !!
             Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent);
         }
     }
@@ -193,6 +202,17 @@ public class AnswerQuestionController implements Initializable {
         LocalDateTime currentDateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return currentDateTime.format(formatter);
+    }
+
+    private String getTestStatus() {
+        int pointsReceived = DBUtilities.calculatePointsReceivedByStudent(Utilities.getCurrenUserID(), getTestID());
+        int totalPoints = DBUtilities.calculateAllPointsOfATest(getTestID());
+        int passingScore = DBUtilities.getPassingScoreOfTestBy(getTestID());
+        if (pointsReceived >= passingScore) {
+            return "pass";
+        } else {
+            return "fail";
+        }
     }
 
     private String endMessage() {
@@ -208,6 +228,35 @@ public class AnswerQuestionController implements Initializable {
         message.append("Your result: ").append(pointsReceived).append("/").append(totalPoints).append("\n");
         message.append("Passing Score: ").append(passingScore);
         return message.toString();
+    }
+
+    private String getCurrentDateAndTime() {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return currentDateTime.format(formatter);
+    }
+
+    private String getDuration() {
+        /* calculates the time between the first click of the button submit to the last one.
+        * Bug: the time before the first click of button submit is not calculated/included */
+        int totalDurationInSeconds = DBUtilities.calculateDurationInSeconds(getTestID(), Utilities.getCurrenUserID());
+        int durationInMinutes = totalDurationInSeconds / 60;
+        int durationInSeconds = totalDurationInSeconds % 60;
+        String duration;
+        if (durationInMinutes <= 9) {
+            if (durationInSeconds <= 9) {
+                duration = "0" + durationInMinutes + ":0" + durationInSeconds;
+            } else {
+                duration = "0" + durationInMinutes + ":" + durationInSeconds;
+            }
+        } else {
+            if (durationInSeconds <= 9) {
+                duration = durationInMinutes + ":0" + durationInSeconds;
+            } else {
+                duration = durationInMinutes + ":" + durationInSeconds;
+            }
+        }
+        return duration;
     }
 
     private void hideRadioButtons() {

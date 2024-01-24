@@ -19,10 +19,10 @@ public class DBUtilities {
     /* CREATE queries */
 
     protected static boolean createUser(String username, String password, String email, String phone, String firstName, String lastName, String userRole) {
-        String sqlQuery = "INSERT INTO users (Username, Password, Email, Phone, FirstName, LastName, UserRole) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        String query = "INSERT INTO users (Username, Password, Email, Phone, FirstName, LastName, UserRole) VALUES (?, ?, ?, ?, ?, ?, ?);";
         boolean result = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
@@ -41,10 +41,10 @@ public class DBUtilities {
     }
 
     protected static boolean createTest(String testName, String description, String code, String responseTime, String passingScore, String questions, String dateCreated, String dateUpdated, String creatorUserID, String status) {
-        String sqlQuery = "INSERT INTO tests (TestName, Description, Code, ResponseTime, PassingScore, Questions, DateCreated, DateUpdated, CreatorUserID, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String query = "INSERT INTO tests (TestName, Description, Code, ResponseTime, PassingScore, Questions, DateCreated, DateUpdated, CreatorUserID, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         boolean result = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setString(1, testName);
             preparedStatement.setString(2, description);
@@ -66,10 +66,10 @@ public class DBUtilities {
     }
 
     protected static boolean createQuestion(String testID, String questionText, String questionType, String answers, String correctAnswer, String points, String number) {
-        String sqlQuery = "INSERT INTO questions (TestID, QuestionText, QuestionType, Answers, CorrectAnswer, Points, Number) VALUES (?, ? ,? ,? ,? ,?, ?);";
+        String query = "INSERT INTO questions (TestID, QuestionText, QuestionType, Answers, CorrectAnswer, Points, Number) VALUES (?, ? ,? ,? ,? ,?, ?);";
         boolean result = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setString(1, testID);
             preparedStatement.setString(2, questionText);
@@ -87,18 +87,39 @@ public class DBUtilities {
         return result;
     }
 
-    protected static boolean createResponse(String QuestionID, String UserID, String responseText, String SelectedOptions, String isCorrect, String submissionTimestamp) {
-        String sqlQuery = "INSERT INTO responses (QuestionID, UserID, ResponseText, SelectedOptions, IsCorrect, SubmissionTimestamp) VALUES (?, ? ,? ,? ,? ,?);";
+    protected static boolean createResponse(String questionID, String userID, String responseText, String SelectedOptions, String isCorrect, String submissionTimestamp) {
+        String query = "INSERT INTO responses (QuestionID, UserID, ResponseText, SelectedOptions, IsCorrect, SubmissionTimestamp) VALUES (?, ? ,? ,? ,? ,?);";
         boolean result = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, QuestionID);
-            preparedStatement.setString(2, UserID);
+            preparedStatement.setString(1, questionID);
+            preparedStatement.setString(2, userID);
             preparedStatement.setString(3, responseText);
             preparedStatement.setString(4, SelectedOptions);
             preparedStatement.setString(5, isCorrect);
             preparedStatement.setString(6, submissionTimestamp);
+
+            result = preparedStatement.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    protected static boolean createResult(String userID, String testID, String score, String dateTimeCompletion, String durationMinutes, String passFailStatus) {
+        String query = "INSERT INTO results (UserID, TestID, Score, DateTimeCompletion, DurationMinutes, PassFailStatus) VALUES (?, ?, ?, ?, ?, ?);";
+        boolean result = false;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, userID);
+            preparedStatement.setString(2, testID);
+            preparedStatement.setString(3, score);
+            preparedStatement.setString(4, dateTimeCompletion);
+            preparedStatement.setString(5, durationMinutes);
+            preparedStatement.setString(6, passFailStatus);
 
             result = preparedStatement.executeUpdate() > 0;
 
@@ -429,6 +450,21 @@ public class DBUtilities {
             e.printStackTrace();
         }
         return flag;
+    }
+
+    protected static int calculateDurationInSeconds(String testID, String userID) {
+        String query = "SELECT TIMESTAMPDIFF(SECOND, MIN(r.SubmissionTimestamp), MAX(r.SubmissionTimestamp)) AS TimeSpentInSeconds FROM responses r JOIN questions q ON r.QuestionID = q.QuestionID WHERE q.TestID = " + testID +" AND r.UserID = " + userID + ";";
+        int minutes = -1;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                minutes = Integer.parseInt(resultSet.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return minutes;
     }
 
 
