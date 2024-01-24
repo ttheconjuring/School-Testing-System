@@ -10,9 +10,6 @@ import javafx.scene.control.*;
 import javafx.util.Duration;
 
 import java.net.URL;
-import java.sql.SQLOutput;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -175,7 +172,7 @@ public class AnswerQuestionController implements Initializable {
         responseData[2] = responseText;
         responseData[3] = selectedOptions;
         responseData[4] = isCorrect;
-        responseData[5] = getTheSubmissionDateAndTime();
+        responseData[5] = Utilities.getCurrentDateAndTime();
 
         return responseData;
     }
@@ -185,23 +182,23 @@ public class AnswerQuestionController implements Initializable {
         if (Utilities.getQuestionIndex() != Utilities.getQuestionsCount()) {
             Utilities.switchToPreparedScene(Utilities.prepareScene("Answer-Question.fxml", Utilities.getQuestionDataByIndex(Utilities.getQuestionIndex())), actionEvent);
         } else {
-            DBUtilities.createResult(
-                    Utilities.getCurrenUserID(),
-                    getTestID(),
-                    String.valueOf(DBUtilities.calculatePointsReceivedByStudent(Utilities.getCurrenUserID(), getTestID())),
-                    getCurrentDateAndTime(),
-                    getDuration(),
-                    getTestStatus()
-                    );
+            saveResult();
             Utilities.showAlert("Test Complete!", endMessage(), Alert.AlertType.INFORMATION); // WORKS ONLY IF THE SUBMIT BUTTON IS  MANUALLY CLICKED ON THE LAST QUESTION !!
             Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent);
         }
     }
 
-    private String getTheSubmissionDateAndTime() {
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return currentDateTime.format(formatter);
+    private void saveResult() {
+        if (!DBUtilities.createResult(
+                Utilities.getCurrenUserID(),
+                getTestID(),
+                String.valueOf(DBUtilities.calculatePointsReceivedByStudent(Utilities.getCurrenUserID(), getTestID())),
+                Utilities.getCurrentDateAndTime(),
+                getDuration(),
+                getTestStatus()
+        )) {
+            Utilities.showAlert("Result Problem!","Sorry, problem occurred when we tried to save your result!", Alert.AlertType.ERROR);
+        }
     }
 
     private String getTestStatus() {
@@ -228,12 +225,6 @@ public class AnswerQuestionController implements Initializable {
         message.append("Your result: ").append(pointsReceived).append("/").append(totalPoints).append("\n");
         message.append("Passing Score: ").append(passingScore);
         return message.toString();
-    }
-
-    private String getCurrentDateAndTime() {
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return currentDateTime.format(formatter);
     }
 
     private String getDuration() {

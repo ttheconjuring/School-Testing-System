@@ -22,10 +22,6 @@ public class Main extends Application {
         stage.show();
     }
 
-    /* TODO:
-        3.Handle results queries *
-         */
-
     public static void main(String[] args) {
         launch();
     }

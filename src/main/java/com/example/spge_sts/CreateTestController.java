@@ -84,8 +84,8 @@ public class CreateTestController implements Initializable {
                                     getTextField_responseTime().getText(),
                                     getTextField_passingScore().getText(),
                                     getTextField_questions().getText(),
-                                    getTheCreationDateAndTime(),
-                                    getTheUpdatedDateAndTime(Integer.parseInt(getTextField_responseTime().getText()) * Integer.parseInt(getTextField_questions().getText())),
+                                    Utilities.getCurrentDateAndTime(),
+                                    Utilities.getCurrentDateAndTime(),
                                     Utilities.getCurrenUserID(),
                                     getTextField_status().getText()), actionEvent);
                         } else {
@@ -137,19 +137,6 @@ public class CreateTestController implements Initializable {
         return getTextField_testName().getText().isEmpty() ||
                 getTextField_responseTime().getText().isEmpty() || getTextField_code().getText().isEmpty() ||
                 getTextField_questions().getText().isEmpty() || getTextField_status().getText().isEmpty();
-    }
-
-    private String getTheCreationDateAndTime() {
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return currentDateTime.format(formatter);
-    }
-
-    private String getTheUpdatedDateAndTime(int minutesToAdd) {
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        LocalDateTime futureDateTime = currentDateTime.plusMinutes(minutesToAdd);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return futureDateTime.format(formatter);
     }
 
     private void clearFields() {
