@@ -45,7 +45,7 @@ public class TeachersHomePageController implements Initializable {
         /* core functionality */
         getButton_log_out().setOnAction(actionEvent -> Utilities.switchTo("Sign-In.fxml", actionEvent));
         getButton_create_account().setOnAction(actionEvent -> Utilities.switchTo("Create-Account.fxml", actionEvent));
-        getButton_profile().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Account-Information.fxml", DBUtilities.getUserData(Utilities.getCurrenUserID())), actionEvent));
+        getButton_profile().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Teachers-Account-Information.fxml", DBUtilities.getUserData(Utilities.getCurrenUserID()))));
         getButton_users().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Users-ScrollPane.fxml", "-1")));
         getButton_create_test().setOnAction(actionEvent -> Utilities.switchTo("Create-Test.fxml", actionEvent));
     }

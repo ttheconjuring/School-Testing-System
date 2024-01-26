@@ -62,9 +62,6 @@ public class TeachersAccountInformationController implements Initializable {
     @FXML
     private Button button_save;
 
-    @FXML
-    private Button button_back;
-
     // ================================================== \\
 
     /* Variables I need to perform queries and logical operations*/
@@ -86,10 +83,6 @@ public class TeachersAccountInformationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /* transition*/
-        /* Works properly if opened from the home page of a teacher. Otherwise, (from users) it causes appearance of an additional window (avoid this scenario) */
-        getButton_back().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", getUserID()), actionEvent));
-
         /* core functionality*/
         getButton_delete().setOnAction(this::confirmAccountDeletion);
         getButton_edit().setOnAction(actionEvent -> enterEditMode());
@@ -356,10 +349,6 @@ public class TeachersAccountInformationController implements Initializable {
 
     private Button getButton_save() {
         return this.button_save;
-    }
-
-    private Button getButton_back() {
-        return this.button_back;
     }
 
     private String getUserID() {
