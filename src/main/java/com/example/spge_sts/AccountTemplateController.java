@@ -40,17 +40,9 @@ public class AccountTemplateController implements Initializable {
     }
 
     protected void setData(Map<String, String> data) {
-        this.setLabel_idText("#" + data.get("UserID"));
-        this.setID(data.get("UserID"));
-        this.setLabel_username_userRoleText(data.get("Username") + " (" + data.get("UserRole") + ")");
-    }
-
-    private void setLabel_idText(String text) {
-        getLabel_id().setText(text);
-    }
-
-    private void setLabel_username_userRoleText(String text) {
-        getLabel_username_userRole().setText(text);
+        getLabel_id().setText("#" + data.get("UserID"));
+        getLabel_username_userRole().setText(data.get("Username") + " (" + data.get("UserRole") + ")");
+        setID(data.get("UserID"));
     }
 
     private Label getLabel_id() {
