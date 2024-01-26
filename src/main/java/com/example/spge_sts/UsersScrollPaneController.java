@@ -28,7 +28,7 @@ public class UsersScrollPaneController implements Initializable {
 
     // ================================================== \\
 
-    private int recordsCount;
+    private int usersCount;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -64,13 +64,17 @@ public class UsersScrollPaneController implements Initializable {
         }
     }
 
-    protected void setRecordsCount(int recordsCount) {
-        this.recordsCount = recordsCount;
+    protected void setData(int usersCount) {
+        setUsersCount(usersCount);
         loadAllAccountTemplates(getRecordsCount());
     }
 
+    private void setUsersCount(int usersCount) {
+        this.usersCount = usersCount;
+    }
+
     private int getRecordsCount() {
-        return this.recordsCount;
+        return this.usersCount;
     }
 
     private ScrollPane getScrollPane_users() {

@@ -9,16 +9,17 @@ import javafx.scene.image.ImageView;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class TestTemplateController implements Initializable {
 
     // ================================================== \\
 
-    /*Visual elements*/
+    /* Visual elements */
 
     @FXML
-    private Label label_testTitle;
+    private Label label_testName;
 
     @FXML
     private Label label_results;
@@ -64,6 +65,14 @@ public class TestTemplateController implements Initializable {
         });
     }
 
+    protected void setData(Map<String, String> testInfo) {
+        getLabel_testName().setText(testInfo.get("TestName"));
+        getLabel_results().setText("Results: " + testInfo.get("Results"));
+        getLabel_pass().setText("Pass: " + testInfo.get("Pass"));
+        getLabel_fail().setText("Fail: " + testInfo.get("Fail"));
+    }
+
+
     private void lockTest() {
         getButton_changeStatus().setStyle("-fx-background-color: #A7A7A7");
         getImageView_status().setImage(new Image(new File("src/main/resources/com/example/spge_sts/lock.png").toURI().toString()));
@@ -74,8 +83,8 @@ public class TestTemplateController implements Initializable {
         getImageView_status().setImage(new Image(new File("src/main/resources/com/example/spge_sts/unlock.png").toURI().toString()));
     }
 
-    private Label getLabel_testTitle() {
-        return this.label_testTitle;
+    private Label getLabel_testName() {
+        return this.label_testName;
     }
 
     private Label getLabel_results() {

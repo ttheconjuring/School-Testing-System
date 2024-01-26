@@ -169,10 +169,18 @@ public class Utilities {
                 StudentsHomePageController studentsHomePageController = loader.getController();
                 studentsHomePageController.setButton_profile(DBUtilities.getUserData(ID).get("Username"));
             }
+            case "Tests-ScrollPane.fxml" -> {
+                TestsScrollPaneController testsScrollPaneController = loader.getController();
+                testsScrollPaneController.setData(
+                        DBUtilities.getCountOfTestsCreateByUser(ID),
+                        DBUtilities.getTestIDsCreateByUser(ID),
+                        DBUtilities.getTestNamesCreateByUser(ID)
+                );
+            }
             case "Users-ScrollPane.fxml" -> {
                 // in this case we don't use ID, but the method returns Parent root and that is why
                 UsersScrollPaneController usersScrollPaneController = loader.getController();
-                usersScrollPaneController.setRecordsCount(DBUtilities.getCountOfUsers());
+                usersScrollPaneController.setData(DBUtilities.getCountOfUsers());
             }
             case "Account-Template.fxml" -> {
                 AccountTemplateController accountTemplateController = loader.getController();
@@ -213,6 +221,10 @@ public class Utilities {
             case "Answer-Question.fxml" -> {
                 AnswerQuestionController answerQuestionController = loader.getController();
                 answerQuestionController.setQuestionData(data);
+            }
+            case "Test-Template.fxml" -> {
+                TestTemplateController testTemplateController = loader.getController();
+                testTemplateController.setData(data);
             }
         }
         return root;
