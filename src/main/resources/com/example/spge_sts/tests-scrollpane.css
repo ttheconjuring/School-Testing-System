@@ -1,0 +1,25 @@
+TextField {
+    -fx-background-color: #39004d;
+    -fx-text-fill: white;
+    -fx-background-radius: 20px;
+}
+
+.shadow {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #8A41AC;
+}
+
+.scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: #452056;
+}
+
+.scroll-pane .scroll-bar:horizontal .thumb {
+    -fx-background-color: #8A41AC;
+}
+
+.scroll-pane .scroll-bar:horizontal .track {
+    -fx-background-color: #452056;
+}

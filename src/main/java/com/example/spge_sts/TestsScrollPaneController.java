@@ -48,8 +48,10 @@ public class TestsScrollPaneController implements Initializable {
 
     private void loadAllTestTemplates(int numberOfTests) {
         HBox hbox = new HBox();
+        hbox.setSpacing(10);
+        hbox.setStyle("-fx-background-color: #8A41AC;");
         for (int i = 1; i <= numberOfTests; i++) {
-            hbox.getChildren().add(Utilities.prepareScene("Account-Template.fxml", getInfo(i - 1)));
+            hbox.getChildren().add(Utilities.prepareScene("Test-Template.fxml", getInfo(i - 1)));
         }
         getScrollPane_tests().setContent(hbox);
     }
@@ -65,9 +67,16 @@ public class TestsScrollPaneController implements Initializable {
 
     private String calculate(String status, int index) {
         double allResults = DBUtilities.getCountOfResultsFromTest(getTestIDs().get(index));
-        double statusResults = DBUtilities.getCountOfStatusResultsFromTest(status, getTestIDs().get(index));
-        double percentage = statusResults / allResults * 100;
-        return String.format("%.2f", percentage) + "%";
+        if (allResults > 0) {
+            double statusResults = DBUtilities.getCountOfStatusResultsFromTest(status, getTestIDs().get(index));
+            if (statusResults > 0) {
+                double percentage = statusResults / allResults * 100;
+                return String.format("%.0f", Math.ceil(percentage)) + "%";
+            } else {
+                return "0%";
+            }
+        }
+        return "??%";
     }
 
     protected void setData(int testsCount, ArrayList<String> testIDs, ArrayList<String> testNames) {

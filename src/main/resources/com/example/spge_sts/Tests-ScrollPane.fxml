@@ -11,13 +11,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="650.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.TestsScrollPaneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="650.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.TestsScrollPaneController">
     <stylesheets>
-        <URL value="@users-scrollpane.css" />
+        <URL value="@tests-scrollpane.css" />
     </stylesheets>
-    <ScrollPane fx:id="scrollPane_tests" layoutX="41.0" layoutY="166.0" maxHeight="350.0" styleClass="shadow">
-    </ScrollPane>
-    <AnchorPane layoutY="515.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+    <ScrollPane fx:id="scrollPane_tests" layoutX="31.0" layoutY="153.0" maxWidth="590.0" minHeight="295.0" style="-fx-background-radius: 10; -fx-background-color: #8A41AC; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
+      <padding>
+         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      </padding></ScrollPane>
+    <AnchorPane layoutY="478.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
         <Label alignment="CENTER" prefHeight="50.0" prefWidth="650.0" text="Copyright 2023 | All rights reserved." textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="18.0" />
