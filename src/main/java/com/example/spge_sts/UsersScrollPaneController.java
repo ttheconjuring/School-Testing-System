@@ -38,6 +38,8 @@ public class UsersScrollPaneController implements Initializable {
 
     private void loadAllAccountTemplates(int numberOfAccounts) {
         VBox vbox = new VBox();
+        vbox.setSpacing(10);
+        vbox.setStyle("-fx-background-color: #8A41AC");
         for (int i = 1; i <= numberOfAccounts; i++) {
             // String.valueOf(i), because prepareScene(String, String)
             // The ID here is index, it is not supposed to be used like that, corner case
