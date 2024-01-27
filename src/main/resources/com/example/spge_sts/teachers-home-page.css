@@ -1,7 +1,7 @@
 Button {
     -fx-background-color: #8A41AC;
-    -fx-background-radius: 20px;
-    -fx-border-radius: 20px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
     -fx-text-fill: #ffffff;
 }
 

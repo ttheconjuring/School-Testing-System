@@ -4,9 +4,9 @@ TextField {
 }
 
 Button {
-    -fx-background-radius: 20px;
+    -fx-background-radius: 21px;
     -fx-border-color: black;
-    -fx-border-radius: 20px;
+    -fx-border-radius: 10px;
 }
 
 .shadow {

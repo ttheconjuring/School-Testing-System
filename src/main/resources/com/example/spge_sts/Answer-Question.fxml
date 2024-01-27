@@ -14,7 +14,7 @@
     <stylesheets>
         <URL value="@answer-question.css" />
     </stylesheets>
-    <AnchorPane layoutX="42.0" layoutY="110.0" prefHeight="294.0" prefWidth="521.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;" styleClass="shadow">
+    <AnchorPane layoutX="42.0" layoutY="110.0" prefHeight="294.0" prefWidth="521.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
         <Label fx:id="label_questionNumber" alignment="CENTER" layoutX="46.0" layoutY="25.0" prefHeight="40.0" prefWidth="75.0" styleClass="shadow" text="#?" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="18.0" />

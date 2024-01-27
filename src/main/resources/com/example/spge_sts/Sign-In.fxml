@@ -20,7 +20,7 @@
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutX="105.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="290.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20px; -fx-border-color: black; -fx-border-radius: 20px;" styleClass="shadow">
+    <AnchorPane layoutX="105.0" layoutY="76.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="290.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
         <Label layoutX="59.0" layoutY="28.0" text="Username:" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="18.0" />
