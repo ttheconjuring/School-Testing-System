@@ -303,6 +303,96 @@ public class DBUtilities {
         return count;
     }
 
+    protected static String getTestStatus(String testID) {
+        String query = "SELECT Status FROM tests WHERE TestID = " + testID + ";";
+        String status = "";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                status = resultSet.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
+
+    protected static int getCountOfTestsCreateByUser(String userID) {
+        String query = "SELECT COUNT(TestID) FROM tests WHERE CreatorUserID = " + userID + ";";
+        int count = -1;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                count = Integer.parseInt(resultSet.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    protected static ArrayList<String> getTestIDsCreateByUser(String userID) {
+        String query = "SELECT TestID FROM tests WHERE CreatorUserID = " + userID + ";";
+        ArrayList<String> testIDs = new ArrayList<>();
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                testIDs.add(resultSet.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return testIDs;
+    }
+
+    protected static ArrayList<String> getTestNamesCreateByUser(String userID) {
+        String query = "SELECT TestName FROM tests WHERE CreatorUserID = " + userID + ";";
+        ArrayList<String> testNames = new ArrayList<>();
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                testNames.add(resultSet.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return testNames;
+    }
+
+    protected static int getCountOfResultsFromTest(String testID) {
+        String query = "SELECT COUNT(ResultID) FROM results WHERE TestID = " + testID + ";";
+        int count = -1;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                count = Integer.parseInt(resultSet.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    protected static int getCountOfStatusResultsFromTest(String status, String testID) {
+        String query = "SELECT COUNT(PassFailStatus) FROM results WHERE PassFailStatus = '" + status + "' AND TestID = " + testID + ";";
+        int count = -1;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                count = Integer.parseInt(resultSet.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
     // ====================================================================== \\
 
     /* UPDATE queries*/
@@ -317,6 +407,43 @@ public class DBUtilities {
             e.printStackTrace();
         }
         return result;
+    }
+
+    protected static boolean updateTestStatus(String status, String testID) {
+        String query = "UPDATE tests SET Status = '" + status + "' WHERE TestID = " + testID + ";";
+        boolean successfulChange = false;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            successfulChange = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return successfulChange;
+    }
+
+    protected static void updateTestDate(String dateUpdated, String testID) {
+        String query = "UPDATE tests SET DateUpdated = '" + dateUpdated + "' WHERE TestID = " + testID + ";";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            boolean b = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected static String getCodeOfTest(String testID) {
+        String query = "SELECT Code FROM tests WHERE TestID = " + testID + ";";
+        String code = null;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                code = resultSet.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return code;
     }
 
     // ====================================================================== \\
@@ -401,21 +528,6 @@ public class DBUtilities {
         return flag;
     }
 
-    protected static String getTestStatus(String testID) {
-        String query = "SELECT Status FROM tests WHERE TestID = " + testID + ";";
-        String status = "";
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                status = resultSet.getString(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return status;
-    }
-
     protected static int calculatePointsReceivedByStudent(String userID, String testID) {
         String query = "SELECT SUM(Points) AS TotalPoints FROM responses r INNER JOIN questions q ON r.QuestionID = q.QuestionID INNER JOIN tests t ON q.TestID = t.TestID WHERE r.UserID = " + userID + " AND r.IsCorrect = 'true' AND t.TestID = " + testID + ";";
         int points = 0;
@@ -468,7 +580,7 @@ public class DBUtilities {
     }
 
     protected static int calculateDurationInSeconds(String testID, String userID) {
-        String query = "SELECT TIMESTAMPDIFF(SECOND, MIN(r.SubmissionTimestamp), MAX(r.SubmissionTimestamp)) AS TimeSpentInSeconds FROM responses r JOIN questions q ON r.QuestionID = q.QuestionID WHERE q.TestID = " + testID +" AND r.UserID = " + userID + ";";
+        String query = "SELECT TIMESTAMPDIFF(SECOND, MIN(r.SubmissionTimestamp), MAX(r.SubmissionTimestamp)) AS TimeSpentInSeconds FROM responses r JOIN questions q ON r.QuestionID = q.QuestionID WHERE q.TestID = " + testID + " AND r.UserID = " + userID + ";";
         int minutes = -1;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -480,93 +592,6 @@ public class DBUtilities {
             e.printStackTrace();
         }
         return minutes;
-    }
-
-    protected static int getCountOfTestsCreateByUser(String userID) {
-        String query = "SELECT COUNT(TestID) FROM tests WHERE CreatorUserID = " + userID + ";";
-        int count = -1;
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                count = Integer.parseInt(resultSet.getString(1));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return count;
-    }
-
-    protected static ArrayList<String> getTestIDsCreateByUser(String userID) {
-        String query = "SELECT TestID FROM tests WHERE CreatorUserID = " + userID + ";";
-        ArrayList<String> testIDs = new ArrayList<>();
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                testIDs.add(resultSet.getString(1));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return testIDs;
-    }
-
-    protected static ArrayList<String> getTestNamesCreateByUser(String userID) {
-        String query = "SELECT TestName FROM tests WHERE CreatorUserID = " + userID + ";";
-        ArrayList<String> testNames = new ArrayList<>();
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                testNames.add(resultSet.getString(1));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return testNames;
-    }
-
-    protected static int getCountOfResultsFromTest(String testID) {
-        String query = "SELECT COUNT(ResultID) FROM results WHERE TestID = " + testID + ";";
-        int count = -1;
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                count = Integer.parseInt(resultSet.getString(1));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return count;
-    }
-
-    protected static int getCountOfStatusResultsFromTest(String status, String testID) {
-        String query = "SELECT COUNT(PassFailStatus) FROM results WHERE PassFailStatus = '" + status + "' AND TestID = " + testID + ";";
-        int count = -1;
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                count = Integer.parseInt(resultSet.getString(1));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return count;
-    }
-
-    protected static boolean changeTestStatus(String status, String testID) {
-        String query = "UPDATE tests SET Status = '" + status + "' WHERE TestID = " + testID + ";";
-        boolean successfulChange = false;
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            successfulChange = preparedStatement.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return successfulChange;
     }
 
     // ====================================================================== \\

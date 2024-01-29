@@ -60,6 +60,7 @@ public class TestsScrollPaneController implements Initializable {
         Map<String, String> testInfo = new HashMap<>();
         testInfo.put("TestName", getTestNames().get(index));
         testInfo.put("Status", DBUtilities.getTestStatus(getTestIDs().get(index)));
+        testInfo.put("Code", DBUtilities.getCodeOfTest(getTestIDs().get(index)));
         testInfo.put("TestID", getTestIDs().get(index));
         testInfo.put("Results", String.valueOf(DBUtilities.getCountOfResultsFromTest(getTestIDs().get(index))));
         testInfo.put("Pass", calculate("pass", index));

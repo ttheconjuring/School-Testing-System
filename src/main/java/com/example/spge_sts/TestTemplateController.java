@@ -23,6 +23,9 @@ public class TestTemplateController implements Initializable {
     private Label label_testName;
 
     @FXML
+    private Label label_testCode;
+
+    @FXML
     private Label label_results;
 
     @FXML
@@ -58,11 +61,13 @@ public class TestTemplateController implements Initializable {
             } else {
                 unlockTest();
             }
+            updateTestDate();
         });
     }
 
     protected void setData(Map<String, String> testInfo) {
         getLabel_testName().setText(testInfo.get("TestName"));
+        getLabel_testCode().setText("(" + testInfo.get("Code") + ")");
         getLabel_results().setText("Results: " + testInfo.get("Results"));
         getLabel_pass().setText("Pass: " + testInfo.get("Pass"));
         getLabel_fail().setText("Fail: " + testInfo.get("Fail"));
@@ -76,7 +81,7 @@ public class TestTemplateController implements Initializable {
     }
 
     private void lockTest() {
-        if (DBUtilities.changeTestStatus("locked", getTestID())) {
+        if (DBUtilities.updateTestStatus("locked", getTestID())) {
             setTestStatus("locked");
             getButton_changeStatus().setStyle("-fx-background-color: #A7A7A7");
             getImageView_status().setImage(new Image(new File("src/main/resources/com/example/spge_sts/lock.png").toURI().toString()));
@@ -86,7 +91,7 @@ public class TestTemplateController implements Initializable {
     }
 
     private void unlockTest() {
-        if (DBUtilities.changeTestStatus("free", getTestID())) {
+        if (DBUtilities.updateTestStatus("free", getTestID())) {
             getButton_changeStatus().setStyle("-fx-background-color: #5A9C07");
             getImageView_status().setImage(new Image(new File("src/main/resources/com/example/spge_sts/unlock.png").toURI().toString()));
             setTestStatus("free");
@@ -95,9 +100,15 @@ public class TestTemplateController implements Initializable {
         }
     }
 
+    private void updateTestDate() {
+        DBUtilities.updateTestDate(Utilities.getCurrentDateAndTime(), getTestID());
+    }
+
     private Label getLabel_testName() {
         return this.label_testName;
     }
+
+    private Label getLabel_testCode() {return this.label_testCode; }
 
     private Label getLabel_results() {
         return this.label_results;
