@@ -61,6 +61,8 @@ public class UsersScrollPaneController implements Initializable {
                 usersIDs = DBUtilities.getUsersIdsBy("Username", string);
             }
             VBox vbox = new VBox();
+            vbox.setSpacing(10);
+            vbox.setStyle("-fx-background-color: #8A41AC");
             usersIDs.forEach(id -> vbox.getChildren().add(Utilities.prepareScene("Account-Template.fxml", id)));
             getScrollPane_users().setContent(vbox);
         }

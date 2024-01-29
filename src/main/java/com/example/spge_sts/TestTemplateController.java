@@ -2,6 +2,7 @@ package com.example.spge_sts;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -45,22 +46,17 @@ public class TestTemplateController implements Initializable {
 
     private String TestID;
 
-    // ================================================== \\
-
-    /* only for the test variable*/
-    private static int i = 1;
+    private String testStatus;
 
     // ================================================== \\
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        lockTest();
-        getButton_changeStatus().setOnAction(actionEvent ->  {
-            i++;
-            if(i % 2 == 0) {
-                unlockTest();
-            } else {
+        getButton_changeStatus().setOnAction(actionEvent -> {
+            if (getTestStatus().equals("free")) {
                 lockTest();
+            } else {
+                unlockTest();
             }
         });
     }
@@ -70,17 +66,33 @@ public class TestTemplateController implements Initializable {
         getLabel_results().setText("Results: " + testInfo.get("Results"));
         getLabel_pass().setText("Pass: " + testInfo.get("Pass"));
         getLabel_fail().setText("Fail: " + testInfo.get("Fail"));
+        setTestID(testInfo.get("TestID"));
+        setTestStatus(testInfo.get("Status"));
+        if (getTestStatus().equals("free")) {
+            unlockTest();
+        } else {
+            lockTest();
+        }
     }
 
-
     private void lockTest() {
-        getButton_changeStatus().setStyle("-fx-background-color: #A7A7A7");
-        getImageView_status().setImage(new Image(new File("src/main/resources/com/example/spge_sts/lock.png").toURI().toString()));
+        if (DBUtilities.changeTestStatus("locked", getTestID())) {
+            setTestStatus("locked");
+            getButton_changeStatus().setStyle("-fx-background-color: #A7A7A7");
+            getImageView_status().setImage(new Image(new File("src/main/resources/com/example/spge_sts/lock.png").toURI().toString()));
+        } else {
+            Utilities.showAlert("Test Status Not Changed", "Sorry, but something went wrong! Your test status is not changed!", Alert.AlertType.ERROR);
+        }
     }
 
     private void unlockTest() {
-        getButton_changeStatus().setStyle("-fx-background-color: #5A9C07");
-        getImageView_status().setImage(new Image(new File("src/main/resources/com/example/spge_sts/unlock.png").toURI().toString()));
+        if (DBUtilities.changeTestStatus("free", getTestID())) {
+            getButton_changeStatus().setStyle("-fx-background-color: #5A9C07");
+            getImageView_status().setImage(new Image(new File("src/main/resources/com/example/spge_sts/unlock.png").toURI().toString()));
+            setTestStatus("free");
+        } else {
+            Utilities.showAlert("Test Status Not Changed", "Sorry, but something went wrong! Your test status is not changed!", Alert.AlertType.ERROR);
+        }
     }
 
     private Label getLabel_testName() {
@@ -117,5 +129,13 @@ public class TestTemplateController implements Initializable {
 
     private void setTestID(String testID) {
         TestID = testID;
+    }
+
+    private String getTestStatus() {
+        return this.testStatus;
+    }
+
+    private void setTestStatus(String testStatus) {
+        this.testStatus = testStatus;
     }
 }

@@ -401,6 +401,21 @@ public class DBUtilities {
         return flag;
     }
 
+    protected static String getTestStatus(String testID) {
+        String query = "SELECT Status FROM tests WHERE TestID = " + testID + ";";
+        String status = "";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                status = resultSet.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
+
     protected static int calculatePointsReceivedByStudent(String userID, String testID) {
         String query = "SELECT SUM(Points) AS TotalPoints FROM responses r INNER JOIN questions q ON r.QuestionID = q.QuestionID INNER JOIN tests t ON q.TestID = t.TestID WHERE r.UserID = " + userID + " AND r.IsCorrect = 'true' AND t.TestID = " + testID + ";";
         int points = 0;
@@ -540,6 +555,18 @@ public class DBUtilities {
             e.printStackTrace();
         }
         return count;
+    }
+
+    protected static boolean changeTestStatus(String status, String testID) {
+        String query = "UPDATE tests SET Status = '" + status + "' WHERE TestID = " + testID + ";";
+        boolean successfulChange = false;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            successfulChange = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return successfulChange;
     }
 
     // ====================================================================== \\
