@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<?import java.net.URL?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="350.0" style="-fx-background-color: #89CC34; -fx-border-color: black;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.spge_sts.Leaderboard">
+    <stylesheets>
+        <URL value="@leaderboard.css" />
+    </stylesheets>
+    <AnchorPane layoutY="350.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label alignment="CENTER" prefHeight="50.0" prefWidth="350.0" text="Copyright 2024 | All rights reserved."
+               textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <font>
+                <Font name="Arial Black" size="16.0"/>
+            </font>
+        </Label>
+    </AnchorPane>
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0"
+                prefWidth="350.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label alignment="CENTER" prefHeight="50.0" prefWidth="350.0" text="Leaderboard" textAlignment="CENTER"
+               textFill="WHITE" wrapText="true">
+            <font>
+                <Font name="Arial Black" size="16.0"/>
+            </font>
+        </Label>
+    </AnchorPane>
+    <ScrollPane fx:id="scrollpane_results" layoutX="28.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="295.0"
+                style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;"
+                styleClass="shadow">
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </padding>
+    </ScrollPane>
+</AnchorPane>
