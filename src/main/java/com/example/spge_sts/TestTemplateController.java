@@ -63,6 +63,7 @@ public class TestTemplateController implements Initializable {
             }
             updateTestDate();
         });
+        getButton_leaderboard().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Leaderboard.fxml", getTestID())));
     }
 
     protected void setData(Map<String, String> testInfo) {

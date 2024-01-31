@@ -11,7 +11,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="350.0" style="-fx-background-color: #89CC34; -fx-border-color: black;"
             xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.spge_sts.Leaderboard">
+            fx:controller="com.example.spge_sts.LeaderboardController">
     <stylesheets>
         <URL value="@leaderboard.css" />
     </stylesheets>
@@ -33,7 +33,7 @@
             </font>
         </Label>
     </AnchorPane>
-    <ScrollPane fx:id="scrollpane_results" layoutX="28.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity"
+    <ScrollPane fx:id="scrollPane_results" layoutX="28.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity"
                 minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="295.0"
                 style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;"
                 styleClass="shadow">

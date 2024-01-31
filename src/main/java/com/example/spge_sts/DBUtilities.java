@@ -446,6 +446,24 @@ public class DBUtilities {
         return code;
     }
 
+    protected static ArrayList<String> getTestLeaderboard(String testID) {
+        String query = "SELECT Username, Score FROM results AS r JOIN users AS u ON r.UserID = u.UserID WHERE TestID = " + testID + " ORDER BY Score DESC, Username;";
+        ArrayList<String> leaderboard = new ArrayList<>();
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            int i = 1;
+            while (resultSet.next()) {
+                String result = i + ". " + resultSet.getString(1) + " - " + resultSet.getString(2) + " p.";
+                leaderboard.add(result);
+                i++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return leaderboard;
+    }
+
     // ====================================================================== \\
 
     /* DELETE queries*/

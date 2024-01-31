@@ -197,6 +197,17 @@ public class Utilities {
                 createQuestionController.setQuestionNumber(ID);
                 createQuestionController.setData();
             }
+            case "Leaderboard.fxml" -> {
+                // ID = testID
+                ArrayList<String> leaderboard = DBUtilities.getTestLeaderboard(ID);
+                LeaderboardController leaderboardController = loader.getController();
+                leaderboardController.setData(leaderboard.size(), leaderboard);
+            }
+            case "Result-Template.fxml" -> {
+                // ID = specific string
+                ResultTemplateController resultTemplateController = loader.getController();
+                resultTemplateController.setData(ID);
+            }
         }
         return root;
     }
