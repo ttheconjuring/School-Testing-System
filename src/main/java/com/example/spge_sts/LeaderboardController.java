@@ -40,6 +40,8 @@ public class LeaderboardController implements Initializable {
             vbox.getChildren().add(Utilities.prepareScene("Result-Template.fxml", getTestLeaderboard().get(i)));
         }
         getScrollPane_results().setContent(vbox);
+        getScrollPane_results().setFitToWidth(true);
+        getScrollPane_results().setFitToHeight(true);
     }
 
     protected void setData(int resultsCount, ArrayList<String> testLeaderboard) {

@@ -46,6 +46,8 @@ public class UsersScrollPaneController implements Initializable {
             vbox.getChildren().add(Utilities.prepareScene("Account-Template.fxml", String.valueOf(i)));
         }
         getScrollPane_users().setContent(vbox);
+        getScrollPane_users().setFitToWidth(true);
+        getScrollPane_users().setFitToHeight(true);
     }
 
     private void search(String string) {

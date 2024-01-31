@@ -7,33 +7,24 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0"
-            prefWidth="570.0"
-            style="-fx-background-color: #39004d; -fx-border-color: black; -fx-background-radius: 10; -fx-border-radius: 10;"
-            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.spge_sts.AccountTemplateController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="570.0" style="-fx-background-color: #39004d; -fx-border-color: black; -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.AccountTemplateController">
     <stylesheets>
-        <URL value="@account-template.css"/>
+        <URL value="@account-template.css" />
     </stylesheets>
-    <Line endX="-10.0" endY="38.00001525878906" fill="BLACK" layoutX="127.0" layoutY="42.0" opacity="0.5" startX="-10.0"
-          startY="-42.0" strokeWidth="3.0"/>
-    <Label fx:id="label_id" alignment="CENTER" layoutX="14.0" layoutY="15.0" prefHeight="50.0" prefWidth="88.0"
-           text="#ID" textFill="WHITE">
+    <Line endX="-10.0" endY="38.00001525878906" fill="BLACK" layoutX="127.0" layoutY="42.0" opacity="0.5" startX="-10.0" startY="-42.0" strokeWidth="3.0" />
+    <Label fx:id="label_id" alignment="CENTER" layoutX="14.0" layoutY="15.0" prefHeight="50.0" prefWidth="88.0" text="#ID" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="18.0"/>
+            <Font name="Arial Black" size="18.0" />
         </font>
     </Label>
-    <Button fx:id="button_view" layoutX="445.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0"
-            styleClass="shadow" text="View" textFill="WHITE">
+    <Button fx:id="button_view" layoutX="445.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="shadow" text="View" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="18.0"/>
+            <Font name="Arial Black" size="18.0" />
         </font>
     </Button>
-    <Label fx:id="label_username_userRole" layoutX="133.0" layoutY="15.0" prefHeight="50.0" prefWidth="295.0"
-           text="\@username (user role)" textFill="WHITE">
+    <Label fx:id="label_username_userRole" layoutX="133.0" layoutY="15.0" prefHeight="50.0" prefWidth="295.0" styleClass="shadow" text="\@username (user role)" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="18.0"/>
+            <Font name="Arial Black" size="18.0" />
         </font>
     </Label>
 </AnchorPane>

@@ -2,8 +2,8 @@ package com.example.spge_sts;
 
 public enum ValidationRegexes {
 
-    STUDENT_USERNAME("^[a-z]{1,10}_[a-z]{1,10}_(?:[1-9]|1[0-9]|2[0-7])@(?:[8-9]|1[0-2])[a-z]$"),
-    TEACHER_USERNAME("^[a-z]{1,10}_[a-z]{1,10}@(?:[8-9]|1[0-2])[a-z]$"),
+    STUDENT_USERNAME("^[a-z]{1,20}_[a-z]{1,20}_(?:[1-9]|1[0-9]|2[0-7])@(?:[8-9]|1[0-2])[a-z]$"),
+    TEACHER_USERNAME("^[a-z]{1,20}_[a-z]{1,20}@(?:[8-9]|1[0-2])[a-z]$"),
     PASSWORD("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$"),
     FIRST_NAME("^[A-Z][a-z]+$"),
     LAST_NAME("^[A-Z][a-z]+(ov|ova|ev|eva|ski|ska|ich)$"),

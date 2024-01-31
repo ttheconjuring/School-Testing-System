@@ -54,6 +54,8 @@ public class TestsScrollPaneController implements Initializable {
             hbox.getChildren().add(Utilities.prepareScene("Test-Template.fxml", getInfo(i - 1)));
         }
         getScrollPane_tests().setContent(hbox);
+        getScrollPane_tests().setFitToWidth(true);
+        getScrollPane_tests().setFitToHeight(true);
     }
 
     private Map<String, String> getInfo(int index) {
