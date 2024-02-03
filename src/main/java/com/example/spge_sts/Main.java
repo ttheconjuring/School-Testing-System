@@ -25,7 +25,9 @@ public class Main extends Application {
     /*
     * TODO:
     *  1.Redesign some fxml files, because there are cases where the labels are not long enough to visualize the entire information
-    *  2.Implement logic for the search bar in "My Tests" */
+    *  2.Implement logic for the search bar in "My Tests"
+    *  3.Make better deletion process of account, a.k.a. delete the user responses and results if he is student, or tests if he is teacher.
+    *  4.Make possible the deletion of a tests*/
 
     public static void main(String[] args) {
         launch();
