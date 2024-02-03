@@ -22,7 +22,21 @@ public class Main extends Application {
         stage.show();
     }
 
+    /*
+    * TODO:
+    *  1.Redesign some fxml files, because there are cases where the labels are not long enough to visualize the entire information
+    *  2.Implement logic for the search bar in "My Tests" */
+
     public static void main(String[] args) {
         launch();
     }
+
+    /*
+    BUGS:
+        1.The duration_minutes column in table results shows incorrect time, because it does not count
+    the time before the first click on button submit.
+        2.When a student is doing a test and does not respond to the last question manually, a.k.a. click
+    the submit button, the program saves the response and the result, but does not redirect to the home
+    page.
+    */
 }
