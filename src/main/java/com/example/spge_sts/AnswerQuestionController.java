@@ -122,8 +122,13 @@ public class AnswerQuestionController implements Initializable {
     }
 
     private void saveResponse(String[] responseData) {
-        boolean flag = DBUtilities.createResponse(responseData[0], responseData[1], responseData[2],
-                responseData[3], responseData[4], responseData[5]);
+        boolean flag = DBUtilities.createResponse(
+                responseData[0],
+                responseData[1],
+                responseData[2],
+                responseData[3],
+                responseData[4],
+                responseData[5]);
         if (!flag) {
             Utilities.showAlert("Response Error!", "Sorry, something went wrong!", Alert.AlertType.ERROR);
         }

@@ -78,6 +78,7 @@ public class CreateTestController implements Initializable {
                     if (Utilities.isValid(getTextField_questions().getText(), "^\\b(?:[1-9]|10)\\b$")) {
                         if (Utilities.isValid(getTextField_status().getText(), "^(free|locked)$")) {
                             response(DBUtilities.createTest(
+                                    Utilities.getCurrenUserID(),
                                     getTextField_testName().getText(),
                                     getTextField_description().getText(),
                                     getTextField_code().getText(),
@@ -86,7 +87,6 @@ public class CreateTestController implements Initializable {
                                     getTextField_questions().getText(),
                                     Utilities.getCurrentDateAndTime(),
                                     Utilities.getCurrentDateAndTime(),
-                                    Utilities.getCurrenUserID(),
                                     getTextField_status().getText()), actionEvent);
                         } else {
                             Utilities.showAlert("Invalid Test Status!", "The test status can be either \"free\" or \"locked\"!", Alert.AlertType.ERROR);

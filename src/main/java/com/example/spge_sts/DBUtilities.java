@@ -18,19 +18,19 @@ public class DBUtilities {
 
     /* CREATE queries */
 
-    protected static boolean createUser(String username, String password, String email, String phone, String firstName, String lastName, String userRole) {
-        String query = "INSERT INTO users (Username, Password, Email, Phone, FirstName, LastName, UserRole) VALUES (?, ?, ?, ?, ?, ?, ?);";
+    protected static boolean createUser(String username, String password, String first_name, String last_name, String email, String phone, String user_role) {
+        String query = "INSERT INTO users (username, password, first_name, last_name, email, phone, user_role) VALUES (?, ?, ?, ?, ?, ?, ?);";
         boolean result = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
-            preparedStatement.setString(3, email);
-            preparedStatement.setString(4, phone);
-            preparedStatement.setString(5, firstName);
-            preparedStatement.setString(6, lastName);
-            preparedStatement.setString(7, userRole);
+            preparedStatement.setString(3, first_name);
+            preparedStatement.setString(4, last_name);
+            preparedStatement.setString(5, email);
+            preparedStatement.setString(6, phone);
+            preparedStatement.setString(7, user_role);
 
             result = preparedStatement.executeUpdate() > 0;
 
@@ -40,21 +40,21 @@ public class DBUtilities {
         return result;
     }
 
-    protected static boolean createTest(String testName, String description, String code, String responseTime, String passingScore, String questions, String dateCreated, String dateUpdated, String creatorUserID, String status) {
-        String query = "INSERT INTO tests (TestName, Description, Code, ResponseTime, PassingScore, Questions, DateCreated, DateUpdated, CreatorUserID, Status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    protected static boolean createTest(String creator_id, String test_name, String description, String code, String response_time, String passing_score, String questions_count, String date_created, String date_updated, String status) {
+        String query = "INSERT INTO tests (creator_id, test_name, description, code, response_time, passing_score, questions_count, date_created, date_updated, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         boolean result = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, testName);
-            preparedStatement.setString(2, description);
-            preparedStatement.setString(3, code);
-            preparedStatement.setString(4, responseTime);
-            preparedStatement.setString(5, passingScore);
-            preparedStatement.setString(6, questions);
-            preparedStatement.setString(7, dateCreated);
-            preparedStatement.setString(8, dateUpdated);
-            preparedStatement.setString(9, creatorUserID);
+            preparedStatement.setString(1, creator_id);
+            preparedStatement.setString(2, test_name);
+            preparedStatement.setString(3, description);
+            preparedStatement.setString(4, code);
+            preparedStatement.setString(5, response_time);
+            preparedStatement.setString(6, passing_score);
+            preparedStatement.setString(7, questions_count);
+            preparedStatement.setString(8, date_created);
+            preparedStatement.setString(9, date_updated);
             preparedStatement.setString(10, status);
 
             result = preparedStatement.executeUpdate() > 0;
@@ -65,17 +65,17 @@ public class DBUtilities {
         return result;
     }
 
-    protected static boolean createQuestion(String testID, String questionText, String questionType, String answers, String correctAnswer, String points, String number) {
-        String query = "INSERT INTO questions (TestID, QuestionText, QuestionType, Answers, CorrectAnswer, Points, Number) VALUES (?, ? ,? ,? ,? ,?, ?);";
+    protected static boolean createQuestion(String test_id, String question_text, String question_type, String answers, String correct_answer, String points, String number) {
+        String query = "INSERT INTO questions (test_id, question_text, question_type, answers, correct_answer, points, number) VALUES (?, ? ,? ,? ,? ,?, ?);";
         boolean result = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, testID);
-            preparedStatement.setString(2, questionText);
-            preparedStatement.setString(3, questionType);
+            preparedStatement.setString(1, test_id);
+            preparedStatement.setString(2, question_text);
+            preparedStatement.setString(3, question_type);
             preparedStatement.setString(4, answers);
-            preparedStatement.setString(5, correctAnswer);
+            preparedStatement.setString(5, correct_answer);
             preparedStatement.setString(6, points);
             preparedStatement.setString(7, number);
 
@@ -87,18 +87,18 @@ public class DBUtilities {
         return result;
     }
 
-    protected static boolean createResponse(String questionID, String userID, String responseText, String SelectedOptions, String isCorrect, String submissionTimestamp) {
-        String query = "INSERT INTO responses (QuestionID, UserID, ResponseText, SelectedOptions, IsCorrect, SubmissionTimestamp) VALUES (?, ? ,? ,? ,? ,?);";
+    protected static boolean createResponse(String question_id, String user_id, String response_text, String selected_options, String is_correct, String submission_timestamp) {
+        String query = "INSERT INTO responses (question_id, user_id, response_text, selected_options, is_correct, submission_timestamp) VALUES (?, ? ,? ,? ,? ,?);";
         boolean result = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, questionID);
-            preparedStatement.setString(2, userID);
-            preparedStatement.setString(3, responseText);
-            preparedStatement.setString(4, SelectedOptions);
-            preparedStatement.setString(5, isCorrect);
-            preparedStatement.setString(6, submissionTimestamp);
+            preparedStatement.setString(1, question_id);
+            preparedStatement.setString(2, user_id);
+            preparedStatement.setString(3, response_text);
+            preparedStatement.setString(4, selected_options);
+            preparedStatement.setString(5, is_correct);
+            preparedStatement.setString(6, submission_timestamp);
 
             result = preparedStatement.executeUpdate() > 0;
 
@@ -108,18 +108,18 @@ public class DBUtilities {
         return result;
     }
 
-    protected static boolean createResult(String userID, String testID, String score, String dateTimeCompletion, String durationMinutes, String passFailStatus) {
-        String query = "INSERT INTO results (UserID, TestID, Score, DateTimeCompletion, DurationMinutes, PassFailStatus) VALUES (?, ?, ?, ?, ?, ?);";
+    protected static boolean createResult(String user_id, String test_id, String score, String date_time_completion, String duration_minutes, String pass_fail_status) {
+        String query = "INSERT INTO results (user_id, test_id, score, date_time_completion, duration_minutes, pass_fail_status) VALUES (?, ?, ?, ?, ?, ?);";
         boolean result = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-            preparedStatement.setString(1, userID);
-            preparedStatement.setString(2, testID);
+            preparedStatement.setString(1, user_id);
+            preparedStatement.setString(2, test_id);
             preparedStatement.setString(3, score);
-            preparedStatement.setString(4, dateTimeCompletion);
-            preparedStatement.setString(5, durationMinutes);
-            preparedStatement.setString(6, passFailStatus);
+            preparedStatement.setString(4, date_time_completion);
+            preparedStatement.setString(5, duration_minutes);
+            preparedStatement.setString(6, pass_fail_status);
 
             result = preparedStatement.executeUpdate() > 0;
 
@@ -133,9 +133,9 @@ public class DBUtilities {
 
     /* READ queries*/
 
-    protected static Map<String, String> getUserData(String ID) {
+    protected static Map<String, String> getUserData(String user_id) {
         Map<String, String> data = new HashMap<>();
-        String sqlQuery = "SELECT * from users WHERE UserID = " + ID + ";";
+        String sqlQuery = "SELECT * from users WHERE user_id = " + user_id + ";";
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -143,10 +143,10 @@ public class DBUtilities {
                 data.put("UserID", resultSet.getString(1));
                 data.put("Username", resultSet.getString(2));
                 data.put("Password", resultSet.getString(3));
-                data.put("Email", resultSet.getString(4));
-                data.put("Phone", resultSet.getString(5));
-                data.put("FirstName", resultSet.getString(6));
-                data.put("LastName", resultSet.getString(7));
+                data.put("FirstName", resultSet.getString(4));
+                data.put("LastName", resultSet.getString(5));
+                data.put("Email", resultSet.getString(6));
+                data.put("Phone", resultSet.getString(7));
                 data.put("UserRole", resultSet.getString(8));
             }
         } catch (SQLException e) {
@@ -155,9 +155,9 @@ public class DBUtilities {
         return data;
     }
 
-    protected static Map<String, String> getQuestionData(String ID) {
+    protected static Map<String, String> getQuestionData(String question_id) {
         Map<String, String> data = new HashMap<>();
-        String sqlQuery = "SELECT * FROM questions WHERE QuestionID = '" + ID + "';";
+        String sqlQuery = "SELECT * FROM questions WHERE question_id = " + question_id + ";";
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -180,7 +180,7 @@ public class DBUtilities {
     // DOES NOT EQUAL getUserData(ID), because index != ID, cannot be replaced
     protected static Map<String, String> getIdUsernameRoleByIndex(int index) {
         Map<String, String> specificData = new HashMap<>();
-        String query = "SELECT UserID, Username, UserRole FROM users";
+        String query = "SELECT user_id, username, user_role FROM users";
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -204,17 +204,17 @@ public class DBUtilities {
         ArrayList<String> IDs = new ArrayList<>();
         String query;
         if (criterion.equals("UserID")) {
-            query = "SELECT UserID FROM users WHERE UserID LIKE '%" + string + "%';";
+            query = "SELECT user_id FROM users WHERE user_id LIKE '%" + string + "%';";
         } else if (criterion.equals("Username")) {
-            query = "SELECT UserID FROM users WHERE Username LIKE '%" + string + "%';";
+            query = "SELECT user_id FROM users WHERE username LIKE '%" + string + "%';";
         } else {
-            query = "SELECT UserID FROM users WHERE UserRole LIKE '%" + string + "%';";
+            query = "SELECT user_id FROM users WHERE user_role LIKE '%" + string + "%';";
         }
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                IDs.add(resultSet.getString("UserID"));
+                IDs.add(resultSet.getString(1));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -225,13 +225,13 @@ public class DBUtilities {
     protected static String getLastInsertedTestID() {
         String lastTestID = null;
         String lastTestQuestions = null;
-        String query = "SELECT TestID, Questions FROM tests ORDER BY TestID DESC LIMIT 1;";
+        String query = "SELECT test_id, questions_count FROM tests ORDER BY test_id DESC LIMIT 1;";
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                lastTestID = resultSet.getString("TestID");
-                lastTestQuestions = resultSet.getString("Questions");
+                lastTestID = resultSet.getString(1);
+                lastTestQuestions = resultSet.getString(2);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -241,7 +241,7 @@ public class DBUtilities {
 
     protected static ArrayList<String> getQuestionIDs(String code) {
         ArrayList<String> questionIDs = new ArrayList<>();
-        String sqlQuery = "SELECT QuestionID FROM questions INNER JOIN tests ON questions.TestID = tests.TestID WHERE Code = '" + code + "';";
+        String sqlQuery = "SELECT question_id FROM questions INNER JOIN tests ON questions.test_id = tests.test_id WHERE code = '" + code + "';";
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery)) {
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -254,8 +254,8 @@ public class DBUtilities {
         return questionIDs;
     }
 
-    protected static int getPassingScoreOfTestBy(String testID) {
-        String query = "SELECT PassingScore FROM tests WHERE TestID = " + testID + ";";
+    protected static int getPassingScoreOfTestBy(String test_id) {
+        String query = "SELECT passing_score FROM tests WHERE test_id = " + test_id + ";";
         int passingScore = 0;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -272,7 +272,7 @@ public class DBUtilities {
     }
 
     protected static int getResponseTimeOfTestBy(String code) {
-        String query = "SELECT ResponseTime FROM tests WHERE Code = '" + code + "';";
+        String query = "SELECT response_time FROM tests WHERE code = '" + code + "';";
         int responseTime = 1;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -303,8 +303,8 @@ public class DBUtilities {
         return count;
     }
 
-    protected static String getTestStatus(String testID) {
-        String query = "SELECT Status FROM tests WHERE TestID = " + testID + ";";
+    protected static String getTestStatus(String test_id) {
+        String query = "SELECT status FROM tests WHERE test_id = " + test_id + ";";
         String status = "";
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -318,8 +318,8 @@ public class DBUtilities {
         return status;
     }
 
-    protected static int getCountOfTestsCreateByUser(String userID) {
-        String query = "SELECT COUNT(TestID) FROM tests WHERE CreatorUserID = " + userID + ";";
+    protected static int getCountOfTestsCreateByUser(String creator_id) {
+        String query = "SELECT COUNT(test_id) FROM tests WHERE creator_id = " + creator_id + ";";
         int count = -1;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -333,8 +333,8 @@ public class DBUtilities {
         return count;
     }
 
-    protected static ArrayList<String> getTestIDsCreateByUser(String userID) {
-        String query = "SELECT TestID FROM tests WHERE CreatorUserID = " + userID + ";";
+    protected static ArrayList<String> getTestIDsCreateByUser(String creator_id) {
+        String query = "SELECT test_id FROM tests WHERE creator_id = " + creator_id + ";";
         ArrayList<String> testIDs = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -348,8 +348,8 @@ public class DBUtilities {
         return testIDs;
     }
 
-    protected static ArrayList<String> getTestNamesCreateByUser(String userID) {
-        String query = "SELECT TestName FROM tests WHERE CreatorUserID = " + userID + ";";
+    protected static ArrayList<String> getTestNamesCreateByUser(String creator_id) {
+        String query = "SELECT test_name FROM tests WHERE creator_id = " + creator_id + ";";
         ArrayList<String> testNames = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -363,8 +363,8 @@ public class DBUtilities {
         return testNames;
     }
 
-    protected static int getCountOfResultsFromTest(String testID) {
-        String query = "SELECT COUNT(ResultID) FROM results WHERE TestID = " + testID + ";";
+    protected static int getCountOfResultsFromTest(String test_id) {
+        String query = "SELECT COUNT(result_id) FROM results WHERE test_id = " + test_id + ";";
         int count = -1;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -378,8 +378,8 @@ public class DBUtilities {
         return count;
     }
 
-    protected static int getCountOfStatusResultsFromTest(String status, String testID) {
-        String query = "SELECT COUNT(PassFailStatus) FROM results WHERE PassFailStatus = '" + status + "' AND TestID = " + testID + ";";
+    protected static int getCountOfStatusResultsFromTest(String status, String test_id) {
+        String query = "SELECT COUNT(pass_fail_status) FROM results WHERE pass_fail_status = '" + status + "' AND test_id = " + test_id + ";";
         int count = -1;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -409,8 +409,8 @@ public class DBUtilities {
         return result;
     }
 
-    protected static boolean updateTestStatus(String status, String testID) {
-        String query = "UPDATE tests SET Status = '" + status + "' WHERE TestID = " + testID + ";";
+    protected static boolean updateTestStatus(String status, String test_id) {
+        String query = "UPDATE tests SET status = '" + status + "' WHERE test_id = " + test_id + ";";
         boolean successfulChange = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -421,8 +421,8 @@ public class DBUtilities {
         return successfulChange;
     }
 
-    protected static void updateTestDate(String dateUpdated, String testID) {
-        String query = "UPDATE tests SET DateUpdated = '" + dateUpdated + "' WHERE TestID = " + testID + ";";
+    protected static void updateTestDate(String date_updated, String test_id) {
+        String query = "UPDATE tests SET date_updated = '" + date_updated + "' WHERE test_id = " + test_id + ";";
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             boolean b = preparedStatement.executeUpdate() > 0;
@@ -431,8 +431,8 @@ public class DBUtilities {
         }
     }
 
-    protected static String getCodeOfTest(String testID) {
-        String query = "SELECT Code FROM tests WHERE TestID = " + testID + ";";
+    protected static String getCodeOfTest(String test_id) {
+        String query = "SELECT code FROM tests WHERE test_id = " + test_id + ";";
         String code = null;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -446,8 +446,8 @@ public class DBUtilities {
         return code;
     }
 
-    protected static ArrayList<String> getTestLeaderboard(String testID) {
-        String query = "SELECT Username, Score FROM results AS r JOIN users AS u ON r.UserID = u.UserID WHERE TestID = " + testID + " ORDER BY Score DESC, Username;";
+    protected static ArrayList<String> getTestLeaderboard(String test_id) {
+        String query = "SELECT username, score FROM results AS r JOIN users AS u ON r.user_id = u.user_id WHERE test_id = " + test_id + " ORDER BY score DESC, username;";
         ArrayList<String> leaderboard = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -468,8 +468,8 @@ public class DBUtilities {
 
     /* DELETE queries*/
 
-    protected static boolean deleteUser(String userID) {
-        String query = "DELETE FROM users WHERE UserID = " + userID + ";";
+    protected static boolean deleteUser(String user_id) {
+        String query = "DELETE FROM users WHERE user_id = " + user_id + ";";
         boolean result = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -484,41 +484,41 @@ public class DBUtilities {
 
     /* OTHER queries */
 
-    private static String makeUpdateUserDataQuery(String string, String userID) {
+    private static String makeUpdateUserDataQuery(String string, String user_id) {
         String sqlQuery = null;
         if (string.matches(ValidationRegexes.TEACHER_USERNAME.getRegex()) || string.matches(ValidationRegexes.STUDENT_USERNAME.getRegex())) {
             String firstName = String.valueOf(string.charAt(0)).toUpperCase() + string.substring(1, string.indexOf('_'));
             String lastNameFirstCharacter = String.valueOf(string.charAt(string.indexOf('_') + 1));
             if (string.matches(ValidationRegexes.TEACHER_USERNAME.getRegex())) {
                 String lastName = lastNameFirstCharacter.toUpperCase() + string.substring(string.indexOf('_') + 2, string.indexOf('@'));
-                sqlQuery = "UPDATE users SET Username = '" + string + "', FirstName = '" + firstName + "', LastName = '" + lastName + "' WHERE UserID = '" + userID + "';";
+                sqlQuery = "UPDATE users SET username = '" + string + "', first_name = '" + firstName + "', last_name = '" + lastName + "' WHERE user_id = '" + user_id + "';";
             } else if (string.matches(ValidationRegexes.STUDENT_USERNAME.getRegex())) {
                 String lastName = lastNameFirstCharacter.toUpperCase() + string.substring(string.indexOf('_') + 2, string.lastIndexOf('_'));
-                sqlQuery = "UPDATE users SET Username = '" + string + "', FirstName = '" + firstName + "', LastName = '" + lastName + "' WHERE UserID = '" + userID + "';";
+                sqlQuery = "UPDATE users SET username = '" + string + "', first_name = '" + firstName + "', last_name = '" + lastName + "' WHERE user_id = '" + user_id + "';";
             }
         } else if (string.matches(ValidationRegexes.LAST_NAME.getRegex())) {
-            String username = getUserData(userID).get("Username");
+            String username = getUserData(user_id).get("Username");
             String updatedUsername;
             if (username.matches(ValidationRegexes.TEACHER_USERNAME.getRegex())) {
                 updatedUsername = username.substring(0, username.indexOf('_') + 1) + string.toLowerCase() + username.substring(username.indexOf('@'));
             } else {
                 updatedUsername = username.substring(0, username.indexOf('_') + 1) + string.toLowerCase() + username.substring(username.lastIndexOf('_'));
             }
-            sqlQuery = "UPDATE users SET LastName = '" + string + "', Username = '" + updatedUsername + "' WHERE UserID = '" + userID + "';";
+            sqlQuery = "UPDATE users SET last_name = '" + string + "', username = '" + updatedUsername + "' WHERE user_id = '" + user_id + "';";
         } else if (string.matches(ValidationRegexes.FIRST_NAME.getRegex())) {
-            String username = getUserData(userID).get("Username");
+            String username = getUserData(user_id).get("Username");
             String updatedUsername = string.toLowerCase() + username.substring(username.indexOf('_'));
-            sqlQuery = "UPDATE users SET FirstName = '" + string + "', Username = '" + updatedUsername + "' WHERE UserID = '" + userID + "';";
+            sqlQuery = "UPDATE users SET first_name = '" + string + "', username = '" + updatedUsername + "' WHERE user_id = '" + user_id + "';";
         } else if (string.matches(ValidationRegexes.EMAIL.getRegex())) {
-            sqlQuery = "UPDATE users SET Email = '" + string + "' WHERE UserID = '" + userID + "';";
+            sqlQuery = "UPDATE users SET email = '" + string + "' WHERE user_id = '" + user_id + "';";
         } else if (string.matches(ValidationRegexes.PHONE.getRegex())) {
-            sqlQuery = "UPDATE users SET Phone = '" + string + "' WHERE UserID = '" + userID + "';";
+            sqlQuery = "UPDATE users SET phone = '" + string + "' WHERE user_id = '" + user_id + "';";
         }
         return sqlQuery;
     }
 
     protected static String suchUserExists(String username, String password) {
-        String sqlQuery = "SELECT UserID FROM users WHERE Username = '" + username + "' AND Password = '" + password + "';";
+        String sqlQuery = "SELECT user_id FROM users WHERE username = '" + username + "' AND password = '" + password + "';";
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
              ResultSet resultSet = preparedStatement.executeQuery()) {
@@ -532,7 +532,7 @@ public class DBUtilities {
     }
 
     protected static boolean testIsFree(String code) {
-        String query = "SELECT status FROM tests WHERE Code = '" + code + "';";
+        String query = "SELECT status FROM tests WHERE code = '" + code + "';";
         boolean flag = false;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -546,8 +546,8 @@ public class DBUtilities {
         return flag;
     }
 
-    protected static int calculatePointsReceivedByStudent(String userID, String testID) {
-        String query = "SELECT SUM(Points) AS TotalPoints FROM responses r INNER JOIN questions q ON r.QuestionID = q.QuestionID INNER JOIN tests t ON q.TestID = t.TestID WHERE r.UserID = " + userID + " AND r.IsCorrect = 'true' AND t.TestID = " + testID + ";";
+    protected static int calculatePointsReceivedByStudent(String user_id, String test_id) {
+        String query = "SELECT SUM(points) AS TotalPoints FROM responses r INNER JOIN questions q ON r.question_id = q.question_id INNER JOIN tests t ON q.test_id = t.test_id WHERE r.user_id = " + user_id + " AND r.is_correct = 'true' AND t.test_id = " + test_id + ";";
         int points = 0;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -563,8 +563,8 @@ public class DBUtilities {
         return points;
     }
 
-    protected static int calculateAllPointsOfATest(String testID) {
-        String query = "SELECT SUM(Points) AS MaxPoints FROM questions WHERE TestID = " + testID + ";";
+    protected static int calculateAllPointsOfATest(String test_id) {
+        String query = "SELECT SUM(points) AS MaxPoints FROM questions WHERE test_id = " + test_id + ";";
         int allPoints = 0;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -580,8 +580,8 @@ public class DBUtilities {
         return allPoints;
     }
 
-    protected static boolean studentHasAlreadyEnteredTheTest(String userID, String code) {
-        String query = "SELECT COUNT(*) AS ResponseCount FROM responses r JOIN questions q ON r.QuestionID = q.QuestionID JOIN tests t ON q.TestID = t.TestID WHERE r.UserID = " + userID + " AND t.Code = '" + code + "';";
+    protected static boolean studentHasAlreadyEnteredTheTest(String user_id, String code) {
+        String query = "SELECT COUNT(*) AS ResponseCount FROM responses r JOIN questions q ON r.question_id = q.question_id JOIN tests t ON q.test_id = t.test_id WHERE r.user_id = " + user_id + " AND t.code = '" + code + "';";
         boolean flag = true;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -597,8 +597,8 @@ public class DBUtilities {
         return flag;
     }
 
-    protected static int calculateDurationInSeconds(String testID, String userID) {
-        String query = "SELECT TIMESTAMPDIFF(SECOND, MIN(r.SubmissionTimestamp), MAX(r.SubmissionTimestamp)) AS TimeSpentInSeconds FROM responses r JOIN questions q ON r.QuestionID = q.QuestionID WHERE q.TestID = " + testID + " AND r.UserID = " + userID + ";";
+    protected static int calculateDurationInSeconds(String test_id, String user_id) {
+        String query = "SELECT TIMESTAMPDIFF(SECOND, MIN(r.submission_timestamp), MAX(r.submission_timestamp)) AS TimeSpentInSeconds FROM responses r JOIN questions q ON r.question_id = q.question_id WHERE q.test_id = " + test_id + " AND r.user_id = " + user_id + ";";
         int minutes = -1;
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {

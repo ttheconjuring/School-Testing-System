@@ -73,10 +73,10 @@ public class CreateAccountController implements Initializable {
                                     response(DBUtilities.createUser(
                                             getTextField_username().getText(),
                                             getPasswordField_password().getText(),
-                                            getTextField_email().getText(),
-                                            getTextField_phone().getText(),
                                             getTextField_firstName().getText(),
                                             getTextField_lastName().getText(),
+                                            getTextField_email().getText(),
+                                            getTextField_phone().getText(),
                                             getTheChosenRole()), actionEvent);
                                 } else {
                                     Utilities.showAlert("Invalid phone!", InvalidInputMessages.PHONE.getMessage(), Alert.AlertType.ERROR);
