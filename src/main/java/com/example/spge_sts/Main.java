@@ -25,8 +25,7 @@ public class Main extends Application {
     /*
     * TODO:
     *  1.Implement logic for the search bar in "My Tests"
-    *  2.Make better deletion process of account, a.k.a. delete the user responses and results if he is student, or tests if he is teacher.
-    *  3.Make possible the deletion of a tests*/
+    *  2.Make possible the deletion of a tests*/
 
     public static void main(String[] args) {
         launch();
@@ -35,9 +34,10 @@ public class Main extends Application {
     /*
     BUGS:
         1.The duration_minutes column in table results shows incorrect time, because it does not count
-    the time before the first click on button submit.
+    the time before the first click on button submit;
         2.When a student is doing a test and does not respond to the last question manually, a.k.a. click
     the submit button, the program saves the response and the result, but does not redirect to the home
-    page.
+    page;
+        3.When you delete your own teacher account, it just opens a new stage with sign up scene;
     */
 }
