@@ -11,39 +11,39 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="650.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.TestsScrollPaneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="940.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.TestsScrollPaneController">
     <stylesheets>
         <URL value="@tests-scrollpane.css" />
     </stylesheets>
-    <ScrollPane fx:id="scrollPane_tests" layoutX="31.0" layoutY="153.0" maxWidth="590.0" minHeight="295.0" style="-fx-background-radius: 10; -fx-background-color: #8A41AC; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
+    <ScrollPane fx:id="scrollPane_tests" layoutX="24.0" layoutY="151.0" maxWidth="890.0" minHeight="295.0" prefHeight="360.0" style="-fx-background-radius: 10; -fx-background-color: #8A41AC; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
       <padding>
          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
       </padding></ScrollPane>
-    <AnchorPane layoutY="478.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label alignment="CENTER" prefHeight="50.0" prefWidth="650.0" text="Copyright 2023 | All rights reserved." textFill="WHITE">
+    <AnchorPane layoutY="540.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="940.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label alignment="CENTER" layoutX="145.0" layoutY="5.0" prefHeight="50.0" prefWidth="650.0" text="Copyright 2024 | All rights reserved." textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="650.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label alignment="CENTER" prefHeight="50.0" prefWidth="650.0" text="My Tests" textFill="WHITE">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="940.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label alignment="CENTER" layoutX="145.0" layoutY="5.0" prefHeight="50.0" prefWidth="650.0" text="My Tests" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
-    <TextField fx:id="textField_search" alignment="CENTER" layoutX="148.0" layoutY="73.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="291.0" promptText="serach by name or status" styleClass="shadow">
+    <TextField fx:id="textField_search" alignment="CENTER" layoutX="211.0" layoutY="73.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="380.0" promptText="serach by name or status" styleClass="shadow">
         <padding>
             <Insets left="15.0" right="15.0" />
         </padding>
         <font>
-            <Font name="Arial Black" size="18.0" />
+            <Font name="Arial Black" size="20.0" />
         </font>
     </TextField>
-    <Button fx:id="button_search" layoutX="447.0" layoutY="72.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #39004d; -fx-background-radius: 20;" styleClass="shadow">
+    <Button fx:id="button_search" layoutX="602.0" layoutY="71.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #39004d; -fx-background-radius: 20;" styleClass="shadow">
         <graphic>
-            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@Search%20Icon.png" />
             </ImageView>
         </graphic>
