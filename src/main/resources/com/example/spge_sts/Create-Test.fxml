@@ -8,51 +8,51 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="545.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.CreateTestController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="600.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.CreateTestController">
     <stylesheets>
         <URL value="@create-test.css" />
     </stylesheets>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="545.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label layoutX="215.0" layoutY="12.0" text="Create Test" textFill="WHITE">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label layoutX="229.0" layoutY="14.0" text="Create Test" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutY="675.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="545.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label layoutX="99.0" layoutY="12.0" text="Copyright 2024 | All rights reserved." textFill="WHITE">
+    <AnchorPane layoutX="-2.0" layoutY="725.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label layoutX="84.0" layoutY="14.0" text="Copyright 2024 | All rights reserved." textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutX="50.0" layoutY="73.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="445.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
-        <Label layoutX="42.0" layoutY="43.0" text="Test Name:" textFill="WHITE">
+    <AnchorPane layoutX="54.0" layoutY="89.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="495.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
+        <Label layoutX="26.0" layoutY="44.0" text="Test Name:" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
-        <Label layoutX="39.0" layoutY="106.0" text="Description:" textFill="WHITE">
+        <Label layoutX="26.0" layoutY="107.0" text="Description:" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
-        <Label layoutX="39.0" layoutY="154.0" prefHeight="57.0" prefWidth="134.0" text="Response Time:" textFill="WHITE" wrapText="true">
+        <Label layoutX="26.0" layoutY="150.0" prefHeight="70.0" prefWidth="146.0" text="Response Time:" textFill="WHITE" wrapText="true">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
-        <Label layoutX="42.0" layoutY="232.0" text="Code:" textFill="WHITE">
+        <Label layoutX="26.0" layoutY="233.0" text="Code:" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
-        <Label layoutX="39.0" layoutY="278.0" prefHeight="63.0" prefWidth="119.0" text="Questions:" textFill="WHITE" wrapText="true">
+        <Label layoutX="26.0" layoutY="280.0" prefHeight="63.0" prefWidth="139.0" text="Questions:" textFill="WHITE" wrapText="true">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="textField_testName" alignment="CENTER" layoutX="183.0" layoutY="37.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="230.0" styleClass="shadow">
+        <TextField fx:id="textField_testName" alignment="CENTER" layoutX="183.0" layoutY="37.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="255.0" styleClass="shadow">
             <padding>
                 <Insets left="15.0" right="15.0" />
             </padding>
@@ -60,7 +60,7 @@
                 <Font name="Arial Black" size="18.0" />
             </font>
         </TextField>
-        <TextField fx:id="textField_description" alignment="CENTER" layoutX="183.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="230.0" promptText="(optional)" styleClass="shadow">
+        <TextField fx:id="textField_description" alignment="CENTER" layoutX="183.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="255.0" promptText="(optional)" styleClass="shadow">
             <padding>
                 <Insets left="15.0" right="15.0" />
             </padding>
@@ -68,18 +68,7 @@
                 <Font name="Arial Black" size="18.0" />
             </font>
         </TextField>
-        <TextField fx:id="textField_responseTime" alignment="CENTER" layoutX="183.0" layoutY="162.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="230.0" styleClass="shadow">
-            <padding>
-                <Insets left="15.0" right="15.0" />
-            </padding>
-            <font>
-                <Font name="Arial Black" size="18.0" />
-            </font>
-            <opaqueInsets>
-                <Insets />
-            </opaqueInsets>
-        </TextField>
-        <TextField fx:id="textField_code" alignment="CENTER" layoutX="183.0" layoutY="226.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="145.0" styleClass="shadow">
+        <TextField fx:id="textField_responseTime" alignment="CENTER" layoutX="183.0" layoutY="162.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="255.0" styleClass="shadow">
             <padding>
                 <Insets left="15.0" right="15.0" />
             </padding>
@@ -90,7 +79,7 @@
                 <Insets />
             </opaqueInsets>
         </TextField>
-        <TextField fx:id="textField_questions" alignment="CENTER" layoutX="183.0" layoutY="289.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="230.0" styleClass="shadow">
+        <TextField fx:id="textField_code" alignment="CENTER" layoutX="183.0" layoutY="226.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="155.0" styleClass="shadow">
             <padding>
                 <Insets left="15.0" right="15.0" />
             </padding>
@@ -101,17 +90,28 @@
                 <Insets />
             </opaqueInsets>
         </TextField>
-        <Button fx:id="button_generate" layoutX="338.0" layoutY="226.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="75.0" styleClass="shadow" text="GEN" textFill="WHITE">
+        <TextField fx:id="textField_questions" alignment="CENTER" layoutX="183.0" layoutY="289.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="255.0" styleClass="shadow">
+            <padding>
+                <Insets left="15.0" right="15.0" />
+            </padding>
             <font>
                 <Font name="Arial Black" size="18.0" />
+            </font>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+        </TextField>
+        <Button fx:id="button_generate" layoutX="353.0" layoutY="227.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="85.0" styleClass="shadow" text="GEN" textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="20.0" />
             </font>
         </Button>
-        <Label layoutX="39.0" layoutY="344.0" prefHeight="63.0" prefWidth="119.0" text="Passing Score:" textFill="WHITE" wrapText="true">
+        <Label layoutX="26.0" layoutY="343.0" prefHeight="70.0" prefWidth="139.0" text="Passing Score:" textFill="WHITE" wrapText="true">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="textField_passingScore" alignment="CENTER" layoutX="183.0" layoutY="355.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="230.0" promptText="(optional)" styleClass="shadow">
+        <TextField fx:id="textField_passingScore" alignment="CENTER" layoutX="183.0" layoutY="355.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="255.0" promptText="(optional)" styleClass="shadow">
             <padding>
                 <Insets left="15.0" right="15.0" />
             </padding>
@@ -122,7 +122,7 @@
                 <Insets />
             </opaqueInsets>
         </TextField>
-        <TextField fx:id="textField_status" alignment="CENTER" layoutX="183.0" layoutY="422.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="230.0" promptText="(free/locked)" styleClass="shadow">
+        <TextField fx:id="textField_status" alignment="CENTER" layoutX="183.0" layoutY="422.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="255.0" promptText="(free/locked)" styleClass="shadow">
             <padding>
                 <Insets left="15.0" right="15.0" />
             </padding>
@@ -133,18 +133,18 @@
                 <Insets />
             </opaqueInsets>
         </TextField>
-        <Label layoutX="36.0" layoutY="429.0" text="Status:" textFill="WHITE">
+        <Label layoutX="26.0" layoutY="429.0" text="Status:" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
-    <Button fx:id="button_next" layoutX="198.0" layoutY="577.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="150.0" styleClass="shadow" text="Next" textFill="WHITE">
+    <Button fx:id="button_next" layoutX="211.0" layoutY="605.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="175.0" styleClass="shadow" text="Next" textFill="WHITE">
         <font>
             <Font name="Arial Black" size="18.0" />
         </font>
     </Button>
-    <Button fx:id="button_cancel" layoutX="218.0" layoutY="624.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="110.0" styleClass="shadow" text="Cancel" textFill="WHITE">
+    <Button fx:id="button_cancel" layoutX="246.0" layoutY="663.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" styleClass="shadow" text="Cancel" textFill="WHITE">
         <font>
             <Font name="Arial Black" size="18.0" />
         </font>
