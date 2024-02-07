@@ -6,7 +6,6 @@ TextField {
 Button {
     -fx-background-color: #8A41AC;
     -fx-background-radius: 10px;
-    -fx-border-radius: 10px;
     -fx-text-fill: #ffffff;
 }
 
@@ -16,10 +15,6 @@ Button {
 
 #button_profile:hover, #button_log_out:hover {
     -fx-text-fill: #39004d;
-}
-
-#button_go {
-    -fx-border-color: black;
 }
 
 #button_go:hover {

@@ -25,7 +25,8 @@ public class Main extends Application {
     /*
     * TODO:
     *  1.Implement logic for the search bar in "My Tests"
-    *  2.Make possible the deletion of a tests*/
+    *  2.Make possible the deletion of a tests
+    *  3.Code statistics button */
 
     public static void main(String[] args) {
         launch();
@@ -39,5 +40,7 @@ public class Main extends Application {
     the submit button, the program saves the response and the result, but does not redirect to the home
     page;
         3.When you delete your own teacher account, it just opens a new stage with sign up scene;
+        4.When you load Teachers-Account-Information.fxml with custom data, the first name TextField is
+    always selected;
     */
 }

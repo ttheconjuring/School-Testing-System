@@ -15,7 +15,7 @@
     <stylesheets>
         <URL value="@tests-scrollpane.css" />
     </stylesheets>
-    <ScrollPane fx:id="scrollPane_tests" layoutX="24.0" layoutY="151.0" maxWidth="890.0" minHeight="295.0" prefHeight="360.0" style="-fx-background-radius: 10; -fx-background-color: #8A41AC; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
+    <ScrollPane fx:id="scrollPane_tests" layoutX="25.0" layoutY="149.0" maxWidth="890.0" minHeight="295.0" prefHeight="360.0" style="-fx-background-radius: 10; -fx-background-color: #8A41AC; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
       <padding>
          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
       </padding></ScrollPane>

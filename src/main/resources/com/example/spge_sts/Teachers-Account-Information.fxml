@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="620.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.TeachersAccountInformationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="483.0" prefWidth="620.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.TeachersAccountInformationController">
     <stylesheets>
         <URL value="@teachers-account-information.css" />
     </stylesheets>
@@ -22,15 +22,15 @@
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutY="395.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="620.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+    <AnchorPane layoutY="423.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="620.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
         <Label layoutX="101.0" layoutY="14.0" text="Copyright 2024 | All right reserved." textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutX="45.0" layoutY="85.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="285.0" prefWidth="530.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
-        <TextField fx:id="textField_firstName" alignment="CENTER" editable="false" layoutX="33.0" layoutY="54.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="430.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20;" text="First Name: firstName">
+    <AnchorPane layoutX="45.0" layoutY="84.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="315.0" prefWidth="530.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
+        <TextField fx:id="textField_firstName" alignment="CENTER" editable="false" layoutX="40.0" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="430.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20;" text="First Name: firstName">
             <opaqueInsets>
                 <Insets left="15.0" right="15.0" />
             </opaqueInsets>
@@ -38,7 +38,7 @@
                 <Font name="Arial Black" size="20.0" />
             </font>
         </TextField>
-        <TextField fx:id="textField_lastName" alignment="CENTER" editable="false" layoutX="33.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="430.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20;" text="Last Name: lastName">
+        <TextField fx:id="textField_lastName" alignment="CENTER" editable="false" layoutX="40.0" layoutY="101.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="430.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20;" text="Last Name: lastName">
             <opaqueInsets>
                 <Insets left="15.0" right="15.0" />
             </opaqueInsets>
@@ -46,42 +46,7 @@
                 <Font name="Arial Black" size="20.0" />
             </font>
         </TextField>
-        <Button fx:id="button_edit_username" disable="true" layoutX="470.0" layoutY="16.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
-            <graphic>
-                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@Edit%20Icon.png" />
-                </ImageView>
-            </graphic>
-        </Button>
-        <Button fx:id="button_edit_firstName" disable="true" layoutX="470.0" layoutY="54.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
-            <graphic>
-                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@Edit%20Icon.png" />
-                </ImageView>
-            </graphic>
-        </Button>
-        <Button fx:id="button_edit_lastName" disable="true" layoutX="470.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
-            <graphic>
-                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@Edit%20Icon.png" />
-                </ImageView>
-            </graphic>
-        </Button>
-        <Button fx:id="button_edit_email" disable="true" layoutX="470.0" layoutY="138.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
-            <graphic>
-                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@Edit%20Icon.png" />
-                </ImageView>
-            </graphic>
-        </Button>
-        <Button fx:id="button_edit_phone" disable="true" layoutX="470.0" layoutY="183.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
-            <graphic>
-                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@Edit%20Icon.png" />
-                </ImageView>
-            </graphic>
-        </Button>
-        <TextField fx:id="textField_username" alignment="CENTER" editable="false" layoutX="33.0" layoutY="16.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="430.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20;" text="Username: username">
+        <TextField fx:id="textField_username" alignment="CENTER" editable="false" layoutX="40.0" layoutY="22.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="430.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20;" text="Username: username">
             <opaqueInsets>
                 <Insets left="15.0" right="15.0" />
             </opaqueInsets>
@@ -89,7 +54,7 @@
                 <Font name="Arial Black" size="20.0" />
             </font>
         </TextField>
-        <TextField fx:id="textField_phone" alignment="CENTER" editable="false" layoutX="33.0" layoutY="138.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="430.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20;" text="Phone: phone">
+        <TextField fx:id="textField_phone" alignment="CENTER" editable="false" layoutX="40.0" layoutY="144.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="430.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20;" text="Phone: phone">
             <opaqueInsets>
                 <Insets left="15.0" right="15.0" />
             </opaqueInsets>
@@ -97,7 +62,7 @@
                 <Font name="Arial Black" size="20.0" />
             </font>
         </TextField>
-        <TextField fx:id="textField_email" alignment="CENTER" editable="false" layoutX="33.0" layoutY="183.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="430.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20;" text="Email: email">
+        <TextField fx:id="textField_email" alignment="CENTER" editable="false" layoutX="40.0" layoutY="189.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="430.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 20;" text="Email: email">
             <opaqueInsets>
                 <Insets left="15.0" right="15.0" />
             </opaqueInsets>
@@ -105,22 +70,57 @@
                 <Font name="Arial Black" size="20.0" />
             </font>
         </TextField>
-        <Button fx:id="button_delete" layoutX="149.0" layoutY="227.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="110.0" styleClass="shadow" text="Delete" textFill="WHITE">
+        <Button fx:id="button_edit_username" disable="true" layoutX="470.0" layoutY="22.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
+            <graphic>
+                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@Edit%20Icon.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="button_edit_firstName" disable="true" layoutX="470.0" layoutY="60.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
+            <graphic>
+                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@Edit%20Icon.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="button_edit_lastName" disable="true" layoutX="470.0" layoutY="101.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
+            <graphic>
+                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@Edit%20Icon.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="button_edit_email" disable="true" layoutX="470.0" layoutY="144.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
+            <graphic>
+                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@Edit%20Icon.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="button_edit_phone" disable="true" layoutX="470.0" layoutY="189.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
+            <graphic>
+                <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@Edit%20Icon.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="button_delete" layoutX="132.0" layoutY="241.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="110.0" styleClass="shadow" text="Delete" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="16.0" />
             </font>
         </Button>
-        <Button fx:id="button_edit" layoutX="272.0" layoutY="227.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="110.0" styleClass="shadow" text="Edit" textFill="WHITE">
+        <Button fx:id="button_edit" layoutX="255.0" layoutY="241.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="110.0" styleClass="shadow" text="Edit" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="16.0" />
             </font>
         </Button>
-        <Button fx:id="button_cancel" disable="true" layoutX="149.0" layoutY="227.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="45.0" prefWidth="110.0" styleClass="shadow" text="Cancel" textFill="WHITE">
+        <Button fx:id="button_cancel" disable="true" layoutX="132.0" layoutY="241.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="45.0" prefWidth="110.0" styleClass="shadow" text="Cancel" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="16.0" />
             </font>
         </Button>
-        <Button fx:id="button_save" disable="true" layoutX="272.0" layoutY="227.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="45.0" prefWidth="110.0" styleClass="shadow" text="Save" textFill="WHITE">
+        <Button fx:id="button_save" disable="true" layoutX="255.0" layoutY="241.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="45.0" prefWidth="110.0" styleClass="shadow" text="Save" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="16.0" />
             </font>

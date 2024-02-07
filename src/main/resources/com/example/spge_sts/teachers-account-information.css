@@ -1,12 +1,9 @@
 TextField {
-    /*-fx-background-color: #39004d;*/
     -fx-text-fill: white;
 }
 
 Button {
-    -fx-background-radius: 21px;
-    -fx-border-color: black;
-    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
 }
 
 .shadow {
@@ -54,6 +51,5 @@ Button {
 }
 
 #button_edit_username, #button_edit_firstName, #button_edit_lastName, #button_edit_email, #button_edit_phone {
-    -fx-border-color: #8A41AC;
     -fx-background-color: #8A41AC;
 }

@@ -1,3 +1,19 @@
 .shadow {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
 }
+
+#button_delete_test {
+    -fx-background-color: #EF2929;
+}
+
+#button_delete_test:hover {
+    -fx-background-color: #991f00;
+}
+
+#button_leaderboard, #button_statistics {
+    -fx-background-color: #1978A0;
+}
+
+#button_leaderboard:hover, #button_statistics:hover {
+    -fx-background-color: #0C328B;
+}

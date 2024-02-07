@@ -6,8 +6,6 @@ TextField, PasswordField {
 Button {
     -fx-background-color: #8A41AC;
     -fx-background-radius: 10px;
-    -fx-border-color: black;
-    -fx-border-radius: 10px
 }
 
 Button:hover {

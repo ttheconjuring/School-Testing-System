@@ -41,6 +41,12 @@ public class TestTemplateController implements Initializable {
     private Button button_changeStatus;
 
     @FXML
+    private Button button_statistics;
+
+    @FXML
+    private Button button_delete_test;
+
+    @FXML
     private ImageView imageView_status;
 
     // ================================================== \\
@@ -129,6 +135,14 @@ public class TestTemplateController implements Initializable {
 
     private Button getButton_changeStatus() {
         return this.button_changeStatus;
+    }
+
+    private Button getButton_statistics() {
+        return this.button_statistics;
+    }
+
+    private Button getButton_delete_test() {
+        return this.button_delete_test;
     }
 
     private ImageView getImageView_status() {
