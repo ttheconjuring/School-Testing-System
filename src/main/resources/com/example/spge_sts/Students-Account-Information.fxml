@@ -10,50 +10,50 @@
     <stylesheets>
         <URL value="@students-account-information.css" />
     </stylesheets>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="620.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label layoutX="209.0" layoutY="12.0" text="Account Information" textFill="WHITE">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="620.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label layoutX="187.0" layoutY="14.0" text="Account Information" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutY="410.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="620.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label layoutX="139.0" layoutY="12.0" text="Copyright 2023 | All right reserved." textFill="WHITE">
+    <AnchorPane layoutY="400.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="620.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label layoutX="101.0" layoutY="14.0" text="Copyright 2024 | All right reserved." textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutX="110.0" layoutY="89.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="400.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
-        <Label fx:id="label_username" alignment="CENTER" contentDisplay="CENTER" layoutY="26.0" prefHeight="27.0" prefWidth="400.0" text="Username: @username" textAlignment="CENTER" textFill="WHITE">
+    <AnchorPane layoutX="88.0" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="231.0" prefWidth="445.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
+        <Label fx:id="label_username" alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="20.0" prefHeight="27.0" prefWidth="400.0" text="Username: @username" textAlignment="CENTER" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="20.0" />
             </font>
         </Label>
-        <Label fx:id="label_firstName" alignment="CENTER" contentDisplay="CENTER" layoutY="60.0" prefHeight="27.0" prefWidth="400.0" text="First Name: firstName" textAlignment="CENTER" textFill="WHITE">
+        <Label fx:id="label_firstName" alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="62.0" prefHeight="27.0" prefWidth="400.0" text="First Name: firstName" textAlignment="CENTER" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="20.0" />
             </font>
         </Label>
-        <Label fx:id="label_lastName" alignment="CENTER" contentDisplay="CENTER" layoutY="97.0" prefHeight="27.0" prefWidth="400.0" text="Last Name: lastName" textAlignment="CENTER" textFill="WHITE">
+        <Label fx:id="label_lastName" alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="101.0" prefHeight="27.0" prefWidth="400.0" text="Last Name: lastName" textAlignment="CENTER" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="20.0" />
             </font>
         </Label>
-        <Label fx:id="label_email" alignment="CENTER" contentDisplay="CENTER" layoutY="131.0" prefHeight="27.0" prefWidth="400.0" text="Email:  email" textAlignment="CENTER" textFill="WHITE">
+        <Label fx:id="label_email" alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="143.0" prefHeight="27.0" prefWidth="400.0" text="Email:  email" textAlignment="CENTER" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="20.0" />
             </font>
         </Label>
-        <Label fx:id="label_phone" alignment="CENTER" contentDisplay="CENTER" layoutY="166.0" prefHeight="27.0" prefWidth="400.0" text="Phone: phone" textAlignment="CENTER" textFill="WHITE">
+        <Label fx:id="label_phone" alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="181.0" prefHeight="27.0" prefWidth="400.0" text="Phone: phone" textAlignment="CENTER" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="20.0" />
             </font>
         </Label>
     </AnchorPane>
-    <Button fx:id="button_back" layoutX="255.0" layoutY="345.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="35.0" prefWidth="110.0" styleClass="shadow" text="Back" textFill="WHITE">
+    <Button fx:id="button_back" layoutX="250.0" layoutY="330.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="shadow" text="Back" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="14.0" />
+            <Font name="Arial Black" size="20.0" />
         </font>
     </Button>
 </AnchorPane>
