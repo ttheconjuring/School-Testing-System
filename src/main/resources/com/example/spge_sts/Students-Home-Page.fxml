@@ -12,37 +12,37 @@
     <stylesheets>
         <URL value="@students-home-page.css" />
     </stylesheets>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="735.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label layoutX="14.0" prefHeight="50.0" prefWidth="111.0" text="SPGE - STS" textFill="WHITE">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="735.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label layoutX="14.0" layoutY="5.0" prefHeight="50.0" prefWidth="140.0" text="SPGE - STS" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
-        <Button fx:id="button_log_out" layoutX="610.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="111.0" text="Log out" textFill="WHITE">
-            <font>
-                <Font name="Arial Black" size="18.0" />
-            </font>
-        </Button>
-        <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="163.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="410.0" text="Hello @username!" textAlignment="CENTER" textFill="WHITE">
-            <font>
-                <Font name="Arial Black" size="18.0" />
-            </font>
-        </Button>
-    </AnchorPane>
-    <AnchorPane layoutY="375.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="735.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label layoutX="170.0" prefHeight="50.0" prefWidth="395.0" text="Copyright 2024 | All rights reserved." textFill="WHITE">
+        <Button fx:id="button_log_out" layoutX="610.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="111.0" text="Log out" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="20.0" />
             </font>
+        </Button>
+        <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="175.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="420.0" text="Hello @username!" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="20.0" />
+            </font>
+        </Button>
+    </AnchorPane>
+    <AnchorPane layoutY="365.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="735.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label layoutX="151.0" layoutY="5.0" prefHeight="50.0" prefWidth="433.0" text="Copyright 2024 | All rights reserved." textFill="WHITE">
+            <font>
+                <Font name="Arial Black" size="22.0" />
+            </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutX="208.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="191.0" prefWidth="321.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
+    <AnchorPane layoutX="207.0" layoutY="93.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="182.0" prefWidth="321.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
         <Label layoutX="62.0" layoutY="34.0" prefHeight="50.0" prefWidth="199.0" text="Enter test code:" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="textField_test_code" alignment="CENTER" layoutX="27.0" layoutY="84.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="270.0" style="-fx-background-radius: 20;" styleClass="shadow" text="sad">
+        <TextField fx:id="textField_test_code" alignment="CENTER" layoutX="27.0" layoutY="84.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="270.0" style="-fx-background-radius: 20;" styleClass="shadow">
             <font>
                 <Font name="Arial Black" size="20.0" />
             </font>
@@ -51,7 +51,7 @@
             </padding>
         </TextField>
     </AnchorPane>
-    <Button fx:id="button_go" layoutX="309.0" layoutY="299.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="shadow" text="Go" textFill="WHITE">
+    <Button fx:id="button_go" layoutX="308.0" layoutY="292.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="shadow" text="Go" textFill="WHITE">
         <font>
             <Font name="Arial Black" size="18.0" />
         </font>

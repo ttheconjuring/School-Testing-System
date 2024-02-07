@@ -13,10 +13,10 @@
     <stylesheets>
         <URL value="@sing-in.css" />
     </stylesheets>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="700.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label layoutX="303.0" prefHeight="50.0" prefWidth="95.0" text="Sign In" textFill="WHITE">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="700.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label alignment="CENTER" layoutX="297.0" layoutY="5.0" prefHeight="50.0" prefWidth="106.0" text="Sign In" textAlignment="CENTER" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="25.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
@@ -28,7 +28,7 @@
         </Label>
         <TextField fx:id="textField_username" layoutX="40.0" layoutY="93.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="410.0" style="-fx-background-radius: 20px;" styleClass="shadow">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="20.0" />
             </font>
             <padding>
                 <Insets left="15.0" right="15.0" />
@@ -41,21 +41,21 @@
         </Label>
         <PasswordField fx:id="passwordField_password" layoutX="40.0" layoutY="203.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="410.0" style="-fx-background-radius: 20px;" styleClass="shadow">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Arial Black" size="20.0" />
             </font>
             <padding>
                 <Insets left="15.0" right="15.0" />
             </padding>
         </PasswordField>
     </AnchorPane>
-    <AnchorPane layoutY="550.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="700.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label layoutX="102.0" prefHeight="50.0" prefWidth="497.0" text="Copyright 2024 | All rights reserved." textFill="WHITE">
+    <AnchorPane layoutY="540.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="700.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label layoutX="102.0" layoutY="5.0" prefHeight="50.0" prefWidth="497.0" text="Copyright 2024 | All rights reserved." textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="25.0" />
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
-    <Button fx:id="button_sign_in" layoutX="238.0" layoutY="455.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="225.0" styleClass="shadow" text="Sign In" textFill="WHITE">
+    <Button fx:id="button_sign_in" layoutX="238.0" layoutY="451.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="225.0" styleClass="shadow" text="Sign In" textFill="WHITE">
         <font>
             <Font name="Arial Black" size="20.0" />
         </font>

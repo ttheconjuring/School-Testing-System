@@ -6,69 +6,51 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0"
-            prefWidth="600.0" style="-fx-background-color: #89CC34; -fx-border-color: black;"
-            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.spge_sts.TeachersHomePageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="735.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.TeachersHomePageController">
     <stylesheets>
-        <URL value="@teachers-home-page.css"/>
+        <URL value="@teachers-home-page.css" />
     </stylesheets>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0"
-                prefWidth="600.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label layoutX="14.0" layoutY="13.0" text="SPGE-STS" textFill="WHITE">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="735.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label layoutX="14.0" layoutY="14.0" text="SPGE-STS" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0"/>
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
-        <Button fx:id="button_log_out" layoutX="506.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity"
-                minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0"
-                text="Log out" textFill="WHITE">
+        <Button fx:id="button_log_out" layoutX="600.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="42.0" prefWidth="121.0" text="Log out" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="14.0"/>
+                <Font name="Arial Black" size="20.0" />
             </font>
         </Button>
-        <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="146.0" layoutY="12.0"
-                maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                mnemonicParsing="false" prefHeight="30.0" prefWidth="335.0" text="Hello @username!"
-                textAlignment="CENTER" textFill="WHITE">
+        <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="170.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="42.0" prefWidth="395.0" text="Hello @username!" textAlignment="CENTER" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="14.0"/>
+                <Font name="Arial Black" size="20.0" />
             </font>
         </Button>
     </AnchorPane>
-    <Button fx:id="button_my_tests" layoutX="131.0" layoutY="72.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0"
-            styleClass="shadow" text="My Tests" textFill="WHITE">
+    <Button fx:id="button_my_tests" layoutX="165.0" layoutY="84.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="103.0" prefWidth="191.0" styleClass="shadow" text="My Tests" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="18.0"/>
+            <Font name="Arial Black" size="25.0" />
         </font>
     </Button>
-    <Button fx:id="button_users" layoutX="309.0" layoutY="72.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0"
-            styleClass="shadow" text="Users" textFill="WHITE">
+    <Button fx:id="button_users" layoutX="379.0" layoutY="84.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="103.0" prefWidth="191.0" styleClass="shadow" text="Users" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="18.0"/>
+            <Font name="Arial Black" size="25.0" />
         </font>
     </Button>
-    <Button fx:id="button_create_test" layoutX="131.0" layoutY="158.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0"
-            styleClass="shadow" text="Create Test" textFill="WHITE">
+    <Button fx:id="button_create_test" layoutX="165.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="103.0" prefWidth="191.0" styleClass="shadow" text="Create Test" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
-            <Font name="Arial Black" size="18.0"/>
+            <Font name="Arial Black" size="25.0" />
         </font>
     </Button>
-    <Button fx:id="button_create_account" layoutX="309.0" layoutY="158.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="160.0"
-            styleClass="shadow" text="Create Account" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+    <Button fx:id="button_create_account" layoutX="379.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="103.0" prefWidth="191.0" styleClass="shadow" text="Create Account" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
-            <Font name="Arial Black" size="18.0"/>
+            <Font name="Arial Black" size="25.0" />
         </font>
     </Button>
-    <AnchorPane layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label layoutX="124.0" layoutY="12.0" text="Copyright 2023 | All rights reserved." textFill="WHITE">
+    <AnchorPane layoutY="340.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="735.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+        <Label layoutX="152.0" layoutY="14.0" text="Copyright 2024 | All rights reserved." textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="18.0"/>
+                <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
