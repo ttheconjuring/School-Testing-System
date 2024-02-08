@@ -1,8 +1,14 @@
 package com.example.spge_sts;
 
+import javafx.beans.binding.Bindings;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -63,6 +69,10 @@ public class TestTemplateController implements Initializable {
 
     private String testStatus;
 
+    private double passValue;
+
+    private double failValue;
+
     // ================================================== \\
 
     @Override
@@ -78,6 +88,27 @@ public class TestTemplateController implements Initializable {
         });
         getButton_leaderboard().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Leaderboard.fxml", getTestID())));
         getButton_delete_test().setOnAction(actionEvent -> confirmTestDeletion());
+
+        getButton_statistics().setOnAction(actionEvent -> {
+            FXMLLoader loader = new FXMLLoader(Utilities.class.getResource("Statistics.fxml"));
+            Parent root = null;
+            try {
+                root = loader.load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            StatisticsController statisticsController = loader.getController();
+            ObservableList<PieChart.Data> dataForPieChartPassFail = FXCollections.observableArrayList(
+                    new PieChart.Data("pass", getPassValue()),
+                    new PieChart.Data("fail", getFailValue())
+            );
+            dataForPieChartPassFail.forEach(data ->
+                    data.nameProperty().bind(Bindings.concat(
+                            data.getName(), " ", data.pieValueProperty(), "%"
+                    )));
+            statisticsController.setDataToPieChartPassFail(dataForPieChartPassFail);
+            Utilities.switchToPreparedScene(root, actionEvent);
+        });
     }
 
     private void confirmTestDeletion() {
@@ -104,8 +135,10 @@ public class TestTemplateController implements Initializable {
         getLabel_testName().setText(testInfo.get("TestName"));
         getLabel_testCode().setText("(" + testInfo.get("Code") + ")");
         getLabel_results().setText("Results: " + testInfo.get("Results"));
-        getLabel_pass().setText("Pass: " + testInfo.get("Pass"));
-        getLabel_fail().setText("Fail: " + testInfo.get("Fail"));
+        getLabel_pass().setText("Pass: " + testInfo.get("Pass") + "%");
+        setPassValue(Double.parseDouble(testInfo.get("Pass")));
+        getLabel_fail().setText("Fail: " + testInfo.get("Fail") + "%");
+        setFailValue(Double.parseDouble(testInfo.get("Fail")));
         getLabel_date_created().setText("Created at:\n" + testInfo.get("DateCreated"));
         setTestID(testInfo.get("TestID"));
         setTestStatus(testInfo.get("Status"));
@@ -144,7 +177,9 @@ public class TestTemplateController implements Initializable {
         return this.label_testName;
     }
 
-    private Label getLabel_testCode() {return this.label_testCode; }
+    private Label getLabel_testCode() {
+        return this.label_testCode;
+    }
 
     private Label getLabel_results() {
         return this.label_results;
@@ -158,7 +193,9 @@ public class TestTemplateController implements Initializable {
         return this.label_fail;
     }
 
-    private Label getLabel_date_created() {return this.label_date_created; }
+    private Label getLabel_date_created() {
+        return this.label_date_created;
+    }
 
     private Button getButton_leaderboard() {
         return this.button_leaderboard;
@@ -194,5 +231,21 @@ public class TestTemplateController implements Initializable {
 
     private void setTestStatus(String testStatus) {
         this.testStatus = testStatus;
+    }
+
+    private double getFailValue() {
+        return this.failValue;
+    }
+
+    private void setFailValue(double failValue) {
+        this.failValue = failValue;
+    }
+
+    private double getPassValue() {
+        return this.passValue;
+    }
+
+    private void setPassValue(double passValue) {
+        this.passValue = passValue;
     }
 }

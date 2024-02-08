@@ -77,9 +77,9 @@ public class TestsScrollPaneController implements Initializable {
             double statusResults = DBUtilities.getCountOfStatusResultsFromTest(status, getTestIDs().get(index));
             if (statusResults > 0) {
                 double percentage = statusResults / allResults * 100;
-                return String.format("%.0f", Math.ceil(percentage)) + "%";
+                return String.valueOf(Math.ceil(percentage));
             } else {
-                return "0%";
+                return "0";
             }
         }
         return "??%";

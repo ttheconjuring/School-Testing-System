@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="692.0" prefWidth="1156.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.StatisticsController">
+   <stylesheets>
+      <URL value="@statistics.css" />
+   </stylesheets>
+   <AnchorPane layoutY="632.0" prefHeight="60.0" prefWidth="1156.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+      <Label layoutX="369.0" layoutY="14.0" text="Copyright 2024 | All right reserved." textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="22.0" />
+         </font>
+      </Label>
+   </AnchorPane>
+   <AnchorPane prefHeight="60.0" prefWidth="1156.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+      <Label layoutX="520.0" layoutY="14.0" text="Statistics" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="22.0" />
+         </font>
+      </Label>
+   </AnchorPane>
+   <PieChart fx:id="pieChart_pass_fail" layoutX="55.0" layoutY="185.0" style="-fx-border-color: black; -fx-background-color: #8A41AC;" styleClass="shadow" />
+   <PieChart fx:id="pieChart_points" layoutX="601.0" layoutY="185.0" style="-fx-border-color: black;" styleClass="shadow" />
+   <Label layoutX="199.0" layoutY="110.0" styleClass="shadow" text="Pass / Fail PieChart" textFill="WHITE">
+      <font>
+         <Font name="Arial Black" size="20.0" />
+      </font>
+   </Label>
+   <Label layoutX="766.0" layoutY="110.0" styleClass="shadow" text="Points PieChart" textFill="WHITE">
+      <font>
+         <Font name="Arial Black" size="20.0" />
+      </font>
+   </Label>
+</AnchorPane>
