@@ -1,9 +1,11 @@
 package com.example.spge_sts;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -11,6 +13,7 @@ import javafx.scene.image.ImageView;
 import java.io.File;
 import java.net.URL;
 import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class TestTemplateController implements Initializable {
@@ -61,6 +64,7 @@ public class TestTemplateController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /* core functionality */
         getButton_changeStatus().setOnAction(actionEvent -> {
             if (getTestStatus().equals("free")) {
                 lockTest();
@@ -70,6 +74,27 @@ public class TestTemplateController implements Initializable {
             updateTestDate();
         });
         getButton_leaderboard().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Leaderboard.fxml", getTestID())));
+        getButton_delete_test().setOnAction(actionEvent -> confirmTestDeletion());
+    }
+
+    private void confirmTestDeletion() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Test Deletion");
+        alert.setHeaderText(null);
+        alert.setContentText("You will permanently delete this test!");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            deleteTest();
+        }
+    }
+
+    private void deleteTest() {
+        if (DBUtilities.deleteTest(getTestID())) {
+            Utilities.showAlert("Test Deletion Complete!", "You successfully deleted this test!", Alert.AlertType.CONFIRMATION);
+            Utilities.closeLastStage();
+        } else {
+            Utilities.showAlert("Test Deletion Failed!", "Sorry, the test couldn't be deleted!", Alert.AlertType.ERROR);
+        }
     }
 
     protected void setData(Map<String, String> testInfo) {

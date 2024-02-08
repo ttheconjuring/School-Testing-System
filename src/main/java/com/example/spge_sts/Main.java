@@ -25,8 +25,7 @@ public class Main extends Application {
     /*
     * TODO:
     *  1.Implement logic for the search bar in "My Tests"
-    *  2.Make possible the deletion of a tests
-    *  3.Code statistics button */
+    *  2.Code statistics button */
 
     public static void main(String[] args) {
         launch();

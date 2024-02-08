@@ -480,6 +480,18 @@ public class DBUtilities {
         return result;
     }
 
+    protected static boolean deleteTest(String test_id) {
+        String query = "DELETE FROM tests WHERE test_id = " + test_id + ";";
+        boolean result = false;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            result = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
     // ====================================================================== \\
 
     /* OTHER queries */
