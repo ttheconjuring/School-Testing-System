@@ -67,6 +67,7 @@ public class TestsScrollPaneController implements Initializable {
         testInfo.put("Results", String.valueOf(DBUtilities.getCountOfResultsFromTest(getTestIDs().get(index))));
         testInfo.put("Pass", calculate("pass", index));
         testInfo.put("Fail", calculate("fail", index));
+        testInfo.put("DateCreated", DBUtilities.getTestDateCreation(getTestIDs().get(index)));
         return testInfo;
     }
 

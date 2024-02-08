@@ -464,6 +464,21 @@ public class DBUtilities {
         return leaderboard;
     }
 
+    protected static String getTestDateCreation(String test_id) {
+        String query = "SELECT date_created FROM tests WHERE test_id =" + test_id + ";";
+        String date_created = null;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                date_created = resultSet.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return date_created;
+    }
+
     // ====================================================================== \\
 
     /* DELETE queries*/

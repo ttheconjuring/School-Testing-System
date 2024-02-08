@@ -38,6 +38,9 @@ public class TestTemplateController implements Initializable {
     private Label label_fail;
 
     @FXML
+    private Label label_date_created;
+
+    @FXML
     private Button button_leaderboard;
 
     @FXML
@@ -103,6 +106,7 @@ public class TestTemplateController implements Initializable {
         getLabel_results().setText("Results: " + testInfo.get("Results"));
         getLabel_pass().setText("Pass: " + testInfo.get("Pass"));
         getLabel_fail().setText("Fail: " + testInfo.get("Fail"));
+        getLabel_date_created().setText("Created at:\n" + testInfo.get("DateCreated"));
         setTestID(testInfo.get("TestID"));
         setTestStatus(testInfo.get("Status"));
         if (getTestStatus().equals("free")) {
@@ -153,6 +157,8 @@ public class TestTemplateController implements Initializable {
     private Label getLabel_fail() {
         return this.label_fail;
     }
+
+    private Label getLabel_date_created() {return this.label_date_created; }
 
     private Button getButton_leaderboard() {
         return this.button_leaderboard;
