@@ -1,11 +1,11 @@
 package com.example.spge_sts;
 
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,17 +17,10 @@ public class StatisticsController implements Initializable {
     /* visual elements */
 
     @FXML
-    private PieChart pieChart_pass_fail;
+    private PieChart pieChart;
 
     @FXML
-    private PieChart pieChart_points;
-
-    // ================================================== \\
-
-    /* PieChart data containers */
-
-    private ObservableList<PieChart.Data> pieChart_pass_fail_data;
-    private ObservableList<PieChart.Data> pieChart_points_data;
+    private BarChart<String, Integer> barChart;
 
     // ================================================== \\
 
@@ -37,18 +30,17 @@ public class StatisticsController implements Initializable {
     }
 
     private PieChart getPieChart_pass_fail() {
-        return this.pieChart_pass_fail;
+        return this.pieChart;
     }
 
-    private PieChart getPieChart_points() {
-        return this.pieChart_points;
+    protected void setDataToPieChart(ObservableList<PieChart.Data> pieChart) {
+        getPieChart_pass_fail().getData().addAll(pieChart);
     }
 
-    protected void setDataToPieChartPassFail(ObservableList<PieChart.Data> pieChart_pass_fail_data) {
-        getPieChart_pass_fail().getData().addAll(pieChart_pass_fail_data);
+    private BarChart<String, Integer> getBarChart() { return this.barChart; }
+
+    protected void setDataToBarChart(XYChart.Series<String, Integer> series) {
+        getBarChart().getData().addAll(series);
     }
 
-    protected void setDataToPieChartPoints(ObservableList<PieChart.Data> pieChart_points_data) {
-        getPieChart_points().getData().addAll(pieChart_points_data);
-    }
 }

@@ -479,6 +479,21 @@ public class DBUtilities {
         return date_created;
     }
 
+    protected static Map<String, Integer> getBarChartData(String test_id) {
+        String query = "SELECT score, COUNT(score) FROM results WHERE test_id = " + test_id + " GROUP BY score ORDER BY score;";
+        Map<String, Integer> pointsCountMap = new HashMap<>();
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                pointsCountMap.put(resultSet.getString(1), Integer.parseInt(resultSet.getString(2)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return pointsCountMap;
+    }
+
     // ====================================================================== \\
 
     /* DELETE queries*/

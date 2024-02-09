@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -18,6 +19,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.File;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -73,6 +75,8 @@ public class TestTemplateController implements Initializable {
 
     private double failValue;
 
+    private Map<String, Integer> pointsCountMap;
+
     // ================================================== \\
 
     @Override
@@ -89,26 +93,39 @@ public class TestTemplateController implements Initializable {
         getButton_leaderboard().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Leaderboard.fxml", getTestID())));
         getButton_delete_test().setOnAction(actionEvent -> confirmTestDeletion());
 
-        getButton_statistics().setOnAction(actionEvent -> {
-            FXMLLoader loader = new FXMLLoader(Utilities.class.getResource("Statistics.fxml"));
-            Parent root = null;
-            try {
-                root = loader.load();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            StatisticsController statisticsController = loader.getController();
-            ObservableList<PieChart.Data> dataForPieChartPassFail = FXCollections.observableArrayList(
-                    new PieChart.Data("pass", getPassValue()),
-                    new PieChart.Data("fail", getFailValue())
-            );
-            dataForPieChartPassFail.forEach(data ->
-                    data.nameProperty().bind(Bindings.concat(
-                            data.getName(), " ", data.pieValueProperty(), "%"
-                    )));
-            statisticsController.setDataToPieChartPassFail(dataForPieChartPassFail);
-            Utilities.switchToPreparedScene(root, actionEvent);
-        });
+        getButton_statistics().setOnAction(actionEvent -> customTransition());
+    }
+
+    private void customTransition() {
+        FXMLLoader loader = new FXMLLoader(Utilities.class.getResource("Statistics.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        StatisticsController statisticsController = loader.getController();
+
+        ObservableList<PieChart.Data> dataForPieChartPassFail = FXCollections.observableArrayList(
+                new PieChart.Data("pass", getPassValue()),
+                new PieChart.Data("fail", getFailValue())
+        );
+        dataForPieChartPassFail.forEach(data ->
+                data.nameProperty().bind(Bindings.concat(
+                        data.getName(), " ", data.pieValueProperty(), "%"
+                )));
+
+        XYChart.Series<String, Integer> series = new XYChart.Series<>();
+        series.setName("?p. - count");
+        for (Map.Entry<String, Integer> stringIntegerEntry : getPointsCountMap().entrySet()) {
+            series.getData().add(new XYChart.Data<>(stringIntegerEntry.getKey() + "p.", stringIntegerEntry.getValue()));
+        }
+
+        statisticsController.setDataToPieChart(dataForPieChartPassFail);
+        statisticsController.setDataToBarChart(series);
+
+        Utilities.popUpNewWindow(root);
     }
 
     private void confirmTestDeletion() {
@@ -136,9 +153,17 @@ public class TestTemplateController implements Initializable {
         getLabel_testCode().setText("(" + testInfo.get("Code") + ")");
         getLabel_results().setText("Results: " + testInfo.get("Results"));
         getLabel_pass().setText("Pass: " + testInfo.get("Pass") + "%");
-        setPassValue(Double.parseDouble(testInfo.get("Pass")));
+        if (testInfo.get("Pass").equals("??")) {
+            setPassValue(0);
+        } else {
+            setPassValue(Double.parseDouble(testInfo.get("Pass")));
+        }
         getLabel_fail().setText("Fail: " + testInfo.get("Fail") + "%");
-        setFailValue(Double.parseDouble(testInfo.get("Fail")));
+        if (testInfo.get("Fail").equals("??")) {
+            setFailValue(0);
+        } else {
+            setFailValue(Double.parseDouble(testInfo.get("Fail")));
+        }
         getLabel_date_created().setText("Created at:\n" + testInfo.get("DateCreated"));
         setTestID(testInfo.get("TestID"));
         setTestStatus(testInfo.get("Status"));
@@ -147,6 +172,7 @@ public class TestTemplateController implements Initializable {
         } else {
             lockTest();
         }
+        setPointsCountMap(DBUtilities.getBarChartData(getTestID()));
     }
 
     private void lockTest() {
@@ -247,5 +273,13 @@ public class TestTemplateController implements Initializable {
 
     private void setPassValue(double passValue) {
         this.passValue = passValue;
+    }
+
+    private Map<String, Integer> getPointsCountMap() {
+        return this.pointsCountMap;
+    }
+
+    private void setPointsCountMap(Map<String, Integer> pointsCountMap) {
+        this.pointsCountMap = pointsCountMap;
     }
 }
