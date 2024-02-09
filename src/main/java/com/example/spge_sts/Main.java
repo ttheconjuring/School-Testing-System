@@ -24,8 +24,7 @@ public class Main extends Application {
 
     /*
     * TODO:
-    *  1.Implement logic for the search bar in "My Tests"
-    *  2.Code statistics button */
+    *  1.Implement logic for the search bar in "My Tests" */
 
     public static void main(String[] args) {
         launch();

@@ -8,25 +8,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="600.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.CreateTestController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="735.0" prefWidth="600.0" style="-fx-background-color: #89CC34;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.CreateTestController">
     <stylesheets>
         <URL value="@create-test.css" />
     </stylesheets>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #8A41AC;">
         <Label layoutX="229.0" layoutY="14.0" text="Create Test" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutX="-2.0" layoutY="725.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label layoutX="84.0" layoutY="14.0" text="Copyright 2024 | All rights reserved." textFill="WHITE">
-            <font>
-                <Font name="Arial Black" size="22.0" />
-            </font>
-        </Label>
-    </AnchorPane>
-    <AnchorPane layoutX="54.0" layoutY="89.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="495.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
+    <AnchorPane layoutX="54.0" layoutY="89.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="495.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10;" styleClass="shadow">
         <Label layoutX="26.0" layoutY="44.0" text="Test Name:" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="22.0" />

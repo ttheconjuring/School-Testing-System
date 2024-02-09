@@ -6,52 +6,45 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="735.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.TeachersHomePageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="405.0" prefWidth="850.0" style="-fx-background-color: #89CC34;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.TeachersHomePageController">
     <stylesheets>
         <URL value="@teachers-home-page.css" />
     </stylesheets>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="735.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="850.0" style="-fx-background-color: #8A41AC;">
         <Label layoutX="14.0" layoutY="14.0" text="SPGE-STS" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
-        <Button fx:id="button_log_out" layoutX="600.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="42.0" prefWidth="121.0" text="Log out" textFill="WHITE">
+        <Button fx:id="button_log_out" layoutX="715.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="42.0" prefWidth="121.0" text="Log out" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="20.0" />
             </font>
         </Button>
-        <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="170.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="42.0" prefWidth="395.0" text="Hello @username!" textAlignment="CENTER" textFill="WHITE">
+        <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="170.0" layoutY="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="42.0" prefWidth="535.0" text="Hello @username!" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="20.0" />
             </font>
         </Button>
     </AnchorPane>
-    <Button fx:id="button_my_tests" layoutX="165.0" layoutY="84.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="103.0" prefWidth="191.0" styleClass="shadow" text="My Tests" textFill="WHITE">
+    <Button fx:id="button_my_tests" layoutX="174.0" layoutY="119.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="103.0" prefWidth="240.0" styleClass="shadow" text="My Tests" textFill="WHITE">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
     </Button>
-    <Button fx:id="button_users" layoutX="379.0" layoutY="84.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="103.0" prefWidth="191.0" styleClass="shadow" text="Users" textFill="WHITE">
+    <Button fx:id="button_users" layoutX="437.0" layoutY="119.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="103.0" prefWidth="240.0" styleClass="shadow" text="Users" textFill="WHITE">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
     </Button>
-    <Button fx:id="button_create_test" layoutX="165.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="103.0" prefWidth="191.0" styleClass="shadow" text="Create Test" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+    <Button fx:id="button_create_test" layoutX="174.0" layoutY="245.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="103.0" prefWidth="240.0" styleClass="shadow" text="Create Test" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
     </Button>
-    <Button fx:id="button_create_account" layoutX="379.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="103.0" prefWidth="191.0" styleClass="shadow" text="Create Account" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+    <Button fx:id="button_create_account" layoutX="437.0" layoutY="245.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="103.0" prefWidth="240.0" styleClass="shadow" text="Create Account" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
     </Button>
-    <AnchorPane layoutY="340.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="735.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label layoutX="152.0" layoutY="14.0" text="Copyright 2024 | All rights reserved." textFill="WHITE">
-            <font>
-                <Font name="Arial Black" size="22.0" />
-            </font>
-        </Label>
-    </AnchorPane>
 </AnchorPane>

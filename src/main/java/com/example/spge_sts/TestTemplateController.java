@@ -40,12 +40,6 @@ public class TestTemplateController implements Initializable {
     private Label label_results;
 
     @FXML
-    private Label label_pass;
-
-    @FXML
-    private Label label_fail;
-
-    @FXML
     private Label label_date_created;
 
     @FXML
@@ -152,13 +146,11 @@ public class TestTemplateController implements Initializable {
         getLabel_testName().setText(testInfo.get("TestName"));
         getLabel_testCode().setText("(" + testInfo.get("Code") + ")");
         getLabel_results().setText("Results: " + testInfo.get("Results"));
-        getLabel_pass().setText("Pass: " + testInfo.get("Pass") + "%");
         if (testInfo.get("Pass").equals("??")) {
             setPassValue(0);
         } else {
             setPassValue(Double.parseDouble(testInfo.get("Pass")));
         }
-        getLabel_fail().setText("Fail: " + testInfo.get("Fail") + "%");
         if (testInfo.get("Fail").equals("??")) {
             setFailValue(0);
         } else {
@@ -209,14 +201,6 @@ public class TestTemplateController implements Initializable {
 
     private Label getLabel_results() {
         return this.label_results;
-    }
-
-    private Label getLabel_pass() {
-        return this.label_pass;
-    }
-
-    private Label getLabel_fail() {
-        return this.label_fail;
     }
 
     private Label getLabel_date_created() {

@@ -10,25 +10,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="682.0" prefWidth="1010.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.CreateAccountController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1010.0" style="-fx-background-color: #89CC34;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.CreateAccountController">
     <stylesheets>
         <URL value="@create-account.css" />
     </stylesheets>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1010.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1010.0" style="-fx-background-color: #8A41AC;">
         <Label layoutX="411.0" layoutY="14.0" text="Create Account" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutY="622.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1010.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label layoutX="289.0" layoutY="14.0" text="Copyright 2024 | All rights reserved." textFill="WHITE">
-            <font>
-                <Font name="Arial Black" size="22.0" />
-            </font>
-        </Label>
-    </AnchorPane>
-    <AnchorPane layoutX="23.0" layoutY="177.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="306.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
+    <AnchorPane layoutX="23.0" layoutY="177.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="306.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10;" styleClass="shadow">
         <Label layoutX="20.0" layoutY="14.0" text="Account Information" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="22.0" />
@@ -61,7 +54,7 @@
             </padding>
         </PasswordField>
     </AnchorPane>
-    <AnchorPane layoutX="352.0" layoutY="177.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="306.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
+    <AnchorPane layoutX="352.0" layoutY="177.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="306.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10;" styleClass="shadow">
         <Label layoutX="27.0" layoutY="14.0" text="Personal Information" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="22.0" />
@@ -94,7 +87,7 @@
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutX="682.0" layoutY="177.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="306.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
+    <AnchorPane layoutX="682.0" layoutY="177.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="306.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10;" styleClass="shadow">
         <Label layoutX="99.0" layoutY="14.0" text="Contacts" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="22.0" />

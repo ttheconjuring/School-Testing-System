@@ -11,22 +11,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="940.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.TestsScrollPaneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="940.0" style="-fx-background-color: #89CC34;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.TestsScrollPaneController">
     <stylesheets>
         <URL value="@tests-scrollpane.css" />
     </stylesheets>
-    <ScrollPane fx:id="scrollPane_tests" layoutX="25.0" layoutY="149.0" maxWidth="890.0" minHeight="295.0" prefHeight="360.0" style="-fx-background-radius: 10; -fx-background-color: #8A41AC; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
+    <ScrollPane fx:id="scrollPane_tests" layoutX="25.0" layoutY="149.0" maxWidth="890.0" minHeight="295.0" prefHeight="360.0" style="-fx-background-radius: 10; -fx-background-color: #8A41AC;" styleClass="shadow">
       <padding>
          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
       </padding></ScrollPane>
-    <AnchorPane layoutY="540.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="940.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label alignment="CENTER" layoutX="145.0" layoutY="5.0" prefHeight="50.0" prefWidth="650.0" text="Copyright 2024 | All rights reserved." textFill="WHITE">
-            <font>
-                <Font name="Arial Black" size="22.0" />
-            </font>
-        </Label>
-    </AnchorPane>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="940.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="940.0" style="-fx-background-color: #8A41AC;">
         <Label alignment="CENTER" layoutX="145.0" layoutY="5.0" prefHeight="50.0" prefWidth="650.0" text="My Tests" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="22.0" />

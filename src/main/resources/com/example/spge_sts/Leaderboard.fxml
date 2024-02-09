@@ -7,25 +7,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="600.0" style="-fx-background-color: #89CC34; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.LeaderboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="600.0" style="-fx-background-color: #89CC34;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.LeaderboardController">
     <stylesheets>
         <URL value="@leaderboard.css" />
     </stylesheets>
-    <AnchorPane layoutY="475.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
-        <Label alignment="CENTER" layoutX="62.0" layoutY="5.0" prefHeight="50.0" prefWidth="476.0" text="Copyright 2024 | All rights reserved." textAlignment="CENTER" textFill="WHITE" wrapText="true">
-            <font>
-                <Font name="Arial Black" size="22.0" />
-            </font>
-        </Label>
-    </AnchorPane>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #8A41AC; -fx-border-color: black;">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #8A41AC;">
         <Label alignment="CENTER" layoutX="125.0" layoutY="5.0" prefHeight="50.0" prefWidth="350.0" text="Leaderboard" textAlignment="CENTER" textFill="WHITE" wrapText="true">
             <font>
                 <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
-    <ScrollPane fx:id="scrollPane_results" fitToHeight="true" fitToWidth="true" layoutX="28.0" layoutY="81.0" maxHeight="374.0" maxWidth="-Infinity" prefWidth="545.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" styleClass="shadow">
+    <ScrollPane fx:id="scrollPane_results" fitToHeight="true" fitToWidth="true" layoutX="28.0" layoutY="80.0" maxHeight="425.0" maxWidth="-Infinity" prefWidth="545.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10;" styleClass="shadow">
         <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
         </padding>
