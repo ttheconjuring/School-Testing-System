@@ -51,10 +51,6 @@ public class TeachersHomePageController implements Initializable {
         getButton_create_test().setOnAction(actionEvent -> Utilities.switchTo("Create-Test.fxml", actionEvent));
     }
 
-    protected void setButton_profile(String username) {
-        getButton_profile().setText("Hello @" + username + "!");
-    }
-
     private Button getButton_log_out() {
         return this.button_log_out;
     }

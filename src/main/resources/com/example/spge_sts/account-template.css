@@ -1,10 +1,10 @@
 Button {
-    -fx-background-color: #89CC34;
+    -fx-background-color: #818FB4;
     -fx-background-radius: 10px;
 }
 
 Button:hover {
-    -fx-background-color: #45661A;
+    -fx-background-color: #435585;
 }
 
 .shadow {

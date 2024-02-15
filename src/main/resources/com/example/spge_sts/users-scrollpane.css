@@ -1,25 +1,41 @@
 TextField {
-    -fx-background-color: #39004d;
+    -fx-background-color: #363062;
     -fx-text-fill: white;
     -fx-background-radius: 20px;
+}
+
+Button {
+    -fx-background-color: #435585;
 }
 
 .shadow {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
 }
 
+Button:hover {
+    -fx-background-color: #363062;
+}
+
 .scroll-pane .scroll-bar:vertical .thumb {
-    -fx-background-color: #8A41AC;
+    -fx-background-color: #818FB4;
 }
 
 .scroll-pane .scroll-bar:vertical .track {
-    -fx-background-color: #452056;
+    -fx-background-color: #363062;
 }
 
 .scroll-pane .scroll-bar:horizontal .thumb {
-    -fx-background-color: #8A41AC;
+    -fx-background-color: #818FB4;
 }
 
 .scroll-pane .scroll-bar:horizontal .track {
-    -fx-background-color: #452056;
+    -fx-background-color: #363062;
+}
+
+#button_search {
+    -fx-background-radius: 20px;
+}
+
+#button_back {
+    -fx-background-radius: 10px;
 }

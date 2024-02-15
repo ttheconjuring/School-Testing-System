@@ -1,10 +1,9 @@
 TextField {
-    -fx-background-color: #39004d;
+    -fx-background-color: #363062;
     -fx-text-fill: white;
 }
 
 Button {
-    -fx-background-color: #8A41AC;
     -fx-background-radius: 10px;
     -fx-text-fill: #ffffff;
 }
@@ -13,11 +12,15 @@ Button {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
 }
 
-#button_profile:hover, #button_log_out:hover {
-    -fx-text-fill: #39004d;
+#button_profile, #button_log_out {
+    -fx-background-color: #F5E8C7;
+}
+
+#button_go {
+    -fx-background-color: #435585;
 }
 
 #button_go:hover {
-    -fx-background-color: #39004d;
+    -fx-background-color: #363062;
 }
 

@@ -39,7 +39,7 @@ public class UsersScrollPaneController implements Initializable {
     private void loadAllAccountTemplates(int numberOfAccounts) {
         VBox vbox = new VBox();
         vbox.setSpacing(10);
-        vbox.setStyle("-fx-background-color: #8A41AC");
+        vbox.setStyle("-fx-background-color: #435585");
         for (int i = 1; i <= numberOfAccounts; i++) {
             // String.valueOf(i), because prepareScene(String, String)
             // The ID here is index, it is not supposed to be used like that, corner case
@@ -64,7 +64,7 @@ public class UsersScrollPaneController implements Initializable {
             }
             VBox vbox = new VBox();
             vbox.setSpacing(10);
-            vbox.setStyle("-fx-background-color: #8A41AC");
+            vbox.setStyle("-fx-background-color: #435585");
             usersIDs.forEach(id -> vbox.getChildren().add(Utilities.prepareScene("Account-Template.fxml", id)));
             getScrollPane_users().setContent(vbox);
         }
