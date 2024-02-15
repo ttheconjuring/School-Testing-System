@@ -1,4 +1,6 @@
 TextField {
+    -fx-background-color: #435585;
+    -fx-background-radius: 20px;
     -fx-text-fill: white;
 }
 
@@ -10,46 +12,15 @@ Button {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
 }
 
-#button_delete {
-    -fx-background-color: #EF2929;
+#button_delete, #button_edit, #button_cancel, #button_save {
+    -fx-background-color: #818FB4;
 }
 
-#button_edit {
-    -fx-background-color: #E4CF0A;
-}
+#button_delete:hover, #button_edit:hover, #button_cancel:hover, #button_save:hover {
+    -fx-background-color: #363062;
 
-#button_cancel {
-    -fx-background-color: #a3a3c2;
-}
-
-#button_save {
-    -fx-background-color: #89CC34;
-}
-
-#button_back {
-    -fx-background-color: #8A41AC;
-}
-
-#button_delete:hover {
-    -fx-background-color: #991f00;
-}
-
-#button_edit:hover {
-    -fx-background-color: #808000;
-}
-
-#button_cancel:hover {
-    -fx-background-color: #3d3d5c;
-}
-
-#button_save:hover {
-    -fx-background-color: #004d1a;
-}
-
-#button_back:hover {
-    -fx-background-color: #39004d;
 }
 
 #button_edit_username, #button_edit_firstName, #button_edit_lastName, #button_edit_email, #button_edit_phone {
-    -fx-background-color: #8A41AC;
+    -fx-background-color: #435585;
 }

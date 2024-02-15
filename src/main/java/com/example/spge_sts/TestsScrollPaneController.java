@@ -29,6 +29,9 @@ public class TestsScrollPaneController implements Initializable {
     @FXML
     private Button button_search;
 
+    @FXML
+    private Button button_back;
+
     // ================================================== \\
 
     /* helpful */
@@ -39,17 +42,18 @@ public class TestsScrollPaneController implements Initializable {
 
     private ArrayList<String> testNames;
 
+
     // ================================================== \\
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        getButton_back().setOnAction(actionEvent -> Utilities.switchTo("Teachers-Home-Page.fxml", actionEvent));
     }
 
     private void loadAllTestTemplates(int numberOfTests) {
         HBox hbox = new HBox();
         hbox.setSpacing(10);
-        hbox.setStyle("-fx-background-color: #8A41AC;");
+        hbox.setStyle("-fx-background-color: #435585;");
         for (int i = 1; i <= numberOfTests; i++) {
             hbox.getChildren().add(Utilities.prepareScene("Test-Template.fxml", getInfo(i - 1)));
         }
@@ -128,4 +132,7 @@ public class TestsScrollPaneController implements Initializable {
         return this.button_search;
     }
 
+    private Button getButton_back() {
+        return this.button_back;
+    }
 }

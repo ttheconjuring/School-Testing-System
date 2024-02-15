@@ -170,7 +170,7 @@ public class TestTemplateController implements Initializable {
     private void lockTest() {
         if (DBUtilities.updateTestStatus("locked", getTestID())) {
             setTestStatus("locked");
-            getButton_changeStatus().setStyle("-fx-background-color: #A7A7A7");
+            getButton_changeStatus().setStyle("-fx-background-color: #818FB4");
             getImageView_status().setImage(new Image(new File("src/main/resources/com/example/spge_sts/lock.png").toURI().toString()));
         } else {
             Utilities.showAlert("Test Status Not Changed", "Sorry, but something went wrong! Your test status is not changed!", Alert.AlertType.ERROR);
@@ -179,7 +179,7 @@ public class TestTemplateController implements Initializable {
 
     private void unlockTest() {
         if (DBUtilities.updateTestStatus("free", getTestID())) {
-            getButton_changeStatus().setStyle("-fx-background-color: #5A9C07");
+            getButton_changeStatus().setStyle("-fx-background-color: #F5E8C7");
             getImageView_status().setImage(new Image(new File("src/main/resources/com/example/spge_sts/unlock.png").toURI().toString()));
             setTestStatus("free");
         } else {

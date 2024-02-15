@@ -188,7 +188,7 @@ public class TeachersAccountInformationController implements Initializable {
         textField.setEditable(true);
         String text = getTextOf(textField);
         textField.setText(text.substring(text.indexOf(':') + 2));
-        textField.setStyle("-fx-background-color: #39004d;-fx-background-radius: 20px;-fx-pref-width: 300px;-fx-text-fill: white");
+        textField.setStyle("-fx-background-color: #363062;-fx-background-radius: 20px;-fx-pref-width: 300px;-fx-text-fill: white");
         semiActivateAllEditButtons();
         activate(getButton_save());
     }

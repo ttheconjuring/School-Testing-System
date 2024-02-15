@@ -26,6 +26,9 @@ public class UsersScrollPaneController implements Initializable {
     @FXML
     private Button button_search;
 
+    @FXML
+    private Button button_back;
+
     // ================================================== \\
 
     private int usersCount;
@@ -34,6 +37,7 @@ public class UsersScrollPaneController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /* core functionality */
         getButton_search().setOnAction(actionEvent -> search(getTextField_search().getText()));
+        getButton_back().setOnAction(actionEvent -> Utilities.switchTo("Teachers-Home-Page.fxml", actionEvent));
     }
 
     private void loadAllAccountTemplates(int numberOfAccounts) {
@@ -94,4 +98,6 @@ public class UsersScrollPaneController implements Initializable {
     private Button getButton_search() {
         return this.button_search;
     }
+
+    private Button getButton_back() { return this.button_back; }
 }

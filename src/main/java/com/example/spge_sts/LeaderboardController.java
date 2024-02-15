@@ -35,7 +35,7 @@ public class LeaderboardController implements Initializable {
     private void loadAllAccountTemplates(int numberOfResults) {
         VBox vbox = new VBox();
         vbox.setSpacing(10);
-        vbox.setStyle("-fx-background-color: #8A41AC");
+        vbox.setStyle("-fx-background-color: #435585");
         for (int i = 0; i < numberOfResults; i++) {
             vbox.getChildren().add(Utilities.prepareScene("Result-Template.fxml", getTestLeaderboard().get(i)));
         }

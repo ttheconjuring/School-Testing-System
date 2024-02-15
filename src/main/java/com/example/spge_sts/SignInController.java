@@ -53,9 +53,11 @@ public class SignInController implements Initializable {
         String role = DBUtilities.getUserData(ID).get("UserRole");
         assert role != null;
         if (role.equals("teacher")) {
-            Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", ID), actionEvent);
+//            Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", ID), actionEvent);
+            Utilities.switchTo("Teachers-Home-Page.fxml", actionEvent);
         } else {
-            Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", ID), actionEvent);
+//            Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", ID), actionEvent);
+            Utilities.switchTo("Students-Home-Page.fxml", actionEvent);
         }
 
     }
