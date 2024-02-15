@@ -6,21 +6,23 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="700.0" style="-fx-background-color: #89CC34;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.SignInController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="865.0" prefWidth="1310.0" style="-fx-background-color: #89CC34;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.SignInController">
     <stylesheets>
         <URL value="@sing-in.css" />
     </stylesheets>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="700.0" style="-fx-background-color: #8A41AC;">
-        <Label alignment="CENTER" layoutX="297.0" layoutY="5.0" prefHeight="50.0" prefWidth="106.0" text="Sign In" textAlignment="CENTER" textFill="WHITE">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1310.0" style="-fx-background-color: #8A41AC;">
+        <Label alignment="CENTER" layoutX="602.0" layoutY="5.0" prefHeight="50.0" prefWidth="106.0" text="Sign In" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutX="105.0" layoutY="98.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="285.0" prefWidth="490.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10;" styleClass="shadow">
+    <AnchorPane layoutX="412.0" layoutY="249.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="285.0" prefWidth="490.0" style="-fx-background-color: #8A41AC; -fx-background-radius: 10;" styleClass="shadow">
         <Label layoutX="59.0" layoutY="44.0" text="Username:" textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="22.0" />
@@ -48,16 +50,26 @@
             </padding>
         </PasswordField>
     </AnchorPane>
-    <AnchorPane layoutY="510.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="700.0" style="-fx-background-color: #8A41AC;">
-        <Label layoutX="102.0" layoutY="5.0" prefHeight="50.0" prefWidth="497.0" text="Copyright 2024 | All rights reserved." textFill="WHITE">
+    <AnchorPane layoutX="1.0" layoutY="805.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="1310.0" style="-fx-background-color: #8A41AC;">
+        <Label layoutX="407.0" layoutY="5.0" prefHeight="50.0" prefWidth="497.0" text="Copyright 2024 | All rights reserved." textFill="WHITE">
             <font>
                 <Font name="Arial Black" size="22.0" />
             </font>
         </Label>
     </AnchorPane>
-    <Button fx:id="button_sign_in" layoutX="238.0" layoutY="421.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="225.0" styleClass="shadow" text="Sign In" textFill="WHITE">
+    <Button fx:id="button_sign_in" layoutX="544.0" layoutY="558.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="225.0" styleClass="shadow" text="Sign In" textFill="WHITE">
         <font>
             <Font name="Arial Black" size="20.0" />
         </font>
     </Button>
+   <Button fx:id="button_back" layoutX="26.0" layoutY="279.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="225.0" prefWidth="50.0" styleClass="shadow" textFill="WHITE">
+      <font>
+         <Font name="Arial Black" size="20.0" />
+      </font>
+      <graphic>
+          <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+              <Image url="@left%20arrow.png"/>
+          </ImageView>
+      </graphic>
+   </Button>
 </AnchorPane>

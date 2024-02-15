@@ -1,13 +1,14 @@
 package com.example.spge_sts;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.time.LocalDateTime;
@@ -101,8 +102,8 @@ public class Utilities {
 
     // ==========================================================================================
 
-   /*   This variable helps to automatically proceed to the next question, if the student has not
-   *    submitted yet. It is here, because I had trouble to put it somewhere else.*/
+    /*   This variable helps to automatically proceed to the next question, if the student has not
+     *    submitted yet. It is here, because I had trouble to put it somewhere else.*/
 
     private static int responseTimeInMinutes;
 
@@ -119,6 +120,9 @@ public class Utilities {
             Parent root = FXMLLoader.load(Objects.requireNonNull(Utilities.class.getResource(fxmlFile)));
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
+            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+            stage.setX((screenBounds.getWidth() - stage.getScene().getWidth()) / 2);
+            stage.setY((screenBounds.getHeight() - stage.getScene().getHeight()) / 2);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -128,18 +132,21 @@ public class Utilities {
     protected static void switchToPreparedScene(Parent root, ActionEvent actionEvent) {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
+        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+        stage.setX((screenBounds.getWidth() - stage.getScene().getWidth()) / 2);
+        stage.setY((screenBounds.getHeight() - stage.getScene().getHeight()) / 2);
         stage.show();
     }
 
     protected static void popUpNewWindow(Parent root) {
         try {
-            Stage newStage = new Stage();
-            Utilities.openNewStage(newStage);
-            newStage.getIcons().add(new Image(Objects.requireNonNull(Utilities.class.getResourceAsStream("school.png"))));
-            newStage.setTitle("SPGE-STS");
-            newStage.setScene(new Scene(root));
-            newStage.setResizable(false);
-            newStage.show();
+            Stage stage = new Stage();
+            Utilities.openNewStage(stage);
+            stage.getIcons().add(new Image(Objects.requireNonNull(Utilities.class.getResourceAsStream("school.png"))));
+            stage.setTitle("SPGE-STS");
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }

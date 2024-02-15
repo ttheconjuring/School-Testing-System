@@ -26,12 +26,16 @@ public class SignInController implements Initializable {
     @FXML
     private Button button_sign_in;
 
+    @FXML
+    private Button button_back;
+
     // ================================================== \\
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /* core functionality */
         getButton_sign_in().setOnAction(this::singIn);
+        getButton_back().setOnAction(actionEvent -> Utilities.switchTo("Welcome.fxml", actionEvent));
     }
 
     private void singIn(ActionEvent actionEvent) {
@@ -71,6 +75,10 @@ public class SignInController implements Initializable {
 
     private Button getButton_sign_in() {
         return this.button_sign_in;
+    }
+
+    private Button getButton_back() {
+        return this.button_back;
     }
 
     private String getTextField_UsernameText() {
