@@ -169,14 +169,6 @@ public class Utilities {
             e.printStackTrace();
         }
         switch (fxmlFile) {
-            /* case "Teachers-Home-Page.fxml" -> {
-                TeachersHomePageController teachersHomePageController = loader.getController();
-                teachersHomePageController.setButton_profile(DBUtilities.getUserData(ID).get("Username"));
-            } */ // I no longer user text for the button, I use icon instead
-            case "Students-Home-Page.fxml" -> {
-                StudentsHomePageController studentsHomePageController = loader.getController();
-                studentsHomePageController.setButton_profile(DBUtilities.getUserData(ID).get("Username"));
-            }
             case "Tests-ScrollPane.fxml" -> {
                 TestsScrollPaneController testsScrollPaneController = loader.getController();
                 testsScrollPaneController.setData(

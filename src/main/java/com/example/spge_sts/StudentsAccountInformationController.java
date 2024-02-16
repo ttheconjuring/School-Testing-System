@@ -2,7 +2,6 @@ package com.example.spge_sts;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.net.URL;
@@ -10,10 +9,6 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 public class StudentsAccountInformationController implements Initializable {
-
-    // ================================================== \\
-
-    /*Visual elements*/
 
     @FXML
     private Label label_username;
@@ -30,15 +25,9 @@ public class StudentsAccountInformationController implements Initializable {
     @FXML
     private Label label_phone;
 
-    @FXML
-    private Button button_back;
-
-    // ================================================== \\
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /* core functionality */
-        getButton_back().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent));
+
     }
 
     protected void setData(Map<String, String> data) {
@@ -67,10 +56,6 @@ public class StudentsAccountInformationController implements Initializable {
 
     private Label getLabel_phone() {
         return this.label_phone;
-    }
-
-    private Button getButton_back() {
-        return this.button_back;
     }
 
 }

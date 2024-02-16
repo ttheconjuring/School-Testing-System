@@ -189,7 +189,7 @@ public class AnswerQuestionController implements Initializable {
         } else {
             saveResult();
             Utilities.showAlert("Test Complete!", endMessage(), Alert.AlertType.INFORMATION); // WORKS ONLY IF THE SUBMIT BUTTON IS  MANUALLY CLICKED ON THE LAST QUESTION !!
-            Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent);
+            Utilities.switchTo("Students-Home-Page.fxml", actionEvent);
         }
     }
 

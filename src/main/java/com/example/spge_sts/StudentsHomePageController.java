@@ -35,7 +35,7 @@ public class StudentsHomePageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /* transitions */
         getButton_log_out().setOnAction(actionEvent -> Utilities.switchTo("Sign-In.fxml", actionEvent));
-        getButton_profile().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Account-Information.fxml", DBUtilities.getUserData(Utilities.getCurrenUserID())), actionEvent));
+        getButton_profile().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Students-Account-Information.fxml", DBUtilities.getUserData(Utilities.getCurrenUserID()))));
 
         getButton_go().setOnAction(actionEvent -> {
             /* core functionality*/

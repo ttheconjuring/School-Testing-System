@@ -24,7 +24,8 @@ public class Main extends Application {
 
     /*
     * TODO:
-    *  1.Implement logic for the search bar in "My Tests" */
+    *  1.Implement logic for the search bar in "My Tests"
+    *  2.Huge refactor on class DBUtilities*/
 
     public static void main(String[] args) {
         launch();
