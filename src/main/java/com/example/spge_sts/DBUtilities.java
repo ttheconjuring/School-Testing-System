@@ -378,6 +378,22 @@ public class DBUtilities {
         return count;
     }
 
+    protected static int getSumOfScores(String test_id) {
+        String query = "SELECT SUM(score) FROM results WHERE test_id = ?;";
+        int sum = 0;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, test_id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                sum = resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return sum;
+    }
+
     protected static int getCountOfStatusResultsFromTest(String status, String test_id) {
         String query = "SELECT COUNT(pass_fail_status) FROM results WHERE pass_fail_status = '" + status + "' AND test_id = " + test_id + ";";
         int count = -1;

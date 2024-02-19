@@ -47,6 +47,7 @@ public class TestsScrollPaneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        getButton_search().setOnAction(actionEvent -> search(getTextField_search().getText(), getTestsCount()));
         getButton_back().setOnAction(actionEvent -> Utilities.switchTo("Teachers-Home-Page.fxml", actionEvent));
     }
 
@@ -62,6 +63,53 @@ public class TestsScrollPaneController implements Initializable {
         getScrollPane_tests().setFitToHeight(true);
     }
 
+    private void search(String string, int numberOfTests) {
+        if (string.isEmpty()) {
+            loadAllTestTemplates(getTestsCount());
+        } else {
+            if (string.equals("free")) {
+                HBox hbox = new HBox();
+                hbox.setSpacing(10);
+                hbox.setStyle("-fx-background-color: #435585;");
+                for (int i = 1; i <= numberOfTests; i++) {
+                    Map<String, String> info = getInfo(i - 1);
+                    if (info.get("Status").equals("free")) {
+                        hbox.getChildren().add(Utilities.prepareScene("Test-Template.fxml", info));
+                    }
+                }
+                getScrollPane_tests().setContent(hbox);
+                getScrollPane_tests().setFitToWidth(true);
+                getScrollPane_tests().setFitToHeight(true);
+            } else if (string.equals("locked")) {
+                HBox hbox = new HBox();
+                hbox.setSpacing(10);
+                hbox.setStyle("-fx-background-color: #435585;");
+                for (int i = 1; i <= numberOfTests; i++) {
+                    Map<String, String> info = getInfo(i - 1);
+                    if (info.get("Status").equals("locked")) {
+                        hbox.getChildren().add(Utilities.prepareScene("Test-Template.fxml", info));
+                    }
+                }
+                getScrollPane_tests().setContent(hbox);
+                getScrollPane_tests().setFitToWidth(true);
+                getScrollPane_tests().setFitToHeight(true);
+            } else {
+                HBox hbox = new HBox();
+                hbox.setSpacing(10);
+                hbox.setStyle("-fx-background-color: #435585;");
+                for (int i = 1; i <= numberOfTests; i++) {
+                    Map<String, String> info = getInfo(i - 1);
+                    if (info.get("TestName").equals(string)) {
+                        hbox.getChildren().add(Utilities.prepareScene("Test-Template.fxml", info));
+                    }
+                }
+                getScrollPane_tests().setContent(hbox);
+                getScrollPane_tests().setFitToWidth(true);
+                getScrollPane_tests().setFitToHeight(true);
+            }
+        }
+    }
+
     private Map<String, String> getInfo(int index) {
         Map<String, String> testInfo = new HashMap<>();
         testInfo.put("TestName", getTestNames().get(index));
@@ -71,21 +119,23 @@ public class TestsScrollPaneController implements Initializable {
         testInfo.put("Results", String.valueOf(DBUtilities.getCountOfResultsFromTest(getTestIDs().get(index))));
         testInfo.put("Pass", calculate("pass", index));
         testInfo.put("Fail", calculate("fail", index));
+        testInfo.put("Average", String.format("%.1f", (double) DBUtilities.getSumOfScores(getTestIDs().get(index)) / DBUtilities.getCountOfResultsFromTest(getTestIDs().get(index))));
         testInfo.put("DateCreated", DBUtilities.getTestDateCreation(getTestIDs().get(index)));
         return testInfo;
     }
 
     private String calculate(String status, int index) {
         double allResults = DBUtilities.getCountOfResultsFromTest(getTestIDs().get(index));
-        if (allResults > 0) {
-            double statusResults = DBUtilities.getCountOfStatusResultsFromTest(status, getTestIDs().get(index));
-            if (statusResults > 0) {
-                double percentage = statusResults / allResults * 100;
-                return String.valueOf(Math.round(percentage));
-            } else {
-                return "0";
+        if (status.equals("pass") || status.equals("fail"))
+            if (allResults > 0) {
+                double statusResults = DBUtilities.getCountOfStatusResultsFromTest(status, getTestIDs().get(index));
+                if (statusResults > 0) {
+                    double percentage = statusResults / allResults * 100;
+                    return String.valueOf(Math.round(percentage));
+                } else {
+                    return "0";
+                }
             }
-        }
         return "??";
     }
 

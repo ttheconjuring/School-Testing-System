@@ -40,6 +40,9 @@ public class TestTemplateController implements Initializable {
     private Label label_results;
 
     @FXML
+    private Label label_average_score;
+
+    @FXML
     private Label label_date_created;
 
     @FXML
@@ -156,6 +159,7 @@ public class TestTemplateController implements Initializable {
         } else {
             setFailValue(Double.parseDouble(testInfo.get("Fail")));
         }
+        getLabel_average_score().setText("Average Score: " + testInfo.get("Average") + "p.");
         getLabel_date_created().setText("Created at:\n" + testInfo.get("DateCreated"));
         setTestID(testInfo.get("TestID"));
         setTestStatus(testInfo.get("Status"));
@@ -202,6 +206,8 @@ public class TestTemplateController implements Initializable {
     private Label getLabel_results() {
         return this.label_results;
     }
+
+    private Label getLabel_average_score() { return this.label_average_score; }
 
     private Label getLabel_date_created() {
         return this.label_date_created;
