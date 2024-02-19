@@ -21,12 +21,7 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.show();
     }
-
-    /*
-    * TODO:
-    *  1.Implement logic for the search bar in "My Tests"
-    * */
-
+    
     public static void main(String[] args) {
         launch();
     }
