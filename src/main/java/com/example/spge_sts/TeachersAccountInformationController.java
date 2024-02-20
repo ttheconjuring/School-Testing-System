@@ -218,9 +218,9 @@ public class TeachersAccountInformationController implements Initializable {
             if (getUserRole().equals("teacher")) {
                 if (!Utilities.getCurrenUserID().equals(getUserID())) {
                     Utilities.closeLastStage();
-                    Utilities.closeLastStage();
                 } else {
-                    // better avoid this scenario
+                    Utilities.closeLastStage();
+                    Utilities.closeLastStage();
                     Utilities.switchTo("Sign-In.fxml", actionEvent);
                 }
             } else {

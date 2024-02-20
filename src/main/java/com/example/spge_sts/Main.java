@@ -19,6 +19,7 @@ public class Main extends Application {
         stage.setTitle("SPGE-STS");
         stage.setScene(scene);
         stage.setResizable(false);
+        Utilities.openNewStage(stage);
         stage.show();
     }
     
@@ -33,8 +34,7 @@ public class Main extends Application {
         2.When a student is doing a test and does not respond to the last question manually, a.k.a. click
     the submit button, the program saves the response and the result, but does not redirect to the home
     page;
-        3.When you delete your own teacher account, it just opens a new stage with sign up scene;
-        4.When you load Teachers-Account-Information.fxml with custom data, the first name TextField is
+        3.When you load Teachers-Account-Information.fxml with custom data, the first name TextField is
     always selected;
     */
 }
