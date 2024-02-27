@@ -32,7 +32,7 @@ public class LeaderboardController implements Initializable {
 
     }
 
-    private void loadAllAccountTemplates(int numberOfResults) {
+    private void loadAllResultTemplates(int numberOfResults) {
         VBox vbox = new VBox();
         vbox.setSpacing(10);
         vbox.setStyle("-fx-background-color: #435585");
@@ -47,7 +47,7 @@ public class LeaderboardController implements Initializable {
     protected void setData(int resultsCount, ArrayList<String> testLeaderboard) {
         setResultsCount(resultsCount);
         setTestLeaderboard(testLeaderboard);
-        loadAllAccountTemplates(getResultsCount());
+        loadAllResultTemplates(getResultsCount());
     }
 
     private ScrollPane getScrollPane_results() {

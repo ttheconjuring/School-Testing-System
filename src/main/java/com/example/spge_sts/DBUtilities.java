@@ -463,14 +463,14 @@ public class DBUtilities {
     }
 
     protected static ArrayList<String> getTestLeaderboard(String test_id) {
-        String query = "SELECT username, score FROM results AS r JOIN users AS u ON r.user_id = u.user_id WHERE test_id = " + test_id + " ORDER BY score DESC, username;";
+        String query = "SELECT username, score, duration_minutes FROM results AS r JOIN users AS u ON r.user_id = u.user_id WHERE test_id = " + test_id + " ORDER BY score DESC, username;";
         ArrayList<String> leaderboard = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             int i = 1;
             while (resultSet.next()) {
-                String result = i + ". " + resultSet.getString(1) + " - " + resultSet.getString(2) + " p.";
+                String result = i + ". " + resultSet.getString(1) + " - " + resultSet.getString(2) + " p. (" + resultSet.getString(3) + ")";
                 leaderboard.add(result);
                 i++;
             }
