@@ -27,6 +27,8 @@ public class Main extends Application {
         launch();
     }
 
+    // TODO: add administrator role ffs
+
     /*
     BUGS:
         1.The duration_minutes column in table results shows incorrect time, because it does not count

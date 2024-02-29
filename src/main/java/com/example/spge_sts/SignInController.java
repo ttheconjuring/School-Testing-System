@@ -52,14 +52,13 @@ public class SignInController implements Initializable {
     private void redirect(String ID, ActionEvent actionEvent) {
         String role = DBUtilities.getUserData(ID).get("UserRole");
         assert role != null;
-        if (role.equals("teacher")) {
-//            Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", ID), actionEvent);
+        if(role.equals("admin")) {
+            System.out.println("hello admin!");
+        } else if (role.equals("teacher")) {
             Utilities.switchTo("Teachers-Home-Page.fxml", actionEvent);
         } else {
-//            Utilities.switchToPreparedScene(Utilities.prepareScene("Students-Home-Page.fxml", ID), actionEvent);
             Utilities.switchTo("Students-Home-Page.fxml", actionEvent);
         }
-
     }
 
     private void clearInput() {
