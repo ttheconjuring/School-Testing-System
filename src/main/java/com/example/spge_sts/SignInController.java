@@ -53,7 +53,7 @@ public class SignInController implements Initializable {
         String role = DBUtilities.getUserData(ID).get("UserRole");
         assert role != null;
         if(role.equals("admin")) {
-            System.out.println("hello admin!");
+            Utilities.switchTo("Admin-Home-Page.fxml", actionEvent);
         } else if (role.equals("teacher")) {
             Utilities.switchTo("Teachers-Home-Page.fxml", actionEvent);
         } else {

@@ -15,12 +15,10 @@ Button {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
 }
 
-#button_my_tests, #button_users, #button_create_test, #button_create_account {
+#button_users, #button_create_account, #button_statistics {
     -fx-background-color: #435585;
 }
 
-#button_my_tests:hover, #button_users:hover, #button_create_test:hover, #button_create_account:hover {
+#button_users:hover, #button_create_account:hover, #button_statistics:hover {
     -fx-background-color: #363062;
 }
-
-
