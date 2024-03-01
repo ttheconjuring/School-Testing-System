@@ -48,6 +48,10 @@ public class CreateAccountController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (DBUtilities.getUserData(Utilities.getCurrenUserID()).get("UserRole").equals("teacher")) {
+            getToggleButton_teacher_role().setDisable(true);
+        }
+
         /* visual preparation */
         getToggleButton_teacher_role().setOnAction(actionEvent -> setClicked(getToggleButton_teacher_role(), getToggleButton_student_role()));
         getToggleButton_student_role().setOnAction(actionEvent -> setClicked(getToggleButton_student_role(), getToggleButton_teacher_role()));

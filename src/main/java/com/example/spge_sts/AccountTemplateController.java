@@ -2,6 +2,7 @@ package com.example.spge_sts;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -36,7 +37,17 @@ public class AccountTemplateController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /* core functionality*/
-        getButton_view().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Teachers-Account-Information.fxml", DBUtilities.getUserData(getID()))));
+        getButton_view().setOnAction(actionEvent -> {
+            if (DBUtilities.getUserData(Utilities.getCurrenUserID()).get("UserRole").equals("admin")) {
+                Utilities.popUpNewWindow(Utilities.prepareScene("Teachers-Account-Information.fxml", DBUtilities.getUserData(getID())));
+            } else {
+                if (DBUtilities.getUserData(getID()).get("UserRole").equals("student") || getID().equals(Utilities.getCurrenUserID())) {
+                    Utilities.popUpNewWindow(Utilities.prepareScene("Teachers-Account-Information.fxml", DBUtilities.getUserData(getID())));
+                } else {
+                    Utilities.showAlert("Access Denied!", "You don't have permission!", Alert.AlertType.ERROR);
+                }
+            }
+        });
     }
 
     protected void setData(Map<String, String> data) {
