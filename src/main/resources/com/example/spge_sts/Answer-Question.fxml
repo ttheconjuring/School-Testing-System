@@ -17,30 +17,35 @@
     <AnchorPane layoutX="73.0" layoutY="135.0" prefHeight="385.0" prefWidth="680.0" style="-fx-background-color: #435585; -fx-background-radius: 10;" styleClass="shadow">
         <Label fx:id="label_questionNumber" alignment="CENTER" layoutX="36.0" layoutY="25.0" prefHeight="50.0" prefWidth="75.0" styleClass="shadow" text="#?" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="20.0" />
+                <Font name="Itim" size="25.0" />
+            </font>
+        </Label>
+        <Label fx:id="label_question" alignment="CENTER" layoutX="35.0" layoutY="120.0" prefHeight="50.0" prefWidth="610.0" styleClass="shadow" text="(question)" textFill="WHITE">
+            <font>
+                <Font name="Itim" size="25.0" />
+            </font>
+        </Label>
+        <Label fx:id="label_points" alignment="CENTER" layoutX="569.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="75.0" styleClass="shadow" text="(p.)" textFill="WHITE">
+            <font>
+                <Font name="Itim" size="25.0" />
+            </font>
+        </Label>
+        <Label fx:id="label_timer" alignment="CENTER" layoutX="304.0" layoutY="25.0" prefHeight="50.0" prefWidth="75.0" styleClass="shadow" text="timer" textFill="WHITE">
+            <font>
+                <Font name="Itim" size="25.0" />
             </font>
         </Label>
         <TextField fx:id="textField_answer" disable="true" layoutX="38.0" layoutY="256.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="50.0" prefWidth="608.0" styleClass="shadow">
             <font>
-                <Font name="Arial Black" size="18.0" />
+                <Font name="Itim" size="23.0" />
             </font>
             <padding>
                 <Insets left="15.0" right="15.0" />
             </padding>
         </TextField>
-        <Label fx:id="label_question" alignment="CENTER" layoutX="35.0" layoutY="120.0" prefHeight="50.0" prefWidth="610.0" styleClass="shadow" text="(question)" textFill="WHITE">
-            <font>
-                <Font name="Arial Black" size="20.0" />
-            </font>
-        </Label>
-        <Label fx:id="label_points" alignment="CENTER" layoutX="569.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="75.0" styleClass="shadow" text="(p.)" textFill="WHITE">
-            <font>
-                <Font name="Arial Black" size="20.0" />
-            </font>
-        </Label>
         <RadioButton fx:id="radioButton_answer_1" layoutX="35.0" layoutY="213.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="280.0" styleClass="shadow" text="RadioButton" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="20.0" />
+                <Font name="Itim" size="25.0" />
             </font>
             <toggleGroup>
                 <ToggleGroup fx:id="answers" />
@@ -51,7 +56,7 @@
         </RadioButton>
         <RadioButton fx:id="radioButton_answer_3" layoutX="38.0" layoutY="296.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="280.0" styleClass="shadow" text="RadioButton" textFill="WHITE" toggleGroup="$answers">
             <font>
-                <Font name="Arial Black" size="20.0" />
+                <Font name="Itim" size="25.0" />
             </font>
             <padding>
                 <Insets left="10.0" />
@@ -59,7 +64,7 @@
         </RadioButton>
         <RadioButton fx:id="radioButton_answer_2" layoutX="366.0" layoutY="213.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="280.0" styleClass="shadow" text="RadioButton" textFill="WHITE" toggleGroup="$answers">
             <font>
-                <Font name="Arial Black" size="20.0" />
+                <Font name="Itim" size="25.0" />
             </font>
             <padding>
                 <Insets left="10.0" />
@@ -67,27 +72,22 @@
         </RadioButton>
         <RadioButton fx:id="radioButton_answer_4" layoutX="364.0" layoutY="296.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="280.0" styleClass="shadow" text="RadioButton" textFill="WHITE" toggleGroup="$answers">
             <font>
-                <Font name="Arial Black" size="20.0" />
+                <Font name="Itim" size="25.0" />
             </font>
             <padding>
                 <Insets left="10.0" />
             </padding>
         </RadioButton>
-        <Label fx:id="label_timer" alignment="CENTER" layoutX="304.0" layoutY="25.0" prefHeight="50.0" prefWidth="75.0" styleClass="shadow" text="timer" textFill="WHITE">
-            <font>
-                <Font name="Arial Black" size="20.0" />
-            </font>
-        </Label>
     </AnchorPane>
     <Button fx:id="button_submit" layoutX="335.0" layoutY="563.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="155.0" styleClass="shadow" text="Submit" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="20.0" />
+            <Font name="Itim" size="25.0" />
         </font>
     </Button>
     <AnchorPane prefHeight="60.0" prefWidth="825.0" style="-fx-background-color: #F5E8C7;" styleClass="shadow">
         <Label alignment="CENTER" layoutX="116.0" layoutY="5.0" prefHeight="50.0" prefWidth="594.0" text="Create Question">
             <font>
-                <Font name="Arial Black" size="22.0" />
+                <Font name="Itim" size="27.0" />
             </font>
         </Label>
     </AnchorPane>
