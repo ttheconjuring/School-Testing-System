@@ -11,58 +11,48 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0"
-            prefWidth="1120.0" style="-fx-background-color: #818FB4;" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.UsersScrollPaneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="1120.0" style="-fx-background-color: #818FB4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.UsersScrollPaneController">
     <stylesheets>
-        <URL value="@users-scrollpane.css"/>
+        <URL value="@users-scrollpane.css" />
     </stylesheets>
-    <ScrollPane fx:id="scrollPane_users" layoutX="260.0" layoutY="124.0" maxHeight="520.0" minWidth="660.0"
-                prefWidth="680.0" style="-fx-background-color: #435585; -fx-background-radius: 10;" styleClass="shadow">
+    <ScrollPane fx:id="scrollPane_users" layoutX="260.0" layoutY="124.0" maxHeight="520.0" minWidth="660.0" prefWidth="680.0" style="-fx-background-color: #435585; -fx-background-radius: 10;" styleClass="shadow">
         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
         </padding>
     </ScrollPane>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0"
-                prefWidth="140.0" style="-fx-background-color: #F5E8C7;" styleClass="shadow">
-        <Label alignment="CENTER" layoutX="29.0" layoutY="54.0" prefHeight="73.0" prefWidth="82.0" text="Users List"
-               textAlignment="CENTER" wrapText="true">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="140.0" style="-fx-background-color: #F5E8C7;" styleClass="shadow">
+        <Label alignment="CENTER" layoutX="29.0" layoutY="54.0" prefHeight="73.0" prefWidth="82.0" text="Users List" textAlignment="CENTER" wrapText="true">
             <font>
-                <Font name="Arial Black" size="22.0"/>
+                <Font name="Itim" size="27.0" />
             </font>
         </Label>
-        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="50.0" layoutY="14.0" pickOnBounds="true"
-                   preserveRatio="true">
+        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="50.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@user.png"/>
+                <Image url="@user.png" />
             </image>
         </ImageView>
-        <Button fx:id="button_back" layoutX="45.0" layoutY="268.0" mnemonicParsing="false" prefHeight="150.0"
-                prefWidth="50.0" styleClass="shadow">
+        <Button fx:id="button_back" layoutX="45.0" layoutY="268.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="50.0" styleClass="shadow">
             <graphic>
                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@left-chevron.png"/>
+                        <Image url="@left-chevron.png" />
                     </image>
                 </ImageView>
             </graphic>
         </Button>
     </AnchorPane>
-    <TextField fx:id="textField_search" alignment="CENTER" layoutX="260.0" layoutY="45.0" maxHeight="-Infinity"
-               maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="600.0"
-               promptText="serach by id, name, role" styleClass="shadow">
+    <TextField fx:id="textField_search" alignment="CENTER" layoutX="260.0" layoutY="45.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="600.0" promptText="/ serach by id, name, role /" styleClass="shadow">
         <padding>
-            <Insets left="15.0" right="15.0"/>
+            <Insets left="15.0" right="15.0" />
         </padding>
         <font>
-            <Font name="Arial Black" size="20.0"/>
+            <Font name="Itim" size="25.0" />
         </font>
     </TextField>
-    <Button fx:id="button_search" layoutX="877.0" layoutY="44.0" mnemonicParsing="false" prefHeight="50.0"
-            prefWidth="50.0" styleClass="shadow">
+    <Button fx:id="button_search" layoutX="877.0" layoutY="44.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" styleClass="shadow">
         <graphic>
             <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@Search%20Icon.png"/>
+                <Image url="@Search%20Icon.png" />
             </ImageView>
         </graphic>
     </Button>

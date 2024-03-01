@@ -9,125 +9,100 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0"
-            prefWidth="825.0" style="-fx-background-color: #818FB4;" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.CreateQuestionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="655.0" prefWidth="825.0" style="-fx-background-color: #818FB4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.CreateQuestionController">
     <stylesheets>
-        <URL value="@create-question.css"/>
+        <URL value="@create-question.css" />
     </stylesheets>
-    <AnchorPane layoutX="73.0" layoutY="115.0" prefHeight="405.0" prefWidth="680.0"
-                style="-fx-background-color: #435585; -fx-background-radius: 10;" styleClass="shadow">
-        <Label fx:id="label_questionNumber" layoutX="43.0" layoutY="25.0" prefHeight="40.0" prefWidth="75.0" text="#?"
-               textFill="WHITE">
+    <AnchorPane layoutX="73.0" layoutY="115.0" prefHeight="405.0" prefWidth="680.0" style="-fx-background-color: #435585; -fx-background-radius: 10;" styleClass="shadow">
+        <Label fx:id="label_questionNumber" layoutX="43.0" layoutY="25.0" prefHeight="40.0" prefWidth="75.0" text="#?" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="20.0"/>
+                <Font name="Itim" size="25.0" />
             </font>
         </Label>
-        <ToggleButton fx:id="toggleButton_closed" layoutX="225.0" layoutY="20.0" mnemonicParsing="false"
-                      prefHeight="50.0" prefWidth="110.0" selected="true" styleClass="shadow" text="closed">
+        <ToggleButton fx:id="toggleButton_closed" layoutX="225.0" layoutY="20.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" selected="true" styleClass="shadow" text="closed">
             <font>
-                <Font name="Arial Black" size="20.0"/>
+                <Font name="Itim" size="25.0" />
             </font>
         </ToggleButton>
-        <ToggleButton fx:id="toggleButton_opened" layoutX="345.0" layoutY="20.0" mnemonicParsing="false" opacity="0.5"
-                      prefHeight="50.0" prefWidth="110.0" styleClass="shadow" text="opened">
+        <ToggleButton fx:id="toggleButton_opened" layoutX="345.0" layoutY="20.0" mnemonicParsing="false" opacity="0.5" prefHeight="50.0" prefWidth="116.0" styleClass="shadow" text="opened">
             <font>
-                <Font name="Arial Black" size="20.0"/>
+                <Font name="Itim" size="25.0" />
             </font>
         </ToggleButton>
-        <TextField fx:id="textField_points" alignment="CENTER" layoutX="578.0" layoutY="20.0" maxHeight="-Infinity"
-                   maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="75.0"
-                   promptText="(p.)" styleClass="shadow">
+        <TextField fx:id="textField_points" alignment="CENTER" layoutX="578.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="75.0" promptText="(p.)" styleClass="shadow">
             <padding>
-                <Insets left="15.0" right="15.0"/>
+                <Insets left="15.0" right="15.0" />
             </padding>
             <font>
-                <Font name="Arial Black" size="20.0"/>
+                <Font name="Itim" size="25.0" />
             </font>
         </TextField>
-        <TextField fx:id="textField_question" alignment="CENTER" layoutX="43.0" layoutY="110.0" maxHeight="-Infinity"
-                   maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="610.0"
-                   promptText="(question)" styleClass="shadow">
+        <TextField fx:id="textField_question" alignment="CENTER" layoutX="43.0" layoutY="110.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="610.0" promptText="(question)" styleClass="shadow">
             <font>
-                <Font name="Arial Black" size="20.0"/>
+                <Font name="Itim" size="25.0" />
             </font>
             <padding>
-                <Insets left="15.0" right="15.0"/>
+                <Insets left="15.0" right="15.0" />
             </padding>
         </TextField>
-        <TextField fx:id="textField_answer_1" layoutX="43.0" layoutY="183.0" maxHeight="-Infinity" maxWidth="-Infinity"
-                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="280.0"
-                   promptText="(#1 answer)" styleClass="shadow">
+        <TextField fx:id="textField_answer_1" layoutX="43.0" layoutY="183.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="280.0" promptText="(#1 answer)" styleClass="shadow">
             <font>
-                <Font name="Arial Black" size="20.0"/>
+                <Font name="Itim" size="25.0" />
             </font>
             <padding>
-                <Insets left="15.0" right="15.0"/>
+                <Insets left="15.0" right="15.0" />
             </padding>
         </TextField>
-        <TextField fx:id="textField_answer_3" layoutX="43.0" layoutY="249.0" maxHeight="-Infinity" maxWidth="-Infinity"
-                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="280.0"
-                   promptText="(#3 answer)" styleClass="shadow">
+        <TextField fx:id="textField_answer_3" layoutX="43.0" layoutY="249.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="280.0" promptText="(#3 answer)" styleClass="shadow">
             <font>
-                <Font name="Arial Black" size="20.0"/>
+                <Font name="Itim" size="25.0" />
             </font>
             <padding>
-                <Insets left="15.0" right="15.0"/>
+                <Insets left="15.0" right="15.0" />
             </padding>
         </TextField>
-        <TextField fx:id="textField_answer_2" layoutX="373.0" layoutY="183.0" maxHeight="-Infinity" maxWidth="-Infinity"
-                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="280.0"
-                   promptText="(#2 answer)" styleClass="shadow">
+        <TextField fx:id="textField_answer_2" layoutX="373.0" layoutY="183.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="280.0" promptText="(#2 answer)" styleClass="shadow">
             <font>
-                <Font name="Arial Black" size="20.0"/>
+                <Font name="Itim" size="25.0" />
             </font>
             <padding>
-                <Insets left="15.0" right="15.0"/>
+                <Insets left="15.0" right="15.0" />
             </padding>
         </TextField>
-        <TextField fx:id="textField_answer_4" layoutX="373.0" layoutY="249.0" maxHeight="-Infinity" maxWidth="-Infinity"
-                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="280.0"
-                   promptText="(#4 answer)" styleClass="shadow">
+        <TextField fx:id="textField_answer_4" layoutX="373.0" layoutY="249.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="280.0" promptText="(#4 answer)" styleClass="shadow">
             <font>
-                <Font name="Arial Black" size="20.0"/>
+                <Font name="Itim" size="25.0" />
             </font>
             <padding>
-                <Insets left="15.0" right="15.0"/>
+                <Insets left="15.0" right="15.0" />
             </padding>
         </TextField>
-        <TextField fx:id="textField_trueAnswer" alignment="CENTER" layoutX="200.0" layoutY="328.0" maxHeight="-Infinity"
-                   maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="280.0"
-                   promptText="(true answer)" styleClass="shadow">
+        <TextField fx:id="textField_trueAnswer" alignment="CENTER" layoutX="200.0" layoutY="328.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="280.0" promptText="(true answer)" styleClass="shadow">
             <font>
-                <Font name="Arial Black" size="20.0"/>
+                <Font name="Itim" size="25.0" />
             </font>
             <padding>
-                <Insets left="15.0" right="15.0"/>
+                <Insets left="15.0" right="15.0" />
             </padding>
         </TextField>
-        <TextField fx:id="textField_openedAnswer" layoutX="43.0" layoutY="217.0" maxHeight="-Infinity"
-                   maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="50.0"
-                   prefWidth="610.0" promptText="(optional)">
+        <TextField fx:id="textField_openedAnswer" layoutX="43.0" layoutY="217.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.0" prefHeight="50.0" prefWidth="610.0" promptText="(optional)">
             <font>
-                <Font name="Arial Black" size="20.0"/>
+                <Font name="Itim" size="25.0" />
             </font>
             <padding>
-                <Insets left="15.0" right="15.0"/>
+                <Insets left="15.0" right="15.0" />
             </padding>
         </TextField>
     </AnchorPane>
-    <Button fx:id="button_next" layoutX="335.0" layoutY="553.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="155.0"
-            styleClass="shadow" text="Next" textFill="WHITE">
+    <Button fx:id="button_next" layoutX="335.0" layoutY="553.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="155.0" styleClass="shadow" text="Next" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="20.0"/>
+            <Font name="Itim" size="25.0" />
         </font>
     </Button>
     <AnchorPane prefHeight="60.0" prefWidth="825.0" style="-fx-background-color: #F5E8C7;" styleClass="shadow">
-        <Label alignment="CENTER" layoutX="116.0" layoutY="7.0" prefHeight="50.0" prefWidth="594.0"
-               text="Create Question">
+        <Label alignment="CENTER" layoutX="116.0" layoutY="5.0" prefHeight="50.0" prefWidth="594.0" text="Create Question">
             <font>
-                <Font name="Arial Black" size="22.0"/>
+                <Font name="Itim" size="27.0" />
             </font>
         </Label>
     </AnchorPane>

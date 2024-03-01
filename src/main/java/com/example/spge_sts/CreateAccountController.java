@@ -56,7 +56,11 @@ public class CreateAccountController implements Initializable {
         getButton_create().setOnAction(this::createAccount);
 
         /* transition */
-        getButton_cancel().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent));
+        if (DBUtilities.getUserData(Utilities.getCurrenUserID()).get("UserRole").equals("admin")) {
+            getButton_cancel().setOnAction(actionEvent -> Utilities.switchTo("Admin-Home-Page.fxml", actionEvent));
+        } else {
+            getButton_cancel().setOnAction(actionEvent -> Utilities.switchTo("Teachers-Home-Page.fxml", actionEvent));
+        }
     }
 
     private void createAccount(ActionEvent actionEvent) {
@@ -77,7 +81,7 @@ public class CreateAccountController implements Initializable {
                                             getTextField_lastName().getText(),
                                             getTextField_email().getText(),
                                             getTextField_phone().getText(),
-                                            getTheChosenRole()), actionEvent);
+                                            getTheChosenRole()));
                                 } else {
                                     Utilities.showAlert("Invalid phone!", InvalidInputMessages.PHONE.getMessage(), Alert.AlertType.ERROR);
                                     getTextField_phone().clear();
@@ -109,10 +113,10 @@ public class CreateAccountController implements Initializable {
         }
     }
 
-    private void response(boolean flag, ActionEvent actionEvent) {
+    private void response(boolean flag) {
         if (flag) {
             Utilities.showAlert("Done!", "You successfully created an account!", Alert.AlertType.CONFIRMATION);
-            Utilities.switchToPreparedScene(Utilities.prepareScene("Teachers-Home-Page.fxml", Utilities.getCurrenUserID()), actionEvent);
+            clearFields();
         } else {
             Utilities.showAlert("Error!", "Sorry, but you probably have invalid data", Alert.AlertType.ERROR);
             clearFields();

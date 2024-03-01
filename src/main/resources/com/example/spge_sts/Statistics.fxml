@@ -9,35 +9,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0"
-            prefWidth="1290.0" style="-fx-background-color: #818FB4;" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.StatisticsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="709.0" prefWidth="1290.0" style="-fx-background-color: #818FB4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.StatisticsController">
     <stylesheets>
-        <URL value="@statistics.css"/>
+        <URL value="@statistics.css" />
     </stylesheets>
     <AnchorPane prefHeight="60.0" prefWidth="1290.0" style="-fx-background-color: #F5E8C7;">
-        <Label layoutX="587.0" layoutY="14.0" text="Statistics">
+        <Label layoutX="590.0" layoutY="13.0" text="Statistics">
             <font>
-                <Font name="Arial Black" size="22.0"/>
+                <Font name="Itim" size="27.0" />
             </font>
         </Label>
     </AnchorPane>
-    <PieChart fx:id="pieChart" layoutX="57.0" layoutY="130.0" prefHeight="510.0" prefWidth="500.0"
-              style="-fx-background-color: #435585;" styleClass="shadow"/>
-    <BarChart fx:id="barChart" layoutX="603.0" layoutY="130.0" prefHeight="510.0" prefWidth="630.0"
-              style="-fx-background-color: #435585;" styleClass="shadow">
+    <PieChart fx:id="pieChart" layoutX="57.0" layoutY="130.0" prefHeight="510.0" prefWidth="500.0" style="-fx-background-color: #435585;" styleClass="shadow" />
+    <BarChart fx:id="barChart" layoutX="603.0" layoutY="130.0" prefHeight="510.0" prefWidth="630.0" style="-fx-background-color: #435585;" styleClass="shadow">
         <xAxis>
             <CategoryAxis side="BOTTOM" tickLabelFill="WHITE">
                 <tickLabelFont>
-                    <Font name="Arial Black" size="14.0"/>
+                    <Font name="Arial Black" size="14.0" />
                 </tickLabelFont>
             </CategoryAxis>
         </xAxis>
         <yAxis>
-            <NumberAxis autoRanging="false" forceZeroInRange="false" minorTickCount="0" minorTickLength="0.0"
-                        minorTickVisible="false" side="LEFT" tickLabelFill="WHITE" tickUnit="1.0" upperBound="10.0">
+            <NumberAxis autoRanging="false" forceZeroInRange="false" minorTickCount="0" minorTickLength="0.0" minorTickVisible="false" side="LEFT" tickLabelFill="WHITE" tickUnit="1.0" upperBound="10.0">
                 <tickLabelFont>
-                    <Font name="Arial Black" size="14.0"/>
+                    <Font name="Itim" size="19.0" />
                 </tickLabelFont>
             </NumberAxis>
         </yAxis>

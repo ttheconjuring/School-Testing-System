@@ -16,6 +16,10 @@ Button {
     -fx-background-color: #F5E8C7;
 }
 
+#button_profile:hover, #button_log_out:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
+}
+
 #button_go {
     -fx-background-color: #435585;
 }

@@ -27,9 +27,10 @@ public class AdminHomePageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
-
+        getButton_profile().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Teachers-Account-Information.fxml", DBUtilities.getUserData(Utilities.getCurrenUserID()))));
+        getButton_log_out().setOnAction(actionEvent -> Utilities.switchTo("Sign-In.fxml", actionEvent));
+        getButton_users().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Users-ScrollPane.fxml", "-1"), actionEvent));
+        getButton_create_account().setOnAction(actionEvent -> Utilities.switchTo("Create-Account.fxml", actionEvent));
     }
 
     private Button getButton_profile() {

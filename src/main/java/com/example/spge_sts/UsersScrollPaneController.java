@@ -37,7 +37,11 @@ public class UsersScrollPaneController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         /* core functionality */
         getButton_search().setOnAction(actionEvent -> search(getTextField_search().getText()));
-        getButton_back().setOnAction(actionEvent -> Utilities.switchTo("Teachers-Home-Page.fxml", actionEvent));
+        if (DBUtilities.getUserData(Utilities.getCurrenUserID()).get("UserRole").equals("admin")) {
+            getButton_back().setOnAction(actionEvent -> Utilities.switchTo("Admin-Home-Page.fxml", actionEvent));
+        } else {
+            getButton_back().setOnAction(actionEvent -> Utilities.switchTo("Teachers-Home-Page.fxml", actionEvent));
+        }
     }
 
     private void loadAllAccountTemplates(int numberOfAccounts) {
@@ -99,5 +103,7 @@ public class UsersScrollPaneController implements Initializable {
         return this.button_search;
     }
 
-    private Button getButton_back() { return this.button_back; }
+    private Button getButton_back() {
+        return this.button_back;
+    }
 }

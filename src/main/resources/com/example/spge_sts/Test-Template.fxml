@@ -20,34 +20,34 @@
             <ImageView fx:id="imageView_status" fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" />
         </graphic>
     </Button>
-    <Label layoutX="37.0" layoutY="274.0" prefHeight="33.0" prefWidth="171.0" text="Current Status:" textFill="WHITE">
+    <Label layoutX="31.0" layoutY="275.0" prefHeight="33.0" prefWidth="171.0" text="Current Status:" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="20.0" />
+            <Font name="Itim" size="25.0" />
         </font>
     </Label>
     <Label fx:id="label_testName" layoutX="14.0" layoutY="15.0" prefHeight="35.0" prefWidth="313.0" text="Test Title" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="20.0" />
+            <Font name="Itim" size="25.0" />
         </font>
     </Label>
     <Label fx:id="label_results" alignment="CENTER" layoutX="37.0" layoutY="87.0" prefHeight="35.0" prefWidth="171.0" text="Results: ??" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="18.0" />
+            <Font name="Itim" size="23.0" />
         </font>
     </Label>
     <Label fx:id="label_testCode" alignment="CENTER" layoutX="133.0" layoutY="19.0" prefHeight="27.0" prefWidth="171.0" text="(code)" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="18.0" />
+            <Font name="Itim" size="23.0" />
         </font>
     </Label>
-    <Button fx:id="button_leaderboard" layoutX="36.0" layoutY="202.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="171.0" style="-fx-background-radius: 10;" text="Leaderboard" textFill="WHITE">
+    <Button fx:id="button_leaderboard" layoutX="37.0" layoutY="193.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="171.0" style="-fx-background-radius: 10;" text="Leaderboard" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="20.0" />
+            <Font name="Itim" size="25.0" />
         </font>
     </Button>
-    <Button fx:id="button_statistics" layoutX="218.0" layoutY="202.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="171.0" style="-fx-background-radius: 10;" text="Statistics" textFill="WHITE">
+    <Button fx:id="button_statistics" layoutX="219.0" layoutY="193.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="171.0" style="-fx-background-radius: 10;" text="Statistics" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="20.0" />
+            <Font name="Itim" size="25.0" />
         </font>
     </Button>
     <Button fx:id="button_delete_test" layoutX="341.0" layoutY="14.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="60.0" style="-fx-background-radius: 10;">
@@ -59,12 +59,12 @@
     </Button>
     <Label fx:id="label_date_created" alignment="CENTER" layoutX="218.0" layoutY="87.0" prefHeight="90.0" prefWidth="171.0" text="Created at: yyyy-MM-dd HH:mm:ss" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
-            <Font name="Arial Black" size="18.0" />
+            <Font name="Itim" size="23.0" />
         </font>
     </Label>
-   <Label fx:id="label_average_score" layoutX="44.0" layoutY="122.0" prefHeight="57.0" prefWidth="158.0" text="Average Score: ?p." textAlignment="CENTER" textFill="WHITE" wrapText="true">
+   <Label fx:id="label_average_score" layoutX="44.0" layoutY="122.0" prefHeight="64.0" prefWidth="158.0" text="Average Score: ?p." textAlignment="CENTER" textFill="WHITE" wrapText="true">
       <font>
-         <Font name="Arial Black" size="18.0" />
+         <Font name="Itim" size="23.0" />
       </font>
    </Label>
 </AnchorPane>

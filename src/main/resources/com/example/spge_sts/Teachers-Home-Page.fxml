@@ -8,89 +8,68 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0"
-            prefWidth="1120.0" style="-fx-background-color: #818FB4;" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.TeachersHomePageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="1120.0" style="-fx-background-color: #818FB4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.TeachersHomePageController">
     <stylesheets>
-        <URL value="@teachers-home-page.css"/>
+        <URL value="@teachers-home-page.css" />
     </stylesheets>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0"
-                prefWidth="140.0" style="-fx-background-color: #F5E8C7;" styleClass="shadow">
-        <Label layoutX="29.0" layoutY="54.0" prefHeight="73.0" prefWidth="82.0" text="SPGE STS" textAlignment="CENTER"
-               wrapText="true">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="140.0" style="-fx-background-color: #F5E8C7;" styleClass="shadow">
+        <Label layoutX="29.0" layoutY="54.0" prefHeight="73.0" prefWidth="82.0" text="SPGE STS" textAlignment="CENTER" wrapText="true">
             <font>
-                <Font name="Arial Black" size="22.0"/>
+                <Font name="Itim" size="27.0" />
             </font>
         </Label>
-        <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="318.0"
-                maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER" textFill="WHITE"
-                wrapText="true">
+        <Button fx:id="button_profile" alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="318.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER" textFill="WHITE" wrapText="true">
             <font>
-                <Font name="Arial Black" size="20.0"/>
+                <Font name="Arial Black" size="20.0" />
             </font>
             <graphic>
                 <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@account.png"/>
+                    <Image url="@account.png" />
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="button_log_out" layoutX="45.0" layoutY="621.0" maxHeight="-Infinity" maxWidth="-Infinity"
-                minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0"
-                textFill="WHITE">
+        <Button fx:id="button_log_out" layoutX="45.0" layoutY="621.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" textFill="WHITE">
             <font>
-                <Font name="Arial Black" size="20.0"/>
+                <Font name="Arial Black" size="20.0" />
             </font>
             <graphic>
-                <ImageView fitHeight="40.0" fitWidth="40.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true"
-                           preserveRatio="true">
-                    <Image url="@log-out.png"/>
+                <ImageView fitHeight="40.0" fitWidth="40.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@log-out.png" />
                 </ImageView>
             </graphic>
         </Button>
-        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="50.0" layoutY="14.0" pickOnBounds="true"
-                   preserveRatio="true">
-            <Image url="@crown.png"/>
+        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="50.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@crown.png" />
         </ImageView>
     </AnchorPane>
-    <Button fx:id="button_my_tests" alignment="CENTER" contentDisplay="RIGHT" layoutX="360.0" layoutY="215.0"
-            maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" styleClass="shadow" text="My Tests"
-            textFill="WHITE">
+    <Button fx:id="button_my_tests" alignment="CENTER" contentDisplay="RIGHT" layoutX="360.0" layoutY="215.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" styleClass="shadow" text="My Tests" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="25.0"/>
+            <Font name="Itim" size="30.0" />
         </font>
         <graphic>
             <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@form.png"/>
+                <Image url="@exam.png" />
             </ImageView>
         </graphic>
     </Button>
-    <Button fx:id="button_users" alignment="CENTER" contentDisplay="RIGHT" layoutX="629.0" layoutY="215.0"
-            maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" styleClass="shadow" text="Users"
-            textFill="WHITE">
+    <Button fx:id="button_users" alignment="CENTER" contentDisplay="RIGHT" layoutX="629.0" layoutY="215.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" styleClass="shadow" text="Students" textFill="WHITE">
         <font>
-            <Font name="Arial Black" size="25.0"/>
+            <Font name="Itim" size="30.0" />
         </font>
         <graphic>
             <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@user.png"/>
+                <Image url="@student.png" />
             </ImageView>
         </graphic>
     </Button>
-    <Button fx:id="button_create_test" layoutX="360.0" layoutY="350.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0"
-            styleClass="shadow" text="Create Test" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+    <Button fx:id="button_create_test" layoutX="360.0" layoutY="350.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" styleClass="shadow" text="Create Test" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
-            <Font name="Arial Black" size="25.0"/>
+            <Font name="Itim" size="30.0" />
         </font>
     </Button>
-    <Button fx:id="button_create_account" layoutX="629.0" layoutY="351.0" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0"
-            styleClass="shadow" text="Create Account" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+    <Button fx:id="button_create_account" layoutX="629.0" layoutY="351.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" styleClass="shadow" text="Create Student" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>
-            <Font name="Arial Black" size="25.0"/>
+            <Font name="Itim" size="30.0" />
         </font>
     </Button>
 </AnchorPane>
