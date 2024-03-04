@@ -46,11 +46,6 @@
         <font>
             <Font name="Itim" size="30.0" />
         </font>
-        <graphic>
-            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@student.png" />
-            </ImageView>
-        </graphic>
     </Button>
     <Button fx:id="button_statistics" layoutX="782.0" layoutY="283.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" styleClass="shadow" text="Statistics" textAlignment="CENTER" textFill="WHITE" wrapText="true">
         <font>

@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class AdminStatisticsController implements Initializable {
@@ -73,6 +74,28 @@ public class AdminStatisticsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getButton_back().setOnAction(actionEvent -> Utilities.switchTo("Admin-Home-Page.fxml", actionEvent));
+        getButton_visualize_statistics().setOnAction(actionEvent -> System.out.println("hello"));
+    }
+
+    protected void setData(Map<String, String> data) {
+        getLabel_total_users().setText(data.get("usersCount"));
+        getLabel_teachers().setText(data.get("teachers"));
+        getLabel_students().setText(data.get("students"));
+        getLabel_total_results().setText(data.get("resultsCount"));
+        getLabel_pass().setText(data.get("pass"));
+        getLabel_fail().setText(data.get("fail"));
+        getLabel_total_responses().setText(data.get("responsesCount"));
+        getLabel_correct().setText(data.get("correct"));
+        getLabel_incorrect().setText(data.get("incorrect"));
+        getLabel_total_tests().setText(data.get("testsCount"));
+        getLabel_free().setText(data.get("free"));
+        getLabel_locked().setText(data.get("locked"));
+        getLabel_average_passing_score().setText(data.get("averagePassingScore"));
+        getLabel_average_questions_count().setText(data.get("averageQuestionsCount"));
+        getLabel_total_questions().setText(data.get("questionsCount"));
+        getLabel_opened().setText(data.get("opened"));
+        getLabel_closed().setText(data.get("closed"));
+        getLabel_average_points().setText(data.get("averagePoints"));
     }
 
     private Label getLabel_total_users() {

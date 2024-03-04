@@ -28,7 +28,7 @@
         </Label>
         <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="50.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@user.png" />
+                <Image url="@student.png" />
             </image>
         </ImageView>
         <Button fx:id="button_back" layoutX="45.0" layoutY="268.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="50.0" styleClass="shadow">

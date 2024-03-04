@@ -237,6 +237,10 @@ public class Utilities {
                 TestTemplateController testTemplateController = loader.getController();
                 testTemplateController.setData(data);
             }
+            case "Admin-Statistics.fxml" -> {
+                AdminStatisticsController adminStatisticsController = loader.getController();
+                adminStatisticsController.setData(data);
+            }
         }
         return root;
     }
