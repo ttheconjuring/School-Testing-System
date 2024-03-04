@@ -13,7 +13,7 @@
     <stylesheets>
         <URL value="@statistics.css" />
     </stylesheets>
-    <AnchorPane prefHeight="60.0" prefWidth="1290.0" style="-fx-background-color: #F5E8C7;">
+    <AnchorPane prefHeight="60.0" prefWidth="1290.0" style="-fx-background-color: #F5E8C7;" styleClass="shadow">
         <Label layoutX="590.0" layoutY="13.0" text="Statistics">
             <font>
                 <Font name="Itim" size="27.0" />

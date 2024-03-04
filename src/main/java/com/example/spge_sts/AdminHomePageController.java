@@ -31,6 +31,7 @@ public class AdminHomePageController implements Initializable {
         getButton_log_out().setOnAction(actionEvent -> Utilities.switchTo("Sign-In.fxml", actionEvent));
         getButton_users().setOnAction(actionEvent -> Utilities.switchToPreparedScene(Utilities.prepareScene("Users-ScrollPane.fxml", "-1"), actionEvent));
         getButton_create_account().setOnAction(actionEvent -> Utilities.switchTo("Create-Account.fxml", actionEvent));
+        getButton_statistics().setOnAction(actionEvent -> Utilities.switchTo("Admin-Statistics.fxml", actionEvent));
     }
 
     private Button getButton_profile() {

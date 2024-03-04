@@ -31,7 +31,7 @@
             </graphic>
         </Button>
         <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="50.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@form.png" />
+            <Image url="@exam.png" />
         </ImageView>
     </AnchorPane>
     <AnchorPane layoutX="236.0" layoutY="63.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="495.0" style="-fx-background-color: #435585; -fx-background-radius: 10;" styleClass="shadow">

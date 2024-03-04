@@ -48,7 +48,7 @@
         </font>
         <graphic>
             <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@user.png" />
+                <Image url="@student.png" />
             </ImageView>
         </graphic>
     </Button>

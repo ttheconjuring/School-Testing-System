@@ -50,6 +50,7 @@ public class CreateAccountController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if (DBUtilities.getUserData(Utilities.getCurrenUserID()).get("UserRole").equals("teacher")) {
             getToggleButton_teacher_role().setDisable(true);
+            setClicked(getToggleButton_student_role(), getToggleButton_teacher_role());
         }
 
         /* visual preparation */

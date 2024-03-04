@@ -52,7 +52,7 @@
             </ImageView>
         </graphic>
     </Button>
-    <Button fx:id="button_users" alignment="CENTER" contentDisplay="RIGHT" layoutX="629.0" layoutY="215.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" styleClass="shadow" text="Students" textFill="WHITE">
+    <Button fx:id="button_users" alignment="CENTER" contentDisplay="RIGHT" layoutX="629.0" layoutY="215.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" styleClass="shadow" text="All Users" textFill="WHITE">
         <font>
             <Font name="Itim" size="30.0" />
         </font>

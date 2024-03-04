@@ -27,7 +27,8 @@ public class Main extends Application {
         launch();
     }
 
-    // TODO: add administrator role ffs
+    // TODO: code statistics for admin and translate in bg
+
 
     /*
     BUGS:
