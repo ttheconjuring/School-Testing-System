@@ -246,9 +246,9 @@
             </font>
         </Label>
     </AnchorPane>
-    <Button fx:id="button_visualize_statistics" layoutX="530.0" layoutY="664.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="545.0" styleClass="shadow" text="Visualize Statistics" textFill="WHITE">
-        <font>
-            <Font name="Itim" size="25.0" />
-        </font>
-    </Button>
+   <Label alignment="CENTER" layoutX="530.0" layoutY="676.0" prefHeight="91.0" prefWidth="545.0" style="-fx-background-color: #435585; -fx-background-radius: 10;" styleClass="shadow" text="Statistics are based on 2023/2024 years." textFill="WHITE">
+      <font>
+         <Font name="Itim" size="25.0" />
+      </font>
+   </Label>
 </AnchorPane>

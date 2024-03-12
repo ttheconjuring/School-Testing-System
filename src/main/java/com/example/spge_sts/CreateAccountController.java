@@ -13,6 +13,8 @@ public class CreateAccountController implements Initializable {
     // ================================================== \\
 
     /*Visual elements*/
+    @FXML
+    private ToggleButton toggleButton_admin_role;
 
     @FXML
     private ToggleButton toggleButton_teacher_role;
@@ -50,12 +52,18 @@ public class CreateAccountController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if (DBUtilities.getUserData(Utilities.getCurrenUserID()).get("UserRole").equals("teacher")) {
             getToggleButton_teacher_role().setDisable(true);
-            setClicked(getToggleButton_student_role(), getToggleButton_teacher_role());
+            getToggleButton_admin_role().setDisable(true);
+            setClicked(getToggleButton_student_role(), getToggleButton_teacher_role(), getToggleButton_admin_role());
+        } else {
+            getToggleButton_teacher_role().setDisable(false);
+            getToggleButton_admin_role().setDisable(false);
+            getToggleButton_student_role().setDisable(false);
         }
 
         /* visual preparation */
-        getToggleButton_teacher_role().setOnAction(actionEvent -> setClicked(getToggleButton_teacher_role(), getToggleButton_student_role()));
-        getToggleButton_student_role().setOnAction(actionEvent -> setClicked(getToggleButton_student_role(), getToggleButton_teacher_role()));
+        getToggleButton_teacher_role().setOnAction(actionEvent -> setClicked(getToggleButton_teacher_role(), getToggleButton_student_role(), getToggleButton_admin_role()));
+        getToggleButton_student_role().setOnAction(actionEvent -> setClicked(getToggleButton_student_role(), getToggleButton_teacher_role(), getToggleButton_admin_role()));
+        getToggleButton_admin_role().setOnAction(actionEvent -> setClicked(getToggleButton_admin_role(), getToggleButton_teacher_role(), getToggleButton_teacher_role()));
 
         /* core functionality*/
         getButton_create().setOnAction(this::createAccount);
@@ -135,14 +143,22 @@ public class CreateAccountController implements Initializable {
     }
 
     private String getTheChosenRole() {
-        return getToggleButton_teacher_role().isSelected() ? "teacher" : "student";
+        if (getToggleButton_admin_role().isSelected()) {
+            return "admin";
+        } else if (getToggleButton_teacher_role().isSelected()) {
+            return "teacher";
+        } else {
+            return "student";
+        }
     }
 
-    private void setClicked(ToggleButton clickedButton, ToggleButton otherButton) {
+    private void setClicked(ToggleButton clickedButton, ToggleButton otherButton, ToggleButton otherButton1) {
         clickedButton.setSelected(true);
         clickedButton.setOpacity(1);
         otherButton.setOpacity(0.5);
         otherButton.setSelected(false);
+        otherButton1.setOpacity(0.5);
+        otherButton1.setSelected(false);
     }
 
     private void clearFields() {
@@ -152,6 +168,10 @@ public class CreateAccountController implements Initializable {
         getTextField_lastName().clear();
         getTextField_email().clear();
         getTextField_phone().clear();
+    }
+
+    private ToggleButton getToggleButton_admin_role() {
+        return this.toggleButton_admin_role;
     }
 
     private Button getButton_create() {

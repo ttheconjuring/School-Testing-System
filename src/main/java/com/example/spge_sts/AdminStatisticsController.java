@@ -66,15 +66,11 @@ public class AdminStatisticsController implements Initializable {
     private Label label_average_points;
 
     @FXML
-    private Button button_visualize_statistics;
-
-    @FXML
     private Button button_back;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getButton_back().setOnAction(actionEvent -> Utilities.switchTo("Admin-Home-Page.fxml", actionEvent));
-        getButton_visualize_statistics().setOnAction(actionEvent -> System.out.println("hello"));
     }
 
     protected void setData(Map<String, String> data) {
@@ -168,10 +164,6 @@ public class AdminStatisticsController implements Initializable {
 
     private Label getLabel_average_points() {
         return this.label_average_points;
-    }
-
-    private Button getButton_visualize_statistics() {
-        return this.button_visualize_statistics;
     }
 
     private Button getButton_back() {

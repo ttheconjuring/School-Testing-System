@@ -11,12 +11,6 @@ import java.util.ResourceBundle;
 public class WelcomeController implements Initializable {
 
     @FXML
-    private Button button_ae;
-
-    @FXML
-    private Button button_bg;
-
-    @FXML
     private Button button_start;
 
     @FXML
@@ -26,14 +20,6 @@ public class WelcomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getButton_start().setOnAction(actionEvent -> Utilities.switchTo("Sign-In.fxml", actionEvent));
         getButton_quit().setOnAction(actionEvent -> Platform.exit());
-    }
-
-    private Button getButton_ae() {
-        return this.button_ae;
-    }
-
-    private Button getButton_bg() {
-        return this.button_bg;
     }
 
     private Button getButton_start() {

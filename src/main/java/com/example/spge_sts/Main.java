@@ -26,9 +26,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch();
     }
-
-    // TODO: code statistics for admin and translate in bg
-
+    
 
     /*
     BUGS:

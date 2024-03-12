@@ -94,7 +94,9 @@ public class Utilities {
         return questionsData.size();
     }
 
-    protected static Map<String, String> getQuestionDataByIndex(int index) {return questionsData.get(index);}
+    protected static Map<String, String> getQuestionDataByIndex(int index) {
+        return questionsData.get(index);
+    }
 
     protected static void setQuestionsData(ArrayList<Map<String, String>> questionsData) {
         Utilities.questionsData = questionsData;
@@ -111,7 +113,9 @@ public class Utilities {
         return responseTimeInMinutes;
     }
 
-    protected static void setResponseTimeInMinutes(int responseTimeInMinutes) {Utilities.responseTimeInMinutes = responseTimeInMinutes;}
+    protected static void setResponseTimeInMinutes(int responseTimeInMinutes) {
+        Utilities.responseTimeInMinutes = responseTimeInMinutes;
+    }
 
     // ==========================================================================================
 
