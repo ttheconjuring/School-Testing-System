@@ -58,12 +58,13 @@ public class CreateAccountController implements Initializable {
             getToggleButton_teacher_role().setDisable(false);
             getToggleButton_admin_role().setDisable(false);
             getToggleButton_student_role().setDisable(false);
+            setClicked(getToggleButton_admin_role(), getToggleButton_teacher_role(), getToggleButton_student_role());
         }
 
         /* visual preparation */
         getToggleButton_teacher_role().setOnAction(actionEvent -> setClicked(getToggleButton_teacher_role(), getToggleButton_student_role(), getToggleButton_admin_role()));
         getToggleButton_student_role().setOnAction(actionEvent -> setClicked(getToggleButton_student_role(), getToggleButton_teacher_role(), getToggleButton_admin_role()));
-        getToggleButton_admin_role().setOnAction(actionEvent -> setClicked(getToggleButton_admin_role(), getToggleButton_teacher_role(), getToggleButton_teacher_role()));
+        getToggleButton_admin_role().setOnAction(actionEvent -> setClicked(getToggleButton_admin_role(), getToggleButton_teacher_role(), getToggleButton_student_role()));
 
         /* core functionality*/
         getButton_create().setOnAction(this::createAccount);
@@ -81,7 +82,8 @@ public class CreateAccountController implements Initializable {
             Utilities.showAlert("Empty gaps", "Please, fill all the gaps!", Alert.AlertType.WARNING);
         } else {
             if ((getTheChosenRole().equals("teacher") && Utilities.isValid(getTextField_username().getText(), ValidationRegexes.TEACHER_USERNAME.getRegex()))
-                    || (getTheChosenRole().equals("student") && Utilities.isValid(getTextField_username().getText(), ValidationRegexes.STUDENT_USERNAME.getRegex()))) {
+                    || (getTheChosenRole().equals("student") && Utilities.isValid(getTextField_username().getText(), ValidationRegexes.STUDENT_USERNAME.getRegex()))
+                    || getTheChosenRole().equals("admin")) {
                 if (Utilities.isValid(getPasswordField_password().getText(), ValidationRegexes.PASSWORD.getRegex())) {
                     if (Utilities.isValid(getTextField_firstName().getText(), ValidationRegexes.FIRST_NAME.getRegex())) {
                         if (Utilities.isValid(getTextField_lastName().getText(), ValidationRegexes.LAST_NAME.getRegex())) {

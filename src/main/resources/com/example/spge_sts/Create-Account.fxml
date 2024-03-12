@@ -142,14 +142,19 @@
             <Font name="Itim" size="25.0" />
         </font>
     </Button>
-    <ToggleButton fx:id="toggleButton_teacher_role" layoutX="490.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="130.0" selected="true" styleClass="shadow" text="Teacher" textFill="WHITE">
+    <ToggleButton fx:id="toggleButton_teacher_role" layoutX="564.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="130.0" selected="true" styleClass="shadow" text="Teacher" textFill="WHITE">
         <font>
             <Font name="Itim" size="25.0" />
         </font>
     </ToggleButton>
-    <ToggleButton fx:id="toggleButton_student_role" layoutX="639.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.5" prefHeight="60.0" prefWidth="130.0" styleClass="shadow" text="Student" textFill="WHITE">
+    <ToggleButton fx:id="toggleButton_student_role" layoutX="709.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.5" prefHeight="60.0" prefWidth="130.0" styleClass="shadow" text="Student" textFill="WHITE">
         <font>
             <Font name="Itim" size="25.0" />
         </font>
     </ToggleButton>
+   <ToggleButton fx:id="toggleButton_admin_role" layoutX="419.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="130.0" selected="true" styleClass="shadow" text="Admin" textFill="WHITE">
+      <font>
+         <Font name="Itim" size="25.0" />
+      </font>
+   </ToggleButton>
 </AnchorPane>
