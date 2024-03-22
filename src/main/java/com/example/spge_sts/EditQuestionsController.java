@@ -2,6 +2,7 @@ package com.example.spge_sts;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -45,13 +46,59 @@ public class EditQuestionsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        getButton_save().setOnAction(actionEvent -> editQuestion());
+        getButton_save_1().setOnAction(actionEvent -> editQuestion_1());
+        getButton_save_2().setOnAction(actionEvent -> editQuestion_2());
+        getButton_save_3().setOnAction(actionEvent -> editQuestion_3());
+        getButton_save_4().setOnAction(actionEvent -> editQuestion_4());
     }
+
+    private void editQuestion_4() {
+        String text = getTextField_question_4().getText();
+        String id = text.substring(2, text.indexOf(')'));
+        String[] data = text.substring(text.indexOf(')') + 2).split(" \\| ");
+        DBUtilities.updateQuestion(data[0], data[1], data[2], data[3], id);
+        Utilities.showAlert("Successfully Updated!", "The question was successfully updated!", Alert.AlertType.INFORMATION);
+    }
+
+    private void editQuestion_3() {
+        String text = getTextField_question_3().getText();
+        String id = text.substring(2, text.indexOf(')'));
+        String[] data = text.substring(text.indexOf(')') + 2).split(" \\| ");
+        DBUtilities.updateQuestion(data[0], data[1], data[2], data[3], id);
+        Utilities.showAlert("Successfully Updated!", "The question was successfully updated!", Alert.AlertType.INFORMATION);
+    }
+
+    private void editQuestion_2() {
+        String text = getTextField_question_2().getText();
+        String id = text.substring(2, text.indexOf(')'));
+        String[] data = text.substring(text.indexOf(')') + 2).split(" \\| ");
+        DBUtilities.updateQuestion(data[0], data[1], data[2], data[3], id);
+        Utilities.showAlert("Successfully Updated!", "The question was successfully updated!", Alert.AlertType.INFORMATION);
+    }
+
+    private void editQuestion_1() {
+        String text = getTextField_question_1().getText();
+        String id = text.substring(2, text.indexOf(')'));
+        String[] data = text.substring(text.indexOf(')') + 2).split(" \\| ");
+        DBUtilities.updateQuestion(data[0], data[1], data[2], data[3], id);
+        Utilities.showAlert("Successfully Updated!", "The question was successfully updated!", Alert.AlertType.INFORMATION);
+    }
+
+    private void editQuestion() {
+        String text = getTextField_question().getText();
+        String id = text.substring(2, text.indexOf(')'));
+        String[] data = text.substring(text.indexOf(')') + 2).split(" \\| ");
+        DBUtilities.updateQuestion(data[0], data[1], data[2], data[3], id);
+        Utilities.showAlert("Successfully Updated!", "The question was successfully updated!", Alert.AlertType.INFORMATION);
+    }
+
 
     protected void setData(List<Map<String, String>> questionsData) {
         List<String> questions = new ArrayList<>();
         for (Map<String, String> questionsDatum : questionsData) {
-            questions.add(String.format("%s | %s | %s | %s",
+            questions.add(String.format("(#%s) %s | %s | %s | %s",
+                    questionsDatum.get("question_id"),
                     questionsDatum.get("question_text"),
                     questionsDatum.get("answers"),
                     questionsDatum.get("correct_answer"),

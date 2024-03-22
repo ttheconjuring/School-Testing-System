@@ -499,44 +499,6 @@ public class DBUtilities {
         return null;
     }
 
-    // ====================================================================== \\
-
-    /* UPDATE queries*/
-
-    protected static boolean updateUserData(String string, String userID) {
-        String query = makeUpdateUserDataQuery(string, userID);
-        boolean result = false;
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            result = preparedStatement.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
-    protected static boolean updateTestStatus(String status, String test_id) {
-        String query = "UPDATE tests SET status = '" + status + "' WHERE test_id = " + test_id + ";";
-        boolean successfulChange = false;
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            successfulChange = preparedStatement.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return successfulChange;
-    }
-
-    protected static void updateTestDate(String date_updated, String test_id) {
-        String query = "UPDATE tests SET date_updated = '" + date_updated + "' WHERE test_id = " + test_id + ";";
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            boolean b = preparedStatement.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     protected static String getCodeOfTest(String test_id) {
         String query = "SELECT code FROM tests WHERE test_id = " + test_id + ";";
         String code = null;
@@ -619,6 +581,59 @@ public class DBUtilities {
             e.printStackTrace();
         }
         return questionsData;
+    }
+
+    // ====================================================================== \\
+
+    /* UPDATE queries*/
+
+    protected static boolean updateUserData(String string, String userID) {
+        String query = makeUpdateUserDataQuery(string, userID);
+        boolean result = false;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            result = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    protected static boolean updateTestStatus(String status, String test_id) {
+        String query = "UPDATE tests SET status = '" + status + "' WHERE test_id = " + test_id + ";";
+        boolean successfulChange = false;
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            successfulChange = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return successfulChange;
+    }
+
+    protected static void updateTestDate(String date_updated, String test_id) {
+        String query = "UPDATE tests SET date_updated = '" + date_updated + "' WHERE test_id = " + test_id + ";";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            boolean b = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected static void updateQuestion(String question_text, String answers, String correct_answer, String points, String question_id) {
+        String query = "UPDATE questions SET question_text = ?, answers = ?, correct_answer = ?, points = ? WHERE question_id = ?";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, question_text);
+            preparedStatement.setString(2, answers);
+            preparedStatement.setString(3, correct_answer);
+            preparedStatement.setString(4, points);
+            preparedStatement.setString(5, question_id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 
