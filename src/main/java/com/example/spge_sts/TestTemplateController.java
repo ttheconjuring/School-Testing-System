@@ -34,9 +34,6 @@ public class TestTemplateController implements Initializable {
     private Label label_testName;
 
     @FXML
-    private Label label_testCode;
-
-    @FXML
     private Label label_results;
 
     @FXML
@@ -56,6 +53,9 @@ public class TestTemplateController implements Initializable {
 
     @FXML
     private Button button_delete_test;
+
+    @FXML
+    private Button button_edit;
 
     @FXML
     private ImageView imageView_status;
@@ -89,6 +89,7 @@ public class TestTemplateController implements Initializable {
         });
         getButton_leaderboard().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Leaderboard.fxml", getTestID())));
         getButton_delete_test().setOnAction(actionEvent -> confirmTestDeletion());
+        getButton_edit().setOnAction(actionEvent -> Utilities.popUpNewWindow(Utilities.prepareScene("Edit-Questions.fxml", getTestID())));
 
         getButton_statistics().setOnAction(actionEvent -> customTransition());
     }
@@ -146,8 +147,7 @@ public class TestTemplateController implements Initializable {
     }
 
     protected void setData(Map<String, String> testInfo) {
-        getLabel_testName().setText(testInfo.get("TestName"));
-        getLabel_testCode().setText("(" + testInfo.get("Code") + ")");
+        getLabel_testName().setText(String.format("%s (%s)", testInfo.get("TestName"), testInfo.get("Code")));
         getLabel_results().setText("Results: " + testInfo.get("Results"));
         if (testInfo.get("Pass").equals("??")) {
             setPassValue(0);
@@ -199,15 +199,13 @@ public class TestTemplateController implements Initializable {
         return this.label_testName;
     }
 
-    private Label getLabel_testCode() {
-        return this.label_testCode;
-    }
-
     private Label getLabel_results() {
         return this.label_results;
     }
 
-    private Label getLabel_average_score() { return this.label_average_score; }
+    private Label getLabel_average_score() {
+        return this.label_average_score;
+    }
 
     private Label getLabel_date_created() {
         return this.label_date_created;
@@ -271,5 +269,9 @@ public class TestTemplateController implements Initializable {
 
     private void setPointsCountMap(Map<String, Integer> pointsCountMap) {
         this.pointsCountMap = pointsCountMap;
+    }
+
+    private Button getButton_edit() {
+        return button_edit;
     }
 }

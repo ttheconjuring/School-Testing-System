@@ -3,6 +3,7 @@ package com.example.spge_sts;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DBUtilities {
@@ -483,53 +484,11 @@ public class DBUtilities {
         return null;
     }
 
-    protected static String sumPassingScoreOfAllTests() {
-        String query = "SELECT SUM(passing_score) FROM tests;";
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                return resultSet.getString(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    protected static String sumQuestionsOfAllTests() {
-        String query = "SELECT SUM(questions_count) FROM tests;";
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                return resultSet.getString(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     protected static String getQuestionsCountByType(String question_type) {
         String query = "SELECT COUNT(*) FROM questions WHERE question_type = ?;";
         try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, question_type);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                return resultSet.getString(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    protected static String sumPointsOfAllQuestions() {
-        String query = "SELECT SUM(points) FROM questions;";
-        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return resultSet.getString(1);
@@ -640,6 +599,28 @@ public class DBUtilities {
         }
         return pointsCountMap;
     }
+
+    protected static List<Map<String, String>> getTestQuestions(String test_id) {
+        String query = "SELECT * FROM questions WHERE test_id = " + test_id + ";";
+        List<Map<String, String>> questionsData = new ArrayList<>();
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Map<String, String> question = new HashMap<>();
+                question.put("question_id", resultSet.getString(1));
+                question.put("question_text", resultSet.getString(3));
+                question.put("answers", resultSet.getString(5));
+                question.put("correct_answer", resultSet.getString(6));
+                question.put("points", resultSet.getString(7));
+                questionsData.add(question);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return questionsData;
+    }
+
 
     // ====================================================================== \\
 
@@ -799,6 +780,48 @@ public class DBUtilities {
             e.printStackTrace();
         }
         return minutes;
+    }
+
+    protected static String sumPointsOfAllQuestions() {
+        String query = "SELECT SUM(points) FROM questions;";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    protected static String sumPassingScoreOfAllTests() {
+        String query = "SELECT SUM(passing_score) FROM tests;";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    protected static String sumQuestionsOfAllTests() {
+        String query = "SELECT SUM(questions_count) FROM tests;";
+        try (Connection connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     // ====================================================================== \\

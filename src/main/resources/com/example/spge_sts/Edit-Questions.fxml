@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="560.0" prefWidth="930.0" style="-fx-background-color: #F5E8C7;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.EditQuestionsController">
+    <stylesheets>
+        <URL value="@edit-questions.css" />
+    </stylesheets>
+    <SplitPane dividerPositions="0.18473895582329317, 0.39357429718875503, 0.5963855421686747, 0.8012048192771084" layoutX="43.0" layoutY="30.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="845.0" styleClass="shadow">
+        <AnchorPane prefHeight="113.0" prefWidth="701.0" style="-fx-background-color: #818FB4;">
+            <TextField fx:id="textField_question" alignment="CENTER" layoutX="19.0" layoutY="20.0" prefHeight="55.0" prefWidth="740.0" styleClass="shadow" text="question | answers | correct answer | points">
+            <font>
+               <Font name="Itim" size="24.0" />
+            </font></TextField>
+            <Button fx:id="button_save" layoutX="771.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="shadow">
+            <graphic>
+               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@check-mark.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+        </AnchorPane>
+        <AnchorPane prefHeight="113.0" prefWidth="701.0" style="-fx-background-color: #818FB4;">
+            <TextField fx:id="textField_question_1" alignment="CENTER" layoutX="19.0" layoutY="20.0" prefHeight="55.0" prefWidth="740.0" styleClass="shadow" text="question | answers | correct answer | points">
+            <font>
+               <Font name="Itim" size="24.0" />
+            </font></TextField>
+            <Button fx:id="button_save_1" layoutX="771.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="shadow">
+            <graphic>
+               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@check-mark.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+        </AnchorPane>
+        <AnchorPane prefHeight="113.0" prefWidth="701.0" style="-fx-background-color: #818FB4;">
+            <TextField fx:id="textField_question_2" alignment="CENTER" layoutX="19.0" layoutY="20.0" prefHeight="55.0" prefWidth="740.0" styleClass="shadow" text="question | answers | correct answer | points">
+            <font>
+               <Font name="Itim" size="24.0" />
+            </font></TextField>
+            <Button fx:id="button_save_2" layoutX="771.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="shadow">
+            <graphic>
+               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@check-mark.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+        </AnchorPane>
+        <AnchorPane prefHeight="113.0" prefWidth="701.0" style="-fx-background-color: #818FB4;">
+            <TextField fx:id="textField_question_3" alignment="CENTER" layoutX="19.0" layoutY="20.0" prefHeight="55.0" prefWidth="740.0" styleClass="shadow" text="question | answers | correct answer | points">
+            <font>
+               <Font name="Itim" size="24.0" />
+            </font></TextField>
+            <Button fx:id="button_save_3" layoutX="771.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="shadow">
+            <graphic>
+               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@check-mark.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+        </AnchorPane>
+        <AnchorPane prefHeight="113.0" prefWidth="701.0" style="-fx-background-color: #818FB4;">
+            <TextField fx:id="textField_question_4" alignment="CENTER" layoutX="19.0" layoutY="20.0" prefHeight="55.0" prefWidth="740.0" styleClass="shadow" text="question | answers | correct answer | points">
+            <font>
+               <Font name="Itim" size="24.0" />
+            </font></TextField>
+            <Button fx:id="button_save_4" layoutX="771.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="shadow">
+            <graphic>
+               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@check-mark.png" />
+                  </image>
+               </ImageView>
+            </graphic></Button>
+        </AnchorPane>
+    </SplitPane>
+</AnchorPane>

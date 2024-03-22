@@ -212,6 +212,10 @@ public class Utilities {
                 ResultTemplateController resultTemplateController = loader.getController();
                 resultTemplateController.setData(ID);
             }
+            case "Edit-Questions.fxml" -> {
+                EditQuestionsController editQuestionsController = loader.getController();
+                editQuestionsController.setData(DBUtilities.getTestQuestions(ID));
+            }
         }
         return root;
     }

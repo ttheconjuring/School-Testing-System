@@ -1,0 +1,19 @@
+TextField {
+    -fx-background-color: #363062;
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+}
+
+Button {
+    -fx-background-color: #435585;
+    -fx-background-radius: 10px;
+}
+
+.shadow {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0, 0);
+}
+
+Button:hover {
+    -fx-background-color: #363062;
+}
+
