@@ -40,20 +40,24 @@ public class StudentsHomePageController implements Initializable {
         getButton_go().setOnAction(actionEvent -> {
             /* core functionality*/
             /* checks */
-            if (DBUtilities.testIsFree(getTextField_test_code().getText())) {
-                if (!DBUtilities.studentHasAlreadyEnteredTheTest(Utilities.getCurrenUserID(), getTextField_test_code().getText())) {
-                    /* preparations */
-                    Utilities.setResponseTimeInMinutes(DBUtilities.getResponseTimeOfTestBy(getTextField_test_code().getText()));
-                    extractQuestionsData(getTextField_test_code().getText());
-                    Utilities.setQuestionIndex(0);
+            if (!getTextField_test_code().getText().isEmpty()) {
+                if (DBUtilities.testIsFree(getTextField_test_code().getText())) {
+                    if (!DBUtilities.studentHasAlreadyEnteredTheTest(Utilities.getCurrenUserID(), getTextField_test_code().getText())) {
+                        /* preparations */
+                        Utilities.setResponseTimeInMinutes(DBUtilities.getResponseTimeOfTestBy(getTextField_test_code().getText()));
+                        extractQuestionsData(getTextField_test_code().getText());
+                        Utilities.setQuestionIndex(0);
 
-                    /* transition */
-                    Utilities.switchToPreparedScene(Utilities.prepareScene("Answer-Question.fxml", Utilities.getQuestionDataByIndex(Utilities.getQuestionIndex())), actionEvent);
+                        /* transition */
+                        Utilities.switchToPreparedScene(Utilities.prepareScene("Answer-Question.fxml", Utilities.getQuestionDataByIndex(Utilities.getQuestionIndex())), actionEvent);
+                    } else {
+                        Utilities.showAlert("Test Is Locked!", "Sorry, but it seems like you have already attended this test.", Alert.AlertType.ERROR);
+                    }
                 } else {
-                    Utilities.showAlert("Test Is Locked!", "Sorry, but it seems like you have already attended this test.", Alert.AlertType.ERROR);
+                    Utilities.showAlert("Test Is Locked!", "Sorry, but this test is locked!\nAsk your teacher for further information.", Alert.AlertType.ERROR);
                 }
             } else {
-                Utilities.showAlert("Test Is Locked!", "Sorry, but this test is locked!\nAsk your teacher for further information.", Alert.AlertType.ERROR);
+                Utilities.showAlert("No Code Entered", "Please, enter code!", Alert.AlertType.INFORMATION);
             }
         });
     }

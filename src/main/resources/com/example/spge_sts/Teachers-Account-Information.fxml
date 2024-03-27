@@ -10,112 +10,146 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="738.0" style="-fx-background-color: #818FB4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spge_sts.TeachersAccountInformationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0"
+            prefWidth="738.0" style="-fx-background-color: #818FB4;" xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.spge_sts.TeachersAccountInformationController">
     <stylesheets>
-        <URL value="@teachers-account-information.css" />
+        <URL value="@teachers-account-information.css"/>
     </stylesheets>
 
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="738.0" style="-fx-background-color: #F5E8C7;">
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0"
+                prefWidth="738.0" style="-fx-background-color: #F5E8C7;">
         <Label layoutX="246.0" layoutY="13.0" text="Account Information">
             <font>
-                <Font name="Itim" size="27.0" />
+                <Font name="Itim" size="27.0"/>
             </font>
         </Label>
     </AnchorPane>
-    <AnchorPane layoutX="54.0" layoutY="85.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="364.0" prefWidth="630.0" style="-fx-background-color: #435585; -fx-background-radius: 10;" styleClass="shadow">
-        <TextField fx:id="textField_username" alignment="CENTER" editable="false" layoutX="75.0" layoutY="18.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="480.0" text="Username: username">
+    <AnchorPane layoutX="54.0" layoutY="85.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                minWidth="-Infinity" prefHeight="364.0" prefWidth="630.0"
+                style="-fx-background-color: #435585; -fx-background-radius: 10;" styleClass="shadow">
+        <TextField fx:id="textField_username" alignment="CENTER" editable="false" layoutX="75.0" layoutY="18.0"
+                   maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                   prefHeight="45.0" prefWidth="480.0" text="Username: username">
             <opaqueInsets>
-                <Insets left="15.0" right="15.0" />
+                <Insets left="15.0" right="15.0"/>
             </opaqueInsets>
             <font>
-                <Font name="Itim" size="25.0" />
+                <Font name="Itim" size="25.0"/>
             </font>
         </TextField>
-        <TextField fx:id="textField_firstName" alignment="CENTER" editable="false" layoutX="75.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="480.0" text="First Name: firstName">
+        <TextField fx:id="textField_firstName" alignment="CENTER" editable="false" layoutX="75.0" layoutY="70.0"
+                   maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                   prefHeight="45.0" prefWidth="480.0" text="First Name: firstName">
             <opaqueInsets>
-                <Insets left="15.0" right="15.0" />
+                <Insets left="15.0" right="15.0"/>
             </opaqueInsets>
             <font>
-                <Font name="Itim" size="25.0" />
+                <Font name="Itim" size="25.0"/>
             </font>
         </TextField>
-        <TextField fx:id="textField_lastName" alignment="CENTER" editable="false" layoutX="75.0" layoutY="124.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="480.0" text="Last Name: lastName">
+        <TextField fx:id="textField_lastName" alignment="CENTER" editable="false" layoutX="75.0" layoutY="124.0"
+                   maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                   prefHeight="45.0" prefWidth="480.0" text="Last Name: lastName">
             <opaqueInsets>
-                <Insets left="15.0" right="15.0" />
+                <Insets left="15.0" right="15.0"/>
             </opaqueInsets>
             <font>
-                <Font name="Itim" size="25.0" />
+                <Font name="Itim" size="25.0"/>
             </font>
         </TextField>
-        <TextField fx:id="textField_phone" alignment="CENTER" editable="false" layoutX="75.0" layoutY="180.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="480.0" text="Phone: phone">
+        <TextField fx:id="textField_phone" alignment="CENTER" editable="false" layoutX="75.0" layoutY="180.0"
+                   maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                   prefHeight="45.0" prefWidth="480.0" text="Phone: phone">
             <opaqueInsets>
-                <Insets left="15.0" right="15.0" />
+                <Insets left="15.0" right="15.0"/>
             </opaqueInsets>
             <font>
-                <Font name="Itim" size="25.0" />
+                <Font name="Itim" size="25.0"/>
             </font>
         </TextField>
-        <TextField fx:id="textField_email" alignment="CENTER" editable="false" layoutX="75.0" layoutY="233.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="480.0" text="Email: email">
+        <TextField fx:id="textField_email" alignment="CENTER" editable="false" layoutX="75.0" layoutY="233.0"
+                   maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                   prefHeight="45.0" prefWidth="480.0" text="Email: email">
             <opaqueInsets>
-                <Insets left="15.0" right="15.0" />
+                <Insets left="15.0" right="15.0"/>
             </opaqueInsets>
             <font>
-                <Font name="Itim" size="25.0" />
+                <Font name="Itim" size="25.0"/>
             </font>
         </TextField>
-        <Button fx:id="button_edit_username" disable="true" layoutX="566.0" layoutY="23.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
+        <Button fx:id="button_edit_username" disable="true" layoutX="566.0" layoutY="23.0" maxHeight="-Infinity"
+                maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0"
+                prefHeight="35.0" prefWidth="35.0">
             <graphic>
                 <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@Edit%20Icon.png" />
+                    <Image url="@Edit%20Icon.png"/>
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="button_edit_firstName" disable="true" layoutX="566.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
+        <Button fx:id="button_edit_firstName" disable="true" layoutX="566.0" layoutY="75.0" maxHeight="-Infinity"
+                maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0"
+                prefHeight="35.0" prefWidth="35.0">
             <graphic>
                 <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@Edit%20Icon.png" />
+                    <Image url="@Edit%20Icon.png"/>
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="button_edit_lastName" disable="true" layoutX="566.0" layoutY="129.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
+        <Button fx:id="button_edit_lastName" disable="true" layoutX="566.0" layoutY="129.0" maxHeight="-Infinity"
+                maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0"
+                prefHeight="35.0" prefWidth="35.0">
             <graphic>
                 <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@Edit%20Icon.png" />
+                    <Image url="@Edit%20Icon.png"/>
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="button_edit_email" disable="true" layoutX="566.0" layoutY="185.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
+        <Button fx:id="button_edit_email" disable="true" layoutX="566.0" layoutY="185.0" maxHeight="-Infinity"
+                maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0"
+                prefHeight="35.0" prefWidth="35.0">
             <graphic>
                 <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@Edit%20Icon.png" />
+                    <Image url="@Edit%20Icon.png"/>
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="button_edit_phone" disable="true" layoutX="566.0" layoutY="238.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="35.0" prefWidth="35.0">
+        <Button fx:id="button_edit_phone" disable="true" layoutX="566.0" layoutY="238.0" maxHeight="-Infinity"
+                maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0"
+                prefHeight="35.0" prefWidth="35.0">
             <graphic>
                 <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@Edit%20Icon.png" />
+                    <Image url="@Edit%20Icon.png"/>
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="button_delete" layoutX="199.0" layoutY="298.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="110.0" styleClass="shadow" text="Delete" textFill="WHITE">
+        <Button fx:id="button_delete" layoutX="199.0" layoutY="298.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="110.0"
+                styleClass="shadow" text="Delete" textFill="WHITE">
             <font>
-                <Font name="Itim" size="21.0" />
+                <Font name="Itim" size="21.0"/>
             </font>
         </Button>
-        <Button fx:id="button_edit" layoutX="322.0" layoutY="298.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="110.0" styleClass="shadow" text="Edit" textFill="WHITE">
+        <Button fx:id="button_edit" layoutX="322.0" layoutY="298.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="110.0"
+                styleClass="shadow" text="Edit" textFill="WHITE">
             <font>
-                <Font name="Itim" size="21.0" />
+                <Font name="Itim" size="21.0"/>
             </font>
         </Button>
-        <Button fx:id="button_cancel" disable="true" layoutX="199.0" layoutY="298.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="45.0" prefWidth="110.0" styleClass="shadow" text="Cancel" textFill="WHITE">
+        <Button fx:id="button_cancel" disable="true" layoutX="199.0" layoutY="298.0" maxHeight="-Infinity"
+                maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0"
+                prefHeight="45.0" prefWidth="110.0" styleClass="shadow" text="Cancel" textFill="WHITE">
             <font>
-                <Font name="Itim" size="21.0" />
+                <Font name="Itim" size="21.0"/>
             </font>
         </Button>
-        <Button fx:id="button_save" disable="true" layoutX="322.0" layoutY="298.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0" prefHeight="45.0" prefWidth="110.0" styleClass="shadow" text="Save" textFill="WHITE">
+        <Button fx:id="button_save" disable="true" layoutX="322.0" layoutY="298.0" maxHeight="-Infinity"
+                maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" opacity="0.0"
+                prefHeight="45.0" prefWidth="110.0" styleClass="shadow" text="Save" textFill="WHITE">
             <font>
-                <Font name="Itim" size="21.0" />
+                <Font name="Itim" size="21.0"/>
             </font>
         </Button>
     </AnchorPane>

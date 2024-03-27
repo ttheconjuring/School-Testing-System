@@ -37,5 +37,7 @@ public class Main extends Application {
     page;
         3.When you load Teachers-Account-Information.fxml with custom data, the first name TextField is
     always selected;
+        4.When you try to edit the username, first name or last name of admin, it doesn't work
+        5.When you enter non-existing test code, it shows inappropriate message
     */
 }

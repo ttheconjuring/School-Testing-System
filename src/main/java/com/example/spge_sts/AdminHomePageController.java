@@ -51,12 +51,24 @@ public class AdminHomePageController implements Initializable {
         data.put("testsCount", DBUtilities.getRecordsCount("tests"));
         data.put("free", DBUtilities.getTestsCountByStatus("free"));
         data.put("locked", DBUtilities.getTestsCountByStatus("locked"));
-        data.put("averagePassingScore", String.format("%.2f", Double.parseDouble(Objects.requireNonNull(DBUtilities.sumPassingScoreOfAllTests())) / Double.parseDouble(Objects.requireNonNull(DBUtilities.getRecordsCount("tests")))));
-        data.put("averageQuestionsCount", String.format("%.2f", Double.parseDouble(Objects.requireNonNull(DBUtilities.sumQuestionsOfAllTests())) / Double.parseDouble(Objects.requireNonNull(DBUtilities.getRecordsCount("tests")))));
+        if (DBUtilities.sumPassingScoreOfAllTests() != null && DBUtilities.getRecordsCount("tests") != null) {
+            data.put("averagePassingScore", String.format("%.2f", Double.parseDouble(Objects.requireNonNull(DBUtilities.sumPassingScoreOfAllTests())) / Double.parseDouble(Objects.requireNonNull(DBUtilities.getRecordsCount("tests")))));
+        } else {
+            data.put("averagePassingScore", "?");
+        }
+        if (DBUtilities.sumQuestionsOfAllTests() != null && DBUtilities.getRecordsCount("tests") != null) {
+            data.put("averageQuestionsCount", String.format("%.2f", Double.parseDouble(Objects.requireNonNull(DBUtilities.sumQuestionsOfAllTests())) / Double.parseDouble(Objects.requireNonNull(DBUtilities.getRecordsCount("tests")))));
+        } else {
+            data.put("averageQuestionsCount", "?");
+        }
         data.put("questionsCount", DBUtilities.getRecordsCount("questions"));
         data.put("opened", DBUtilities.getQuestionsCountByType("opened"));
         data.put("closed", DBUtilities.getQuestionsCountByType("closed"));
-        data.put("averagePoints", String.format("%.2f", Double.parseDouble(Objects.requireNonNull(DBUtilities.sumPointsOfAllQuestions())) / Double.parseDouble(Objects.requireNonNull(DBUtilities.getRecordsCount("questions")))));
+        if (DBUtilities.sumPointsOfAllQuestions() != null && DBUtilities.getRecordsCount("questions") != null) {
+            data.put("averagePoints", String.format("%.2f", Double.parseDouble(Objects.requireNonNull(DBUtilities.sumPointsOfAllQuestions())) / Double.parseDouble(Objects.requireNonNull(DBUtilities.getRecordsCount("questions")))));
+        } else {
+            data.put("averagePoints", "?");
+        }
         return data;
     }
 
